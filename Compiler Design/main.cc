@@ -13,9 +13,23 @@ void yy::parser::error(std::string const &err)
 
 void lookAt(Node *root)
 {
+  /* for each detected scope in tree create a new scope object i.e table.enterScope()
+   * where do we shift scope is the problem
+   * the main problem is we need to know that the variable is identifier and the scope is class or method
+   */
   string type = root->type;
   string value = root->value;
   string id = to_string(root->id);
+
+  if (value == "{")
+  {
+    table->enterScope();
+  }
+  table->put(id, new Record(type, value));
+  if (value == "}")
+  {
+    table->exitScope();
+  }
 
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {
@@ -40,7 +54,7 @@ int main(int argc, char **argv)
   {
     Node *temp = root;
     // root->print_tree();
-    // root->generate_tree();
+    root->generate_tree();
     lookAt(temp);
     table->printTable();
   }

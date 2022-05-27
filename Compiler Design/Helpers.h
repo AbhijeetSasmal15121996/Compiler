@@ -21,10 +21,12 @@ public:
         this->id = id;
         this->type = type;
     }
+
     void setId(string id)
     {
         this->id = id;
     }
+
     void setType(string type)
     {
         this->type = type;
@@ -42,7 +44,6 @@ public:
 
     void printRecord()
     {
-
         cout << "Id : " << this->getId() << "\n"
              << "Type : " << this->getType() << endl;
     }
@@ -125,7 +126,7 @@ public:
     Class()
     {
     }
-    
+
     void addVariable(string id, string name, string type, string value)
     {
         Variable v;
@@ -238,20 +239,15 @@ public:
 
     void put(string key, Record *item)
     {
-        // cout << key << endl;
-        // cout << item->getId() << endl;
-        // cout << item->getType() << endl;
         this->records.insert({key, item});
     }
 
     void printScope()
     {
-        cout << this->records.size();
-        // for (auto i = this->records.begin(); i != this->records.end(); i++)
-        // {
-        //     cout << "Type of object is :" << typeid((*i).second).name() << endl;
-        //     (*i).second->printRecord();
-        // }
+        for (auto i = this->records.crbegin(); i != this->records.crend(); i++)
+        {
+            (*i).second->printRecord();
+        }
     }
 };
 

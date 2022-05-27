@@ -23,6 +23,7 @@ public:
     void setLhs(string lhs)
     {
         this->lhs = lhs;
+        
     }
 
     void setRhs(string rhs)
