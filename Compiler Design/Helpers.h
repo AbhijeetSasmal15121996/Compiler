@@ -2,6 +2,7 @@
 #define __helpers_h
 #include <iostream>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -158,6 +159,63 @@ public:
             return true;
         }
         return false;
+    }
+};
+
+class Scope
+{
+private:
+    int next = 0;
+    Scope *parentScope;
+    vector<Scope *> childrenScopes;
+    map<string, Record *> records;
+
+public:
+    Scope(Scope *s)
+    {
+    }
+    Scope *nextChild()
+    {
+        Scope *nextScope;
+        if (next == childrenScopes.size())
+        {
+            nextScope = new Scope(this);
+            childrenScopes.push_back(nextScope);
+        }
+        else
+        {
+            nextScope = childrenScopes[next];
+            next++;
+            return nextScope;
+        }
+    }
+
+    Record *lookUp(string key)
+    {
+        if (records.find(key) != records.end())
+        {
+            return records.find(key);
+        }
+        else
+        {
+            if (parentScope == NULL)
+            {
+                return NULL;
+            }
+            else
+            {
+                parentScope.lookUp(key);
+            }
+        }
+    }
+
+    void resetScope()
+    {
+        next = 0;
+        for (vector<Scope *>::iterator i = childrenScopes.crbegin(); i != childrenScopes.crend(); i++)
+        {
+            (*i)->resetScope();
+        }
     }
 };
 
