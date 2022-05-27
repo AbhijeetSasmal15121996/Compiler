@@ -42,6 +42,7 @@ public:
 
     void printRecord()
     {
+
         cout << "Id : " << this->getId() << "\n"
              << "Type : " << this->getType() << endl;
     }
@@ -124,6 +125,7 @@ public:
     Class()
     {
     }
+    
     void addVariable(string id, string name, string type, string value)
     {
         Variable v;
@@ -174,6 +176,22 @@ public:
     Scope(Scope *s)
     {
     }
+
+    map<string, Record *> getRecords()
+    {
+        return this->records;
+    }
+
+    Scope *parent()
+    {
+        return this->parentScope;
+    }
+
+    void setParent(Scope *parent)
+    {
+        this->parentScope = parent;
+    }
+
     Scope *nextChild()
     {
         Scope *nextScope;
@@ -186,15 +204,15 @@ public:
         {
             nextScope = childrenScopes[next];
             next++;
-            return nextScope;
         }
+        return nextScope;
     }
 
     Record *lookUp(string key)
     {
         if (records.find(key) != records.end())
         {
-            return records.find(key);
+            return records.find(key)->second;
         }
         else
         {
@@ -204,7 +222,7 @@ public:
             }
             else
             {
-                parentScope.lookUp(key);
+                return parentScope->lookUp(key);
             }
         }
     }
@@ -212,10 +230,28 @@ public:
     void resetScope()
     {
         next = 0;
-        for (vector<Scope *>::iterator i = childrenScopes.crbegin(); i != childrenScopes.crend(); i++)
+        for (auto i = childrenScopes.begin(); i != childrenScopes.end(); i++)
         {
             (*i)->resetScope();
         }
+    }
+
+    void put(string key, Record *item)
+    {
+        // cout << key << endl;
+        // cout << item->getId() << endl;
+        // cout << item->getType() << endl;
+        this->records.insert({key, item});
+    }
+
+    void printScope()
+    {
+        cout << this->records.size();
+        // for (auto i = this->records.begin(); i != this->records.end(); i++)
+        // {
+        //     cout << "Type of object is :" << typeid((*i).second).name() << endl;
+        //     (*i).second->printRecord();
+        // }
     }
 };
 
