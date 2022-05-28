@@ -1,8 +1,11 @@
 #ifndef __interpreter_h
 #define __interpreter_h
+
 #include <stack>
 #include "AdrressCode.h"
+
 using namespace std;
+
 class Interpreter
 {
 private:
@@ -13,7 +16,7 @@ public:
     {
         while (!callStack.empty())
         {
-            TAC *temp = callStack.pop();
+            TAC *temp = callStack.top();
             delete temp;
         }
     }

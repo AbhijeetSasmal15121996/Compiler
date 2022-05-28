@@ -3,12 +3,14 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
+
 class TAC
 {
 public:
     string op, lhs, rhs, result;
-    void dump()
+    void dump(void)
     {
         printf("%s = %s %s %s", result, lhs, op, rhs);
     }

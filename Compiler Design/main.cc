@@ -21,7 +21,6 @@ void lookAt(Node *root)
   string value = root->value;
   string id = to_string(root->id);
 
-  
   cout << "Type is : " << type << "\n"
        << "Value is : " << value << endl;
 

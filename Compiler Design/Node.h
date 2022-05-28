@@ -3,7 +3,6 @@
 
 #include <list>
 #include <iostream>
-#include <regex>
 #include <string>
 #include <fstream>
 #include <vector>
