@@ -47,22 +47,40 @@ void read()
   string temp;
   int counter = 0;
   int Class, method, variable = 0;
+  string mdata;
   ifstream input("output.txt");
   while (getline(input, temp))
   {
+    counter++;
     if (Class == 1)
     {
-
       table->insertRecord("Class", "Class", split(temp));
-      cout << split(temp) << endl;
       Class = 0;
     }
     int found = temp.find("CLASS");
     if ((found != string::npos))
     {
-      // cout<<temp<<endl;
-      ++Class;
+      Class = 1;
     }
+
+    int found1 = temp.find("Method");
+    if (found1 != string::npos)
+    {
+      method = counter;
+    }
+
+    if (method!=0 && (counter-method)==2)
+    {
+      mdata=temp;
+    }
+    if (method!=0 && (counter-method)==3)
+    {
+      SymbolTable *tmp = new SymbolTable();
+      
+      table->insertRecord("Method", mdata, split(temp));
+    }
+
+
   }
   input.close();
 }
