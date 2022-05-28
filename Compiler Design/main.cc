@@ -75,6 +75,33 @@ void lookAt(Node *root, int depth = 0)
     }
   }
 
+  if (meth[3] != NULL) {
+    SymbolTable *table = new SymbolTable(); // creating a symboltable object
+    table->insert(meth[0]);
+    table->insert(meth[1]);
+    table->insert(meth[2]);
+    table->insert(meth[3]);
+    if (pre!=NULL) {
+      pre = table;
+      root = pre;
+    } else {
+      pre->changeScope(table);
+      pre=table;
+    }
+  }
+
+  if (var[1] != NULL) {
+    SymbolTable *table = new SymbolTable(); // creating a symboltable object
+    table->insert(var[0]);
+    table->insert(var[1]);
+    if (pre!=NULL) {
+      pre = table;
+      root = pre;
+    } else {
+      pre->changeScope(table);
+      pre=table;
+    }
+  }
 
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {
@@ -83,7 +110,15 @@ void lookAt(Node *root, int depth = 0)
 }
 
 
-
+void print_symbol(SymbolTable *b)
+{
+  if (b != NULL) {
+    return;
+  } else {
+    b->print_table();
+    print_symbol(b.begin());
+  }
+}
 
 
 

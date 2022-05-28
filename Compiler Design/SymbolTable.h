@@ -3,8 +3,12 @@
 #include <iostream>
 #include "Helpers.h"
 #include "Node.h"
+<<<<<<< Updated upstream
 
 // using namespace std;
+=======
+using namespace std;
+>>>>>>> Stashed changes
 
 class TableNode
 {
@@ -25,10 +29,9 @@ class SymbolTable
 {
 private:
     // using hashmap of strings as key and TableNode as an object
-    list<Node *> record;
-    list<SymbolTable *> table;
-
+    list<Node*> record;
 public:
+    list<SymbolTable*> table;
     // insert a new table with given key value pairs
     void changeScope(SymbolTable n)
     {
@@ -41,45 +44,49 @@ public:
     }
 
     // look up the given variable name in the given scope
-    bool lookup(string variableName)
-    {
-        if (table.find(variableName) != table.end())
-        {
-            return true;
-        }
-        return false;
-    }
+    // bool lookup(string variableName)
+    // {
+    //     if (table.find(variableName) != table.end())
+    //     {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
-    void modify(string scope, string variableName, string value, string type)
-    {
-        // modify the existing variable
-        if (table.find(variableName) != table.end())
-        {
-            table.find(variableName)->second->scope = scope;
-            table.find(variableName)->second->type = type;
-            table.find(variableName)->second->value = value;
-        }
-        else
-        {
-            cout << "Error " << variableName << "Not Found " << endl;
-        }
-    }
+    // void modify(string scope, string variableName, string value, string type)
+    // {
+    //     // modify the existing variable
+    //     if (table.find(variableName) != table.end())
+    //     {
+    //         table.find(variableName)->second->scope = scope;
+    //         table.find(variableName)->second->type = type;
+    //         table.find(variableName)->second->value = value;
+    //     }
+    //     else
+    //     {
+    //         cout << "Error " << variableName << "Not Found " << endl;
+    //     }
+    // }
 
     void print_table(void)
     {
-        cout << "\n\n-------Symbol Table---------\n\n"
-             << endl;
-
-        cout << "Size is :" << table.size() << endl;
-        for (auto j = table.begin(); j != table.end(); j++)
+        for (auto i = record.begin(); i != record.end(); i++)
         {
+<<<<<<< Updated upstream
             cout << "VariableName is :" << j->first << endl;
             cout << "Scope is :" << j->second->scope << endl;
             cout << "Type is  :" << j->second->type << endl;
             cout << "Value is :" << j->second->value << "\n\n"
                  << endl;
+=======
+            cout << (*i)->type << (*i)->value << endl;        
+>>>>>>> Stashed changes
         }
-        cout << "\n\n-------End of Symbol Table---------\n\n"
-             << endl;
     }
+<<<<<<< Updated upstream
 };
+=======
+}
+
+// #endif
+>>>>>>> Stashed changes
