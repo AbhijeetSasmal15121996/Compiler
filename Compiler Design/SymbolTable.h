@@ -72,21 +72,7 @@ public:
     {
         for (auto i = record.begin(); i != record.end(); i++)
         {
-<<<<<<< Updated upstream
-            cout << "VariableName is :" << j->first << endl;
-            cout << "Scope is :" << j->second->scope << endl;
-            cout << "Type is  :" << j->second->type << endl;
-            cout << "Value is :" << j->second->value << "\n\n"
-                 << endl;
-=======
             cout << (*i)->type << (*i)->value << endl;        
->>>>>>> Stashed changes
         }
     }
-<<<<<<< Updated upstream
 };
-=======
-}
-
-// #endif
->>>>>>> Stashed changes
