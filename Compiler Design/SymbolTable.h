@@ -4,21 +4,6 @@
 
 using namespace std;
 
-class TableNode
-{
-public:
-    string type;
-    string value;
-    string scope;
-    TableNode() {}
-    TableNode(string type, string value, string scope)
-    {
-        this->scope = scope;
-        this->type = type;
-        this->value = value;
-    }
-};
-
 class SymbolTable
 {
 private:

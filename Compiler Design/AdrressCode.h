@@ -6,10 +6,17 @@
 using namespace std;
 class TAC
 {
-private:
-    string op, lhs, rhs, result;
-
 public:
+    string op, lhs, rhs, result;
+    TAC() {}
+    TAC(string op, string lhs, string rhs, string result)
+    {
+        this->op = op;
+        this->lhs = lhs;
+        this->rhs = rhs;
+        this->result = result;
+    }
+
     void dump()
     {
         printf("%s = %s %s %s", result, lhs, op, rhs);
@@ -61,7 +68,6 @@ class Expression : public TAC
 public:
     Expression(string _op, string _y, string _z, string _result) : op(_op), lhs(_y), rhs(_z), result(_result) {}
 };
-
 class MethodCall : public TAC
 {
 public:
@@ -89,3 +95,5 @@ public:
     BBlock *trueExit, *falseExit;
     BBlock() : trueExit(NULL), falseExit(NULL) {}
 };
+
+#endif

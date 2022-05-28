@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< Updated upstream
         "vector": "c",
         "unistd.h": "c",
         "wait.h": "c",
@@ -64,4 +65,11 @@
         "shared_mutex": "cpp"
     },
     "C_Cpp.errorSquiggles": "Disabled"
+=======
+        "list": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "fstream": "cpp"
+    }
+>>>>>>> Stashed changes
 }
