@@ -10,28 +10,72 @@ void yy::parser::error(std::string const &err)
   std::cout << "Cannot generate a syntax tree for this input: " << err << std::endl;
 }
 SymbolTable *root;
+SymbolTable *pre;
 counter = 0;
-// string type1 = "";
-// string type2 = "";
-// string type3 = "";
-// string value1 = "";
-// string value2 = "";
-// string value3 = "";
+clstate = 0;
+methstate = 0;
+varstate = 0;
+Node* meth[4];
+Node* cla[2];
+Node* var[2];
+
+
+
 void lookAt(Node *root, int depth = 0)
 {
   string type = root->type;
   string value = root->value;
 
-  SymbolTable *table = new SymbolTable(); // creating a symboltable object
-  if(value == "CLASS" || value)
-  table->insert(type, value);
-  pre = table;
-  if (counter == 0){
-    root = table;
-    counter++;
-  } else {
-    table->changeScope(pre);
+  
+  
+
+
+  if (value == "CLASS" || type == "CLASS") {
+    if (clstate>2)
+      clstate = 0
+    cla[clstate] = root;
+    clstate++;
+    meth = NULL;
+    var = NULL;
   }
+
+  if (value == "Method Declaration" || type == "Method Declaration") {
+    if (methstate>3)
+      methstate = 0
+    meth[methstate] = root;
+    methstate++;
+    cla = NULL;
+    var = NULL;
+
+  }
+  
+  if (value == "Variable Declaration" || type == "Variable Declaration") {
+    if (varstate>3)
+      varstate = 0
+    var[varstate] = root;
+    varstate++;
+    meth = NULL;
+    cla = NULL;
+  }
+
+
+
+
+
+  if (cla[1] != NULL) {
+    SymbolTable *table = new SymbolTable(); // creating a symboltable object
+    table->insert(cla[0]);
+    table->insert(cla[1]);
+    if (pre!=NULL) {
+      pre = table;
+      root = pre;
+    } else {
+      pre->changeScope(table);
+      pre=table;
+    }
+  }
+
+
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {
     lookAt((*i), depth + 1);

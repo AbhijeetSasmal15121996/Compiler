@@ -24,18 +24,18 @@ class SymbolTable
 {
 private:
     // using hashmap of strings as key and TableNode as an object
-    Record item;
+    list<Node*> record;
     list<SymbolTable*> table;
 
 public:
     // insert a new table with given key value pairs
     void changeScope(SymbolTable n) {
-        this->table.insert(n);
+        this->table.push_back(n);
     }
 
-    void insert(string type, string value)
+    void insert(Node* h)
     {
-        *item = new Record(type, value)
+        this->record.push_back(h);
     }
 
     // look up the given variable name in the given scope
