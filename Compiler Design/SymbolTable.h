@@ -40,8 +40,8 @@ public:
 
     void printTable()
     {
-        cout << "Size is :" << root->getRecords().size();
-        // root->printScope();
+        cout << "Size is :" << root->getRecords().size() << endl;
+        root->printScope();
     }
 
     void resetTable()

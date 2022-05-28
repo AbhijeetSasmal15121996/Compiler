@@ -21,15 +21,9 @@ void lookAt(Node *root)
   string value = root->value;
   string id = to_string(root->id);
 
-  if (value == "{")
-  {
-    table->enterScope();
-  }
-  table->put(id, new Record(type, value));
-  if (value == "}")
-  {
-    table->exitScope();
-  }
+  
+  cout << "Type is : " << type << "\n"
+       << "Value is : " << value << endl;
 
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {

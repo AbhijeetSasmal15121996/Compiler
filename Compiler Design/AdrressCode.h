@@ -2,14 +2,12 @@
 #define __adresscode_h__
 
 #include <iostream>
-#include <list>
+#include <vector>
 using namespace std;
 class TAC
 {
-private:
-    string op, lhs, rhs, result;
-
 public:
+    string op, lhs, rhs, result;
     void dump()
     {
         printf("%s = %s %s %s", result, lhs, op, rhs);
@@ -23,7 +21,6 @@ public:
     void setLhs(string lhs)
     {
         this->lhs = lhs;
-        
     }
 
     void setRhs(string rhs)
@@ -85,8 +82,10 @@ class BBlock
 {
 public:
     string name;
-    list<TAC *> tacInstructions;
+    vector<TAC *> tacInstructions;
     TAC condition;
     BBlock *trueExit, *falseExit;
     BBlock() : trueExit(NULL), falseExit(NULL) {}
 };
+
+#endif

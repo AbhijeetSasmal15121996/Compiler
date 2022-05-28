@@ -44,7 +44,7 @@ public:
 
     void printRecord()
     {
-        cout << "Id : " << this->getId() << "\n"
+        cout << "Id : " << this->getId() << "\t"
              << "Type : " << this->getType() << endl;
     }
 };
@@ -123,9 +123,7 @@ private:
     map<string, Method> methods;
 
 public:
-    Class()
-    {
-    }
+    Class() {}
 
     void addVariable(string id, string name, string type, string value)
     {
