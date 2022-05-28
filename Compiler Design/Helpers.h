@@ -92,20 +92,18 @@ public:
     {
         this->name = name;
     }
-    void addVariable(string id, string type, string name, string value)
+    void addVariable( string type, string name, string value)
     {
         Variable v;
-        v.setId(id);
         v.setType(type);
         v.setName(name);
         v.setValue(value);
         variables.insert({name, v});
     }
 
-    void addMethod(string id, string type, string name, string value)
+    void addMethod( string type, string name, string value)
     {
         Variable v;
-        v.setId(id);
         v.setType(type);
         v.setName(name);
         v.setValue(value);
@@ -123,10 +121,9 @@ public:
     Class()
     {
     }
-    void addVariable(string id, string name, string type, string value)
+    void addVariable( string name, string type, string value)
     {
         Variable v;
-        v.setId(id);
         v.setType(type);
         v.setName(name);
         v.setValue(value);
@@ -136,7 +133,6 @@ public:
     void addMethod(string id, string name, string type)
     {
         Method m;
-        m.setId(id);
         m.setName(name);
         m.setType(type);
         methods.insert({name, m});

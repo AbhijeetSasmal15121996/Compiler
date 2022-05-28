@@ -1,6 +1,7 @@
 #include <map>
 #include <list>
 #include <iostream>
+#include "Helpers.h"
 
 using namespace std;
 
@@ -23,14 +24,18 @@ class SymbolTable
 {
 private:
     // using hashmap of strings as key and TableNode as an object
-    map<string, TableNode *> table;
+    Record item;
+    list<SymbolTable*> table;
 
 public:
     // insert a new table with given key value pairs
-    void insert(string variableName, string scope, string type, string value)
+    void changeScope(SymbolTable n) {
+        this->table.insert(n);
+    }
+
+    void insert(string type, string value)
     {
-        TableNode *n = new TableNode(type, value, scope);
-        table.insert({variableName, n});
+        *item = new Record(type, value)
     }
 
     // look up the given variable name in the given scope
