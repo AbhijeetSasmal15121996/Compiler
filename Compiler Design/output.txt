@@ -1,92 +1,92 @@
 	Type	Value
-GOAL	
-Main Class	
-	CLASS
-Identifier	Factorial
-	{
-	public
-	STATIC
-	VOID
-	MAIN
-	(
-	STRING
-	[
-	]
-Identifier	a
-	)
-	{
-Print Statement	
-	Print
-	(
-withArguementsExpMethodCall	
-New identifier	
-	new
-Identifier	Fac
-	(
-	)
-	period
-Identifier	ComputeFac
-	(
-Integer	10
-	)
-	)
-	;
-	}
-	}
-Class Declaration	
-	CLASS
-Identifier	Fac
-	{
- Method Declaration	
-	Public
-Integer	
-Identifier	ComputeFac
-	(
-List of Identifier/s	
-Integer	
-Identifier	num
-	)
-	{
- Variable Declaration	
-Integer	
-Identifier	num_aux
-	;
-If Else	
-	If
-	(
-Less than	
-Identifier	num
-	less than
-Integer	1
-	)
-Equation	
-Identifier	num_aux
-	Equals to
-Integer	1
-	;
-	Else
-Equation	
-Identifier	num_aux
-	Equals to
-Multiplication	
-Identifier	num
-	Multiplication
-EXPRESSION	
-	(
-withArguementsExpMethodCall	
-This	
-	period
-Identifier	ComputeFac
-	(
-Subtraction	
-Identifier	num
-	Subtractiom
-Integer	1
-	)
-	)
-	;
-	Return
-Identifier	num_aux
-	;
-	}
-	}
+GOAL:
+Main Class:
+:CLASS
+Identifier:Factorial
+:{
+:public
+:STATIC
+:VOID
+:MAIN
+:(
+:STRING
+:[
+:]
+Identifier:a
+:)
+:{
+Print Statement:
+:Print
+:(
+withArguementsExpMethodCall:
+New identifier:
+:new
+Identifier:Fac
+:(
+:)
+:period
+Identifier:ComputeFac
+:(
+Integer:10
+:)
+:)
+:;
+:}
+:}
+Class Declaration:
+:CLASS
+Identifier:Fac
+:{
+ Method Declaration:
+:Public
+Integer:
+Identifier:ComputeFac
+:(
+List of Identifier/s:
+Integer:
+Identifier:num
+:)
+:{
+ Variable Declaration:
+Integer:
+Identifier:num_aux
+:;
+If Else:
+:If
+:(
+Less than:
+Identifier:num
+:less than
+Integer:1
+:)
+Equation:
+Identifier:num_aux
+:Equals to
+Integer:1
+:;
+:Else
+Equation:
+Identifier:num_aux
+:Equals to
+Multiplication:
+Identifier:num
+:Multiplication
+EXPRESSION:
+:(
+withArguementsExpMethodCall:
+This:
+:period
+Identifier:ComputeFac
+:(
+Subtraction:
+Identifier:num
+:Subtractiom
+Integer:1
+:)
+:)
+:;
+:Return
+Identifier:num_aux
+:;
+:}
+:}

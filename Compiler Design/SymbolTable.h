@@ -4,76 +4,48 @@
 
 using namespace std;
 
-class TableNode
+class Record
 {
 public:
-    string type, value, scope;
-    TableNode() {}
-    TableNode(string type, string value, string scope)
+    string type, value, name;
+    Record() {}
+    Record(string type, string value, string name)
     {
-        this->scope = scope;
         this->type = type;
         this->value = value;
+        this->name = name;
     }
 };
 
 class SymbolTable
 {
 private:
-    // using hashmap of strings as key and TableNode as an object
-    map<string, TableNode *> table;
+    vector<SymbolTable *> tables;
+    vector<Record *> records;
 
 public:
-    // insert a new table with given key value pairs
-    void insert(string variableName, string scope, string type, string value)
+    void insertRecord(string type, string value, string name)
     {
-        TableNode *n = new TableNode(type, value, scope);
-        table.insert({variableName, n});
+        Record *r = new Record(type, value, name);
+        this->records.push_back(r);
     }
 
-    // look up the given variable name in the given scope
-    bool lookup(string variableName)
+    void insertTable(SymbolTable *newTable)
     {
-        if (table.find(variableName) != table.end())
-        {
-            return true;
-        }
-        return false;
+        this->tables.push_back(newTable);
     }
 
-    void modify(string scope, string variableName, string value, string type)
+    void print_table(SymbolTable *newTable)
     {
-        // modify the existing variable
-        if (table.find(variableName) != table.end())
+        for (int i = 0; i < this->records.size(); i++)
         {
-            table.find(variableName)->second->scope = scope;
-            table.find(variableName)->second->type = type;
-            table.find(variableName)->second->value = value;
+            cout << "Type is : " << this->records[i]->type << "\t"
+                 << "Value is : " << this->records[i]->value << "\t"
+                 << "Name is : \t" << this->records[i]->name << endl;
         }
-        else
+        for (auto i = 0; i < this->tables.size(); i++)
         {
-            cout << "Error " << variableName << "Not Found " << endl;
+            this->tables[i]->print_table(this->tables[i]);
         }
-    }
-
-    void print_table(void)
-    {
-        cout << "\n\n-------Symbol Table---------\n\n"
-             << endl;
-
-        cout << "Size is :" << table.size() << endl;
-        for (auto j = table.begin(); j != table.end(); j++)
-        {
-
-            cout << "VariableName is :" << j->first << endl;
-            cout << "Scope is :" << j->second->scope << endl;
-            cout << "Type is  :" << j->second->type << endl;
-            cout << "Value is :" << j->second->value << "\n\n"
-                 << endl;
-        }
-        cout << "\n\n-------End of Symbol Table---------\n\n"
-             << endl;
     }
 };
-
-// #endif

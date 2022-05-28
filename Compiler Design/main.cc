@@ -1,15 +1,17 @@
 #include <iostream>
+#include <regex>
 #include "parser.tab.hh"
+#include <cctype>
 
 extern Node *root;
 extern FILE *yyin;
-
+SymbolTable *table = new SymbolTable();
 void write(Node *root, ofstream *ofstream)
 {
   string id = to_string(root->id);
   string type = root->type;
   string value = root->value;
-  *ofstream << type << "\t" << value << endl;
+  *ofstream << type << ":" << value << endl;
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {
     write((*i), ofstream);
@@ -21,16 +23,49 @@ void yy::parser::error(std::string const &err)
   std::cout << "Cannot generate a syntax tree for this input: " << err << std::endl;
 }
 
-// void lookAt(Node *root)
-// {
-//   string type = root->type;
-//   string value = root->value;
-//   table->insert(type, value, type, value);
-//   for (auto i = root->children.begin(); i != root->children.end(); i++)
-//   {
-//     lookAt((*i));
-//   }
-// }
+string split(string temp)
+{
+  int count = 0;
+  string t = "";
+  for (int i = 0; i < temp.length(); i++)
+  {
+    if (temp[i] == ':')
+    {
+      count = 1;
+      i++;
+    }
+    if (count == 0)
+      continue;
+    else
+      t = t + temp[i];
+  }
+  return t;
+}
+
+void read()
+{
+  string temp;
+  int counter = 0;
+  int Class, method, variable = 0;
+  ifstream input("output.txt");
+  while (getline(input, temp))
+  {
+    if (Class == 1)
+    {
+
+      table->insertRecord("Class", "Class", split(temp));
+      cout << split(temp) << endl;
+      Class = 0;
+    }
+    int found = temp.find("CLASS");
+    if ((found != string::npos))
+    {
+      // cout<<temp<<endl;
+      ++Class;
+    }
+  }
+  input.close();
+}
 
 int main(int argc, char **argv)
 {
@@ -54,11 +89,12 @@ int main(int argc, char **argv)
               << "Type"
               << "\t"
               << "Value" << endl;
-    // lookAt(temp); // this does a post order traversel and populates the symbol table
     write(temp, &outStream);
     outStream.close();
-    // print_symbol(root1); // uncomment this to print the SymbolTable
-    // root->print_tree();  // uncomment this to print the AST(abstract syntax tree)
+
+    read();
+
+    table->print_table(table);
   }
   return 0;
 }
