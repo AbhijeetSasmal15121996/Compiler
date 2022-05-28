@@ -2,13 +2,7 @@
 #include <list>
 #include <iostream>
 #include "Helpers.h"
-#include "Node.h"
-<<<<<<< Updated upstream
-
-// using namespace std;
-=======
 using namespace std;
->>>>>>> Stashed changes
 
 class TableNode
 {
@@ -29,11 +23,12 @@ class SymbolTable
 {
 private:
     // using hashmap of strings as key and TableNode as an object
-    list<Node*> record;
+    list<Node *> record;
+
 public:
-    list<SymbolTable*> table;
+    list<SymbolTable *> table;
     // insert a new table with given key value pairs
-    void changeScope(SymbolTable n)
+    void changeScope(SymbolTable *n)
     {
         this->table.push_back(n);
     }
@@ -68,11 +63,13 @@ public:
     //     }
     // }
 
-    void print_table(void)
+    void print_table()
     {
-        for (auto i = record.begin(); i != record.end(); i++)
+        cout << this->record.size() << endl;
+        for (auto i = this->record.begin(); i != this->record.end(); i++)
         {
-            cout << (*i)->type << (*i)->value << endl;        
+            cout << "Type is :" << (*i)->type << endl;
+            cout << "Value is :" << (*i)->value << endl;
         }
     }
 };

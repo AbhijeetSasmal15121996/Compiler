@@ -9,7 +9,6 @@
 #include <vector>
 #include <unistd.h>
 #include <sys/wait.h>
-#include "SymbolTable.h"
 
 using namespace std;
 
