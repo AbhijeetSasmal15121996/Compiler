@@ -1,91 +1,92 @@
-0	GOAL	
-0	Main Class	
-0		CLASS
-0	Identifier	Factorial
-0		{
-0		public
-0		STATIC
-0		VOID
-0		MAIN
-0		(
-0		STRING
-0		[
-0		]
-0	Identifier	a
-0		)
-0		{
-0	Print Statement	
-0		Print
-0		(
-0	withArguementsExpMethodCall	
-0	New identifier	
-0		new
-0	Identifier	Fac
-0		(
-0		)
-0		period
-0	Identifier	ComputeFac
-0		(
-0	Integer	10
-0		)
-0		)
-0		;
-0		}
-0		}
-0	Class Declaration	
-0		CLASS
-0	Identifier	Fac
-0		{
-0	 Method Declaration	
-0		Public
-0	Integer	
-0	Identifier	ComputeFac
-0		(
-0	List of Identifier/s	
-0	Integer	
-0	Identifier	num
-0		)
-0		{
-0	 Variable Declaration	
-0	Integer	
-0	Identifier	num_aux
-0		;
-0	If Else	
-0		If
-0		(
-0	Less than	
-0	Identifier	num
-0		less than
-0	Integer	1
-0		)
-0	Equation	
-0	Identifier	num_aux
-0		Equals to
-0	Integer	1
-0		;
-0		Else
-0	Equation	
-0	Identifier	num_aux
-0		Equals to
-0	Multiplication	
-0	Identifier	num
-0		Multiplication
-0	EXPRESSION	
-0		(
-0	withArguementsExpMethodCall	
-0	This	
-0		period
-0	Identifier	ComputeFac
-0		(
-0	Subtraction	
-0	Identifier	num
-0		Subtractiom
-0	Integer	1
-0		)
-0		)
-0		;
-0		Return
-0	Identifier	num_aux
-0		;
-0		}
-0		}
+	Type	Value
+GOAL	
+Main Class	
+	CLASS
+Identifier	Factorial
+	{
+	public
+	STATIC
+	VOID
+	MAIN
+	(
+	STRING
+	[
+	]
+Identifier	a
+	)
+	{
+Print Statement	
+	Print
+	(
+withArguementsExpMethodCall	
+New identifier	
+	new
+Identifier	Fac
+	(
+	)
+	period
+Identifier	ComputeFac
+	(
+Integer	10
+	)
+	)
+	;
+	}
+	}
+Class Declaration	
+	CLASS
+Identifier	Fac
+	{
+ Method Declaration	
+	Public
+Integer	
+Identifier	ComputeFac
+	(
+List of Identifier/s	
+Integer	
+Identifier	num
+	)
+	{
+ Variable Declaration	
+Integer	
+Identifier	num_aux
+	;
+If Else	
+	If
+	(
+Less than	
+Identifier	num
+	less than
+Integer	1
+	)
+Equation	
+Identifier	num_aux
+	Equals to
+Integer	1
+	;
+	Else
+Equation	
+Identifier	num_aux
+	Equals to
+Multiplication	
+Identifier	num
+	Multiplication
+EXPRESSION	
+	(
+withArguementsExpMethodCall	
+This	
+	period
+Identifier	ComputeFac
+	(
+Subtraction	
+Identifier	num
+	Subtractiom
+Integer	1
+	)
+	)
+	;
+	Return
+Identifier	num_aux
+	;
+	}
+	}
