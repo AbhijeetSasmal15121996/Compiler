@@ -11,67 +11,26 @@ void yy::parser::error(std::string const &err)
 }
 SymbolTable *root;
 counter = 0;
-string type1 = "";
-string type2 = "";
-string type3 = "";
-string value1 = "";
-string value2 = "";
-string value3 = "";
+// string type1 = "";
+// string type2 = "";
+// string type3 = "";
+// string value1 = "";
+// string value2 = "";
+// string value3 = "";
 void lookAt(Node *root, int depth = 0)
 {
   string type = root->type;
   string value = root->value;
 
-  if (type1 == "" || value1 == "") {
-    if (type == "") {
-      type1 = "999";
-    } else {
-      type1 = type;
-    }
-    if (value == "") {
-      value1 = "999";
-    } else {
-      value1 = value;
-    }
-  }
-
-if ((type2 == "" || value2 == "") && (type1 != "" && value1 != "")) {
-    if (type == "") {
-      type2 = "999";
-    } else {
-      type2 = type;
-    }
-    if (value == "") {
-      value2 = "999";
-    } else {
-      value2 = value;
-    }
-  }
-
-if ((type3 == "" || value3 == "") && (type2 != "" && value2 != "") && (type1 != "" && value1 != "")) {
-    if (type == "") {
-      type3 = "999";
-    } else {
-      type3 = type;
-    }
-    if (value == "") {
-      value3 = "999";
-    } else {
-      value3 = value;
-    }
-  }
-
-  if ((type2 != "" && value2 != "") && (type1 != "" && value1 != "") && (type3 != "" && value3 != "")) {
-    SymbolTable *table = new SymbolTable(); // creating a symboltable object
-    if(value == "CLASS" ||)
-    table->insert(type, value);
-    pre = table;
-    if (counter == 0){
-      root = table;
-      counter++;
-    } else {
-      table->changeScope(pre);
-    }
+  SymbolTable *table = new SymbolTable(); // creating a symboltable object
+  if(value == "CLASS" || value)
+  table->insert(type, value);
+  pre = table;
+  if (counter == 0){
+    root = table;
+    counter++;
+  } else {
+    table->changeScope(pre);
   }
   for (auto i = root->children.begin(); i != root->children.end(); i++)
   {
