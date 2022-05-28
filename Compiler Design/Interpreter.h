@@ -13,7 +13,7 @@ public:
     {
         while (!callStack.empty())
         {
-            TAC *temp = callStack.pop();
+            TAC *temp = callStack.top();
             delete temp;
         }
     }

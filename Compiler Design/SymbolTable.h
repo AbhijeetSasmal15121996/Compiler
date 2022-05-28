@@ -2,8 +2,9 @@
 #include <list>
 #include <iostream>
 #include "Helpers.h"
+#include "Node.h"
 
-using namespace std;
+// using namespace std;
 
 class TableNode
 {
@@ -24,16 +25,17 @@ class SymbolTable
 {
 private:
     // using hashmap of strings as key and TableNode as an object
-    list<Node*> record;
-    list<SymbolTable*> table;
+    list<Node *> record;
+    list<SymbolTable *> table;
 
 public:
     // insert a new table with given key value pairs
-    void changeScope(SymbolTable n) {
+    void changeScope(SymbolTable n)
+    {
         this->table.push_back(n);
     }
 
-    void insert(Node* h)
+    void insert(Node *h)
     {
         this->record.push_back(h);
     }
@@ -71,7 +73,6 @@ public:
         cout << "Size is :" << table.size() << endl;
         for (auto j = table.begin(); j != table.end(); j++)
         {
-
             cout << "VariableName is :" << j->first << endl;
             cout << "Scope is :" << j->second->scope << endl;
             cout << "Type is  :" << j->second->type << endl;
@@ -82,5 +83,3 @@ public:
              << endl;
     }
 };
-
-// #endif
