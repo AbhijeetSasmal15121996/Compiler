@@ -147,15 +147,13 @@ public:
     }
 };
 
-vector<Equation> getEquation(void)
+void getEquation(void)
 {
     ifstream input("output.txt");
     int counter;
     string temp, mdata;
-    int x, xd = 0;
-    int q, method = 0;
-    vector<Equation> eq;
-    Equation *qs = NULL;
+    int x = 0;
+    int method = 0;
     while (getline(input, temp))
     {
         int found0 = temp.find("Method Declaration");
@@ -163,11 +161,6 @@ vector<Equation> getEquation(void)
         if (found0 != string::npos)
         {
             method = counter;
-        }
-
-        if (method != 0 && (counter - method) == 2)
-        {
-            mdata = temp;
         }
 
         if (method != 0 && (counter - method) == 3)
@@ -180,36 +173,15 @@ vector<Equation> getEquation(void)
         if (found1 != string::npos)
             x = 1;
         int found = temp.find(";");
-        if (found != string::npos)
+        if (found != string::npos && x == 1)
         {
-            qs->setName(mdata);
-            eq.push_back(*qs);
-            qs = NULL;
             x = 0;
+            cout << "Scope Name: " << mdata << endl;
         }
         if (x == 1)
         {
-            if (qs == NULL)
-                qs = new Equation();
             cout << temp << endl;
-            int found3 = temp.find("Equals to");
-            if (found3 != string::npos)
-            {
-                q = 1;
-                xd = 0;
-                continue;
-            }
-            if (q == 0 && xd != 0)
-            {
-                qs->setLeft(split(temp));
-            }
-            else if (q == 1 && xd != 0)
-            {
-                qs->setRight(split(temp));
-            }
-            xd++;
         }
     }
     input.close();
-    return eq;
 }
