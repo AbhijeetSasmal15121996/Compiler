@@ -4,8 +4,6 @@ using namespace std;
 
 SymbolTable *table = new SymbolTable();
 
-stack<string> callStack;
-
 string split(string string_to_split)
 {
     int count = 0;
@@ -66,6 +64,7 @@ void read(void)
         }
 
         int found1 = temp.find("Method Declaration");
+
         if (found1 != string::npos)
         {
             method = counter;
