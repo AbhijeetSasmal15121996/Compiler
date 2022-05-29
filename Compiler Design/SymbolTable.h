@@ -52,7 +52,7 @@ public:
         {
             cout << "Type is : " << this->records[i]->type << "\t"
                  << "Value is : " << this->records[i]->value << "\t"
-                 << "ClassName is : " << this->name << "\t"
+                 << "ScopeName is : " << this->name << "\t"
                  << "Name is : \t" << this->records[i]->name << endl;
         }
         for (auto i = 0; i < this->tables.size(); i++)

@@ -46,12 +46,12 @@ string split(string temp)
   return t;
 }
 
-void readClasses(void)
+void read(void)
 {
   string temp;
   int counter = 0;
   int Class, method, variable = 0;
-  string mdata;
+  string mdata, vdata;
   string className;
   ifstream input("output.txt");
   while (getline(input, temp))
@@ -75,7 +75,7 @@ void readClasses(void)
     int found1 = temp.find("Method Declaration");
     if (found1 != string::npos)
     {
-      cout << "hello" << endl;
+      // cout << "hello" << endl;
       method = counter;
     }
 
@@ -91,58 +91,35 @@ void readClasses(void)
       table->insertTable(methSym);
       methSym->insertRecord("Method", mdata, split(temp));
       methSym->insertName(className);
-    }
-  }
-  input.close();
-}
-
-void readMethods(void)
-{
-  string temp;
-  int counter = 0;
-  int classCounter = 0;
-  SymbolTable *tmp = NULL;
-  int Class, method, variable = 0;
-  string mdata;
-  ifstream input("output.txt");
-  while (getline(input, temp))
-  {
-    if (callStack.empty()){
-      tmp = new SymbolTable();
-      SymbolTable *parent = table->getTable(classCounter);
-      parent->print_table(parent);
-      parent->insertTable(tmp);
-      classCounter++;
-    }
-    if (temp == "{")
-    {
-      callStack.push("{");
-    }
-    if (temp == "}")
-    {
-      callStack.pop();
-    }
-    counter++;
-    int found1 = temp.find("Method");
-    if (found1 != string::npos)
-    {
-      cout << "hello" << endl;
-      method = counter;
+      className=split(temp);
     }
 
-    if (method != 0 && (counter - method) == 2)
+    int found2 = temp.find("Variable Declaration");
+    if (found2 != string::npos)
     {
-      mdata = temp;
+      // cout << "hello" << endl;
+      variable = counter;
     }
-    if (method != 0 && (counter - method) == 3)
+
+    if (variable != 0 && (counter - variable) == 1)
     {
-      cout << mdata << endl;
+      vdata = temp;
+    }
+    if (variable != 0 && (counter - variable) == 2)
+    {
+      cout << vdata << endl;
       cout << split(temp) << endl;
-      tmp->insertRecord("Method", mdata, split(temp));
+      SymbolTable *varSym = new SymbolTable();
+      table->insertTable(varSym);
+      varSym->insertRecord("Variable", vdata, split(temp));
+      varSym->insertName(className);
     }
+
   }
   input.close();
 }
+
+
 
 int main(int argc, char **argv)
 {
@@ -165,7 +142,7 @@ int main(int argc, char **argv)
     write(temp, &outStream);
     outStream.close();
 
-    readClasses();
+    read();
     // readMethods();
     cout << "\n\n------Symbol Table-----\n\n"
          << endl;
