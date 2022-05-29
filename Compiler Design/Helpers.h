@@ -106,6 +106,27 @@ void read(void)
     input.close();
 }
 
+void getEquation(){
+    ifstream input("output.txt");
+    string temp;
+    int x = 0;
+    while (getline(input, temp))
+    {
+        int found1 = temp.find("Equation");
+        if (found1 != string::npos)
+            x = 1;
+        if (x==1)
+        {
+            cout << temp << endl;
+        }
+        int found = temp.find(";");
+        if (found != string::npos)
+            x = 0;
+    }
+    input.close();
+}
+
+
 string readAdress(string to_get_ouput)
 {
     /*
