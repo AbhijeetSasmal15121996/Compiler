@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "AdrressCode.h"
 
 using namespace std;
@@ -107,45 +108,52 @@ void read(void)
     input.close();
 }
 
-class Equation {
-    private:
-        vector<string> *left;
-        vector<string> *right;
-        string name;
-    
-    void getLeft(){
+class Equation
+{
+private:
+    vector<string> left;
+    vector<string> right;
+    string name;
+
+public:
+    vector<string> getLeft()
+    {
         return this->left;
     }
 
-    void getRight(){
+    vector<string> getRight()
+    {
         return this->right;
     }
 
-    void getName(){
+    string getName()
+    {
         return this->name;
     }
 
-    vector setLeft(string x){
-        this->left->push_back(x);
+    void setLeft(string x)
+    {
+        this->left.push_back(x);
     }
 
-    vector setRight(string x){
-        this->right->push_back(x);
+    void setRight(string x)
+    {
+        this->right.push_back(x);
     }
 
-    string setName(string x){
+    string setName(string x)
+    {
         this->name = x;
     }
+};
 
-}
-
-
-vector getEquation(void)
+vector<Equation> getEquation(void)
 {
     ifstream input("output.txt");
-    string temp,mdata;
-    int x,xd = 0;
-    int q,method = 0;
+    int counter;
+    string temp, mdata;
+    int x, xd = 0;
+    int q, method = 0;
     vector<Equation> eq;
     Equation *qs = NULL;
     while (getline(input, temp))
@@ -167,16 +175,15 @@ vector getEquation(void)
             mdata = split(temp);
         }
 
-
         int found1 = temp.find("Equation");
-
 
         if (found1 != string::npos)
             x = 1;
         int found = temp.find(";");
-        if (found != string::npos){
+        if (found != string::npos)
+        {
             qs->setName(mdata);
-            eq.push_back(qs);
+            eq.push_back(*qs);
             qs = NULL;
             x = 0;
         }
@@ -186,16 +193,19 @@ vector getEquation(void)
                 qs = new Equation();
             cout << temp << endl;
             int found3 = temp.find("Equals to");
-            if(found3 != string:npos) {
+            if (found3 != string::npos)
+            {
                 q = 1;
                 xd = 0;
                 continue;
             }
-            if (q == 0 && xd != 0 ){
-                
-                qs->setLeft(split(temp))
-            } else if(q == 1 && xd != 0){
-                qs->setRight(split(sum));
+            if (q == 0 && xd != 0)
+            {
+                qs->setLeft(split(temp));
+            }
+            else if (q == 1 && xd != 0)
+            {
+                qs->setRight(split(temp));
             }
             xd++;
         }
@@ -203,13 +213,3 @@ vector getEquation(void)
     input.close();
     return eq;
 }
-
-/**
- * @brief
- *
- *  if "a = a + 6" in the program i need the left side variable and the operator and the right side
- *  varible and the operator on the right hand side
- *  there is no library for bytecode genearation i need to write from scratch and the interpreter also
- *  please write this one for me
- *                                - Vamsi
- */
