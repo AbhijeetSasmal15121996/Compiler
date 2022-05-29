@@ -1,4 +1,5 @@
 #include <iostream>
+#include "AdrressCode.h"
 
 using namespace std;
 
@@ -106,7 +107,8 @@ void read(void)
     input.close();
 }
 
-void getEquation(){
+void getEquation(void)
+{
     ifstream input("output.txt");
     string temp;
     int x = 0;
@@ -115,7 +117,7 @@ void getEquation(){
         int found1 = temp.find("Equation");
         if (found1 != string::npos)
             x = 1;
-        if (x==1)
+        if (x == 1)
         {
             cout << temp << endl;
         }
@@ -126,12 +128,12 @@ void getEquation(){
     input.close();
 }
 
-
-string readAdress(string to_get_ouput)
-{
-    /*
-     * this method returns a string
-     * example : if the parameter is "if"
-     * this method needs to return all the if statements and the lines below it
-     */
-}
+/**
+ * @brief
+ *
+ *  if "a = a + 6" in the program i need the left side variable and the operator and the right side
+ *  varible and the operator on the right hand side
+ *  there is no library for bytecode genearation i need to write from scratch and the interpreter also
+ *  please write this one for me
+ *                                - Vamsi
+ */
