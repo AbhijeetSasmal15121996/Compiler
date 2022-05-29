@@ -29,10 +29,13 @@ public:
     {
         this->name = name;
     }
+    
     string getName()
     {
         return this->name;
     }
+
+
     void insertRecord(string type, string value, string name)
     {
         Record *r = new Record(type, value, name);

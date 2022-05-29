@@ -1,164 +1,114 @@
-#ifndef __heplers__h
-#define __helpers_h
 #include <iostream>
-#include <map>
 
 using namespace std;
 
-class Record
+SymbolTable *table = new SymbolTable();
+
+stack<string> callStack;
+
+string split(string string_to_split)
 {
-private:
-    string id;
-    string type;
-
-public:
-    Record()
+    int count = 0;
+    string t = "";
+    for (int i = 0; i < string_to_split.length(); i++)
     {
-    }
-    Record(string id, string type)
-    {
-        this->id = id;
-        this->type = type;
-    }
-    void setId(string id)
-    {
-        this->id = id;
-    }
-    void setType(string type)
-    {
-        this->type = type;
-    }
-
-    string getId()
-    {
-        return this->id;
-    }
-
-    string getType()
-    {
-        return this->type;
-    }
-
-    void printRecord()
-    {
-        cout << "Id : " << this->getId() << "\n"
-             << "Type : " << this->getType() << endl;
-    }
-};
-
-class Variable : public Record
-{
-private:
-    string name;
-    string value;
-
-public:
-    Variable()
-    {
-    }
-    void setName(string name)
-    {
-        this->name = name;
-    }
-
-    void setValue(string value)
-    {
-        this->value = value;
-    }
-
-    string getName()
-    {
-        return this->name;
-    }
-
-    string getValue()
-    {
-        return this->value;
-    }
-};
-
-class Method : public Record
-{
-private:
-    map<string, Variable> parameters;
-    map<string, Variable> variables;
-    string name;
-
-public:
-    Method()
-    {
-    }
-    void setName(string name)
-    {
-        this->name = name;
-    }
-    void addVariable(string id, string type, string name, string value)
-    {
-        Variable v;
-        v.setId(id);
-        v.setType(type);
-        v.setName(name);
-        v.setValue(value);
-        variables.insert({name, v});
-    }
-
-    void addMethod(string id, string type, string name, string value)
-    {
-        Variable v;
-        v.setId(id);
-        v.setType(type);
-        v.setName(name);
-        v.setValue(value);
-        parameters.insert({name, v});
-    }
-};
-
-class Class : public Record
-{
-private:
-    map<string, Variable> variables;
-    map<string, Method> methods;
-
-public:
-    Class()
-    {
-    }
-    void addVariable(string id, string name, string type, string value)
-    {
-        Variable v;
-        v.setId(id);
-        v.setType(type);
-        v.setName(name);
-        v.setValue(value);
-        variables.insert({name, v});
-    }
-
-    void addMethod(string id, string name, string type)
-    {
-        Method m;
-        m.setId(id);
-        m.setName(name);
-        m.setType(type);
-        methods.insert({name, m});
-    }
-
-    bool lookUpVariable(string name)
-    {
-        if (variables.find(name) != variables.end())
+        if (string_to_split[i] == ':')
         {
-            return true;
+            count = 1;
+            i++;
         }
-        return false;
+        if (count == 0)
+            continue;
+        else
+            t = t + string_to_split[i];
     }
+    return t;
+}
 
-    bool lookUpMethod(string name)
+void write(Node *root, ofstream *ofstream)
+{
+    string id = to_string(root->id);
+    string type = root->type;
+    string value = root->value;
+    *ofstream << type << ":" << value << endl;
+    for (auto i = root->children.begin(); i != root->children.end(); i++)
     {
-        if (methods.find(name) != methods.end())
-        {
-            return true;
-        }
-        return false;
+        write((*i), ofstream);
     }
-};
+}
 
-#endif
+void read(void)
+{
+    string temp;
+    int counter = 0;
+    int Class, method, variable = 0;
+    string mdata, vdata;
+    string className;
+    ifstream input("output.txt");
+    while (getline(input, temp))
+    {
+        counter++;
+        if (Class == 1)
+        {
+            SymbolTable *tmp = new SymbolTable();
+            table->insertTable(tmp);
+            tmp->insertRecord("Class", "Class", split(temp));
+            tmp->insertName("Program");
+            className = split(temp);
+            Class = 0;
+        }
+
+        int found = temp.find("CLASS");
+
+        if ((found != string::npos))
+        {
+            Class = 1;
+        }
+
+        int found1 = temp.find("Method Declaration");
+        if (found1 != string::npos)
+        {
+            // cout << "hello" << endl;
+            method = counter;
+        }
+
+        if (method != 0 && (counter - method) == 2)
+        {
+            mdata = temp;
+        }
+
+        if (method != 0 && (counter - method) == 3)
+        {
+            cout << mdata << endl;
+            cout << split(temp) << endl;
+            SymbolTable *methSym = new SymbolTable();
+            table->insertTable(methSym);
+            methSym->insertRecord("Method", mdata, split(temp));
+            methSym->insertName(className);
+            className = split(temp);
+        }
+
+        int found2 = temp.find("Variable Declaration");
+        if (found2 != string::npos)
+        {
+            // cout << "hello" << endl;
+            variable = counter;
+        }
+
+        if (variable != 0 && (counter - variable) == 1)
+        {
+            vdata = temp;
+        }
+
+        if (variable != 0 && (counter - variable) == 2)
+        {
+            cout << vdata << endl;
+            cout << split(temp) << endl;
+            SymbolTable *varSym = new SymbolTable();
+            table->insertTable(varSym);
+            varSym->insertRecord("Variable", vdata, split(temp));
+            varSym->insertName(className);
+        }
+    }
+    input.close();
+}
