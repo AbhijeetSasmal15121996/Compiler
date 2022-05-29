@@ -140,7 +140,7 @@ class Equation {
 }
 
 
-void getEquation(void)
+vector getEquation(void)
 {
     ifstream input("output.txt");
     string temp,mdata;
@@ -201,6 +201,7 @@ void getEquation(void)
         }
     }
     input.close();
+    return eq;
 }
 
 /**
