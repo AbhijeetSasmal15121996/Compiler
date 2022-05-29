@@ -1,7 +1,7 @@
 GOAL:
 Main Class:
 :CLASS
-Identifier:Bar
+Identifier:Factorial
 :{
 :public
 :STATIC
@@ -17,15 +17,16 @@ Identifier:a
 Print Statement:
 :Print
 :(
-WithOutArguements:
+withArguementsExpMethodCall:
 New identifier:
 :new
-Identifier:Bar1
+Identifier:Fac
 :(
 :)
-:Period
-Identifier:foo
+:period
+Identifier:ComputeFac
 :(
+Integer:10
 :)
 :)
 :;
@@ -33,167 +34,58 @@ Identifier:foo
 :}
 Class Declaration:
 :CLASS
-Identifier:Bar1
+Identifier:Fac
 :{
-List of Method/s:
-List of Method/s:
  Method Declaration:
 :Public
 Integer:
-Identifier:foo
-:(
-:)
-:{
-List of Variable/s:
- Variable Declaration:
-Integer:
-Identifier:aux
-:;
- Variable Declaration:
-Boolean:
-Identifier:aux2
-:;
-List of statement/s:
-List of statement/s:
-List of statement/s:
-Equation:
-Identifier:aux
-:Equals to
-Integer:1
-:;
-Equation:
-Identifier:aux2
-:Equals to
-True Statement:
-:;
-Equation:
-Identifier:aux
-:Equals to
-withArguementsExpMethodCall:
-This:
-:period
-Identifier:foo2
-:(
-Identifier:aux
-:)
-:;
-Equation:
-Identifier:aux
-:Equals to
-withArguementsExpMethodCall:
-This:
-:period
-Identifier:foo3
-:(
-List of Expression/s:
-Integer:2
-:Comma
-List of Expression/s:
-Integer:5
-:Comma
-Identifier:aux2
-:)
-:;
-:Return
-Identifier:aux
-:;
-:}
- Method Declaration:
-:Public
-Integer:
-Identifier:foo2
+Identifier:ComputeFac
 :(
 List of Identifier/s:
 Integer:
-Identifier:p1
+Identifier:num
 :)
 :{
+ Variable Declaration:
+Integer:
+Identifier:num_aux
+:;
 If Else:
 :If
 :(
 Less than:
-Identifier:p1
+Identifier:num
 :less than
-Integer:2
-:)
-Print Statement:
-:Print
-:(
-Integer:10
-:)
-:;
-:Else
-Print Statement:
-:Print
-:(
-Integer:0
-:)
-:;
-:Return
-Integer:1
-:;
-:}
- Method Declaration:
-:Public
-Integer:
-Identifier:foo3
-:(
-List of Identifier/s:
-Integer:
-Identifier:p1
-:Comma
-List of Identifier/s:
-Integer:
-Identifier:p2
-:Comma
-List of Identifier/s:
-Boolean:
-Identifier:p3
-:)
-:{
-List of statement/s:
-List of statement/s:
-If Else:
-:If
-:(
-Identifier:p3
-:)
-Statement:
-:{
-Print Statement:
-:Print
-:(
 Integer:1
 :)
+Equation:
+Identifier:num_aux
+:Equals to
+Integer:1
 :;
-:}
 :Else
-Statement:
-:{
-Print Statement:
-:Print
+Equation:
+Identifier:num_aux
+:Equals to
+Multiplication:
+Identifier:num
+:Multiplication
+EXPRESSION:
 :(
-Integer:0
-:)
-:;
-:}
-Print Statement:
-:Print
-:(
-Identifier:p1
-:)
-:;
-Print Statement:
-:Print
+withArguementsExpMethodCall:
+This:
+:period
+Identifier:ComputeFac
 :(
 Subtraction:
-Identifier:p2
+Identifier:num
 :Subtractiom
-Identifier:p1
+Integer:1
+:)
 :)
 :;
 :Return
-Integer:4
+Identifier:num_aux
 :;
 :}
 :}

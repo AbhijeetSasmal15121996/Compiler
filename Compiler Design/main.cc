@@ -12,7 +12,6 @@ void yy::parser::error(std::string const &err)
   std::cout << "Cannot generate a syntax tree for this input: " << err << std::endl;
 }
 
-
 int main(int argc, char **argv)
 {
   // Reads from file if a file name is passed as an argument. Otherwise, reads from stdin.
