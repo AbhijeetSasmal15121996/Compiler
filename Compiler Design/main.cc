@@ -1,11 +1,15 @@
 #include <iostream>
 #include <regex>
 #include "parser.tab.hh"
-#include <cctype>
+#include <stack>
 
 extern Node *root;
 extern FILE *yyin;
+
 SymbolTable *table = new SymbolTable();
+
+stack<string> callStack;
+
 void write(Node *root, ofstream *ofstream)
 {
   string id = to_string(root->id);
@@ -42,7 +46,7 @@ string split(string temp)
   return t;
 }
 
-void read()
+void readClasses(void)
 {
   string temp;
   int counter = 0;
@@ -62,25 +66,43 @@ void read()
     {
       Class = 1;
     }
+  }
+  input.close();
+}
 
+void readMethods(void)
+{
+  string temp;
+  int counter = 0;
+  SymbolTable *tmp = NULL;
+  int Class, method, variable = 0;
+  string mdata;
+  ifstream input("output.txt");
+  while (getline(input, temp))
+  {
+    if (temp == "{")
+    {
+      tmp = new SymbolTable();
+      callStack.push("{");
+    }
+    counter++;
     int found1 = temp.find("Method");
     if (found1 != string::npos)
     {
+      cout << "hello" << endl;
       method = counter;
     }
 
-    if (method!=0 && (counter-method)==2)
+    if (method != 0 && (counter - method) == 2)
     {
-      mdata=temp;
+      mdata = temp;
     }
-    if (method!=0 && (counter-method)==3)
+    if (method != 0 && (counter - method) == 3)
     {
-      SymbolTable *tmp = new SymbolTable();
-      
-      table->insertRecord("Method", mdata, split(temp));
+      cout << mdata << endl;
+      cout << split(temp) << endl;
+      tmp->insertRecord("Method", mdata, split(temp));
     }
-
-
   }
   input.close();
 }
@@ -103,16 +125,16 @@ int main(int argc, char **argv)
     Node *temp = root;
     ofstream outStream;
     outStream.open("output.txt");
-    outStream << "\t"
-              << "Type"
-              << "\t"
-              << "Value" << endl;
     write(temp, &outStream);
     outStream.close();
 
-    read();
-
+    readClasses();
+    readMethods();
+    cout << "\n\n------Symbol Table-----\n\n"
+         << endl;
     table->print_table(table);
+    cout << "\n\n------End Of Symbol Table-----\n\n"
+         << endl;
   }
   return 0;
 }

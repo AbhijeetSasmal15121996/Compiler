@@ -1,4 +1,3 @@
-	Type	Value
 GOAL:
 Main Class:
 :CLASS
