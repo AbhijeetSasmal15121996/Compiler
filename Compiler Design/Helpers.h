@@ -154,6 +154,7 @@ void getEquation(void)
     string temp, mdata;
     int x = 0;
     int method = 0;
+    string expr = "";
     while (getline(input, temp))
     {
         int found0 = temp.find("Method Declaration");
@@ -176,11 +177,27 @@ void getEquation(void)
         if (found != string::npos && x == 1)
         {
             x = 0;
+            expr = expr + "\n";
+            cout << expr;
             cout << "Scope Name: " << mdata << endl;
         }
         if (x == 1)
         {
-            cout << temp << endl;
+            // cout << temp << endl;
+            string res = split(temp);
+            if (res == "")
+                continue;
+            if (res == "Addition")
+                res = " + ";
+            if (res == "Subtractiom")
+                res = " - ";
+            if (res == "Multiplication")
+                res = " * ";
+            if (res == "Division")
+                res = " / ";
+            if (res == "Equals to")
+                res = " = ";
+            expr = expr + res;           
         }
     }
     input.close();
