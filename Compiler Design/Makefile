@@ -6,10 +6,12 @@ parser.tab.cc: parser.yy
 		bison parser.yy
 lex.yy.c: lexer.flex parser.tab.cc
 		flex lexer.flex
-run:./compiler test.java
+run:
 	./compiler test.java
 tree: 
-		 dot -Tpdf tree.dot -otree.pdf
+	dot -Tpdf tree.dot -otree.pdf
+tac:
+	dot -Tpdf tac.dot -o tac.pdf
 clean:
 		rm -f parser.tab.* lex.yy.c* compiler stack.hh tree.dot tree.pdf
 		# rm -R compiler.dSYM						

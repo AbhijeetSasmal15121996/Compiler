@@ -44,6 +44,9 @@ int main(int argc, char **argv)
     outStream.open("output.txt");
     write(temp, &outStream);
     outStream.close();
+    cout << "\n\n---Abstract Syntax Tree---\n\n";
+    root->print_tree();
+    cout << "\n\n---End of Abstract Syntax Tree\n\n";
     read();
     cout << "\n\n------Symbol Table-----\n\n"
          << endl;

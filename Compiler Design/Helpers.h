@@ -105,3 +105,12 @@ void read(void)
     }
     input.close();
 }
+
+string readAdress(string to_get_ouput)
+{
+    /*
+     * this method returns a string
+     * example : if the parameter is "if"
+     * this method needs to return all the if statements and the lines below it
+     */
+}
