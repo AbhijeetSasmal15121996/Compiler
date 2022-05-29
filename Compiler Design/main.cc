@@ -52,19 +52,45 @@ void readClasses(void)
   int counter = 0;
   int Class, method, variable = 0;
   string mdata;
+  string className;
   ifstream input("output.txt");
   while (getline(input, temp))
   {
     counter++;
     if (Class == 1)
     {
-      table->insertRecord("Class", "Class", split(temp));
+      SymbolTable *tmp = new SymbolTable();
+      table->insertTable(tmp);
+      tmp->insertRecord("Class", "Class", split(temp));
+      tmp->insertName("Program");
+      className = split(temp);
       Class = 0;
     }
     int found = temp.find("CLASS");
     if ((found != string::npos))
     {
       Class = 1;
+    }
+
+    int found1 = temp.find("Method Declaration");
+    if (found1 != string::npos)
+    {
+      cout << "hello" << endl;
+      method = counter;
+    }
+
+    if (method != 0 && (counter - method) == 2)
+    {
+      mdata = temp;
+    }
+    if (method != 0 && (counter - method) == 3)
+    {
+      cout << mdata << endl;
+      cout << split(temp) << endl;
+      SymbolTable *methSym = new SymbolTable();
+      table->insertTable(methSym);
+      methSym->insertRecord("Method", mdata, split(temp));
+      methSym->insertName(className);
     }
   }
   input.close();
@@ -74,16 +100,27 @@ void readMethods(void)
 {
   string temp;
   int counter = 0;
+  int classCounter = 0;
   SymbolTable *tmp = NULL;
   int Class, method, variable = 0;
   string mdata;
   ifstream input("output.txt");
   while (getline(input, temp))
   {
+    if (callStack.empty()){
+      tmp = new SymbolTable();
+      SymbolTable *parent = table->getTable(classCounter);
+      parent->print_table(parent);
+      parent->insertTable(tmp);
+      classCounter++;
+    }
     if (temp == "{")
     {
-      tmp = new SymbolTable();
       callStack.push("{");
+    }
+    if (temp == "}")
+    {
+      callStack.pop();
     }
     counter++;
     int found1 = temp.find("Method");
@@ -129,7 +166,7 @@ int main(int argc, char **argv)
     outStream.close();
 
     readClasses();
-    readMethods();
+    // readMethods();
     cout << "\n\n------Symbol Table-----\n\n"
          << endl;
     table->print_table(table);

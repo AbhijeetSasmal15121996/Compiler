@@ -20,10 +20,17 @@ public:
 class SymbolTable
 {
 private:
+    string name;
     vector<SymbolTable *> tables;
     vector<Record *> records;
 
 public:
+    void insertName(string name){
+        this->name = name;
+    }
+    string getName(){
+        return this->name;
+    }
     void insertRecord(string type, string value, string name)
     {
         Record *r = new Record(type, value, name);
@@ -35,12 +42,17 @@ public:
         this->tables.push_back(newTable);
     }
 
+    SymbolTable* getTable(int index) {
+        return this->tables[index];
+    }
+
     void print_table(SymbolTable *newTable)
     {
         for (int i = 0; i < this->records.size(); i++)
         {
             cout << "Type is : " << this->records[i]->type << "\t"
                  << "Value is : " << this->records[i]->value << "\t"
+                 << "ClassName is : " << this->name << "\t"
                  << "Name is : \t" << this->records[i]->name << endl;
         }
         for (auto i = 0; i < this->tables.size(); i++)
