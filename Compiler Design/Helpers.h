@@ -68,7 +68,6 @@ void read(void)
         int found1 = temp.find("Method Declaration");
         if (found1 != string::npos)
         {
-            // cout << "hello" << endl;
             method = counter;
         }
 
@@ -79,8 +78,6 @@ void read(void)
 
         if (method != 0 && (counter - method) == 3)
         {
-            cout << mdata << endl;
-            cout << split(temp) << endl;
             SymbolTable *methSym = new SymbolTable();
             table->insertTable(methSym);
             methSym->insertRecord("Method", mdata, split(temp));
@@ -91,7 +88,6 @@ void read(void)
         int found2 = temp.find("Variable Declaration");
         if (found2 != string::npos)
         {
-            // cout << "hello" << endl;
             variable = counter;
         }
 
@@ -102,8 +98,6 @@ void read(void)
 
         if (variable != 0 && (counter - variable) == 2)
         {
-            cout << vdata << endl;
-            cout << split(temp) << endl;
             SymbolTable *varSym = new SymbolTable();
             table->insertTable(varSym);
             varSym->insertRecord("Variable", vdata, split(temp));
