@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     cout << "\n\n------End Of Symbol Table-----\n\n"
          << endl;
     // getEquation();
-    getMul();
+    // getMul();
   }
   return 0;
 }

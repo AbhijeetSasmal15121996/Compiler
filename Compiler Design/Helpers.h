@@ -107,23 +107,98 @@ void read(void)
     input.close();
 }
 
+class Equation {
+    private:
+        vector<string> *left;
+        vector<string> *right;
+        string name;
+    
+    void getLeft(){
+        return this->left;
+    }
+
+    void getRight(){
+        return this->right;
+    }
+
+    void getName(){
+        return this->name;
+    }
+
+    vector setLeft(string x){
+        this->left->push_back(x);
+    }
+
+    vector setRight(string x){
+        this->right->push_back(x);
+    }
+
+    string setName(string x){
+        this->name = x;
+    }
+
+}
+
+
 void getEquation(void)
 {
     ifstream input("output.txt");
-    string temp;
-    int x = 0;
+    string temp,mdata;
+    int x,xd = 0;
+    int q,method = 0;
+    vector<Equation> eq;
+    Equation *qs = NULL;
     while (getline(input, temp))
     {
+        int found0 = temp.find("Method Declaration");
+        counter++;
+        if (found0 != string::npos)
+        {
+            method = counter;
+        }
+
+        if (method != 0 && (counter - method) == 2)
+        {
+            mdata = temp;
+        }
+
+        if (method != 0 && (counter - method) == 3)
+        {
+            mdata = split(temp);
+        }
+
+
         int found1 = temp.find("Equation");
+
+
         if (found1 != string::npos)
             x = 1;
+        int found = temp.find(";");
+        if (found != string::npos){
+            qs->setName(mdata);
+            eq.push_back(qs);
+            qs = NULL;
+            x = 0;
+        }
         if (x == 1)
         {
+            if (qs == NULL)
+                qs = new Equation();
             cout << temp << endl;
+            int found3 = temp.find("Equals to");
+            if(found3 != string:npos) {
+                q = 1;
+                xd = 0;
+                continue;
+            }
+            if (q == 0 && xd != 0 ){
+                
+                qs->setLeft(split(temp))
+            } else if(q == 1 && xd != 0){
+                qs->setRight(split(sum));
+            }
+            xd++;
         }
-        int found = temp.find(";");
-        if (found != string::npos)
-            x = 0;
     }
     input.close();
 }
