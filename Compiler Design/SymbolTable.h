@@ -25,10 +25,12 @@ private:
     vector<Record *> records;
 
 public:
-    void insertName(string name){
+    void insertName(string name)
+    {
         this->name = name;
     }
-    string getName(){
+    string getName()
+    {
         return this->name;
     }
     void insertRecord(string type, string value, string name)
@@ -42,7 +44,8 @@ public:
         this->tables.push_back(newTable);
     }
 
-    SymbolTable* getTable(int index) {
+    SymbolTable *getTable(int index)
+    {
         return this->tables[index];
     }
 
@@ -53,7 +56,7 @@ public:
             cout << "Type is : " << this->records[i]->type << "\t"
                  << "Value is : " << this->records[i]->value << "\t"
                  << "ScopeName is : " << this->name << "\t"
-                 << "Name is : \t" << this->records[i]->name << endl;
+                 << "Name is : " << this->records[i]->name << endl;
         }
         for (auto i = 0; i < this->tables.size(); i++)
         {

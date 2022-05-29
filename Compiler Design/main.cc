@@ -91,7 +91,7 @@ void read(void)
       table->insertTable(methSym);
       methSym->insertRecord("Method", mdata, split(temp));
       methSym->insertName(className);
-      className=split(temp);
+      className = split(temp);
     }
 
     int found2 = temp.find("Variable Declaration");
@@ -114,12 +114,9 @@ void read(void)
       varSym->insertRecord("Variable", vdata, split(temp));
       varSym->insertName(className);
     }
-
   }
   input.close();
 }
-
-
 
 int main(int argc, char **argv)
 {
@@ -132,6 +129,13 @@ int main(int argc, char **argv)
       return 1;
     }
   }
+
+  /*
+   * Semantic analysis is not completed the symbol table is a part of semantic analysis
+   * check wheather the lhs data type = rhs data type and same for methods also
+   * data type of method must match return type of method if not show an error message and return
+   * check for undefined variables and if are there just show error message
+   */
 
   yy::parser parser;
   if (!parser.parse())
