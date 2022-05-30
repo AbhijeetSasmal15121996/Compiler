@@ -1,7 +1,7 @@
 GOAL:
 Main Class:
 :CLASS
-Identifier:Sum
+Identifier:Factorial
 :{
 :public
 :STATIC
@@ -20,13 +20,13 @@ Print Statement:
 withArguementsExpMethodCall:
 New identifier:
 :new
-Identifier:Test
+Identifier:Fac
 :(
 :)
 :period
-Identifier:Sum
+Identifier:ComputeFac
 :(
-Integer:100
+Integer:10
 :)
 :)
 :;
@@ -34,12 +34,12 @@ Integer:100
 :}
 Class Declaration:
 :CLASS
-Identifier:Test
+Identifier:Fac
 :{
  Method Declaration:
 :Public
 Integer:
-Identifier:Sum
+Identifier:ComputeFac
 :(
 List of Identifier/s:
 Integer:
@@ -48,18 +48,13 @@ Identifier:num
 :{
  Variable Declaration:
 Integer:
-Identifier:sum
+Identifier:num_aux
 :;
-List of statement/s:
-Equation:
-Identifier:sum
-:Equals to
-Integer:0
-:;
-While:
-:
+If Else:
+:If
 :(
 Less than:
+<<<<<<< HEAD
 Integer:0
 :less than
 AND:
@@ -80,25 +75,40 @@ Print Statement:
 Identifier:sum
 :)
 :;
-Equation:
-Identifier:sum
-:Equals to
-Addition:
-Identifier:sum
-:Addition
+=======
 Identifier:num
+:less than
+Integer:1
+:)
+>>>>>>> 73a3391f685e1b033b3626c379d521f3a8683ed6
+Equation:
+Identifier:num_aux
+:Equals to
+Integer:1
 :;
+:Else
 Equation:
-Identifier:num
+Identifier:num_aux
 :Equals to
+Multiplication:
+Identifier:num
+:Multiplication
+EXPRESSION:
+:(
+withArguementsExpMethodCall:
+This:
+:period
+Identifier:ComputeFac
+:(
 Subtraction:
 Identifier:num
 :Subtractiom
 Integer:1
+:)
+:)
 :;
-:}
 :Return
-Identifier:sum
+Identifier:num_aux
 :;
 :}
 :}

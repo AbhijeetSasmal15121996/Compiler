@@ -24,6 +24,11 @@ public:
         printf("%s = %s %s %s", result, lhs, op, rhs);
     }
 
+    void printTac(ofstream *stream)
+    {
+        *stream << op << endl;
+    }
+
     void setOp(string op)
     {
         this->op = op;
@@ -90,12 +95,30 @@ public:
 
 class BBlock
 {
+private:
+    void generate(ofstream *output)
+    {
+        *output << "node [shape = box];" << endl;
+        for (auto i = tacInstructions.begin(); i != tacInstructions.end(); i++)
+        {
+            (*i)->printTac(output);
+        }
+    }
+
 public:
     string name;
     list<TAC *> tacInstructions;
     TAC condition;
     BBlock *trueExit, *falseExit;
     BBlock() : trueExit(NULL), falseExit(NULL) {}
+    void generatetac(void)
+    {
+        ofstream output("tac.dot");
+        output << "diagraph {" << endl;
+        generate(&output);
+        output << "}" << endl;
+        output.close();
+    }
 };
 
 #endif

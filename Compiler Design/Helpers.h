@@ -273,6 +273,7 @@ void getEquation(void)
     int x = 0;
     int method = 0;
     string expr = "";
+    BBlock *root = NULL;
     while (getline(input, temp))
     {
         int found0 = temp.find("Method Declaration");
@@ -297,11 +298,9 @@ void getEquation(void)
             x = 0;
             expr = expr + "\n";
             cout << expr;
-            cout << "Scope Name: " << mdata << endl;
         }
         if (x == 1)
         {
-            // cout << temp << endl;
             string res = split(temp);
             if (res == "")
                 continue;
@@ -318,5 +317,6 @@ void getEquation(void)
             expr = expr + res;
         }
     }
+    root->generatetac();
     input.close();
 }
