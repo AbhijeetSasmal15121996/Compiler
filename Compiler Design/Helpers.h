@@ -108,45 +108,6 @@ void read(void)
     input.close();
 }
 
-class Equation
-{
-private:
-    vector<string> left;
-    vector<string> right;
-    string name;
-
-public:
-    vector<string> getLeft()
-    {
-        return this->left;
-    }
-
-    vector<string> getRight()
-    {
-        return this->right;
-    }
-
-    string getName()
-    {
-        return this->name;
-    }
-
-    void setLeft(string x)
-    {
-        this->left.push_back(x);
-    }
-
-    void setRight(string x)
-    {
-        this->right.push_back(x);
-    }
-
-    string setName(string x)
-    {
-        this->name = x;
-    }
-};
-
 void getEquation(void)
 {
     ifstream input("output.txt");
@@ -155,6 +116,7 @@ void getEquation(void)
     int x = 0;
     int method = 0;
     string expr = "";
+    BBlock *root = NULL;
     while (getline(input, temp))
     {
         int found0 = temp.find("Method Declaration");
@@ -179,11 +141,9 @@ void getEquation(void)
             x = 0;
             expr = expr + "\n";
             cout << expr;
-            cout << "Scope Name: " << mdata << endl;
         }
         if (x == 1)
         {
-            // cout << temp << endl;
             string res = split(temp);
             if (res == "")
                 continue;
@@ -197,8 +157,17 @@ void getEquation(void)
                 res = " / ";
             if (res == "Equals to")
                 res = " = ";
-            expr = expr + res;           
+
+            BBlock *block = new BBlock();
+            if (root == NULL)
+                root = block;
+            TAC *tac = new TAC();
+            tac->setOp(res);
+            block->name = to_string(counter);
+            block->tacInstructions.push_back(tac);
+            expr = expr + res;
         }
     }
+    root->generatetac();
     input.close();
 }
