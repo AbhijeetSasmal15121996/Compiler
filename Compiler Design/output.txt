@@ -62,11 +62,24 @@ While:
 Less than:
 Integer:0
 :less than
+AND:
 Identifier:num
+:and
+Less than:
+Identifier:sum
+:less than
+Integer:1000
 :)
 Statement:
 :{
 List of statement/s:
+List of statement/s:
+Print Statement:
+:Print
+:(
+Identifier:sum
+:)
+:;
 Equation:
 Identifier:sum
 :Equals to

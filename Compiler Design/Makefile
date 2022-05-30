@@ -6,8 +6,8 @@ parser.tab.cc: parser.yy
 		bison parser.yy
 lex.yy.c: lexer.flex parser.tab.cc
 		flex lexer.flex
-run:./compiler test.java
-	./compiler test.java
+run:./compiler D1.java
+	./compiler D1.java
 tree: 
 	dot -Tpdf tree.dot -otree.pdf
 tac:

@@ -108,44 +108,162 @@ void read(void)
     input.close();
 }
 
-class Equation
+string split(string string_to_split, char sepearator)
 {
-private:
-    vector<string> left;
-    vector<string> right;
-    string name;
-
-public:
-    vector<string> getLeft()
+    int count = 0;
+    string t = "";
+    for (int i = 0; i < string_to_split.length(); i++)
     {
-        return this->left;
+        if (string_to_split[i] == sepearator)
+        {
+            count = 1;
+            i++;
+        }
+        if (count == 0)
+            continue;
+        else
+            t = t + string_to_split[i];
     }
+    return t;
+}
 
-    vector<string> getRight()
+void makeTAC()
+{
+    ifstream input("output.txt");
+    int counter, label, x, stLabel, method = 0;
+    int count = 0;
+    int state = 0;
+    int whstate = 0;
+    int start = 0;
+    string txt, wh1, mdata, temp = "";
+    BBlock *root = NULL;
+    TAC *tac = NULL;
+    while (getline(input, temp))
     {
-        return this->right;
-    }
 
-    string getName()
-    {
-        return this->name;
-    }
+        // Get Method Name
+        int found0 = temp.find("Method Declaration");
+        counter++;
 
-    void setLeft(string x)
-    {
-        this->left.push_back(x);
-    }
+        if (found0 != string::npos)
+        {
+            method = counter;
+        }
 
-    void setRight(string x)
-    {
-        this->right.push_back(x);
-    }
+        if (method != 0 && (counter - method) == 3)
+        {
+            mdata = split(temp);
+            cout << "Method Declaration " << mdata << endl;
+        }
 
-    string setName(string x)
-    {
-        this->name = x;
+        // End Get Method
+
+        // Get inside Scope of the method
+        int found1 = temp.find(":{");
+        if (found1 != string::npos && mdata != "")
+        {
+            count++;
+        }
+        // cout << count << endl;
+        int found2 = temp.find("List of statement/s:");
+        if (found2 != string::npos && count > 0)
+        {
+            start = 1;
+        }
+        if (start == 1)
+        {
+            int found5 = temp.find("While");
+
+            if (found5 != string::npos)
+            {
+                whstate = counter;
+            }
+
+            if ((counter - whstate) >= 4 && (counter - whstate) <= 7)
+            {
+                string res = split(temp);
+                if (res == "less than")
+                    res = " < ";
+                if (res == "greater than")
+                    res = " > ";
+                if (res == "Equals to")
+                    res = " == ";
+                wh1 = wh1 + res;
+            }
+            int found4 = temp.find("Statement");
+
+            if (found4 != string::npos)
+            {
+                state = 1;
+            }
+
+            int found1 = temp.find("Equation");
+
+            if (found1 != string::npos)
+            {
+                x = 1;
+                cout << "Label: " << label << endl;
+                label++;
+            }
+
+            if (state == 1 && found1 != string::npos)
+            {
+                stLabel = label - 1;
+                state = 2;
+            }
+
+            int found = temp.find(";");
+
+            if (found != string::npos && x == 1)
+            {
+                x = 0;
+                txt = txt + "\n";
+                cout << txt;
+                cout << "Scope Name: " << mdata << endl;
+                txt = "";
+            }
+
+            if (x == 1)
+            {
+                string res = split(temp);
+                if (res == "")
+                    continue;
+                if (res == "Addition")
+                    res = " + ";
+                if (res == "Subtractiom")
+                    res = " - ";
+                if (res == "Multiplication")
+                    res = " * ";
+                if (res == "Division")
+                    res = " / ";
+                if (res == "Equals to")
+                    res = " = ";
+                txt = txt + res;
+                if (root == NULL)
+                    root = new BBlock();
+
+                // tac = new TAC(split(txt,''),split(txt,''));
+            }
+
+            int found12 = temp.find("}");
+
+            if (found12 != string::npos)
+            {
+                count--;
+                if (state == 2 && count != 0)
+                {
+                    cout << "if(" << wh1 << endl;
+                    cout << "Goto Label: " << stLabel << endl;
+                }
+            }
+
+            if (count == 0)
+            {
+                start = 0;
+            }
+        }
     }
-};
+}
 
 void getEquation(void)
 {
@@ -197,7 +315,7 @@ void getEquation(void)
                 res = " / ";
             if (res == "Equals to")
                 res = " = ";
-            expr = expr + res;           
+            expr = expr + res;
         }
     }
     input.close();

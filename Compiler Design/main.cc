@@ -53,7 +53,8 @@ int main(int argc, char **argv)
     table->print_table(table);
     cout << "\n\n------End Of Symbol Table-----\n\n"
          << endl;
-    getEquation();
+    // getEquation();
+    makeTAC();
     // getMul();
   }
   return 0;
