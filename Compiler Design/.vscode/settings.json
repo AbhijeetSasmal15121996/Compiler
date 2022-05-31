@@ -18,6 +18,13 @@
         "vector": "cpp",
         "deque": "cpp",
         "string": "cpp",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "regex": "cpp",
+        "typeinfo": "cpp",
+        "bitset": "cpp"
     }
 }
