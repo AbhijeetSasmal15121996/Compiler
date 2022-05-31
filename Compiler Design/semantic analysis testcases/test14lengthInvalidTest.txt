@@ -1,0 +1,20 @@
+class MainTest{
+    public static void main(String[] a){
+	System.out.println(new TestClass().TestMethod1());
+    }
+}
+
+class TestClass {
+
+    public int TestMethod1(){
+	int[] a ;
+	int b;
+	boolean c;
+
+	b = a.length; 
+	b = b.length; //variable b is not an array
+	b = c.length; //variable c is not an array
+	
+	return b;
+    }
+}

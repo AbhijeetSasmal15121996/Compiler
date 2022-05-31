@@ -1,0 +1,30 @@
+class MainTest{
+    public static void main(String[] a){
+	System.out.println(new TestClass().TestMethod1());
+    }
+}
+
+class TestClass {
+
+    public int TestMethod1(){
+        int a;
+        int a; //Duplicated variable
+        a = 1;
+        return a;
+    }
+
+	public int TestMethod1(){ //OverWrite method
+		return 0;
+	}
+
+}
+
+class TestClass { //OverWrite class
+
+    public int TestMethod1(){
+        int a;
+        a = 1;
+        return a;
+    }
+
+}

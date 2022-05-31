@@ -1,0 +1,42 @@
+class MainTest{
+    public static void main(String[] a){
+	System.out.println(new TestClass1().TestMethod1Class1());
+    }
+}
+
+class TestClass1 {
+    public int TestMethod1Class1(){
+		int a;
+		int p1;
+		int p2;
+		int p4;
+		boolean p3;
+		TestClass2 m;
+
+		a = m.TestMethod1Class2(p1,p2, p3, p4); //Wrong number of parameters
+		a = m.TestMethod1Class2(p1,p2,p4); //Wrong type of parameter p4
+		a = m.TestMethod1Class2(); //Wrong number of parameters
+		a = m.TestMethod1Class2(p1,p2,p3);
+		a = m.TestMethod2Class2(p1,p2,p3); //Wrong number of parameters
+		a = m.TestMethod2Class2();
+		a = this.TestMethod2Class1(true); ////Wrong number of parameters
+		a = this.TestMethod2Class1();
+		
+		return 0;
+    }
+
+	public int TestMethod2Class1(){
+		return 0;
+	}
+
+}
+
+class TestClass2{
+	public int TestMethod1Class2(int a, int b, boolean c){
+		return 0;
+	}
+
+	public int TestMethod2Class2(){
+		return 0;
+	}
+}

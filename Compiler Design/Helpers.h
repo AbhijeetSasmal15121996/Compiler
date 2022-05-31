@@ -112,7 +112,6 @@ void read(void)
             variable = 0;
         }
 
-        
         int found13 = temp.find("ParameterList");
         if ((found13 != string::npos))
         {
@@ -124,7 +123,7 @@ void read(void)
             paramdata = temp;
         }
 
-        if (parameter != 0 && (counter-parameter == 2))
+        if (parameter != 0 && (counter - parameter == 2))
         {
             SymbolTable *varSym = new SymbolTable();
             table->insertTable(varSym);
@@ -132,7 +131,6 @@ void read(void)
             varSym->insertName(className);
             parameter = 0;
         }
-
     }
     input.close();
 }
@@ -273,7 +271,10 @@ void makeTAC(SymbolTable *table)
                 string drhType = table->check(table, lhs, mdata);
                 drhType = split(drhType);
 
-                // cout << "DataType : " << dType << endl;
+                if (drType.compare(drhType) != 0)
+                {
+                    cout << "Type Error: Plese Check Your Data Types " << endl;
+                }
                 txt = "";
             }
 

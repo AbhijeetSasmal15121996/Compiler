@@ -1,0 +1,21 @@
+class MainTest{
+    public static void main(String[] a){
+	System.out.println(new TestClass1().TestMethod1());
+    }
+}
+
+class TestClass1 {
+
+    public int TestMethod1(){
+	
+		int a;
+		
+		return a;
+    }
+
+    public TestMethod2(){ //A void method returns a syntax error
+	
+		int b;
+    }
+
+}
