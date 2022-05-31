@@ -25,6 +25,11 @@ private:
     vector<Record *> records;
 
 public:
+    vector<Record *> getRecords()
+    {
+        return this->records;
+    }
+
     void insertName(string name)
     {
         this->name = name;
@@ -49,6 +54,28 @@ public:
     SymbolTable *getTable(int index)
     {
         return this->tables[index];
+    }
+
+    string check(SymbolTable *newTable, string name, string scope)
+    {
+        string value;
+        for (int i = 0; i < this->records.size(); i++)
+        {
+            cout<< "ScopeName is : " << this->name << "\t"
+                 << "Name is : " << this->records[i]->name << endl;
+            cout<< "ScopeName1 is : " << scope << "\t"
+                 << "Name1 is : " << name << endl;
+                 
+            if (this->name == scope && this->records[i]->name == name)
+            {
+                value = this->records[i]->value;
+                return value;
+            }
+        }
+        for (auto i = 0; i < this->tables.size(); i++)
+        {
+            this->tables[i]->check(this->tables[i], name, scope);
+        }
     }
 
     void print_table(SymbolTable *newTable)

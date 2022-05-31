@@ -25,6 +25,8 @@ public:
 		type = "uninitialised";
 		value = "uninitialised";
 	} // Bison needs this.
+
+
 	void print_tree(int depth = 0)
 	{
 		for (int i = 0; i < depth; i++)
@@ -38,19 +40,21 @@ public:
 		}
 	}
 
+
 	void generate_tree()
 	{
 		std::ofstream outStream;
 		outStream.open("tree.dot");
 
 		int count = 0;
-		outStream << "digraph {" << std::endl;
+		outStream << "digraph {" << endl;
 		generate_tree_content(count, &outStream);
-		outStream << "}" << std::endl;
+		outStream << "}" << endl;
 		outStream.close();
 
-		std::cout << "\n\n Built a parse-tree:" << std::endl;
+		cout << "\n\n Built a parse-tree:" << endl;
 	}
+
 
 	void generate_tree_content(int &count, ofstream *outStream)
 	{

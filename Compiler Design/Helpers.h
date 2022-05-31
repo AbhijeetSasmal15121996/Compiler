@@ -65,7 +65,7 @@ void read(void)
             Class = 1;
         }
 
-        int found1 = temp.find("Method Declaration");
+        int found1 = temp.find("MethodDeclaration");
 
         if (found1 != string::npos)
         {
@@ -75,6 +75,7 @@ void read(void)
         if (method != 0 && (counter - method) == 2)
         {
             mdata = temp;
+            // cout << "Mdata" << mdata << endl;
         }
 
         if (method != 0 && (counter - method) == 3)
@@ -86,8 +87,9 @@ void read(void)
             className = split(temp);
         }
 
-        int found2 = temp.find("Variable Declaration");
-        if (found2 != string::npos)
+        // int found2 = temp.find("ParameterList");
+        int found3 = temp.find("VarDeclaration");
+        if ((found3 != string::npos))
         {
             variable = counter;
         }
@@ -108,10 +110,10 @@ void read(void)
     input.close();
 }
 
-string split(string string_to_split, char sepearator)
+string leftrightsplit(string string_to_split, char sepearator, bool bleft)
 {
     int count = 0;
-    string t = "";
+    string right, left = "";
     for (int i = 0; i < string_to_split.length(); i++)
     {
         if (string_to_split[i] == sepearator)
@@ -120,17 +122,23 @@ string split(string string_to_split, char sepearator)
             i++;
         }
         if (count == 0)
-            continue;
+            left = left + string_to_split[i];
         else
-            t = t + string_to_split[i];
+            right = right + string_to_split[i];
     }
-    return t;
+    if (bleft)
+    {
+        return left;
+    }
+    else
+        return right;
 }
 
-void makeTAC()
+void makeTAC(SymbolTable *table)
 {
     ifstream input("output.txt");
-    int counter, label, x, stLabel, method = 0;
+    int counter, x, stLabel, method = 0;
+    int label = 0;
     int count = 0;
     int state = 0;
     int whstate = 0;
@@ -164,7 +172,7 @@ void makeTAC()
         {
             count++;
         }
-        // cout << count << endl;
+
         int found2 = temp.find("List of statement/s:");
         if (found2 != string::npos && count > 0)
         {
@@ -202,7 +210,7 @@ void makeTAC()
             if (found1 != string::npos)
             {
                 x = 1;
-                cout << "Label: " << label << endl;
+                // cout << "Label: " << label << endl;
                 label++;
             }
 
@@ -218,8 +226,25 @@ void makeTAC()
             {
                 x = 0;
                 txt = txt + "\n";
-                cout << txt;
-                cout << "Scope Name: " << mdata << endl;
+                // cout << txt;
+                // cout << "Scope Name: " << mdata << endl;
+
+                cout << txt << endl;
+                string lhs = leftrightsplit(txt, '=', true);
+                string op = "";
+                string rhs = leftrightsplit(txt, '=', false);
+                if (txt.find("+") != string::npos)
+                    op = "+";
+                if (txt.find("-") != string::npos)
+                    op = "-";
+                if (txt.find("*") != string::npos)
+                    op = "*";
+                if (txt.find("/") != string::npos)
+                    op = "/";
+                string lValue = leftrightsplit(rhs, op[0], true);
+                string rValue = leftrightsplit(rhs, op[0], false);
+                string dType = table->check(table, lhs, mdata);
+                cout << "DataType : " << dType << endl;
                 txt = "";
             }
 
@@ -239,10 +264,6 @@ void makeTAC()
                 if (res == "Equals to")
                     res = " = ";
                 txt = txt + res;
-                if (root == NULL)
-                    root = new BBlock();
-
-                // tac = new TAC(split(txt,''),split(txt,''));
             }
 
             int found12 = temp.find("}");

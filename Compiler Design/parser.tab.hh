@@ -365,65 +365,66 @@ namespace yy {
     /// An auxiliary type to compute the largest semantic type.
     union union_type
     {
-      // goal
-      // mainclass
+      // program
+      // mainClass
       // extends
-      // classList
-      // classDec
-      // varList
-      // varDec
-      // methodList
-      // methodDec
-      // identifierList
+      // classDeclarationList
+      // classDeclaration
+      // varDeclarationList
+      // varDeclaration
+      // methodDeclarationList
+      // methodDeclaration
+      // parameterList
       // type
-      // stateList
+      // statementList
       // statement
-      // identifier
-      // expList
+      // expressionList
       // expression
+      // identifier
       char dummy1[sizeof (Node *)];
 
-      // PLUSOP
-      // MINUSOP
-      // MULTOP
-      // INT
-      // LP
-      // RP
-      // RSQUAREP
+      // IDENTIFIER
       // LSQUAREP
-      // LBRACKET
-      // RBRACKET
-      // COMMA
-      // SEMICOLON
-      // EQUALS
-      // DIVISIONOP
       // AND
-      // OR
+      // RSQUAREP
       // LESSER
       // GREATER
+      // OR
       // ASSIGNOP
-      // CLASS
-      // PUBLIC
-      // STATIC
-      // VOID
-      // MAIN
-      // STRING
-      // EXTENDS
-      // RETURN
-      // INTEGER
-      // BOOLEAN
-      // IF
-      // ELSE
-      // WHILE
-      // PRINT
+      // MULTOP
+      // DIVISIONOP
+      // INT
+      // PLUSOP
+      // MINUSOP
       // PERIOD
       // LENGTH
       // TRUE
       // FALSE
-      // NEW
-      // NOT
       // THIS
-      // IDENTIFIER
+      // NEW
+      // INTEGER
+      // BOOLEAN
+      // LP
+      // RP
+      // NOT
+      // COMMA
+      // LBRACKET
+      // RBRACKET
+      // IF
+      // ELSE
+      // WHILE
+      // PRINT
+      // SEMICOLON
+      // EQUALS
+      // RETURN
+      // PUBLIC
+      // CLASS
+      // EXTENDS
+      // STATIC
+      // VOID
+      // MAIN
+      // STRINGS
+      // STRING
       char dummy2[sizeof (std::string)];
     };
 
@@ -464,47 +465,48 @@ namespace yy {
       enum yytokentype
       {
         END = 0,
-        PLUSOP = 258,
-        MINUSOP = 259,
-        MULTOP = 260,
-        INT = 261,
-        LP = 262,
-        RP = 263,
-        RSQUAREP = 264,
-        LSQUAREP = 265,
-        LBRACKET = 266,
-        RBRACKET = 267,
-        COMMA = 268,
-        SEMICOLON = 269,
-        EQUALS = 270,
-        DIVISIONOP = 271,
-        AND = 272,
-        OR = 273,
-        LESSER = 274,
-        GREATER = 275,
-        ASSIGNOP = 276,
-        CLASS = 277,
-        PUBLIC = 278,
-        STATIC = 279,
-        VOID = 280,
-        MAIN = 281,
-        STRING = 282,
-        EXTENDS = 283,
-        RETURN = 284,
-        INTEGER = 285,
-        BOOLEAN = 286,
-        IF = 287,
-        ELSE = 288,
-        WHILE = 289,
-        PRINT = 290,
-        PERIOD = 291,
-        LENGTH = 292,
-        TRUE = 293,
-        FALSE = 294,
-        NEW = 295,
-        NOT = 296,
-        THIS = 297,
-        IDENTIFIER = 298
+        IDENTIFIER = 258,
+        LSQUAREP = 259,
+        AND = 260,
+        RSQUAREP = 261,
+        LESSER = 262,
+        GREATER = 263,
+        OR = 264,
+        ASSIGNOP = 265,
+        MULTOP = 266,
+        DIVISIONOP = 267,
+        INT = 268,
+        PLUSOP = 269,
+        MINUSOP = 270,
+        PERIOD = 271,
+        LENGTH = 272,
+        TRUE = 273,
+        FALSE = 274,
+        THIS = 275,
+        NEW = 276,
+        INTEGER = 277,
+        BOOLEAN = 278,
+        LP = 279,
+        RP = 280,
+        NOT = 281,
+        COMMA = 282,
+        LBRACKET = 283,
+        RBRACKET = 284,
+        IF = 285,
+        ELSE = 286,
+        WHILE = 287,
+        PRINT = 288,
+        SEMICOLON = 289,
+        EQUALS = 290,
+        RETURN = 291,
+        PUBLIC = 292,
+        CLASS = 293,
+        EXTENDS = 294,
+        STATIC = 295,
+        VOID = 296,
+        MAIN = 297,
+        STRINGS = 298,
+        STRING = 299
       };
     };
 
@@ -600,66 +602,67 @@ namespace yy {
         // Type destructor.
 switch (yytype)
     {
-      case 45: // goal
-      case 46: // mainclass
-      case 47: // extends
-      case 48: // classList
-      case 49: // classDec
-      case 50: // varList
-      case 51: // varDec
-      case 52: // methodList
-      case 53: // methodDec
-      case 54: // identifierList
-      case 55: // type
-      case 56: // stateList
-      case 57: // statement
-      case 58: // identifier
-      case 59: // expList
+      case 46: // program
+      case 47: // mainClass
+      case 48: // extends
+      case 49: // classDeclarationList
+      case 50: // classDeclaration
+      case 51: // varDeclarationList
+      case 52: // varDeclaration
+      case 53: // methodDeclarationList
+      case 54: // methodDeclaration
+      case 55: // parameterList
+      case 56: // type
+      case 57: // statementList
+      case 58: // statement
+      case 59: // expressionList
       case 60: // expression
+      case 61: // identifier
         value.template destroy< Node * > ();
         break;
 
-      case 3: // PLUSOP
-      case 4: // MINUSOP
-      case 5: // MULTOP
-      case 6: // INT
-      case 7: // LP
-      case 8: // RP
-      case 9: // RSQUAREP
-      case 10: // LSQUAREP
-      case 11: // LBRACKET
-      case 12: // RBRACKET
-      case 13: // COMMA
-      case 14: // SEMICOLON
-      case 15: // EQUALS
-      case 16: // DIVISIONOP
-      case 17: // AND
-      case 18: // OR
-      case 19: // LESSER
-      case 20: // GREATER
-      case 21: // ASSIGNOP
-      case 22: // CLASS
-      case 23: // PUBLIC
-      case 24: // STATIC
-      case 25: // VOID
-      case 26: // MAIN
-      case 27: // STRING
-      case 28: // EXTENDS
-      case 29: // RETURN
-      case 30: // INTEGER
-      case 31: // BOOLEAN
-      case 32: // IF
-      case 33: // ELSE
-      case 34: // WHILE
-      case 35: // PRINT
-      case 36: // PERIOD
-      case 37: // LENGTH
-      case 38: // TRUE
-      case 39: // FALSE
-      case 40: // NEW
-      case 41: // NOT
-      case 42: // THIS
-      case 43: // IDENTIFIER
+      case 3: // IDENTIFIER
+      case 4: // LSQUAREP
+      case 5: // AND
+      case 6: // RSQUAREP
+      case 7: // LESSER
+      case 8: // GREATER
+      case 9: // OR
+      case 10: // ASSIGNOP
+      case 11: // MULTOP
+      case 12: // DIVISIONOP
+      case 13: // INT
+      case 14: // PLUSOP
+      case 15: // MINUSOP
+      case 16: // PERIOD
+      case 17: // LENGTH
+      case 18: // TRUE
+      case 19: // FALSE
+      case 20: // THIS
+      case 21: // NEW
+      case 22: // INTEGER
+      case 23: // BOOLEAN
+      case 24: // LP
+      case 25: // RP
+      case 26: // NOT
+      case 27: // COMMA
+      case 28: // LBRACKET
+      case 29: // RBRACKET
+      case 30: // IF
+      case 31: // ELSE
+      case 32: // WHILE
+      case 33: // PRINT
+      case 34: // SEMICOLON
+      case 35: // EQUALS
+      case 36: // RETURN
+      case 37: // PUBLIC
+      case 38: // CLASS
+      case 39: // EXTENDS
+      case 40: // STATIC
+      case 41: // VOID
+      case 42: // MAIN
+      case 43: // STRINGS
+      case 44: // STRING
         value.template destroy< std::string > ();
         break;
 
@@ -749,13 +752,13 @@ switch (yytype)
       symbol_type (int tok, std::string v)
         : super_type(token_type (tok), std::move (v))
       {
-        YY_ASSERT (tok == token::PLUSOP || tok == token::MINUSOP || tok == token::MULTOP || tok == token::INT || tok == token::LP || tok == token::RP || tok == token::RSQUAREP || tok == token::LSQUAREP || tok == token::LBRACKET || tok == token::RBRACKET || tok == token::COMMA || tok == token::SEMICOLON || tok == token::EQUALS || tok == token::DIVISIONOP || tok == token::AND || tok == token::OR || tok == token::LESSER || tok == token::GREATER || tok == token::ASSIGNOP || tok == token::CLASS || tok == token::PUBLIC || tok == token::STATIC || tok == token::VOID || tok == token::MAIN || tok == token::STRING || tok == token::EXTENDS || tok == token::RETURN || tok == token::INTEGER || tok == token::BOOLEAN || tok == token::IF || tok == token::ELSE || tok == token::WHILE || tok == token::PRINT || tok == token::PERIOD || tok == token::LENGTH || tok == token::TRUE || tok == token::FALSE || tok == token::NEW || tok == token::NOT || tok == token::THIS || tok == token::IDENTIFIER);
+        YY_ASSERT (tok == token::IDENTIFIER || tok == token::LSQUAREP || tok == token::AND || tok == token::RSQUAREP || tok == token::LESSER || tok == token::GREATER || tok == token::OR || tok == token::ASSIGNOP || tok == token::MULTOP || tok == token::DIVISIONOP || tok == token::INT || tok == token::PLUSOP || tok == token::MINUSOP || tok == token::PERIOD || tok == token::LENGTH || tok == token::TRUE || tok == token::FALSE || tok == token::THIS || tok == token::NEW || tok == token::INTEGER || tok == token::BOOLEAN || tok == token::LP || tok == token::RP || tok == token::NOT || tok == token::COMMA || tok == token::LBRACKET || tok == token::RBRACKET || tok == token::IF || tok == token::ELSE || tok == token::WHILE || tok == token::PRINT || tok == token::SEMICOLON || tok == token::EQUALS || tok == token::RETURN || tok == token::PUBLIC || tok == token::CLASS || tok == token::EXTENDS || tok == token::STATIC || tok == token::VOID || tok == token::MAIN || tok == token::STRINGS || tok == token::STRING);
       }
 #else
       symbol_type (int tok, const std::string& v)
         : super_type(token_type (tok), v)
       {
-        YY_ASSERT (tok == token::PLUSOP || tok == token::MINUSOP || tok == token::MULTOP || tok == token::INT || tok == token::LP || tok == token::RP || tok == token::RSQUAREP || tok == token::LSQUAREP || tok == token::LBRACKET || tok == token::RBRACKET || tok == token::COMMA || tok == token::SEMICOLON || tok == token::EQUALS || tok == token::DIVISIONOP || tok == token::AND || tok == token::OR || tok == token::LESSER || tok == token::GREATER || tok == token::ASSIGNOP || tok == token::CLASS || tok == token::PUBLIC || tok == token::STATIC || tok == token::VOID || tok == token::MAIN || tok == token::STRING || tok == token::EXTENDS || tok == token::RETURN || tok == token::INTEGER || tok == token::BOOLEAN || tok == token::IF || tok == token::ELSE || tok == token::WHILE || tok == token::PRINT || tok == token::PERIOD || tok == token::LENGTH || tok == token::TRUE || tok == token::FALSE || tok == token::NEW || tok == token::NOT || tok == token::THIS || tok == token::IDENTIFIER);
+        YY_ASSERT (tok == token::IDENTIFIER || tok == token::LSQUAREP || tok == token::AND || tok == token::RSQUAREP || tok == token::LESSER || tok == token::GREATER || tok == token::OR || tok == token::ASSIGNOP || tok == token::MULTOP || tok == token::DIVISIONOP || tok == token::INT || tok == token::PLUSOP || tok == token::MINUSOP || tok == token::PERIOD || tok == token::LENGTH || tok == token::TRUE || tok == token::FALSE || tok == token::THIS || tok == token::NEW || tok == token::INTEGER || tok == token::BOOLEAN || tok == token::LP || tok == token::RP || tok == token::NOT || tok == token::COMMA || tok == token::LBRACKET || tok == token::RBRACKET || tok == token::IF || tok == token::ELSE || tok == token::WHILE || tok == token::PRINT || tok == token::SEMICOLON || tok == token::EQUALS || tok == token::RETURN || tok == token::PUBLIC || tok == token::CLASS || tok == token::EXTENDS || tok == token::STATIC || tok == token::VOID || tok == token::MAIN || tok == token::STRINGS || tok == token::STRING);
       }
 #endif
     };
@@ -812,106 +815,16 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_PLUSOP (std::string v)
+      make_IDENTIFIER (std::string v)
       {
-        return symbol_type (token::PLUSOP, std::move (v));
+        return symbol_type (token::IDENTIFIER, std::move (v));
       }
 #else
       static
       symbol_type
-      make_PLUSOP (const std::string& v)
+      make_IDENTIFIER (const std::string& v)
       {
-        return symbol_type (token::PLUSOP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_MINUSOP (std::string v)
-      {
-        return symbol_type (token::MINUSOP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_MINUSOP (const std::string& v)
-      {
-        return symbol_type (token::MINUSOP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_MULTOP (std::string v)
-      {
-        return symbol_type (token::MULTOP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_MULTOP (const std::string& v)
-      {
-        return symbol_type (token::MULTOP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_INT (std::string v)
-      {
-        return symbol_type (token::INT, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_INT (const std::string& v)
-      {
-        return symbol_type (token::INT, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_LP (std::string v)
-      {
-        return symbol_type (token::LP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_LP (const std::string& v)
-      {
-        return symbol_type (token::LP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_RP (std::string v)
-      {
-        return symbol_type (token::RP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_RP (const std::string& v)
-      {
-        return symbol_type (token::RP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_RSQUAREP (std::string v)
-      {
-        return symbol_type (token::RSQUAREP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_RSQUAREP (const std::string& v)
-      {
-        return symbol_type (token::RSQUAREP, v);
+        return symbol_type (token::IDENTIFIER, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -932,96 +845,6 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_LBRACKET (std::string v)
-      {
-        return symbol_type (token::LBRACKET, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_LBRACKET (const std::string& v)
-      {
-        return symbol_type (token::LBRACKET, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_RBRACKET (std::string v)
-      {
-        return symbol_type (token::RBRACKET, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_RBRACKET (const std::string& v)
-      {
-        return symbol_type (token::RBRACKET, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_COMMA (std::string v)
-      {
-        return symbol_type (token::COMMA, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_COMMA (const std::string& v)
-      {
-        return symbol_type (token::COMMA, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_SEMICOLON (std::string v)
-      {
-        return symbol_type (token::SEMICOLON, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_SEMICOLON (const std::string& v)
-      {
-        return symbol_type (token::SEMICOLON, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_EQUALS (std::string v)
-      {
-        return symbol_type (token::EQUALS, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_EQUALS (const std::string& v)
-      {
-        return symbol_type (token::EQUALS, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_DIVISIONOP (std::string v)
-      {
-        return symbol_type (token::DIVISIONOP, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_DIVISIONOP (const std::string& v)
-      {
-        return symbol_type (token::DIVISIONOP, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
       make_AND (std::string v)
       {
         return symbol_type (token::AND, std::move (v));
@@ -1037,16 +860,16 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_OR (std::string v)
+      make_RSQUAREP (std::string v)
       {
-        return symbol_type (token::OR, std::move (v));
+        return symbol_type (token::RSQUAREP, std::move (v));
       }
 #else
       static
       symbol_type
-      make_OR (const std::string& v)
+      make_RSQUAREP (const std::string& v)
       {
-        return symbol_type (token::OR, v);
+        return symbol_type (token::RSQUAREP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1082,6 +905,21 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
+      make_OR (std::string v)
+      {
+        return symbol_type (token::OR, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_OR (const std::string& v)
+      {
+        return symbol_type (token::OR, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
       make_ASSIGNOP (std::string v)
       {
         return symbol_type (token::ASSIGNOP, std::move (v));
@@ -1097,211 +935,76 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_CLASS (std::string v)
+      make_MULTOP (std::string v)
       {
-        return symbol_type (token::CLASS, std::move (v));
+        return symbol_type (token::MULTOP, std::move (v));
       }
 #else
       static
       symbol_type
-      make_CLASS (const std::string& v)
+      make_MULTOP (const std::string& v)
       {
-        return symbol_type (token::CLASS, v);
+        return symbol_type (token::MULTOP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_PUBLIC (std::string v)
+      make_DIVISIONOP (std::string v)
       {
-        return symbol_type (token::PUBLIC, std::move (v));
+        return symbol_type (token::DIVISIONOP, std::move (v));
       }
 #else
       static
       symbol_type
-      make_PUBLIC (const std::string& v)
+      make_DIVISIONOP (const std::string& v)
       {
-        return symbol_type (token::PUBLIC, v);
+        return symbol_type (token::DIVISIONOP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_STATIC (std::string v)
+      make_INT (std::string v)
       {
-        return symbol_type (token::STATIC, std::move (v));
+        return symbol_type (token::INT, std::move (v));
       }
 #else
       static
       symbol_type
-      make_STATIC (const std::string& v)
+      make_INT (const std::string& v)
       {
-        return symbol_type (token::STATIC, v);
+        return symbol_type (token::INT, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_VOID (std::string v)
+      make_PLUSOP (std::string v)
       {
-        return symbol_type (token::VOID, std::move (v));
+        return symbol_type (token::PLUSOP, std::move (v));
       }
 #else
       static
       symbol_type
-      make_VOID (const std::string& v)
+      make_PLUSOP (const std::string& v)
       {
-        return symbol_type (token::VOID, v);
+        return symbol_type (token::PLUSOP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_MAIN (std::string v)
+      make_MINUSOP (std::string v)
       {
-        return symbol_type (token::MAIN, std::move (v));
+        return symbol_type (token::MINUSOP, std::move (v));
       }
 #else
       static
       symbol_type
-      make_MAIN (const std::string& v)
+      make_MINUSOP (const std::string& v)
       {
-        return symbol_type (token::MAIN, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_STRING (std::string v)
-      {
-        return symbol_type (token::STRING, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_STRING (const std::string& v)
-      {
-        return symbol_type (token::STRING, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_EXTENDS (std::string v)
-      {
-        return symbol_type (token::EXTENDS, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_EXTENDS (const std::string& v)
-      {
-        return symbol_type (token::EXTENDS, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_RETURN (std::string v)
-      {
-        return symbol_type (token::RETURN, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_RETURN (const std::string& v)
-      {
-        return symbol_type (token::RETURN, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_INTEGER (std::string v)
-      {
-        return symbol_type (token::INTEGER, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_INTEGER (const std::string& v)
-      {
-        return symbol_type (token::INTEGER, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_BOOLEAN (std::string v)
-      {
-        return symbol_type (token::BOOLEAN, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_BOOLEAN (const std::string& v)
-      {
-        return symbol_type (token::BOOLEAN, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_IF (std::string v)
-      {
-        return symbol_type (token::IF, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_IF (const std::string& v)
-      {
-        return symbol_type (token::IF, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_ELSE (std::string v)
-      {
-        return symbol_type (token::ELSE, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_ELSE (const std::string& v)
-      {
-        return symbol_type (token::ELSE, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_WHILE (std::string v)
-      {
-        return symbol_type (token::WHILE, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_WHILE (const std::string& v)
-      {
-        return symbol_type (token::WHILE, v);
-      }
-#endif
-#if 201103L <= YY_CPLUSPLUS
-      static
-      symbol_type
-      make_PRINT (std::string v)
-      {
-        return symbol_type (token::PRINT, std::move (v));
-      }
-#else
-      static
-      symbol_type
-      make_PRINT (const std::string& v)
-      {
-        return symbol_type (token::PRINT, v);
+        return symbol_type (token::MINUSOP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1367,6 +1070,21 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
+      make_THIS (std::string v)
+      {
+        return symbol_type (token::THIS, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_THIS (const std::string& v)
+      {
+        return symbol_type (token::THIS, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
       make_NEW (std::string v)
       {
         return symbol_type (token::NEW, std::move (v));
@@ -1377,6 +1095,66 @@ switch (yytype)
       make_NEW (const std::string& v)
       {
         return symbol_type (token::NEW, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_INTEGER (std::string v)
+      {
+        return symbol_type (token::INTEGER, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_INTEGER (const std::string& v)
+      {
+        return symbol_type (token::INTEGER, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_BOOLEAN (std::string v)
+      {
+        return symbol_type (token::BOOLEAN, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_BOOLEAN (const std::string& v)
+      {
+        return symbol_type (token::BOOLEAN, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_LP (std::string v)
+      {
+        return symbol_type (token::LP, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_LP (const std::string& v)
+      {
+        return symbol_type (token::LP, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_RP (std::string v)
+      {
+        return symbol_type (token::RP, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_RP (const std::string& v)
+      {
+        return symbol_type (token::RP, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
@@ -1397,31 +1175,271 @@ switch (yytype)
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_THIS (std::string v)
+      make_COMMA (std::string v)
       {
-        return symbol_type (token::THIS, std::move (v));
+        return symbol_type (token::COMMA, std::move (v));
       }
 #else
       static
       symbol_type
-      make_THIS (const std::string& v)
+      make_COMMA (const std::string& v)
       {
-        return symbol_type (token::THIS, v);
+        return symbol_type (token::COMMA, v);
       }
 #endif
 #if 201103L <= YY_CPLUSPLUS
       static
       symbol_type
-      make_IDENTIFIER (std::string v)
+      make_LBRACKET (std::string v)
       {
-        return symbol_type (token::IDENTIFIER, std::move (v));
+        return symbol_type (token::LBRACKET, std::move (v));
       }
 #else
       static
       symbol_type
-      make_IDENTIFIER (const std::string& v)
+      make_LBRACKET (const std::string& v)
       {
-        return symbol_type (token::IDENTIFIER, v);
+        return symbol_type (token::LBRACKET, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_RBRACKET (std::string v)
+      {
+        return symbol_type (token::RBRACKET, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_RBRACKET (const std::string& v)
+      {
+        return symbol_type (token::RBRACKET, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_IF (std::string v)
+      {
+        return symbol_type (token::IF, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_IF (const std::string& v)
+      {
+        return symbol_type (token::IF, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_ELSE (std::string v)
+      {
+        return symbol_type (token::ELSE, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_ELSE (const std::string& v)
+      {
+        return symbol_type (token::ELSE, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_WHILE (std::string v)
+      {
+        return symbol_type (token::WHILE, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_WHILE (const std::string& v)
+      {
+        return symbol_type (token::WHILE, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_PRINT (std::string v)
+      {
+        return symbol_type (token::PRINT, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_PRINT (const std::string& v)
+      {
+        return symbol_type (token::PRINT, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_SEMICOLON (std::string v)
+      {
+        return symbol_type (token::SEMICOLON, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_SEMICOLON (const std::string& v)
+      {
+        return symbol_type (token::SEMICOLON, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_EQUALS (std::string v)
+      {
+        return symbol_type (token::EQUALS, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_EQUALS (const std::string& v)
+      {
+        return symbol_type (token::EQUALS, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_RETURN (std::string v)
+      {
+        return symbol_type (token::RETURN, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_RETURN (const std::string& v)
+      {
+        return symbol_type (token::RETURN, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_PUBLIC (std::string v)
+      {
+        return symbol_type (token::PUBLIC, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_PUBLIC (const std::string& v)
+      {
+        return symbol_type (token::PUBLIC, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_CLASS (std::string v)
+      {
+        return symbol_type (token::CLASS, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_CLASS (const std::string& v)
+      {
+        return symbol_type (token::CLASS, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_EXTENDS (std::string v)
+      {
+        return symbol_type (token::EXTENDS, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_EXTENDS (const std::string& v)
+      {
+        return symbol_type (token::EXTENDS, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_STATIC (std::string v)
+      {
+        return symbol_type (token::STATIC, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_STATIC (const std::string& v)
+      {
+        return symbol_type (token::STATIC, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_VOID (std::string v)
+      {
+        return symbol_type (token::VOID, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_VOID (const std::string& v)
+      {
+        return symbol_type (token::VOID, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_MAIN (std::string v)
+      {
+        return symbol_type (token::MAIN, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_MAIN (const std::string& v)
+      {
+        return symbol_type (token::MAIN, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_STRINGS (std::string v)
+      {
+        return symbol_type (token::STRINGS, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_STRINGS (const std::string& v)
+      {
+        return symbol_type (token::STRINGS, v);
+      }
+#endif
+#if 201103L <= YY_CPLUSPLUS
+      static
+      symbol_type
+      make_STRING (std::string v)
+      {
+        return symbol_type (token::STRING, std::move (v));
+      }
+#else
+      static
+      symbol_type
+      make_STRING (const std::string& v)
+      {
+        return symbol_type (token::STRING, v);
       }
 #endif
 
@@ -1730,10 +1748,10 @@ switch (yytype)
     enum
     {
       yyeof_ = 0,
-      yylast_ = 500,     ///< Last index in yytable_.
+      yylast_ = 488,     ///< Last index in yytable_.
       yynnts_ = 17,  ///< Number of nonterminal symbols.
       yyfinal_ = 6, ///< Termination state number.
-      yyntokens_ = 44  ///< Number of tokens.
+      yyntokens_ = 45  ///< Number of tokens.
     };
 
 
@@ -1778,9 +1796,9 @@ switch (yytype)
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
       15,    16,    17,    18,    19,    20,    21,    22,    23,    24,
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
-      35,    36,    37,    38,    39,    40,    41,    42,    43
+      35,    36,    37,    38,    39,    40,    41,    42,    43,    44
     };
-    const int user_token_number_max_ = 298;
+    const int user_token_number_max_ = 299;
 
     if (t <= 0)
       return yyeof_;
@@ -1799,66 +1817,67 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 45: // goal
-      case 46: // mainclass
-      case 47: // extends
-      case 48: // classList
-      case 49: // classDec
-      case 50: // varList
-      case 51: // varDec
-      case 52: // methodList
-      case 53: // methodDec
-      case 54: // identifierList
-      case 55: // type
-      case 56: // stateList
-      case 57: // statement
-      case 58: // identifier
-      case 59: // expList
+      case 46: // program
+      case 47: // mainClass
+      case 48: // extends
+      case 49: // classDeclarationList
+      case 50: // classDeclaration
+      case 51: // varDeclarationList
+      case 52: // varDeclaration
+      case 53: // methodDeclarationList
+      case 54: // methodDeclaration
+      case 55: // parameterList
+      case 56: // type
+      case 57: // statementList
+      case 58: // statement
+      case 59: // expressionList
       case 60: // expression
+      case 61: // identifier
         value.move< Node * > (std::move (that.value));
         break;
 
-      case 3: // PLUSOP
-      case 4: // MINUSOP
-      case 5: // MULTOP
-      case 6: // INT
-      case 7: // LP
-      case 8: // RP
-      case 9: // RSQUAREP
-      case 10: // LSQUAREP
-      case 11: // LBRACKET
-      case 12: // RBRACKET
-      case 13: // COMMA
-      case 14: // SEMICOLON
-      case 15: // EQUALS
-      case 16: // DIVISIONOP
-      case 17: // AND
-      case 18: // OR
-      case 19: // LESSER
-      case 20: // GREATER
-      case 21: // ASSIGNOP
-      case 22: // CLASS
-      case 23: // PUBLIC
-      case 24: // STATIC
-      case 25: // VOID
-      case 26: // MAIN
-      case 27: // STRING
-      case 28: // EXTENDS
-      case 29: // RETURN
-      case 30: // INTEGER
-      case 31: // BOOLEAN
-      case 32: // IF
-      case 33: // ELSE
-      case 34: // WHILE
-      case 35: // PRINT
-      case 36: // PERIOD
-      case 37: // LENGTH
-      case 38: // TRUE
-      case 39: // FALSE
-      case 40: // NEW
-      case 41: // NOT
-      case 42: // THIS
-      case 43: // IDENTIFIER
+      case 3: // IDENTIFIER
+      case 4: // LSQUAREP
+      case 5: // AND
+      case 6: // RSQUAREP
+      case 7: // LESSER
+      case 8: // GREATER
+      case 9: // OR
+      case 10: // ASSIGNOP
+      case 11: // MULTOP
+      case 12: // DIVISIONOP
+      case 13: // INT
+      case 14: // PLUSOP
+      case 15: // MINUSOP
+      case 16: // PERIOD
+      case 17: // LENGTH
+      case 18: // TRUE
+      case 19: // FALSE
+      case 20: // THIS
+      case 21: // NEW
+      case 22: // INTEGER
+      case 23: // BOOLEAN
+      case 24: // LP
+      case 25: // RP
+      case 26: // NOT
+      case 27: // COMMA
+      case 28: // LBRACKET
+      case 29: // RBRACKET
+      case 30: // IF
+      case 31: // ELSE
+      case 32: // WHILE
+      case 33: // PRINT
+      case 34: // SEMICOLON
+      case 35: // EQUALS
+      case 36: // RETURN
+      case 37: // PUBLIC
+      case 38: // CLASS
+      case 39: // EXTENDS
+      case 40: // STATIC
+      case 41: // VOID
+      case 42: // MAIN
+      case 43: // STRINGS
+      case 44: // STRING
         value.move< std::string > (std::move (that.value));
         break;
 
@@ -1876,66 +1895,67 @@ switch (yytype)
   {
     switch (this->type_get ())
     {
-      case 45: // goal
-      case 46: // mainclass
-      case 47: // extends
-      case 48: // classList
-      case 49: // classDec
-      case 50: // varList
-      case 51: // varDec
-      case 52: // methodList
-      case 53: // methodDec
-      case 54: // identifierList
-      case 55: // type
-      case 56: // stateList
-      case 57: // statement
-      case 58: // identifier
-      case 59: // expList
+      case 46: // program
+      case 47: // mainClass
+      case 48: // extends
+      case 49: // classDeclarationList
+      case 50: // classDeclaration
+      case 51: // varDeclarationList
+      case 52: // varDeclaration
+      case 53: // methodDeclarationList
+      case 54: // methodDeclaration
+      case 55: // parameterList
+      case 56: // type
+      case 57: // statementList
+      case 58: // statement
+      case 59: // expressionList
       case 60: // expression
+      case 61: // identifier
         value.copy< Node * > (YY_MOVE (that.value));
         break;
 
-      case 3: // PLUSOP
-      case 4: // MINUSOP
-      case 5: // MULTOP
-      case 6: // INT
-      case 7: // LP
-      case 8: // RP
-      case 9: // RSQUAREP
-      case 10: // LSQUAREP
-      case 11: // LBRACKET
-      case 12: // RBRACKET
-      case 13: // COMMA
-      case 14: // SEMICOLON
-      case 15: // EQUALS
-      case 16: // DIVISIONOP
-      case 17: // AND
-      case 18: // OR
-      case 19: // LESSER
-      case 20: // GREATER
-      case 21: // ASSIGNOP
-      case 22: // CLASS
-      case 23: // PUBLIC
-      case 24: // STATIC
-      case 25: // VOID
-      case 26: // MAIN
-      case 27: // STRING
-      case 28: // EXTENDS
-      case 29: // RETURN
-      case 30: // INTEGER
-      case 31: // BOOLEAN
-      case 32: // IF
-      case 33: // ELSE
-      case 34: // WHILE
-      case 35: // PRINT
-      case 36: // PERIOD
-      case 37: // LENGTH
-      case 38: // TRUE
-      case 39: // FALSE
-      case 40: // NEW
-      case 41: // NOT
-      case 42: // THIS
-      case 43: // IDENTIFIER
+      case 3: // IDENTIFIER
+      case 4: // LSQUAREP
+      case 5: // AND
+      case 6: // RSQUAREP
+      case 7: // LESSER
+      case 8: // GREATER
+      case 9: // OR
+      case 10: // ASSIGNOP
+      case 11: // MULTOP
+      case 12: // DIVISIONOP
+      case 13: // INT
+      case 14: // PLUSOP
+      case 15: // MINUSOP
+      case 16: // PERIOD
+      case 17: // LENGTH
+      case 18: // TRUE
+      case 19: // FALSE
+      case 20: // THIS
+      case 21: // NEW
+      case 22: // INTEGER
+      case 23: // BOOLEAN
+      case 24: // LP
+      case 25: // RP
+      case 26: // NOT
+      case 27: // COMMA
+      case 28: // LBRACKET
+      case 29: // RBRACKET
+      case 30: // IF
+      case 31: // ELSE
+      case 32: // WHILE
+      case 33: // PRINT
+      case 34: // SEMICOLON
+      case 35: // EQUALS
+      case 36: // RETURN
+      case 37: // PUBLIC
+      case 38: // CLASS
+      case 39: // EXTENDS
+      case 40: // STATIC
+      case 41: // VOID
+      case 42: // MAIN
+      case 43: // STRINGS
+      case 44: // STRING
         value.copy< std::string > (YY_MOVE (that.value));
         break;
 
@@ -1961,66 +1981,67 @@ switch (yytype)
     super_type::move (s);
     switch (this->type_get ())
     {
-      case 45: // goal
-      case 46: // mainclass
-      case 47: // extends
-      case 48: // classList
-      case 49: // classDec
-      case 50: // varList
-      case 51: // varDec
-      case 52: // methodList
-      case 53: // methodDec
-      case 54: // identifierList
-      case 55: // type
-      case 56: // stateList
-      case 57: // statement
-      case 58: // identifier
-      case 59: // expList
+      case 46: // program
+      case 47: // mainClass
+      case 48: // extends
+      case 49: // classDeclarationList
+      case 50: // classDeclaration
+      case 51: // varDeclarationList
+      case 52: // varDeclaration
+      case 53: // methodDeclarationList
+      case 54: // methodDeclaration
+      case 55: // parameterList
+      case 56: // type
+      case 57: // statementList
+      case 58: // statement
+      case 59: // expressionList
       case 60: // expression
+      case 61: // identifier
         value.move< Node * > (YY_MOVE (s.value));
         break;
 
-      case 3: // PLUSOP
-      case 4: // MINUSOP
-      case 5: // MULTOP
-      case 6: // INT
-      case 7: // LP
-      case 8: // RP
-      case 9: // RSQUAREP
-      case 10: // LSQUAREP
-      case 11: // LBRACKET
-      case 12: // RBRACKET
-      case 13: // COMMA
-      case 14: // SEMICOLON
-      case 15: // EQUALS
-      case 16: // DIVISIONOP
-      case 17: // AND
-      case 18: // OR
-      case 19: // LESSER
-      case 20: // GREATER
-      case 21: // ASSIGNOP
-      case 22: // CLASS
-      case 23: // PUBLIC
-      case 24: // STATIC
-      case 25: // VOID
-      case 26: // MAIN
-      case 27: // STRING
-      case 28: // EXTENDS
-      case 29: // RETURN
-      case 30: // INTEGER
-      case 31: // BOOLEAN
-      case 32: // IF
-      case 33: // ELSE
-      case 34: // WHILE
-      case 35: // PRINT
-      case 36: // PERIOD
-      case 37: // LENGTH
-      case 38: // TRUE
-      case 39: // FALSE
-      case 40: // NEW
-      case 41: // NOT
-      case 42: // THIS
-      case 43: // IDENTIFIER
+      case 3: // IDENTIFIER
+      case 4: // LSQUAREP
+      case 5: // AND
+      case 6: // RSQUAREP
+      case 7: // LESSER
+      case 8: // GREATER
+      case 9: // OR
+      case 10: // ASSIGNOP
+      case 11: // MULTOP
+      case 12: // DIVISIONOP
+      case 13: // INT
+      case 14: // PLUSOP
+      case 15: // MINUSOP
+      case 16: // PERIOD
+      case 17: // LENGTH
+      case 18: // TRUE
+      case 19: // FALSE
+      case 20: // THIS
+      case 21: // NEW
+      case 22: // INTEGER
+      case 23: // BOOLEAN
+      case 24: // LP
+      case 25: // RP
+      case 26: // NOT
+      case 27: // COMMA
+      case 28: // LBRACKET
+      case 29: // RBRACKET
+      case 30: // IF
+      case 31: // ELSE
+      case 32: // WHILE
+      case 33: // PRINT
+      case 34: // SEMICOLON
+      case 35: // EQUALS
+      case 36: // RETURN
+      case 37: // PUBLIC
+      case 38: // CLASS
+      case 39: // EXTENDS
+      case 40: // STATIC
+      case 41: // VOID
+      case 42: // MAIN
+      case 43: // STRINGS
+      case 44: // STRING
         value.move< std::string > (YY_MOVE (s.value));
         break;
 
@@ -2078,7 +2099,7 @@ switch (yytype)
   }
 
 } // yy
-#line 2082 "parser.tab.hh"
+#line 2103 "parser.tab.hh"
 
 
 

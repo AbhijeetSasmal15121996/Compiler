@@ -15,510 +15,460 @@
   
   Node* root;
   
+  extern int node_id;
+  
 }
-// definition of set of tokens. All tokens are of type string
-%token <std::string> PLUSOP MINUSOP MULTOP INT LP RP RSQUAREP LSQUAREP LBRACKET RBRACKET COMMA SEMICOLON EQUALS DIVISIONOP AND OR LESSER GREATER ASSIGNOP CLASS PUBLIC STATIC VOID MAIN STRING EXTENDS RETURN INTEGER BOOLEAN IF ELSE WHILE PRINT PERIOD LENGTH TRUE FALSE NEW NOT THIS IDENTIFIER
+%token <std::string> IDENTIFIER LSQUAREP AND RSQUAREP LESSER GREATER OR ASSIGNOP MULTOP DIVISIONOP INT PLUSOP MINUSOP PERIOD LENGTH TRUE FALSE THIS NEW INTEGER BOOLEAN LP RP NOT COMMA LBRACKET RBRACKET IF ELSE WHILE PRINT SEMICOLON EQUALS RETURN PUBLIC CLASS EXTENDS STATIC VOID MAIN STRINGS STRING
 %token END 0 "end of file"
+%type <Node *> identifier program expression expressionList statement statementList type varDeclaration varDeclarationList methodDeclaration parameterList extends methodDeclarationList classDeclaration classDeclarationList mainClass
 
-// definition of the production rules. All production rules are of type Node
-%type <Node *> goal identifier expression expList statement stateList type varDec varList methodDec methodList classDec classList mainclass extends identifierList
+%right EQUALS
+%left LSQUAREP
+%left AND
+%left PLUSOP MINUSOP
+%left MULTOP
+%left DIVISIONOP
+%left PERIOD
+%left NOT
+%nonassoc LESSER
 
 
 %%
 
-goal: mainclass{ $$ = $1; printf("R1 ");}
-      | goal classList END{
-        printf("R2 \n");
-        $$ = new Node("GOAL","");
-        $$->children.push_back($1);
-        if($2) $$->children.push_back($2);
-        root = $$;
-      };
-mainclass:CLASS identifier LBRACKET PUBLIC STATIC VOID MAIN LP STRING LSQUAREP RSQUAREP identifier RP LBRACKET statement RBRACKET RBRACKET{
-          printf("R3 ");
-          $$ = new Node ("Main Class","");
-          $$->children.push_back(new Node("","CLASS"));
-          $$->children.push_back($2);
-          $$->children.push_back(new Node("","{"));
-          $$->children.push_back(new Node("",$4));
-          $$->children.push_back(new Node("","STATIC"));
-          $$->children.push_back(new Node("","VOID"));
-          $$->children.push_back(new Node("","MAIN"));
-          $$->children.push_back(new Node("","("));
-          $$->children.push_back(new Node("","STRING"));
-          $$->children.push_back(new Node("","["));
-          $$->children.push_back(new Node("","]"));
-          $$->children.push_back($12);
-          $$->children.push_back(new Node("",")"));
-          $$->children.push_back(new Node("","{"));
-          $$->children.push_back($15);
-          $$->children.push_back(new Node("","}"));
-          $$->children.push_back(new Node("","}"));
-};
-extends: {} 
-| EXTENDS identifier{
-            printf("R4 ");
-            $$ = new Node("EXTENDS", "");
-            $$->children.push_back(new Node("",""));
-            $$->children.push_back($2);
+program: mainClass { $$ = $1; printf("R1 ");}
+      | program classDeclarationList END{
+                        printf("R2 Rules \n");
+                        $$ = new Node("Program", "");
+                        $$->children.push_back($1);
+                        if($2) $$->children.push_back($2);
+                        root = $$;
+                      }
+        ;
 
-};
-classList: classDec{
-            $$ = $1;
-            printf("R5 ");
-            }
+mainClass: CLASS identifier LBRACKET PUBLIC STATIC VOID MAIN LP STRING LSQUAREP RSQUAREP identifier RP LBRACKET statement RBRACKET RBRACKET{
+                        printf("R3 ");
+                        $$ = new Node("MainClass", "");
+                        $$->children.push_back(new Node("", "CLASS")); 
+                        $$->children.push_back($2);
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        $$->children.push_back(new Node("", "PUBLIC"));
+                        $$->children.push_back(new Node("", "STATIC"));
+                        $$->children.push_back(new Node("", "VOID"));
+                        $$->children.push_back(new Node("", "MAIN"));
+                        $$->children.push_back(new Node("LP", "(")); 
+                        $$->children.push_back(new Node("", "String"));
+                        $$->children.push_back(new Node("LSQUAREP", "["));
+                        $$->children.push_back(new Node("RSQUAREP", "]"));       
+                        $$->children.push_back($12);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("LBRACKET", "{"));  
+                        $$->children.push_back($15);
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                        $$->children.push_back(new Node("RBRACKET", "}")); 
+                      }
+        ;
 
-|         classList classDec {
-             printf("R6 "); 
-             $$ = new Node("List of Class/es","");
-             $$->children.push_back($1);
-             $$->children.push_back($2);
-};
-classDec:CLASS identifier extends LBRACKET varList methodList RBRACKET{
-            printf("R7 ");
-            $$ = new Node("Class Declaration","");
-            $$->children.push_back(new Node("","CLASS"));
-            $$->children.push_back($2);
-            if($3) $$->children.push_back($3);
-            $$->children.push_back(new Node("","{"));
-            if($5) $$->children.push_back($5);
-            if($6) $$->children.push_back($6); 
-            $$->children.push_back(new Node("","}"));
-  }
-  
-| CLASS identifier extends LBRACKET methodList RBRACKET{
-            printf("R7.1 ");
-            $$ = new Node("Class Declaration","");
-            $$->children.push_back(new Node("","CLASS"));
-            $$->children.push_back($2);
-            if($3) $$->children.push_back($3);
-            $$->children.push_back(new Node("","{"));
-            if($5) $$->children.push_back($5);
-            //if($6) $$->children.push_back($6); 
-            $$->children.push_back(new Node("","}"));
-  }
+extends: {}
+        | EXTENDS identifier { 
+                        printf("R4 ");
+                        $$ = new Node("Extends", "");
+                        $$->children.push_back(new Node("", "EXTENDS")); 
+                        $$->children.push_back($2);
+                      }
+        
+        ; 
 
+classDeclarationList: classDeclaration { $$ = $1; printf("R5 ");}
+        | classDeclarationList classDeclaration {
+                        printf("R6 ");
+                        $$ = new Node("ClassDeclarationList", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back($2);
+                      }
+        ;
 
-| CLASS identifier extends LBRACKET varList RBRACKET{
-            printf("R7.2 ");
-            $$ = new Node("Class Declaration","");
-            $$->children.push_back(new Node("","CLASS"));
-            $$->children.push_back($2);
-            if($3) $$->children.push_back($3);
-            $$->children.push_back(new Node("","{"));
-            if($5) $$->children.push_back($5);
-            //if($6) $$->children.push_back($6); 
-            $$->children.push_back(new Node("","}"));
-  }
+classDeclaration: CLASS identifier extends LBRACKET varDeclarationList methodDeclarationList RBRACKET{
+                        printf("R7 ");
+                        $$ = new Node("ClassDeclaration", "");
+                        $$->children.push_back(new Node("", "CLASS")); 
+                        $$->children.push_back($2);
+                        if($3) $$->children.push_back($3);
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($5) $$->children.push_back($5);
+                        if($6) $$->children.push_back($6);
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        |         CLASS identifier extends LBRACKET methodDeclarationList RBRACKET{
+                        printf("R8 ");
+                        $$ = new Node("ClassDeclaration", "");
+                        $$->children.push_back(new Node("", "CLASS")); 
+                        $$->children.push_back($2);
+                        if($3) $$->children.push_back($3);
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        |          CLASS identifier extends LBRACKET varDeclarationList RBRACKET{
+                        printf("R9 ");
+                        $$ = new Node("ClassDeclaration", "");
+                        $$->children.push_back(new Node("", "CLASS")); 
+                        $$->children.push_back($2);
+                        if($3) $$->children.push_back($3);
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        |         CLASS identifier extends LBRACKET RBRACKET{
+                        printf("R10 ");
+                        $$ = new Node("ClassDeclaration", "");
+                        $$->children.push_back(new Node("", "CLASS")); 
+                        $$->children.push_back($2);
+                        if($3) $$->children.push_back($3);
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        ;
 
+varDeclarationList: varDeclaration { $$ = $1; printf("R11 ");}
+        | varDeclarationList varDeclaration {
+                        printf("R12 ");
+                        $$ = new Node("VarDeclarationList", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back($2);
+                      }
+        ;
+ 
+varDeclaration:  type identifier  SEMICOLON{
+                        printf("R13 ");
+                        $$ = new Node("VarDeclaration", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back($2);
+                        $$->children.push_back(new Node("SEMICOLON", ";")); 
+                      }
+        ;
 
-| CLASS identifier extends LBRACKET RBRACKET{
-            printf("R7.3 ");
-            $$ = new Node("Class Declaration","");
-            $$->children.push_back(new Node("","CLASS"));
-            $$->children.push_back($2);
-            if($3) $$->children.push_back($3);
-            $$->children.push_back(new Node("","{"));
-            //if($5) $$->children.push_back($5);
-            //if($6) $$->children.push_back($6); 
-            $$->children.push_back(new Node("","}"));
-  }
-  ;
-varList: varDec{
-              $$ = $1;
-              printf("R8 ");
-}
+methodDeclarationList: methodDeclaration { $$ = $1; printf("R14 ");}
+        | methodDeclarationList methodDeclaration { 
+                        printf("R15 ");
+                        $$ = new Node("MethodDeclarationList", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back($2);
+                        }
+        
+        ;
 
-|         varList varDec{
-             printf("R9 "); 
-             $$ = new Node("List of Variable/s","");
-             $$->children.push_back($1);
-             $$->children.push_back($2); 
-};
-varDec: type identifier SEMICOLON{
-        printf("R10 ");
-        $$ = new Node(" Variable Declaration", "");
-        $$->children.push_back($1);
-        $$->children.push_back($2);
-        $$->children.push_back(new Node("",";"));
-};
-methodList: methodDec{
-              $$ = $1;
-              printf("R11 ");
-}
+methodDeclaration: PUBLIC type identifier LP parameterList RP LBRACKET varDeclarationList statementList RETURN expression SEMICOLON RBRACKET{
+                        printf("R16 ");
+                        $$ = new Node("MethodDeclaration", "");
+                        $$->children.push_back(new Node("", "public")); 
+                        $$->children.push_back($2);
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($8) $$->children.push_back($8);
+                        if($9) $$->children.push_back($9);
+                        $$->children.push_back(new Node("", "return"));
+                        $$->children.push_back($11);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        |           PUBLIC type identifier LP parameterList RP LBRACKET statementList RETURN expression SEMICOLON RBRACKET{
+                        printf("R17 ");
+                        $$ = new Node("MethodDeclaration", "");
+                        $$->children.push_back(new Node("", "public")); 
+                        $$->children.push_back($2);
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($8) $$->children.push_back($8);
+                        $$->children.push_back(new Node("", "return"));
+                        $$->children.push_back($10);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }       
+         |           PUBLIC type identifier LP parameterList RP LBRACKET varDeclarationList RETURN expression SEMICOLON RBRACKET{
+                        printf("R17 ");
+                        $$ = new Node("MethodDeclaration", "");
+                        $$->children.push_back(new Node("", "public")); 
+                        $$->children.push_back($2);
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        if($8) $$->children.push_back($8);
+                        $$->children.push_back(new Node("", "return"));
+                        $$->children.push_back($10);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        |           PUBLIC type identifier LP parameterList RP LBRACKET RETURN expression SEMICOLON RBRACKET{
+                        printf("R18 ");
+                        $$ = new Node("MethodDeclaration", "");
+                        $$->children.push_back(new Node("", "public")); 
+                        $$->children.push_back($2);
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        if($5) $$->children.push_back($5);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        $$->children.push_back(new Node("", "return"));
+                        $$->children.push_back($9);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        ;
 
-|           methodList methodDec{
-             printf("R12 "); 
-             $$ = new Node("List of Method/s","");
-             $$->children.push_back($1);
-             $$->children.push_back($2); 
-};
-methodDec:   PUBLIC type identifier LP identifierList RP LBRACKET stateList RETURN expression SEMICOLON RBRACKET{
-          printf("R13 ");
-          $$ = new Node(" Method Declaration", "");
-          $$->children.push_back(new Node("","Public"));
-          $$->children.push_back($2);
-          $$->children.push_back($3);
-          $$->children.push_back(new Node("","("));
-          if($5) $$->children.push_back($5);
-          $$->children.push_back(new Node("",")"));
-          $$->children.push_back(new Node("","{"));
-          if($8) $$->children.push_back($8);
-          $$->children.push_back(new Node("","Return"));
-          $$->children.push_back($10);
-          $$->children.push_back(new Node("",";"));
-          $$->children.push_back(new Node("","}"));
+parameterList: {} 
+        | type identifier{
+                          printf("R19 ");
+                          $$ = new Node("ParameterList", ""); 
+                          $$->children.push_back($1);
+                          $$->children.push_back($2);
+                        } 
+        | type identifier COMMA parameterList {
+                          printf("R20 ");
+                          $$ = new Node("ParameterList", ""); 
+                          $$->children.push_back($1);
+                          $$->children.push_back($2);
+                          $$->children.push_back(new Node("COMMA", ","));
+                          $$->children.push_back($4);
+                        }
+        ;
 
+type:  identifier { $$ = $1; printf("R21 ");}
+        | INTEGER { $$ = new Node("TYPE", $1); printf("R22 ");}
+        | BOOLEAN { $$ = new Node("TYPE", $1); printf("R23 ");}
+        | INTEGER LSQUAREP RSQUAREP {
+                        printf("R24 ");
+                        $$ = new Node("TypeVector", ""); 
+                        $$->children.push_back(new Node("Type", "INT"));
+                        $$->children.push_back(new Node("LSQUAREP", "["));
+                        $$->children.push_back(new Node("RSQUAREP", "]"));
+                      }
+        ;
+statementList:  statement { $$ = $1; printf("R25 ");}
+        | statementList statement{
+                        printf("R26 ");
+                        $$ = new Node("StatementList", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back($2);
+                      }
+        ;
 
-}
-| PUBLIC type identifier LP identifierList RP LBRACKET RETURN expression SEMICOLON RBRACKET{
-          printf("R13.1 ");
-          $$ = new Node(" Method Declaration", "");
-          $$->children.push_back(new Node("","Public"));
-          $$->children.push_back($2);
-          $$->children.push_back($3);
-          $$->children.push_back(new Node("","("));
-          if($5) $$->children.push_back($5);
-          $$->children.push_back(new Node("",")"));
-          $$->children.push_back(new Node("","{"));
-          //if($8) $$->children.push_back($8);
-          $$->children.push_back(new Node("","Return"));
-          $$->children.push_back($9);
-          $$->children.push_back(new Node("",";"));
-          $$->children.push_back(new Node("","}"));
-}
+statement: LBRACKET statementList RBRACKET {
+                        printf("R27 ");
+                        $$ = new Node("Statement", ""); 
+                        $$->children.push_back(new Node("LBRACKET", "{"));
+                        $$->children.push_back($2);
+                        $$->children.push_back(new Node("RBRACKET", "}"));
+                      }
+        | IF LP expression RP statement ELSE statement{
+                        printf("R28 ");
+                        $$ = new Node("IFStatement", ""); 
+                        $$->children.push_back(new Node("IF", "if"));
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back($5);
+                        $$->children.push_back(new Node("ELSE", "else"));
+                        $$->children.push_back($7);
+                      }
+        | WHILE LP expression RP statement{
+                        printf("R29 ");
+                        $$ = new Node("WHILEStatement", ""); 
+                        $$->children.push_back(new Node("WHILE", "while"));
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back($5);
+                      }
+        | PRINT LP expression RP SEMICOLON {
+                        printf("R30 ");
+                        $$ = new Node("PrintStatement", ""); 
+                        $$->children.push_back(new Node("PRINT", "System.out.println"));
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("RP", ")"));
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                      }
+        | identifier EQUALS expression SEMICOLON{
+                        printf("R31 ");
+                        $$ = new Node("AssignmentStatement", "");
+                        $$->children.push_back($1); 
+                        $$->children.push_back(new Node("EQUALS", "="));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                      }
+        | identifier LSQUAREP expression RSQUAREP EQUALS expression SEMICOLON {
+                        printf("R32 ");
+                        $$ = new Node("VectorAssignmentStatement", "");
+                        $$->children.push_back($1); 
+                        $$->children.push_back(new Node("LSQUAREP", "["));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("RSQUAREP", "]"));
+                        $$->children.push_back(new Node("EQUALS", "="));
+                        $$->children.push_back($6);
+                        $$->children.push_back(new Node("SEMICOLON", ";"));
+                      }
+        ;
 
-methodDec:   PUBLIC type identifier LP identifierList RP LBRACKET varList stateList RETURN expression SEMICOLON RBRACKET{
-          printf("R13.2 ");
-          $$ = new Node(" Method Declaration", "");
-          $$->children.push_back(new Node("","Public"));
-          $$->children.push_back($2);
-          $$->children.push_back($3);
-          $$->children.push_back(new Node("","("));
-          if($5) $$->children.push_back($5);
-          $$->children.push_back(new Node("",")"));
-          $$->children.push_back(new Node("","{"));
-          if($8) $$->children.push_back($8);
-          if($9) $$->children.push_back($9);
-          $$->children.push_back(new Node("","Return"));
-          $$->children.push_back($11);
-          $$->children.push_back(new Node("",";"));
-          $$->children.push_back(new Node("","}"));
+expressionList: expression { $$ = $1; printf("R33 ");}
+        | expression COMMA expressionList       {
+                        printf("R34 ");
+                        $$ = new Node("ExpressionList", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("COMMA", ","));
+                        $$->children.push_back($3);
+                      }
+        ;
 
+expression: identifier { $$ = $1; printf("R35 ");}
+        | INT { $$ = new Node("INTEGER", $1); printf("R36 ");} 
+        | TRUE { $$ = new Node("LITERAL", $1); printf("R37 ");} 
+        | FALSE { $$ = new Node("LITERAL", $1); printf("R38 ");} 
+        | THIS { $$ = new Node("", $1); printf("R39 ");}  
+        | expression LESSER expression             {
+                        printf("R40 ");
+                        $$ = new Node("LESSERExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("LESSER", "<"));
+                        $$->children.push_back($3);
+                      
+                      }
+        | expression ASSIGNOP expression             {
+                        printf("R40 ");
+                        $$ = new Node("ASSIGNMENTExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("ASSIGNMENT", "=="));
+                        $$->children.push_back($3);
+                      
+                      }
+        | expression GREATER expression             {
+                        printf("R40 ");
+                        $$ = new Node("GREATERExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("GREATER", ">"));
+                        $$->children.push_back($3);
+                      
+                      }
+        | expression OR expression             {
+                        printf("R40 ");
+                        $$ = new Node("ORExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("OR", "||"));
+                        $$->children.push_back($3);
+                      
+                      }
+        
+        | expression AND expression             {
+                        printf("R41 ");
+                        $$ = new Node("AndExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("AND", "&&"));
+                        $$->children.push_back($3);
+                     
+                      }
+        | expression MULTOP expression             {
+                        printf("R42 ");
+                        $$ = new Node("MultExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("MULTOP", "*"));
+                        $$->children.push_back($3);
+        
+                      }
+        | expression DIVISIONOP expression             {
+                        printf("R42 ");
+                        $$ = new Node("DIVISIONExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("DIVISION", "/"));
+                        $$->children.push_back($3);
+        
+                      }
+        | expression PLUSOP expression             {
+                        printf("R43 ");
+                        $$ = new Node("PlusExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("PLUS", "+"));
+                        $$->children.push_back($3);
+        
+                      }
+        | expression MINUSOP expression             {
+                        printf("R44 ");
+                        $$ = new Node("MinusExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("MINUS", "-"));
+                        $$->children.push_back($3);
+        
+                      }
+        | expression LSQUAREP expression RSQUAREP{
+                        printf("R45 ");
+                        $$ = new Node("VectorAccessExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("LSQUAREP", "["));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("RSQUAREP", "]"));
+                      }
+        | expression PERIOD LENGTH                {
+                        printf("R46 ");
+                        $$ = new Node("LengthExpression", ""); 
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("PERIOD", "."));
+                        $$->children.push_back(new Node("LENGTH", "length"));
+                      }   
+        | NEW INTEGER LSQUAREP expression RSQUAREP                    {
+                        printf("R47 ");
+                        $$ = new Node("NewVectorExpression", "");
+                        $$->children.push_back(new Node("NEW", "new"));
+                        $$->children.push_back(new Node("INT", "int")); 
+                        $$->children.push_back(new Node("LSQUAREP", "["));
+                        $$->children.push_back($4);
+                        $$->children.push_back(new Node("RSQUAREP", "]")); 
+                      }  
+        | NEW identifier LP RP           {
+                        printf("R48 ");
+                        $$ = new Node("NewClassExpression", "");
+                        $$->children.push_back(new Node("NEW", "new"));
+                        $$->children.push_back($2);
+                        $$->children.push_back(new Node("LP", "(")); 
+                        $$->children.push_back(new Node("RP", ")"));
+                      }  
+        | NOT expression                 {
+                        printf("R49 ");
+                        $$ = new Node("NOTExpression", "");
+                        $$->children.push_back(new Node("NOT", "!"));
+                        $$->children.push_back($2);
+                      }  
+        | LP expression RP                {
+                        printf("R50 ");
+                        $$ = new Node("ParenExpression", "");
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back($2);
+                        $$->children.push_back(new Node("RP", ")"));
+                      } 
+        | expression PERIOD identifier LP expressionList RP{
+                        printf("R51 ");
+                        $$ = new Node("MethodCallExpression", "");
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("PERIOD", "."));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back($5);
+                        $$->children.push_back(new Node("RP", ")"));
+                      } 
+        | expression PERIOD identifier LP RP{
+                        printf("R52 ");
+                        $$ = new Node("MethodCallExpressionWithoutArgs", "");
+                        $$->children.push_back($1);
+                        $$->children.push_back(new Node("PERIOD", "."));
+                        $$->children.push_back($3);
+                        $$->children.push_back(new Node("LP", "("));
+                        $$->children.push_back(new Node("RP", ")"));
+                      } 
+        ;
 
-}
-
-methodDec:   PUBLIC type identifier LP identifierList RP LBRACKET RETURN expression SEMICOLON RBRACKET{
-          printf("R13.3 ");
-          $$ = new Node(" Method Declaration", "");
-          $$->children.push_back(new Node("","Public"));
-          $$->children.push_back($2);
-          $$->children.push_back($3);
-          $$->children.push_back(new Node("","("));
-          if($5) $$->children.push_back($5);
-          $$->children.push_back(new Node("",")"));
-          $$->children.push_back(new Node("","{"));
-          //if($8) $$->children.push_back($8);
-          //if($9) $$->children.push_back($9);
-          $$->children.push_back(new Node("","Return"));
-          $$->children.push_back($9);
-          $$->children.push_back(new Node("",";"));
-          $$->children.push_back(new Node("","}"));
-
-
-};
-
-identifierList: {}
-| type identifier{
-                    printf("R14 ");
-                    $$ = new Node("List of Identifier/s","");
-                    $$->children.push_back($1);
-                    $$->children.push_back($2); 
-}
-
-|              type identifier COMMA identifierList{
-                    printf("R15 ");
-                    $$ = new Node("List of Identifier/s","");
-                    $$->children.push_back($1);
-                    $$->children.push_back($2); 
-                    $$->children.push_back(new Node("","Comma"));
-                    $$->children.push_back($4); 
-
-};
-type: INTEGER LSQUAREP RSQUAREP{
-          printf("R16 ");
-          $$ = new Node("Array","");
-          $$->children.push_back(new Node("","Integer"));
-          $$->children.push_back(new Node("","["));
-          $$->children.push_back(new Node("","]"));
-}
-
-|     BOOLEAN {
-          printf("R17 ");
-          $$ = new Node("Boolean","");          
-}
-
-|     INTEGER {
-          printf("R18 ");
-          $$ = new Node("Integer","");
-}
-
-|     identifier{
-            $$ = $1;
-            printf("R19 ");
-};
-stateList:  statement{
-                  $$ = $1;
-                  printf("R20 "); 
-}
-
-|          stateList statement{
-                  printf("R21 ");
-                  $$ = new Node("List of statement/s","");
-                  $$->children.push_back($1);
-                  $$->children.push_back($2); 
-};
-statement: varDec {$$ = $1; printf("R60");}
-| LBRACKET stateList RBRACKET{
-                  printf("R22 ");
-                  $$ = new Node("Statement", "");
-                  $$->children.push_back(new Node("","{"));
-                  $$->children.push_back($2);
-                  $$->children.push_back(new Node("","}"));
-
-}
-|           IF LP expression RP statement ELSE statement{
-                  printf("R23 ");
-                  $$ = new Node("If Else", "");
-                  $$->children.push_back(new Node("","If"));
-                  $$->children.push_back(new Node("","("));
-                  $$->children.push_back($3);
-                  $$->children.push_back(new Node("",")"));
-                  $$->children.push_back($5);
-                  $$->children.push_back(new Node("","Else"));
-                  $$->children.push_back($7);
-
-}
-|           WHILE LP expression RP statement{
-                  printf("R24 ");
-                  $$ = new Node("While", "");
-                  $$->children.push_back(new Node("",""));
-                  $$->children.push_back(new Node("","("));
-                  $$->children.push_back($3);
-                  $$->children.push_back(new Node("",")"));
-                  $$->children.push_back($5);
-}
-|           PRINT LP expression RP SEMICOLON {
-                  printf("R25 ");
-                  $$ = new Node("Print Statement", "");
-                  $$->children.push_back(new Node("","Print"));
-                  $$->children.push_back(new Node("","("));
-                  $$->children.push_back($3);
-                  $$->children.push_back(new Node("",")"));
-                  $$->children.push_back(new Node("",";"));
-}
-
-|         identifier EQUALS expression SEMICOLON {
-                  printf("R26 ");
-                  $$ = new Node("Equation", "");
-                  $$->children.push_back($1);
-                  $$->children.push_back(new Node("","Equals to"));
-                  $$->children.push_back($3);
-                  $$->children.push_back(new Node("",";"));
-}
-|         identifier LSQUAREP expression RSQUAREP EQUALS expression SEMICOLON{
-                  printf("R27 ");
-                  $$ = new Node("Equating", "");
-                  $$->children.push_back($1);
-                  $$->children.push_back(new Node("","["));
-                  $$->children.push_back($3);
-                  $$->children.push_back(new Node("","]"));
-                  $$->children.push_back(new Node("","Equals to"));
-                  $$->children.push_back($6);
-                  $$->children.push_back(new Node("",";"));
-
-};
-identifier: IDENTIFIER{
-                printf("R52 %s ",$1.c_str());
-                $$ = new Node ("Identifier",$1);
-                
-
-};
-expList: expression{
-                      $$ = $1;
-                      printf("R28 ");
-}
-
-|                 expression COMMA expList{
-                      printf("R29 ");
-                      $$ = new Node("List of Expression/s", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Comma"));
-                      $$->children.push_back($3);
-};
-expression:expression AND expression{
-                printf("R30 ");
-                $$ = new Node("AND", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","and"));
-                      $$->children.push_back($3);
-}
-
-| expression OR expression{
-                printf("R31 ");
-                $$ = new Node("OR", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","or"));
-                      $$->children.push_back($3);
-}
-
-| expression LESSER expression{
-                printf("R32 ");
-                $$ = new Node("Less than", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","less than"));
-                      $$->children.push_back($3);
-}
-
-| expression GREATER expression{
-                printf("R33 ");
-                $$ = new Node("Greater Than", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","greater than"));
-                      $$->children.push_back($3);
-}
-
-| expression ASSIGNOP expression{
-                printf("R34 ");
-                $$ = new Node("Assignment", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Assignment"));
-                      $$->children.push_back($3);
-}
-
-| expression PLUSOP expression{
-                printf("R35 ");
-                $$ = new Node("Addition", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Addition"));
-                      $$->children.push_back($3);
-}
-
-| expression MINUSOP expression{
-                printf("R36 ");
-                $$ = new Node("Subtraction", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Subtractiom"));
-                      $$->children.push_back($3);
-}
-
-| expression MULTOP expression{
-                printf("R37 ");
-                $$ = new Node("Multiplication", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Multiplication"));
-                      $$->children.push_back($3);
-}
-
-| expression DIVISIONOP expression{
-                printf("R38 ");
-                $$ = new Node("Dividion", "");
-                      $$->children.push_back($1);
-                      $$->children.push_back(new Node("","Division"));
-                      $$->children.push_back($3);
-}
-| expression LSQUAREP expression RSQUAREP{
-                printf("R39 ");
-                $$ = new Node ("Vector","");
-                $$->children.push_back($1);
-                $$->children.push_back(new Node("","["));
-                $$->children.push_back($3);
-                $$->children.push_back(new Node("","]"));
-}
-| expression PERIOD LENGTH{
-                printf("R40 ");
-                $$ = new Node ("Length","");
-                $$->children.push_back($1);
-                $$->children.push_back(new Node("","Period"));
-                $$->children.push_back(new Node("","length"));
-}
-| expression PERIOD identifier LP expList RP {
-                printf("R41 ");
-                $$ = new Node("withArguementsExpMethodCall","");
-                $$->children.push_back($1);
-                $$->children.push_back(new Node("","period"));
-                $$->children.push_back($3);
-                $$->children.push_back(new Node("","("));
-                $$->children.push_back($5);
-                $$->children.push_back(new Node("",")"));
-}
-
-| INT{
-  printf("R42 ");
-  $$ = new Node("Integer",$1);
-}
-
-| TRUE{
-  printf("R43 ");
-  $$ = new Node("True Statement","");
-}
-
-| FALSE{
-  printf("R44 ");
-  $$ = new Node("False Statement","");
-}
-
-| identifier{
-  printf("R45 ");
-  $$ = $1;
-}
-
-| THIS{
-  printf("R46 ");
-  $$ = new Node("This","");
-}
-
-| NEW INTEGER LSQUAREP expression RSQUAREP{
-  printf("R47 ");
-  $$ = new Node("Integer expression","");
-  $$->children.push_back(new Node("",""));
-  $$->children.push_back(new Node("","int"));
-  $$->children.push_back(new Node("","["));
-  $$->children.push_back($4);
-  $$->children.push_back(new Node("","]"));
-}
-
-| NEW identifier LP RP{
-  printf("R48 ");
-  $$ = new Node("New identifier","");
-  $$->children.push_back(new Node("","new"));
-  $$->children.push_back($2);
-  $$->children.push_back(new Node("","("));
-  $$->children.push_back(new Node("",")"));
-}
-
-| expression PERIOD identifier LP RP {
-  printf("R49 ");
-  $$ = new Node("WithOutArguements","");
-  $$->children.push_back($1);
-  $$->children.push_back(new Node("","Period"));
-  $$->children.push_back($3);
-  $$->children.push_back(new Node("","("));
-  $$->children.push_back(new Node("",")"));
-}
-
-| NOT expression{
-  printf("R50 ");
-  $$ = new Node("Not Exp","");
-  $$->children.push_back(new Node("","!"));
-  $$->children.push_back($2);
-}
-
-| LP expression RP{
-  printf("R51 ");
-  $$ = new Node("EXPRESSION","");
-  $$->children.push_back(new Node("","("));
-  $$->children.push_back($2);
-  $$->children.push_back(new Node("",")"));
-};
-
+identifier: IDENTIFIER {  $$ = new Node("Identifier", $1); printf("R53 %s ",$1.c_str());};

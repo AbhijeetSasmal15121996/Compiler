@@ -24,18 +24,6 @@ int main(int argc, char **argv)
     }
   }
 
-  /*
-   * Semantic analysis is not completed the symbol table is a part of semantic analysis
-   * check wheather the lhs data type = rhs data type and same for methods also
-   * data type of method must match return type of method if not show an error message and return
-   * check for undefined variables and if are there just show error message
-   */
-
-  /*
-   * Take out three adress code and print it to pdf
-   * interpret it and get the result
-   */
-
   yy::parser parser;
   if (!parser.parse())
   {
@@ -55,7 +43,7 @@ int main(int argc, char **argv)
     cout << "\n\n------End Of Symbol Table-----\n\n"
          << endl;
     // getEquation();
-    makeTAC();
+    makeTAC(table);
     // getMul();
   }
   return 0;
