@@ -58,20 +58,17 @@ public:
 
     string check(SymbolTable *newTable, string name, string scope)
     {
-        string value;
         for (int i = 0; i < this->records.size(); i++)
         {
-            cout<< "ScopeName is : " << this->name << "\t"
-                 << "Name is : " << this->records[i]->name << endl;
-            cout<< "ScopeName1 is : " << scope << "\t"
-                 << "Name1 is : " << name << endl;
-                 
-            if (this->name == scope && this->records[i]->name == name)
+            bool isSame = scope.compare(this->name) == 0 && name.compare(this->records[i]->name) == 0;
+            if (isSame)
             {
-                value = this->records[i]->value;
+                string value = this->records[i]->name;
+                cout << value << endl;
                 return value;
             }
         }
+
         for (auto i = 0; i < this->tables.size(); i++)
         {
             this->tables[i]->check(this->tables[i], name, scope);

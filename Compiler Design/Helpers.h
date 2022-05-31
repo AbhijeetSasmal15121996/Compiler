@@ -42,7 +42,7 @@ void read(void)
     string temp;
     int counter = 0;
     int Class = 0;
-    int  variable = 0;
+    int variable = 0;
     int method = 0;
     string mdata, vdata;
     string className;
@@ -242,7 +242,7 @@ void makeTAC(SymbolTable *table)
                 string lValue = leftrightsplit(rhs, op[0], true);
                 string rValue = leftrightsplit(rhs, op[0], false);
                 string dType = table->check(table, lhs, mdata);
-                cout << "DataType : " << dType << endl;
+                cout << "DataType Is : " << dType << endl;
                 txt = "";
             }
 
