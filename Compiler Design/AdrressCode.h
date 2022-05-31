@@ -2,7 +2,7 @@
 #define __adresscode_h__
 
 #include <iostream>
-#include <list>
+#include <vector>
 using namespace std;
 class TAC
 {
@@ -21,12 +21,19 @@ public:
 
     void dump()
     {
-        printf("%s = %s %s %s", result, lhs, op, rhs);
+        printf("%s = %s %s %s", this->result, this->lhs, this->op, this->rhs);
     }
 
-    void printTac(ofstream *stream)
+    void printTac(ofstream *stream, int number)
     {
-        *stream << op << endl;
+        // todo : get the bytecode here and store it in a file and when the interpretation just read file
+        string initial = "n" + to_string(number);
+        string one = this->lhs + "\\n";
+        string two = "=";
+        string three = this->rhs + "\\n";
+        string four = this->op + "\\n";
+        string five = "result\\n";
+        *stream << initial << " [label=\"" << one << two << three << four << five << "\"];";
     }
 
     void setOp(string op)
@@ -75,26 +82,34 @@ class BBlock
 private:
     void generate(ofstream *output)
     {
+        *output << "graph [ splines = ortho ]" << endl;
         *output << "node [shape = box];" << endl;
-        for (auto i = tacInstructions.begin(); i != tacInstructions.end(); i++)
+        for (auto i = 0; i < tacInstructions.size(); i++)
         {
-            (*i)->printTac(output);
+            tacInstructions[i]->printTac(output, i);
+            string final = "\nn" + to_string(i) + " ->" + " n" + to_string(i + 1) + "\n";
+            *output << final;
         }
     }
 
 public:
     string name;
-    list<TAC *> tacInstructions;
+    vector<TAC *> tacInstructions;
     TAC condition;
     BBlock *trueExit, *falseExit;
     BBlock() : trueExit(NULL), falseExit(NULL) {}
     void generatetac(void)
     {
         ofstream output("tac.dot");
-        output << "diagraph {" << endl;
+        output << "digraph G {" << endl;
         generate(&output);
         output << "}" << endl;
         output.close();
+    }
+
+    void add(TAC *tac)
+    {
+        this->tacInstructions.push_back(tac);
     }
 };
 

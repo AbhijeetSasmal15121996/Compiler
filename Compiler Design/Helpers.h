@@ -161,6 +161,7 @@ string leftrightsplit(string string_to_split, char sepearator, bool bleft)
 
 void makeTAC(SymbolTable *table)
 {
+    BBlock *block = NULL;
     ifstream input("output.txt");
     int counter, x, stLabel, method = 0;
     int label = 0;
@@ -274,12 +275,11 @@ void makeTAC(SymbolTable *table)
                 cout << "dtype: " << dlType << endl;
                 cout << "lhs: " << drType << endl;
                 cout << "rhs: " << drhType << endl;
+                TAC *tac = new TAC(op, lValue, rValue, "result here");
+                if (block == NULL)
+                    block = new BBlock();
 
-                // if (drType.compare(drhType) != 0 || drType.compare(dlType) != 0)
-                // {
-                //     cout << "Type Error: Plese Check Your Data Types" << endl;
-                // }
-
+                block->add(tac);
                 txt = "";
             }
 
@@ -319,6 +319,7 @@ void makeTAC(SymbolTable *table)
             }
         }
     }
+    block->generatetac();
 }
 
 void getEquation(void)
