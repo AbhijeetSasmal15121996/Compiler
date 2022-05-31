@@ -41,14 +41,17 @@ void read(void)
 {
     string temp;
     int counter = 0;
-    int Class, method, variable = 0;
+    int Class = 0;
+    int  variable = 0;
+    int method = 0;
     string mdata, vdata;
     string className;
     ifstream input("output.txt");
     while (getline(input, temp))
     {
+        int found2 = temp.find("Identifier");
         counter++;
-        if (Class == 1)
+        if (Class == 1 && found2 != string::npos)
         {
             SymbolTable *tmp = new SymbolTable();
             table->insertTable(tmp);
@@ -78,16 +81,16 @@ void read(void)
             // cout << "Mdata" << mdata << endl;
         }
 
-        if (method != 0 && (counter - method) == 3)
+        if (method != 0 && found2 != string::npos)
         {
             SymbolTable *methSym = new SymbolTable();
             table->insertTable(methSym);
             methSym->insertRecord("Method", mdata, split(temp));
             methSym->insertName(className);
             className = split(temp);
+            method = 0;
         }
 
-        // int found2 = temp.find("ParameterList");
         int found3 = temp.find("VarDeclaration");
         if ((found3 != string::npos))
         {
@@ -99,12 +102,13 @@ void read(void)
             vdata = temp;
         }
 
-        if (variable != 0 && (counter - variable) == 2)
+        if (variable != 0 && found2 != string::npos)
         {
             SymbolTable *varSym = new SymbolTable();
             table->insertTable(varSym);
             varSym->insertRecord("Variable", vdata, split(temp));
             varSym->insertName(className);
+            variable = 0;
         }
     }
     input.close();
@@ -150,7 +154,7 @@ void makeTAC(SymbolTable *table)
     {
 
         // Get Method Name
-        int found0 = temp.find("Method Declaration");
+        int found0 = temp.find("MethodDeclaration");
         counter++;
 
         if (found0 != string::npos)
@@ -161,7 +165,7 @@ void makeTAC(SymbolTable *table)
         if (method != 0 && (counter - method) == 3)
         {
             mdata = split(temp);
-            cout << "Method Declaration " << mdata << endl;
+            // cout << "Method Declaration " << mdata << endl;
         }
 
         // End Get Method
@@ -173,29 +177,23 @@ void makeTAC(SymbolTable *table)
             count++;
         }
 
-        int found2 = temp.find("List of statement/s:");
+        int found2 = temp.find("StatementList:");
         if (found2 != string::npos && count > 0)
         {
             start = 1;
         }
         if (start == 1)
         {
-            int found5 = temp.find("While");
+            int found5 = temp.find("while");
 
             if (found5 != string::npos)
             {
                 whstate = counter;
             }
 
-            if ((counter - whstate) >= 4 && (counter - whstate) <= 7)
+            if ((counter - whstate) >= 3 && (counter - whstate) < 7)
             {
                 string res = split(temp);
-                if (res == "less than")
-                    res = " < ";
-                if (res == "greater than")
-                    res = " > ";
-                if (res == "Equals to")
-                    res = " == ";
                 wh1 = wh1 + res;
             }
             int found4 = temp.find("Statement");
@@ -205,7 +203,7 @@ void makeTAC(SymbolTable *table)
                 state = 1;
             }
 
-            int found1 = temp.find("Equation");
+            int found1 = temp.find("AssignmentStatement");
 
             if (found1 != string::npos)
             {
@@ -253,13 +251,13 @@ void makeTAC(SymbolTable *table)
                 string res = split(temp);
                 if (res == "")
                     continue;
-                if (res == "Addition")
+                if (res == "+")
                     res = " + ";
-                if (res == "Subtractiom")
+                if (res == "-")
                     res = " - ";
-                if (res == "Multiplication")
+                if (res == "*")
                     res = " * ";
-                if (res == "Division")
+                if (res == "/")
                     res = " / ";
                 if (res == "Equals to")
                     res = " = ";
