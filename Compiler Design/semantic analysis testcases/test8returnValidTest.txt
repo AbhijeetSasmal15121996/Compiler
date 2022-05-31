@@ -17,7 +17,6 @@ class TestClass1 {
     }
 
 	public TestClass2 TestMethod2(){
-	
 		TestClass2 a;
 		return a;
     }

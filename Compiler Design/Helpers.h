@@ -265,16 +265,21 @@ void makeTAC(SymbolTable *table)
                 string dlType = table->check(table, lhs, mdata);
                 dlType = split(dlType);
 
-                string drType = table->check(table, lhs, mdata);
+                string drType = table->check(table, lValue, mdata);
                 drType = split(drType);
 
-                string drhType = table->check(table, lhs, mdata);
+                string drhType = table->check(table, rValue, mdata);
                 drhType = split(drhType);
 
-                if (drType.compare(drhType) != 0)
-                {
-                    cout << "Type Error: Plese Check Your Data Types " << endl;
-                }
+                cout << "dtype: " << dlType << endl;
+                cout << "lhs: " << drType << endl;
+                cout << "rhs: " << drhType << endl;
+
+                // if (drType.compare(drhType) != 0 || drType.compare(dlType) != 0)
+                // {
+                //     cout << "Type Error: Plese Check Your Data Types" << endl;
+                // }
+
                 txt = "";
             }
 

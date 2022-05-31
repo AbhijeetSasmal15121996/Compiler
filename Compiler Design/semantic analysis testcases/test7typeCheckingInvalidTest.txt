@@ -20,7 +20,6 @@ class TestClass1 {
         c = TestClass2.TestMethod1Class2(); //Invalid type
         d = TestClass2.TestMethod2Class2(); 
         e = 1 < 2;
-
         f = 1 + 2 + 4 * 5 - 6; 
         g = true; //Invalid type
 

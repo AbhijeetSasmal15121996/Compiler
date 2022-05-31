@@ -68,9 +68,9 @@ public:
     //             z=0;
     //             break;
     //         }
-            
+
     //     }
-    //     return z;        
+    //     return z;
     // }
 
     string check(SymbolTable *table, string name, string scope)
@@ -91,13 +91,14 @@ public:
             string tmpName = tmpRecords[0]->name;
             string tmpValue = tmpRecords[0]->value;
 
-
-            if ( name == tmpName && scope == tmpScope )
+            if (name == tmpName && scope == tmpScope)
             {
+                cout << "scope is " << scope << endl;
+                cout <<  "name is " << name << endl;
                 return tmpValue;
             }
         }
-        return "None";
+        return "None:None";
     }
 
     void print_table(SymbolTable *newTable)
