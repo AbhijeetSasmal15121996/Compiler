@@ -124,7 +124,7 @@ void read(void)
             paramdata = temp;
         }
 
-        if (parameter != 0 && found13 != string::npos)
+        if (parameter != 0 && (counter-parameter == 2))
         {
             SymbolTable *varSym = new SymbolTable();
             table->insertTable(varSym);
