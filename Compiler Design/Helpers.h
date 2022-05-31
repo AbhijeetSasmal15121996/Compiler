@@ -42,9 +42,10 @@ void read(void)
     string temp;
     int counter = 0;
     int Class = 0;
-    int  variable = 0;
+    int variable = 0;
+    int parameter = 0;
     int method = 0;
-    string mdata, vdata;
+    string mdata, vdata, paramdata;
     string className;
     ifstream input("output.txt");
     while (getline(input, temp))
@@ -110,6 +111,28 @@ void read(void)
             varSym->insertName(className);
             variable = 0;
         }
+
+        
+        int found13 = temp.find("ParameterList");
+        if ((found13 != string::npos))
+        {
+            parameter = counter;
+        }
+
+        if (parameter != 0 && (counter - parameter) == 1)
+        {
+            paramdata = temp;
+        }
+
+        if (parameter != 0 && found13 != string::npos)
+        {
+            SymbolTable *varSym = new SymbolTable();
+            table->insertTable(varSym);
+            varSym->insertRecord("Variable", paramdata, split(temp));
+            varSym->insertName(className);
+            parameter = 0;
+        }
+
     }
     input.close();
 }
@@ -241,8 +264,16 @@ void makeTAC(SymbolTable *table)
                     op = "/";
                 string lValue = leftrightsplit(rhs, op[0], true);
                 string rValue = leftrightsplit(rhs, op[0], false);
-                string dType = table->check(table, lhs, mdata);
-                cout << "DataType : " << dType << endl;
+                string dlType = table->check(table, lhs, mdata);
+                dlType = split(dlType);
+
+                string drType = table->check(table, lhs, mdata);
+                drType = split(drType);
+
+                string drhType = table->check(table, lhs, mdata);
+                drhType = split(drhType);
+
+                // cout << "DataType : " << dType << endl;
                 txt = "";
             }
 

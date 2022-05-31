@@ -1,6 +1,7 @@
 #include <map>
 #include <list>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -56,26 +57,47 @@ public:
         return this->tables[index];
     }
 
-    string check(SymbolTable *newTable, string name, string scope)
+    // int compareStr(string a, string b)
+    // {
+    //     int z = 1;
+    //     for (int i = 0; i < a.length(); i++)
+    //     {
+    //         if (a[i] != b[i+1])
+    //         {
+    //             cout << a[i] << " $ " << b[i+1]<<endl;
+    //             z=0;
+    //             break;
+    //         }
+            
+    //     }
+    //     return z;        
+    // }
+
+    string check(SymbolTable *table, string name, string scope)
     {
-        string value;
-        for (int i = 0; i < this->records.size(); i++)
+        vector<SymbolTable *> res = table->tables;
+        string anotherName = "";
+        for (int i = 1; i < name.length(); i++)
         {
-            cout<< "ScopeName is : " << this->name << "\t"
-                 << "Name is : " << this->records[i]->name << endl;
-            cout<< "ScopeName1 is : " << scope << "\t"
-                 << "Name1 is : " << name << endl;
-                 
-            if (this->name == scope && this->records[i]->name == name)
+            anotherName = anotherName + name[i];
+        }
+        name = anotherName;
+
+        for (int i = 0; i < res.size(); i++)
+        {
+            vector<Record *> tmpRecords = res[i]->getRecords();
+            string tmpScope = res[i]->getName();
+            string type = tmpRecords[0]->type;
+            string tmpName = tmpRecords[0]->name;
+            string tmpValue = tmpRecords[0]->value;
+
+
+            if ( name == tmpName && scope == tmpScope )
             {
-                value = this->records[i]->value;
-                return value;
+                return tmpValue;
             }
         }
-        for (auto i = 0; i < this->tables.size(); i++)
-        {
-            this->tables[i]->check(this->tables[i], name, scope);
-        }
+        return "None";
     }
 
     void print_table(SymbolTable *newTable)
