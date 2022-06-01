@@ -87,12 +87,6 @@ public:
 
         // check integer
 
-        if (isNumber(name))
-            return ":int";
-
-        // check string
-        if (name.find("\"") != string ::npos)
-            return ":string";
 
         // cout << "Name: " << name << "\tScope: " << scope <<endl;
         vector<SymbolTable *> res = table->tables;
@@ -118,6 +112,16 @@ public:
             // cout << "Null Removed "<< name << endl;
         }
 
+<<<<<<< HEAD
+=======
+        if (isNumber(name))
+            return ":int";
+
+        // check string
+        if (name.find("\"") != string ::npos)
+            return ":string";
+
+>>>>>>> b336a536c0e84dd2716f7be885ed08c1b09b9042
         // cout << "----------------------\n";
 
         for (int i = 0; i < res.size(); i++)
