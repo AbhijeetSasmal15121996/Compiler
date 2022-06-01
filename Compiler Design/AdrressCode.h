@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 class TAC
 {
@@ -11,6 +12,7 @@ private:
 
 public:
     TAC() {}
+
     TAC(string op, string lhs, string rhs, string result)
     {
         this->op = op;

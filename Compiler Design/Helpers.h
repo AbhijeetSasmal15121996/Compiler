@@ -260,6 +260,7 @@ void makeTAC(SymbolTable *table)
                     op = "/";
                 string lValue = leftrightsplit(rhs, op[0], true);
                 string rValue = leftrightsplit(rhs, op[0], false);
+
                 string dlType = table->check(table, lValue, mdata);
                 dlType = split(dlType);
 
@@ -273,6 +274,7 @@ void makeTAC(SymbolTable *table)
                     root = new BBlock();
 
                 TAC *tac = new TAC(op, lhs, rhs, "result here");
+
                 root->add(tac);
 
                 txt = "";

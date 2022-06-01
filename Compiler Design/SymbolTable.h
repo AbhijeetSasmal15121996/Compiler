@@ -64,7 +64,7 @@ public:
         {
             if (a[i] != b[i])
             {
-                cout << a[i] << " $ " << b[i] << endl;
+                // cout << a[i] << " $ " << b[i] << endl;
                 z = 0;
                 break;
             }
@@ -118,7 +118,7 @@ public:
             // cout << "Null Removed "<< name << endl;
         }
 
-        cout << "----------------------\n";
+        // cout << "----------------------\n";
 
         for (int i = 0; i < res.size(); i++)
         {
