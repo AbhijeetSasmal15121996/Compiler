@@ -57,31 +57,68 @@ public:
         return this->tables[index];
     }
 
-    // int compareStr(string a, string b)
-    // {
-    //     int z = 1;
-    //     for (int i = 0; i < a.length(); i++)
-    //     {
-    //         if (a[i] != b[i+1])
-    //         {
-    //             cout << a[i] << " $ " << b[i+1]<<endl;
-    //             z=0;
-    //             break;
-    //         }
-            
-    //     }
-    //     return z;        
-    // }
+    int compareStr(string a, string b)
+    {
+        int z = 1;
+        for (int i = 0; i < a.length(); i++)
+        {
+            if (a[i] != b[i])
+            {
+                cout << a[i] << " $ " << b[i] << endl;
+                z = 0;
+                break;
+            }
+        }
+        return z;
+    }
+
+    bool isNumber(const string &s)
+    {
+        for (char const &ch : s)
+        {
+            if (std::isdigit(ch) == 0)
+                return false;
+        }
+        return true;
+    }
 
     string check(SymbolTable *table, string name, string scope)
     {
+
+        // check integer
+
+        if (isNumber(name))
+            return ":int";
+
+        // check string
+        if (name.find("\"") != string ::npos)
+            return ":string";
+
+        // cout << "Name: " << name << "\tScope: " << scope <<endl;
         vector<SymbolTable *> res = table->tables;
         string anotherName = "";
-        for (int i = 1; i < name.length(); i++)
+        int nullchar = 0;
+        for (int i = 0; i < name.length(); i++)
         {
-            anotherName = anotherName + name[i];
+            if (name[i] == '\0' || name[i] == ' ')
+            {
+                // cout << "Null Char" << i << "  " <<  name <<endl;
+                nullchar = 1;
+                break;
+            }
         }
-        name = anotherName;
+
+        if (nullchar == 1)
+        {
+            for (int i = 1; i < name.length(); i++)
+            {
+                anotherName = anotherName + name[i];
+            }
+            name = anotherName;
+            // cout << "Null Removed "<< name << endl;
+        }
+
+        cout << "----------------------\n";
 
         for (int i = 0; i < res.size(); i++)
         {
@@ -91,13 +128,26 @@ public:
             string tmpName = tmpRecords[0]->name;
             string tmpValue = tmpRecords[0]->value;
 
+            // cout << "---------------start loop ----------------\n";
 
-            if ( name == tmpName && scope == tmpScope )
+            // cout << "Cond scope: " << scope << endl;
+            // cout << "Cond name: " << name << endl;
+
+            // cout << "tmpScope: " << tmpScope << endl;
+            // cout << "type: " << type << endl;
+            // cout << "tmpName: " << tmpName << endl;
+            // cout << "tmpValue: " << tmpValue << endl;
+
+            // cout << "---------------stop loop ----------------\n";
+
+            if (compareStr(tmpName, name) == 1 && scope == tmpScope)
             {
+                // cout << "TmpName: " << tmpName << "Scope: " << tmpScope << endl;
+                // cout << "Name1: " << name << "Scope1: " << scope << endl;
                 return tmpValue;
             }
         }
-        return "None";
+        return "None:None";
     }
 
     void print_table(SymbolTable *newTable)

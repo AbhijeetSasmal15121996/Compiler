@@ -246,7 +246,6 @@ void makeTAC(SymbolTable *table)
             if (found != string::npos && x == 1)
             {
                 x = 0;
-                txt = txt + "\n";
                 // cout << txt;
                 // cout << "Scope Name: " << mdata << endl;
 
@@ -264,17 +263,28 @@ void makeTAC(SymbolTable *table)
                     op = "/";
                 string lValue = leftrightsplit(rhs, op[0], true);
                 string rValue = leftrightsplit(rhs, op[0], false);
-                string dlType = table->check(table, lhs, mdata);
+                string dlType = table->check(table, lValue, mdata);
                 dlType = split(dlType);
+                // cout << "Lvalue:" << lValue << endl;
+                // cout << "dLvalue:" << dlType << endl;
 
-                string drType = table->check(table, lhs, mdata);
+                string drType = table->check(table, rValue, mdata);
                 drType = split(drType);
+                // cout << "RValue:" << rValue << endl;
+                // cout << "drValue:" << drType << endl;
 
-                string drhType = table->check(table, lhs, mdata);
-                drhType = split(drhType);
+                string dlhType = table->check(table, lhs, mdata);
+                dlhType = split(dlhType);
+                // cout << "lhs:" << lhs << endl;
+                // cout << "dlhs:" << dlhType << endl;
 
-                // cout << "DataType : " << dType << endl;
+                // cout << "DataType : " << dlType << "\t:" << drType << "\t:" << dlhType << endl;
                 txt = "";
+
+                if (dlType == drType && drType == dlhType) {}
+                else {
+                    cout << "Syntax Error Data types Mismatch." << endl;
+                }
             }
 
             if (x == 1)
