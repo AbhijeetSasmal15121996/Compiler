@@ -64,7 +64,7 @@ public:
         {
             if (a[i] != b[i])
             {
-                cout << a[i] << " $ " << b[i] << endl;
+                // cout << a[i] << " $ " << b[i] << endl;
                 z = 0;
                 break;
             }
@@ -87,14 +87,8 @@ public:
 
         // check integer
 
-        if (isNumber(name))
-            return ":int";
 
-        // check string
-        if (name.find("\"") != string ::npos)
-            return ":string";
-
-        // cout << "Name: " << name << "\tScope: " << scope <<endl;
+        cout << "Name: " << name << "\tScope: " << scope <<endl;
         vector<SymbolTable *> res = table->tables;
         string anotherName = "";
         int nullchar = 0;
@@ -118,7 +112,14 @@ public:
             // cout << "Null Removed "<< name << endl;
         }
 
-        cout << "----------------------\n";
+        if (isNumber(name))
+            return ":int";
+
+        // check string
+        if (name.find("\"") != string ::npos)
+            return ":string";
+
+        // cout << "----------------------\n";
 
         for (int i = 0; i < res.size(); i++)
         {
