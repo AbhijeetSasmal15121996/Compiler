@@ -282,8 +282,8 @@ void makeTAC(SymbolTable *table)
                 }
                 else
                 {
-                    cout << "dlType:" << dlType << "drType:" << drType << "dlhType:" << dlhType << endl; 
-                    cout << "lValue:" << lValue << " rValue:" << rValue << " lhs:" << lhs << endl; 
+                    // cout << "dlType:" << dlType << "drType:" << drType << "dlhType:" << dlhType << endl; 
+                    // cout << "lValue:" << lValue << " rValue:" << rValue << " lhs:" << lhs << endl; 
                     cout << "Syntax Error Data types Mismatch." << endl;
                 }
             }

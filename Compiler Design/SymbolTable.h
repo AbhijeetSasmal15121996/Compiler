@@ -88,7 +88,7 @@ public:
         // check integer
 
 
-        cout << "Name: " << name << "\tScope: " << scope <<endl;
+        // cout << "Name: " << name << "\tScope: " << scope <<endl;
         vector<SymbolTable *> res = table->tables;
         string anotherName = "";
         int nullchar = 0;
