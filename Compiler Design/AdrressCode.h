@@ -32,7 +32,7 @@ public:
         string two = "=";
         string three = this->rhs + "\\n";
         string four = this->op + "\\n";
-        string five = "result\\n";
+        string five = this->result + "\\n";
         *stream << initial << " [label=\"" << one << two << three << four << five << "\"];";
     }
 
@@ -82,7 +82,6 @@ class BBlock
 private:
     void generate(ofstream *output)
     {
-        *output << "graph [ splines = ortho ]" << endl;
         *output << "node [shape = box];" << endl;
         for (auto i = 0; i < tacInstructions.size(); i++)
         {
@@ -91,13 +90,14 @@ private:
             *output << final;
         }
     }
-
-public:
     string name;
     vector<TAC *> tacInstructions;
+
+public:
     TAC condition;
     BBlock *trueExit, *falseExit;
     BBlock() : trueExit(NULL), falseExit(NULL) {}
+
     void generatetac(void)
     {
         ofstream output("tac.dot");
@@ -110,6 +110,16 @@ public:
     void add(TAC *tac)
     {
         this->tacInstructions.push_back(tac);
+    }
+
+    void setName(string name)
+    {
+        this->name = name;
+    }
+
+    string getName()
+    {
+        return this->name;
     }
 };
 

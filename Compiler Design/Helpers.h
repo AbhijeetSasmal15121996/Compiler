@@ -161,7 +161,7 @@ string leftrightsplit(string string_to_split, char sepearator, bool bleft)
 
 void makeTAC(SymbolTable *table)
 {
-    BBlock *block = NULL;
+    BBlock *root = NULL;
     ifstream input("output.txt");
     int counter, x, stLabel, method = 0;
     int label = 0;
@@ -170,8 +170,6 @@ void makeTAC(SymbolTable *table)
     int whstate = 0;
     int start = 0;
     string txt, wh1, mdata, temp = "";
-    BBlock *root = NULL;
-    TAC *tac = NULL;
     while (getline(input, temp))
     {
 
@@ -264,26 +262,26 @@ void makeTAC(SymbolTable *table)
                 string rValue = leftrightsplit(rhs, op[0], false);
                 string dlType = table->check(table, lValue, mdata);
                 dlType = split(dlType);
-                // cout << "Lvalue:" << lValue << endl;
-                // cout << "dLvalue:" << dlType << endl;
 
                 string drType = table->check(table, rValue, mdata);
                 drType = split(drType);
-                // cout << "RValue:" << rValue << endl;
-                // cout << "drValue:" << drType << endl;
 
                 string dlhType = table->check(table, lhs, mdata);
                 dlhType = split(dlhType);
-                // cout << "lhs:" << lhs << endl;
-                // cout << "dlhs:" << dlhType << endl;
 
-                // cout << "DataType : " << dlType << "\t:" << drType << "\t:" << dlhType << endl;
+                if (root == NULL)
+                    root = new BBlock();
+
+                TAC *tac = new TAC(op, lhs, rhs, "result here");
+                root->add(tac);
+
                 txt = "";
 
-                if (dlType == drType && drType == dlhType) {}
-                else {
-                    cout << "Syntax Error Data types Mismatch." << endl;
+                if (dlType == drType && drType == dlhType)
+                {
                 }
+                else
+                    cout << "Syntax Error Data types Mismatch." << endl;
             }
 
             if (x == 1)
@@ -322,7 +320,7 @@ void makeTAC(SymbolTable *table)
             }
         }
     }
-    block->generatetac();
+    root->generatetac();
 }
 
 void getEquation(void)
