@@ -112,7 +112,6 @@ void read(void)
             variable = 0;
         }
 
-        
         int found13 = temp.find("ParameterList");
         if ((found13 != string::npos))
         {
@@ -124,7 +123,7 @@ void read(void)
             paramdata = temp;
         }
 
-        if (parameter != 0 && (counter-parameter == 2))
+        if (parameter != 0 && (counter - parameter == 2))
         {
             SymbolTable *varSym = new SymbolTable();
             table->insertTable(varSym);
@@ -132,7 +131,6 @@ void read(void)
             varSym->insertName(className);
             parameter = 0;
         }
-
     }
     input.close();
 }
@@ -163,6 +161,7 @@ string leftrightsplit(string string_to_split, char sepearator, bool bleft)
 
 void makeTAC(SymbolTable *table)
 {
+    BBlock *block = NULL;
     ifstream input("output.txt");
     int counter, x, stLabel, method = 0;
     int label = 0;
@@ -323,6 +322,7 @@ void makeTAC(SymbolTable *table)
             }
         }
     }
+    block->generatetac();
 }
 
 void getEquation(void)

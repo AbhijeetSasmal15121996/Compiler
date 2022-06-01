@@ -1,5 +1,5 @@
 class Sum {
-  public static void main(String[] a){
+  public static void main(String[] a) {
     System.out.println(new Test().Sum(100));
   }
 }
@@ -18,4 +18,3 @@ class Test {
     return sum;
   }
 }
-

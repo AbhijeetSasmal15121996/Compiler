@@ -52,7 +52,7 @@ public:
 		outStream << "}" << endl;
 		outStream.close();
 
-		cout << "\n\n Built a parse-tree:" << endl;
+		cout << "\n\n Built a parse-tree: \n\n" << endl;
 	}
 
 
