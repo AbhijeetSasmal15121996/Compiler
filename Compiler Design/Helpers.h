@@ -244,8 +244,7 @@ void makeTAC(SymbolTable *table)
                 x = 0;
                 // cout << txt;
                 // cout << "Scope Name: " << mdata << endl;
-
-                cout << "StateMent is " << txt << endl;
+                // txt.erase(find(txt.begin(), txt.end(), '\0'), txt.end());
                 string lhs = leftrightsplit(txt, '=', true);
                 string op = "";
                 string rhs = leftrightsplit(txt, '=', false);
@@ -269,28 +268,32 @@ void makeTAC(SymbolTable *table)
                 string dlhType = table->check(table, lhs, mdata);
                 dlhType = split(dlhType);
 
+                // erasing null values in the ouptut
+                lValue.erase(find(lValue.begin(), lValue.end(), '\0'), lValue.end());
+                rValue.erase(find(rValue.begin(), rValue.end(), '\0'), rValue.end());
+                lhs = lhs.substr(1, lhs.length());
+
+                cout << "Statement is :" << txt << endl;
+                cout << "Lvalue : " << lValue << endl;
+                cout << "Rvalue : " << rValue << endl;
+
                 if (root == NULL)
                     root = new BBlock();
 
-                cout << "Lhs : " << lhs << endl;
-                cout << "Lvalue : " << lValue << endl;
-                cout << "Operator :" << op << endl;
-                cout << "RValue : " << rValue << endl;
-
                 if (rValue.find("this") != string::npos && op == "")
                 {
-                    TAC *tac = new MethodCall("", rValue, lhs.substr(1, lhs.length()));
+                    TAC *tac = new MethodCall("", rValue, lhs);
                     root->add(tac);
                 }
                 else
                 {
                     TAC *tac = NULL;
                     if (rValue == "\0")
-                        tac = new Expression(op, lValue, "", lhs.substr(1, lhs.length()));
+                        tac = new Expression(op, lValue, "", lhs);
                     else if (lValue == "\0")
-                        tac = new Expression(op, "", rValue, lhs.substr(1, lhs.length()));
+                        tac = new Expression(op, "", rValue, lhs);
                     else
-                        tac = new Expression(op, lValue, rValue, lhs.substr(1, lhs.length()));
+                        tac = new Expression(op, lValue, rValue, lhs);
 
                     root->add(tac);
                 }
