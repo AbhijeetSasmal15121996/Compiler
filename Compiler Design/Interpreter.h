@@ -4,19 +4,27 @@
 #include "AdrressCode.h"
 
 using namespace std;
+
 class Interpreter
 {
 private:
     stack<TAC *> callStack;
 
 public:
-    ~Interpreter()
+    Interpreter() {} // default constructor
+    ~Interpreter()   // destructor
     {
         while (!callStack.empty())
         {
-            TAC *temp = callStack.top();
+            TAC *temp = callStack.top(); // get the top most element
             delete temp;
         }
+    }
+
+    void interpret(TAC *item)
+    {
+        string result = "";
+        cout << result << endl;
     }
 
     void addElement(TAC *item)

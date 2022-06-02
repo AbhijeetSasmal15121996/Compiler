@@ -172,7 +172,6 @@ void makeTAC(SymbolTable *table)
     string txt, wh1, mdata, temp = "";
     while (getline(input, temp))
     {
-
         // Get Method Name
         int found0 = temp.find("MethodDeclaration");
         counter++;
@@ -246,7 +245,7 @@ void makeTAC(SymbolTable *table)
                 // cout << txt;
                 // cout << "Scope Name: " << mdata << endl;
 
-                cout << txt << endl;
+                cout << "StateMent is " << txt << endl;
                 string lhs = leftrightsplit(txt, '=', true);
                 string op = "";
                 string rhs = leftrightsplit(txt, '=', false);
@@ -273,21 +272,33 @@ void makeTAC(SymbolTable *table)
                 if (root == NULL)
                     root = new BBlock();
 
-                TAC *tac = new TAC(op, lhs, rhs, "result here");
+                cout << "Lhs : " << lhs << endl;
+                cout << "Lvalue : " << lValue << endl;
+                cout << "Operator :" << op << endl;
+                cout << "RValue : " << rValue << endl;
 
-                root->add(tac);
-
-                txt = "";
-
-                if (dlType == drType && drType == dlhType)
+                if (rValue.find("this") != string::npos && op == "")
                 {
+                    TAC *tac = new MethodCall("", rValue, lhs.substr(1, lhs.length()));
+                    root->add(tac);
                 }
                 else
                 {
-                    // cout << "dlType:" << dlType << "drType:" << drType << "dlhType:" << dlhType << endl; 
-                    // cout << "lValue:" << lValue << " rValue:" << rValue << " lhs:" << lhs << endl; 
-                    cout << "Syntax Error Data types Mismatch." << endl;
+                    TAC *tac = NULL;
+                    if (rValue == "\0")
+                        tac = new Expression(op, lValue, "", lhs.substr(1, lhs.length()));
+                    else if (lValue == "\0")
+                        tac = new Expression(op, "", rValue, lhs.substr(1, lhs.length()));
+                    else
+                        tac = new Expression(op, lValue, rValue, lhs.substr(1, lhs.length()));
+
+                    root->add(tac);
                 }
+
+                txt = "";
+
+                if (dlType.compare(drType) != 0 && drType.compare(dlhType) != 0)
+                    cout << "Syntax Error Data types Mismatch" << endl;
             }
 
             if (x == 1)

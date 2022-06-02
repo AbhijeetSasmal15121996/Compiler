@@ -8,6 +8,7 @@ lex.yy.c: lexer.flex parser.tab.cc
 		flex lexer.flex
 run:./compiler test_classes/D2.java
 	./compiler test_classes/D2.java
+	dot -Tpdf tac.dot -o tac.pdf
 tree: 
 	dot -Tpdf tree.dot -otree.pdf
 tac:

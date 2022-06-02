@@ -5,6 +5,7 @@
 #include <vector>
 
 using namespace std;
+
 class TAC
 {
 private:
@@ -21,21 +22,28 @@ public:
         this->result = result;
     }
 
-    void dump()
+    TAC(string op, string result)
     {
-        printf("%s = %s %s %s", this->result, this->lhs, this->op, this->rhs);
+        this->op = op;
+        this->result = result;
     }
 
-    void printTac(ofstream *stream, int number)
+    TAC(string op, string lhs, string result)
     {
-        // todo : get the bytecode here and store it in a file and when the interpretation just read file
-        string initial = "n" + to_string(number);
-        string one = this->lhs + "\\n";
-        string two = "=";
-        string three = this->rhs + "\\n";
-        string four = this->op + "\\n";
-        string five = this->result + "\\n";
-        *stream << initial << " [label=\"" << one << two << three << four << five << "\"];";
+        this->op = op;
+        this->lhs = lhs;
+        this->result = result;
+    }
+
+    void dump(ofstream *stream)
+    {
+        *stream << " [label=\""
+                << this->result
+                << "="
+                << this->lhs << " "
+                << this->op << " "
+                << this->rhs
+                << "\"];";
     }
 
     void setOp(string op)
@@ -79,15 +87,40 @@ public:
     }
 };
 
+class Expression : public TAC
+{
+public:
+    Expression(string _op, string _lhs, string _rhs, string _result) : TAC(_op, _lhs, _rhs, _result) {}
+};
+
+class MethodCall : public TAC
+{
+public:
+    MethodCall(string _f, string _N, string _result) : TAC("call", _f, _N, _result) {}
+};
+
+class Jump : public TAC
+{
+public:
+    Jump(string _lablel) : TAC("goto", _lablel) {}
+};
+
+class CondJump : public TAC
+{
+public:
+    CondJump(string _op, string _x, string _label) : TAC(_op, _x, _label) {}
+};
+
 class BBlock
 {
 private:
     void generate(ofstream *output)
     {
         *output << "node [shape = box];" << endl;
-        for (auto i = 0; i < tacInstructions.size(); i++)
+        for (auto i = 0; i < this->tacInstructions.size(); i++)
         {
-            tacInstructions[i]->printTac(output, i);
+            *output << "n" << to_string(i);
+            this->tacInstructions[i]->dump(output);
             string final = "\nn" + to_string(i) + " ->" + " n" + to_string(i + 1) + "\n";
             *output << final;
         }
