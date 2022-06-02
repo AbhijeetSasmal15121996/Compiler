@@ -1,0 +1,1874 @@
+Terminales no usados en la gramática
+
+    LSS
+    STRING
+
+
+Gramática
+
+    0 $accept: program "end of file"
+
+    1 program: mainClass
+    2        | program classDeclarationList "end of file"
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    4 extends: %empty
+    5        | EXTENDS identifier
+
+    6 classDeclarationList: classDeclaration
+    7                     | classDeclarationList classDeclaration
+
+    8 classDeclaration: CLASS identifier extends LBRACE varDeclarationList methodDeclarationList RBRACE
+    9                 | CLASS identifier extends LBRACE methodDeclarationList RBRACE
+   10                 | CLASS identifier extends LBRACE varDeclarationList RBRACE
+   11                 | CLASS identifier extends LBRACE RBRACE
+
+   12 varDeclarationList: varDeclaration
+   13                   | varDeclarationList varDeclaration
+
+   14 varDeclaration: type identifier SEMICOLON
+
+   15 methodDeclarationList: methodDeclaration
+   16                      | methodDeclarationList methodDeclaration
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+   20 parameterList: %empty
+   21              | type identifier
+   22              | type identifier COMMA parameterList
+
+   23 type: identifier
+   24     | INT
+   25     | BOOLEAN
+   26     | INT LBRACKET RBRACKET
+
+   27 statementList: statement
+   28              | statementList statement
+
+   29 statement: LBRACE statementList RBRACE
+   30          | IF LPAREN expression RPAREN statement ELSE statement
+   31          | WHILE LPAREN expression RPAREN statement
+   32          | PRINTLN LPAREN expression RPAREN SEMICOLON
+   33          | identifier EQUAL expression SEMICOLON
+   34          | identifier LBRACKET expression RBRACKET EQUAL expression SEMICOLON
+
+   35 expressionList: expression
+   36               | expression COMMA expressionList
+
+   37 expression: identifier
+   38           | INTEGER_LITERAL
+   39           | TRUE
+   40           | FALSE
+   41           | THIS
+   42           | expression AND expression
+   43           | expression TIMES expression
+   44           | expression PLUS expression
+   45           | expression MINUS expression
+   46           | expression LBRACKET expression RBRACKET
+   47           | expression PERIOD LENGTH
+   48           | NEW INT LBRACKET expression RBRACKET
+   49           | NEW identifier LPAREN RPAREN
+   50           | EXCLAMATION expression
+   51           | LPAREN expression RPAREN
+   52           | expression PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression PERIOD identifier LPAREN RPAREN
+
+   54 identifier: IDENTIFIER
+
+
+Terminales con las reglas donde aparecen
+
+    "end of file" (0) 0 2
+    error (256)
+    IDENTIFIER <std::string> (258) 54
+    LBRACKET <std::string> (259) 3 26 34 46 48
+    AND <std::string> (260) 42
+    RBRACKET <std::string> (261) 3 26 34 46 48
+    LSS <std::string> (262)
+    TIMES <std::string> (263) 43
+    INTEGER_LITERAL <std::string> (264) 38
+    PLUS <std::string> (265) 44
+    MINUS <std::string> (266) 45
+    PERIOD <std::string> (267) 47 52 53
+    LENGTH <std::string> (268) 47
+    TRUE <std::string> (269) 39
+    FALSE <std::string> (270) 40
+    THIS <std::string> (271) 41
+    NEW <std::string> (272) 48 49
+    INT <std::string> (273) 24 26 48
+    BOOLEAN <std::string> (274) 25
+    LPAREN <std::string> (275) 3 17 18 19 30 31 32 49 51 52 53
+    RPAREN <std::string> (276) 3 17 18 19 30 31 32 49 51 52 53
+    EXCLAMATION <std::string> (277) 50
+    COMMA <std::string> (278) 22 36
+    LBRACE <std::string> (279) 3 8 9 10 11 17 18 19 29
+    RBRACE <std::string> (280) 3 8 9 10 11 17 18 19 29
+    IF <std::string> (281) 30
+    ELSE <std::string> (282) 30
+    WHILE <std::string> (283) 31
+    PRINTLN <std::string> (284) 32
+    SEMICOLON <std::string> (285) 14 17 18 19 32 33 34
+    EQUAL <std::string> (286) 33 34
+    RETURN <std::string> (287) 17 18 19
+    PUBLIC <std::string> (288) 3 17 18 19
+    CLASS <std::string> (289) 3 8 9 10 11
+    EXTENDS <std::string> (290) 5
+    STATIC <std::string> (291) 3
+    VOID <std::string> (292) 3
+    MAIN <std::string> (293) 3
+    STRING <std::string> (294)
+    WORDSTRING <std::string> (295) 3
+
+
+No terminales con las reglas donde aparecen
+
+    $accept (41)
+        on left: 0
+    program <Node *> (42)
+        on left: 1 2
+        on right: 0 2
+    mainClass <Node *> (43)
+        on left: 3
+        on right: 1
+    extends <Node *> (44)
+        on left: 4 5
+        on right: 8 9 10 11
+    classDeclarationList <Node *> (45)
+        on left: 6 7
+        on right: 2 7
+    classDeclaration <Node *> (46)
+        on left: 8 9 10 11
+        on right: 6 7
+    varDeclarationList <Node *> (47)
+        on left: 12 13
+        on right: 8 10 13 17
+    varDeclaration <Node *> (48)
+        on left: 14
+        on right: 12 13
+    methodDeclarationList <Node *> (49)
+        on left: 15 16
+        on right: 8 9 16
+    methodDeclaration <Node *> (50)
+        on left: 17 18 19
+        on right: 15 16
+    parameterList <Node *> (51)
+        on left: 20 21 22
+        on right: 17 18 19 22
+    type <Node *> (52)
+        on left: 23 24 25 26
+        on right: 14 17 18 19 21 22
+    statementList <Node *> (53)
+        on left: 27 28
+        on right: 17 18 28 29
+    statement <Node *> (54)
+        on left: 29 30 31 32 33 34
+        on right: 3 27 28 30 31
+    expressionList <Node *> (55)
+        on left: 35 36
+        on right: 36 52
+    expression <Node *> (56)
+        on left: 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53
+        on right: 17 18 19 30 31 32 33 34 35 36 42 43 44 45 46 47 48 50 51 52 53
+    identifier <Node *> (57)
+        on left: 54
+        on right: 3 5 8 9 10 11 14 17 18 19 21 22 23 33 34 37 49 52 53
+
+
+Estado 0
+
+    0 $accept: . program "end of file"
+
+    CLASS  desplazar e ir al estado 1
+
+    program    ir al estado 2
+    mainClass  ir al estado 3
+
+
+Estado 1
+
+    3 mainClass: CLASS . identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 5
+
+
+Estado 2
+
+    0 $accept: program . "end of file"
+    2 program: program . classDeclarationList "end of file"
+
+    "end of file"  desplazar e ir al estado 6
+    CLASS          desplazar e ir al estado 7
+
+    classDeclarationList  ir al estado 8
+    classDeclaration      ir al estado 9
+
+
+Estado 3
+
+    1 program: mainClass .
+
+    $default  reduce usando la regla 1 (program)
+
+
+Estado 4
+
+   54 identifier: IDENTIFIER .
+
+    $default  reduce usando la regla 54 (identifier)
+
+
+Estado 5
+
+    3 mainClass: CLASS identifier . LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    LBRACE  desplazar e ir al estado 10
+
+
+Estado 6
+
+    0 $accept: program "end of file" .
+
+    $default  aceptar
+
+
+Estado 7
+
+    8 classDeclaration: CLASS . identifier extends LBRACE varDeclarationList methodDeclarationList RBRACE
+    9                 | CLASS . identifier extends LBRACE methodDeclarationList RBRACE
+   10                 | CLASS . identifier extends LBRACE varDeclarationList RBRACE
+   11                 | CLASS . identifier extends LBRACE RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 11
+
+
+Estado 8
+
+    2 program: program classDeclarationList . "end of file"
+    7 classDeclarationList: classDeclarationList . classDeclaration
+
+    "end of file"  desplazar e ir al estado 12
+    CLASS          desplazar e ir al estado 7
+
+    classDeclaration  ir al estado 13
+
+
+Estado 9
+
+    6 classDeclarationList: classDeclaration .
+
+    $default  reduce usando la regla 6 (classDeclarationList)
+
+
+Estado 10
+
+    3 mainClass: CLASS identifier LBRACE . PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    PUBLIC  desplazar e ir al estado 14
+
+
+Estado 11
+
+    8 classDeclaration: CLASS identifier . extends LBRACE varDeclarationList methodDeclarationList RBRACE
+    9                 | CLASS identifier . extends LBRACE methodDeclarationList RBRACE
+   10                 | CLASS identifier . extends LBRACE varDeclarationList RBRACE
+   11                 | CLASS identifier . extends LBRACE RBRACE
+
+    EXTENDS  desplazar e ir al estado 15
+
+    $default  reduce usando la regla 4 (extends)
+
+    extends  ir al estado 16
+
+
+Estado 12
+
+    2 program: program classDeclarationList "end of file" .
+
+    $default  reduce usando la regla 2 (program)
+
+
+Estado 13
+
+    7 classDeclarationList: classDeclarationList classDeclaration .
+
+    $default  reduce usando la regla 7 (classDeclarationList)
+
+
+Estado 14
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC . STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    STATIC  desplazar e ir al estado 17
+
+
+Estado 15
+
+    5 extends: EXTENDS . identifier
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 18
+
+
+Estado 16
+
+    8 classDeclaration: CLASS identifier extends . LBRACE varDeclarationList methodDeclarationList RBRACE
+    9                 | CLASS identifier extends . LBRACE methodDeclarationList RBRACE
+   10                 | CLASS identifier extends . LBRACE varDeclarationList RBRACE
+   11                 | CLASS identifier extends . LBRACE RBRACE
+
+    LBRACE  desplazar e ir al estado 19
+
+
+Estado 17
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC . VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    VOID  desplazar e ir al estado 20
+
+
+Estado 18
+
+    5 extends: EXTENDS identifier .
+
+    $default  reduce usando la regla 5 (extends)
+
+
+Estado 19
+
+    8 classDeclaration: CLASS identifier extends LBRACE . varDeclarationList methodDeclarationList RBRACE
+    9                 | CLASS identifier extends LBRACE . methodDeclarationList RBRACE
+   10                 | CLASS identifier extends LBRACE . varDeclarationList RBRACE
+   11                 | CLASS identifier extends LBRACE . RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+    RBRACE      desplazar e ir al estado 23
+    PUBLIC      desplazar e ir al estado 24
+
+    varDeclarationList     ir al estado 25
+    varDeclaration         ir al estado 26
+    methodDeclarationList  ir al estado 27
+    methodDeclaration      ir al estado 28
+    type                   ir al estado 29
+    identifier             ir al estado 30
+
+
+Estado 20
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID . MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    MAIN  desplazar e ir al estado 31
+
+
+Estado 21
+
+   24 type: INT .
+   26     | INT . LBRACKET RBRACKET
+
+    LBRACKET  desplazar e ir al estado 32
+
+    $default  reduce usando la regla 24 (type)
+
+
+Estado 22
+
+   25 type: BOOLEAN .
+
+    $default  reduce usando la regla 25 (type)
+
+
+Estado 23
+
+   11 classDeclaration: CLASS identifier extends LBRACE RBRACE .
+
+    $default  reduce usando la regla 11 (classDeclaration)
+
+
+Estado 24
+
+   17 methodDeclaration: PUBLIC . type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC . type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC . type identifier LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+
+    type        ir al estado 33
+    identifier  ir al estado 30
+
+
+Estado 25
+
+    8 classDeclaration: CLASS identifier extends LBRACE varDeclarationList . methodDeclarationList RBRACE
+   10                 | CLASS identifier extends LBRACE varDeclarationList . RBRACE
+   13 varDeclarationList: varDeclarationList . varDeclaration
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+    RBRACE      desplazar e ir al estado 34
+    PUBLIC      desplazar e ir al estado 24
+
+    varDeclaration         ir al estado 35
+    methodDeclarationList  ir al estado 36
+    methodDeclaration      ir al estado 28
+    type                   ir al estado 29
+    identifier             ir al estado 30
+
+
+Estado 26
+
+   12 varDeclarationList: varDeclaration .
+
+    $default  reduce usando la regla 12 (varDeclarationList)
+
+
+Estado 27
+
+    9 classDeclaration: CLASS identifier extends LBRACE methodDeclarationList . RBRACE
+   16 methodDeclarationList: methodDeclarationList . methodDeclaration
+
+    RBRACE  desplazar e ir al estado 37
+    PUBLIC  desplazar e ir al estado 24
+
+    methodDeclaration  ir al estado 38
+
+
+Estado 28
+
+   15 methodDeclarationList: methodDeclaration .
+
+    $default  reduce usando la regla 15 (methodDeclarationList)
+
+
+Estado 29
+
+   14 varDeclaration: type . identifier SEMICOLON
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 39
+
+
+Estado 30
+
+   23 type: identifier .
+
+    $default  reduce usando la regla 23 (type)
+
+
+Estado 31
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN . LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    LPAREN  desplazar e ir al estado 40
+
+
+Estado 32
+
+   26 type: INT LBRACKET . RBRACKET
+
+    RBRACKET  desplazar e ir al estado 41
+
+
+Estado 33
+
+   17 methodDeclaration: PUBLIC type . identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type . identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type . identifier LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 42
+
+
+Estado 34
+
+   10 classDeclaration: CLASS identifier extends LBRACE varDeclarationList RBRACE .
+
+    $default  reduce usando la regla 10 (classDeclaration)
+
+
+Estado 35
+
+   13 varDeclarationList: varDeclarationList varDeclaration .
+
+    $default  reduce usando la regla 13 (varDeclarationList)
+
+
+Estado 36
+
+    8 classDeclaration: CLASS identifier extends LBRACE varDeclarationList methodDeclarationList . RBRACE
+   16 methodDeclarationList: methodDeclarationList . methodDeclaration
+
+    RBRACE  desplazar e ir al estado 43
+    PUBLIC  desplazar e ir al estado 24
+
+    methodDeclaration  ir al estado 38
+
+
+Estado 37
+
+    9 classDeclaration: CLASS identifier extends LBRACE methodDeclarationList RBRACE .
+
+    $default  reduce usando la regla 9 (classDeclaration)
+
+
+Estado 38
+
+   16 methodDeclarationList: methodDeclarationList methodDeclaration .
+
+    $default  reduce usando la regla 16 (methodDeclarationList)
+
+
+Estado 39
+
+   14 varDeclaration: type identifier . SEMICOLON
+
+    SEMICOLON  desplazar e ir al estado 44
+
+
+Estado 40
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN . WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    WORDSTRING  desplazar e ir al estado 45
+
+
+Estado 41
+
+   26 type: INT LBRACKET RBRACKET .
+
+    $default  reduce usando la regla 26 (type)
+
+
+Estado 42
+
+   17 methodDeclaration: PUBLIC type identifier . LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier . LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier . LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+    LPAREN  desplazar e ir al estado 46
+
+
+Estado 43
+
+    8 classDeclaration: CLASS identifier extends LBRACE varDeclarationList methodDeclarationList RBRACE .
+
+    $default  reduce usando la regla 8 (classDeclaration)
+
+
+Estado 44
+
+   14 varDeclaration: type identifier SEMICOLON .
+
+    $default  reduce usando la regla 14 (varDeclaration)
+
+
+Estado 45
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING . LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    LBRACKET  desplazar e ir al estado 47
+
+
+Estado 46
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN . parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier LPAREN . parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier LPAREN . parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+
+    $default  reduce usando la regla 20 (parameterList)
+
+    parameterList  ir al estado 48
+    type           ir al estado 49
+    identifier     ir al estado 30
+
+
+Estado 47
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET . RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    RBRACKET  desplazar e ir al estado 50
+
+
+Estado 48
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList . RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier LPAREN parameterList . RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier LPAREN parameterList . RPAREN LBRACE RETURN expression SEMICOLON RBRACE
+
+    RPAREN  desplazar e ir al estado 51
+
+
+Estado 49
+
+   21 parameterList: type . identifier
+   22              | type . identifier COMMA parameterList
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 52
+
+
+Estado 50
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET . identifier RPAREN LBRACE statement RBRACE RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+
+    identifier  ir al estado 53
+
+
+Estado 51
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN . LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier LPAREN parameterList RPAREN . LBRACE statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier LPAREN parameterList RPAREN . LBRACE RETURN expression SEMICOLON RBRACE
+
+    LBRACE  desplazar e ir al estado 54
+
+
+Estado 52
+
+   21 parameterList: type identifier .
+   22              | type identifier . COMMA parameterList
+
+    COMMA  desplazar e ir al estado 55
+
+    $default  reduce usando la regla 21 (parameterList)
+
+
+Estado 53
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier . RPAREN LBRACE statement RBRACE RBRACE
+
+    RPAREN  desplazar e ir al estado 56
+
+
+Estado 54
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE . varDeclarationList statementList RETURN expression SEMICOLON RBRACE
+   18                  | PUBLIC type identifier LPAREN parameterList RPAREN LBRACE . statementList RETURN expression SEMICOLON RBRACE
+   19                  | PUBLIC type identifier LPAREN parameterList RPAREN LBRACE . RETURN expression SEMICOLON RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+    RETURN      desplazar e ir al estado 61
+
+    varDeclarationList  ir al estado 62
+    varDeclaration      ir al estado 26
+    type                ir al estado 29
+    statementList       ir al estado 63
+    statement           ir al estado 64
+    identifier          ir al estado 65
+
+
+Estado 55
+
+   22 parameterList: type identifier COMMA . parameterList
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+
+    $default  reduce usando la regla 20 (parameterList)
+
+    parameterList  ir al estado 66
+    type           ir al estado 49
+    identifier     ir al estado 30
+
+
+Estado 56
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN . LBRACE statement RBRACE RBRACE
+
+    LBRACE  desplazar e ir al estado 67
+
+
+Estado 57
+
+   29 statement: LBRACE . statementList RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statementList  ir al estado 68
+    statement      ir al estado 64
+    identifier     ir al estado 69
+
+
+Estado 58
+
+   30 statement: IF . LPAREN expression RPAREN statement ELSE statement
+
+    LPAREN  desplazar e ir al estado 70
+
+
+Estado 59
+
+   31 statement: WHILE . LPAREN expression RPAREN statement
+
+    LPAREN  desplazar e ir al estado 71
+
+
+Estado 60
+
+   32 statement: PRINTLN . LPAREN expression RPAREN SEMICOLON
+
+    LPAREN  desplazar e ir al estado 72
+
+
+Estado 61
+
+   19 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE RETURN . expression SEMICOLON RBRACE
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 80
+    identifier  ir al estado 81
+
+
+Estado 62
+
+   13 varDeclarationList: varDeclarationList . varDeclaration
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList . statementList RETURN expression SEMICOLON RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 21
+    BOOLEAN     desplazar e ir al estado 22
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    varDeclaration  ir al estado 35
+    type            ir al estado 29
+    statementList   ir al estado 82
+    statement       ir al estado 64
+    identifier      ir al estado 65
+
+
+Estado 63
+
+   18 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList . RETURN expression SEMICOLON RBRACE
+   28 statementList: statementList . statement
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+    RETURN      desplazar e ir al estado 83
+
+    statement   ir al estado 84
+    identifier  ir al estado 69
+
+
+Estado 64
+
+   27 statementList: statement .
+
+    $default  reduce usando la regla 27 (statementList)
+
+
+Estado 65
+
+   23 type: identifier .
+   33 statement: identifier . EQUAL expression SEMICOLON
+   34          | identifier . LBRACKET expression RBRACKET EQUAL expression SEMICOLON
+
+    LBRACKET  desplazar e ir al estado 85
+    EQUAL     desplazar e ir al estado 86
+
+    $default  reduce usando la regla 23 (type)
+
+
+Estado 66
+
+   22 parameterList: type identifier COMMA parameterList .
+
+    $default  reduce usando la regla 22 (parameterList)
+
+
+Estado 67
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE . statement RBRACE RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statement   ir al estado 87
+    identifier  ir al estado 69
+
+
+Estado 68
+
+   28 statementList: statementList . statement
+   29 statement: LBRACE statementList . RBRACE
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    RBRACE      desplazar e ir al estado 88
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statement   ir al estado 84
+    identifier  ir al estado 69
+
+
+Estado 69
+
+   33 statement: identifier . EQUAL expression SEMICOLON
+   34          | identifier . LBRACKET expression RBRACKET EQUAL expression SEMICOLON
+
+    LBRACKET  desplazar e ir al estado 85
+    EQUAL     desplazar e ir al estado 86
+
+
+Estado 70
+
+   30 statement: IF LPAREN . expression RPAREN statement ELSE statement
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 89
+    identifier  ir al estado 81
+
+
+Estado 71
+
+   31 statement: WHILE LPAREN . expression RPAREN statement
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 90
+    identifier  ir al estado 81
+
+
+Estado 72
+
+   32 statement: PRINTLN LPAREN . expression RPAREN SEMICOLON
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 91
+    identifier  ir al estado 81
+
+
+Estado 73
+
+   38 expression: INTEGER_LITERAL .
+
+    $default  reduce usando la regla 38 (expression)
+
+
+Estado 74
+
+   39 expression: TRUE .
+
+    $default  reduce usando la regla 39 (expression)
+
+
+Estado 75
+
+   40 expression: FALSE .
+
+    $default  reduce usando la regla 40 (expression)
+
+
+Estado 76
+
+   41 expression: THIS .
+
+    $default  reduce usando la regla 41 (expression)
+
+
+Estado 77
+
+   48 expression: NEW . INT LBRACKET expression RBRACKET
+   49           | NEW . identifier LPAREN RPAREN
+
+    IDENTIFIER  desplazar e ir al estado 4
+    INT         desplazar e ir al estado 92
+
+    identifier  ir al estado 93
+
+
+Estado 78
+
+   51 expression: LPAREN . expression RPAREN
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 94
+    identifier  ir al estado 81
+
+
+Estado 79
+
+   50 expression: EXCLAMATION . expression
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 95
+    identifier  ir al estado 81
+
+
+Estado 80
+
+   19 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE RETURN expression . SEMICOLON RBRACE
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET   desplazar e ir al estado 96
+    AND        desplazar e ir al estado 97
+    TIMES      desplazar e ir al estado 98
+    PLUS       desplazar e ir al estado 99
+    MINUS      desplazar e ir al estado 100
+    PERIOD     desplazar e ir al estado 101
+    SEMICOLON  desplazar e ir al estado 102
+
+
+Estado 81
+
+   37 expression: identifier .
+
+    $default  reduce usando la regla 37 (expression)
+
+
+Estado 82
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList . RETURN expression SEMICOLON RBRACE
+   28 statementList: statementList . statement
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+    RETURN      desplazar e ir al estado 103
+
+    statement   ir al estado 84
+    identifier  ir al estado 69
+
+
+Estado 83
+
+   18 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN . expression SEMICOLON RBRACE
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 104
+    identifier  ir al estado 81
+
+
+Estado 84
+
+   28 statementList: statementList statement .
+
+    $default  reduce usando la regla 28 (statementList)
+
+
+Estado 85
+
+   34 statement: identifier LBRACKET . expression RBRACKET EQUAL expression SEMICOLON
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 105
+    identifier  ir al estado 81
+
+
+Estado 86
+
+   33 statement: identifier EQUAL . expression SEMICOLON
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 106
+    identifier  ir al estado 81
+
+
+Estado 87
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement . RBRACE RBRACE
+
+    RBRACE  desplazar e ir al estado 107
+
+
+Estado 88
+
+   29 statement: LBRACE statementList RBRACE .
+
+    $default  reduce usando la regla 29 (statement)
+
+
+Estado 89
+
+   30 statement: IF LPAREN expression . RPAREN statement ELSE statement
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+    RPAREN    desplazar e ir al estado 108
+
+
+Estado 90
+
+   31 statement: WHILE LPAREN expression . RPAREN statement
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+    RPAREN    desplazar e ir al estado 109
+
+
+Estado 91
+
+   32 statement: PRINTLN LPAREN expression . RPAREN SEMICOLON
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+    RPAREN    desplazar e ir al estado 110
+
+
+Estado 92
+
+   48 expression: NEW INT . LBRACKET expression RBRACKET
+
+    LBRACKET  desplazar e ir al estado 111
+
+
+Estado 93
+
+   49 expression: NEW identifier . LPAREN RPAREN
+
+    LPAREN  desplazar e ir al estado 112
+
+
+Estado 94
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   51           | LPAREN expression . RPAREN
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+    RPAREN    desplazar e ir al estado 113
+
+
+Estado 95
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   50           | EXCLAMATION expression .
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    $default  reduce usando la regla 50 (expression)
+
+
+Estado 96
+
+   46 expression: expression LBRACKET . expression RBRACKET
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 114
+    identifier  ir al estado 81
+
+
+Estado 97
+
+   42 expression: expression AND . expression
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 115
+    identifier  ir al estado 81
+
+
+Estado 98
+
+   43 expression: expression TIMES . expression
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 116
+    identifier  ir al estado 81
+
+
+Estado 99
+
+   44 expression: expression PLUS . expression
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 117
+    identifier  ir al estado 81
+
+
+Estado 100
+
+   45 expression: expression MINUS . expression
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 118
+    identifier  ir al estado 81
+
+
+Estado 101
+
+   47 expression: expression PERIOD . LENGTH
+   52           | expression PERIOD . identifier LPAREN expressionList RPAREN
+   53           | expression PERIOD . identifier LPAREN RPAREN
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LENGTH      desplazar e ir al estado 119
+
+    identifier  ir al estado 120
+
+
+Estado 102
+
+   19 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON . RBRACE
+
+    RBRACE  desplazar e ir al estado 121
+
+
+Estado 103
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN . expression SEMICOLON RBRACE
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 122
+    identifier  ir al estado 81
+
+
+Estado 104
+
+   18 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression . SEMICOLON RBRACE
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET   desplazar e ir al estado 96
+    AND        desplazar e ir al estado 97
+    TIMES      desplazar e ir al estado 98
+    PLUS       desplazar e ir al estado 99
+    MINUS      desplazar e ir al estado 100
+    PERIOD     desplazar e ir al estado 101
+    SEMICOLON  desplazar e ir al estado 123
+
+
+Estado 105
+
+   34 statement: identifier LBRACKET expression . RBRACKET EQUAL expression SEMICOLON
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    RBRACKET  desplazar e ir al estado 124
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+
+
+Estado 106
+
+   33 statement: identifier EQUAL expression . SEMICOLON
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET   desplazar e ir al estado 96
+    AND        desplazar e ir al estado 97
+    TIMES      desplazar e ir al estado 98
+    PLUS       desplazar e ir al estado 99
+    MINUS      desplazar e ir al estado 100
+    PERIOD     desplazar e ir al estado 101
+    SEMICOLON  desplazar e ir al estado 125
+
+
+Estado 107
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE . RBRACE
+
+    RBRACE  desplazar e ir al estado 126
+
+
+Estado 108
+
+   30 statement: IF LPAREN expression RPAREN . statement ELSE statement
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statement   ir al estado 127
+    identifier  ir al estado 69
+
+
+Estado 109
+
+   31 statement: WHILE LPAREN expression RPAREN . statement
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statement   ir al estado 128
+    identifier  ir al estado 69
+
+
+Estado 110
+
+   32 statement: PRINTLN LPAREN expression RPAREN . SEMICOLON
+
+    SEMICOLON  desplazar e ir al estado 129
+
+
+Estado 111
+
+   48 expression: NEW INT LBRACKET . expression RBRACKET
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 130
+    identifier  ir al estado 81
+
+
+Estado 112
+
+   49 expression: NEW identifier LPAREN . RPAREN
+
+    RPAREN  desplazar e ir al estado 131
+
+
+Estado 113
+
+   51 expression: LPAREN expression RPAREN .
+
+    $default  reduce usando la regla 51 (expression)
+
+
+Estado 114
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   46           | expression LBRACKET expression . RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    RBRACKET  desplazar e ir al estado 132
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+
+
+Estado 115
+
+   42 expression: expression . AND expression
+   42           | expression AND expression .
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    TIMES   desplazar e ir al estado 98
+    PLUS    desplazar e ir al estado 99
+    MINUS   desplazar e ir al estado 100
+    PERIOD  desplazar e ir al estado 101
+
+    $default  reduce usando la regla 42 (expression)
+
+
+Estado 116
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   43           | expression TIMES expression .
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    PERIOD  desplazar e ir al estado 101
+
+    $default  reduce usando la regla 43 (expression)
+
+
+Estado 117
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   44           | expression PLUS expression .
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    TIMES   desplazar e ir al estado 98
+    PERIOD  desplazar e ir al estado 101
+
+    $default  reduce usando la regla 44 (expression)
+
+
+Estado 118
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   45           | expression MINUS expression .
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    TIMES   desplazar e ir al estado 98
+    PERIOD  desplazar e ir al estado 101
+
+    $default  reduce usando la regla 45 (expression)
+
+
+Estado 119
+
+   47 expression: expression PERIOD LENGTH .
+
+    $default  reduce usando la regla 47 (expression)
+
+
+Estado 120
+
+   52 expression: expression PERIOD identifier . LPAREN expressionList RPAREN
+   53           | expression PERIOD identifier . LPAREN RPAREN
+
+    LPAREN  desplazar e ir al estado 133
+
+
+Estado 121
+
+   19 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE RETURN expression SEMICOLON RBRACE .
+
+    $default  reduce usando la regla 19 (methodDeclaration)
+
+
+Estado 122
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression . SEMICOLON RBRACE
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET   desplazar e ir al estado 96
+    AND        desplazar e ir al estado 97
+    TIMES      desplazar e ir al estado 98
+    PLUS       desplazar e ir al estado 99
+    MINUS      desplazar e ir al estado 100
+    PERIOD     desplazar e ir al estado 101
+    SEMICOLON  desplazar e ir al estado 134
+
+
+Estado 123
+
+   18 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON . RBRACE
+
+    RBRACE  desplazar e ir al estado 135
+
+
+Estado 124
+
+   34 statement: identifier LBRACKET expression RBRACKET . EQUAL expression SEMICOLON
+
+    EQUAL  desplazar e ir al estado 136
+
+
+Estado 125
+
+   33 statement: identifier EQUAL expression SEMICOLON .
+
+    $default  reduce usando la regla 33 (statement)
+
+
+Estado 126
+
+    3 mainClass: CLASS identifier LBRACE PUBLIC STATIC VOID MAIN LPAREN WORDSTRING LBRACKET RBRACKET identifier RPAREN LBRACE statement RBRACE RBRACE .
+
+    $default  reduce usando la regla 3 (mainClass)
+
+
+Estado 127
+
+   30 statement: IF LPAREN expression RPAREN statement . ELSE statement
+
+    ELSE  desplazar e ir al estado 137
+
+
+Estado 128
+
+   31 statement: WHILE LPAREN expression RPAREN statement .
+
+    $default  reduce usando la regla 31 (statement)
+
+
+Estado 129
+
+   32 statement: PRINTLN LPAREN expression RPAREN SEMICOLON .
+
+    $default  reduce usando la regla 32 (statement)
+
+
+Estado 130
+
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   48           | NEW INT LBRACKET expression . RBRACKET
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    RBRACKET  desplazar e ir al estado 138
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+
+
+Estado 131
+
+   49 expression: NEW identifier LPAREN RPAREN .
+
+    $default  reduce usando la regla 49 (expression)
+
+
+Estado 132
+
+   46 expression: expression LBRACKET expression RBRACKET .
+
+    $default  reduce usando la regla 46 (expression)
+
+
+Estado 133
+
+   52 expression: expression PERIOD identifier LPAREN . expressionList RPAREN
+   53           | expression PERIOD identifier LPAREN . RPAREN
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    RPAREN           desplazar e ir al estado 139
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expressionList  ir al estado 140
+    expression      ir al estado 141
+    identifier      ir al estado 81
+
+
+Estado 134
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON . RBRACE
+
+    RBRACE  desplazar e ir al estado 142
+
+
+Estado 135
+
+   18 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE statementList RETURN expression SEMICOLON RBRACE .
+
+    $default  reduce usando la regla 18 (methodDeclaration)
+
+
+Estado 136
+
+   34 statement: identifier LBRACKET expression RBRACKET EQUAL . expression SEMICOLON
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expression  ir al estado 143
+    identifier  ir al estado 81
+
+
+Estado 137
+
+   30 statement: IF LPAREN expression RPAREN statement ELSE . statement
+
+    IDENTIFIER  desplazar e ir al estado 4
+    LBRACE      desplazar e ir al estado 57
+    IF          desplazar e ir al estado 58
+    WHILE       desplazar e ir al estado 59
+    PRINTLN     desplazar e ir al estado 60
+
+    statement   ir al estado 144
+    identifier  ir al estado 69
+
+
+Estado 138
+
+   48 expression: NEW INT LBRACKET expression RBRACKET .
+
+    $default  reduce usando la regla 48 (expression)
+
+
+Estado 139
+
+   53 expression: expression PERIOD identifier LPAREN RPAREN .
+
+    $default  reduce usando la regla 53 (expression)
+
+
+Estado 140
+
+   52 expression: expression PERIOD identifier LPAREN expressionList . RPAREN
+
+    RPAREN  desplazar e ir al estado 145
+
+
+Estado 141
+
+   35 expressionList: expression .
+   36               | expression . COMMA expressionList
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET  desplazar e ir al estado 96
+    AND       desplazar e ir al estado 97
+    TIMES     desplazar e ir al estado 98
+    PLUS      desplazar e ir al estado 99
+    MINUS     desplazar e ir al estado 100
+    PERIOD    desplazar e ir al estado 101
+    COMMA     desplazar e ir al estado 146
+
+    $default  reduce usando la regla 35 (expressionList)
+
+
+Estado 142
+
+   17 methodDeclaration: PUBLIC type identifier LPAREN parameterList RPAREN LBRACE varDeclarationList statementList RETURN expression SEMICOLON RBRACE .
+
+    $default  reduce usando la regla 17 (methodDeclaration)
+
+
+Estado 143
+
+   34 statement: identifier LBRACKET expression RBRACKET EQUAL expression . SEMICOLON
+   42 expression: expression . AND expression
+   43           | expression . TIMES expression
+   44           | expression . PLUS expression
+   45           | expression . MINUS expression
+   46           | expression . LBRACKET expression RBRACKET
+   47           | expression . PERIOD LENGTH
+   52           | expression . PERIOD identifier LPAREN expressionList RPAREN
+   53           | expression . PERIOD identifier LPAREN RPAREN
+
+    LBRACKET   desplazar e ir al estado 96
+    AND        desplazar e ir al estado 97
+    TIMES      desplazar e ir al estado 98
+    PLUS       desplazar e ir al estado 99
+    MINUS      desplazar e ir al estado 100
+    PERIOD     desplazar e ir al estado 101
+    SEMICOLON  desplazar e ir al estado 147
+
+
+Estado 144
+
+   30 statement: IF LPAREN expression RPAREN statement ELSE statement .
+
+    $default  reduce usando la regla 30 (statement)
+
+
+Estado 145
+
+   52 expression: expression PERIOD identifier LPAREN expressionList RPAREN .
+
+    $default  reduce usando la regla 52 (expression)
+
+
+Estado 146
+
+   36 expressionList: expression COMMA . expressionList
+
+    IDENTIFIER       desplazar e ir al estado 4
+    INTEGER_LITERAL  desplazar e ir al estado 73
+    TRUE             desplazar e ir al estado 74
+    FALSE            desplazar e ir al estado 75
+    THIS             desplazar e ir al estado 76
+    NEW              desplazar e ir al estado 77
+    LPAREN           desplazar e ir al estado 78
+    EXCLAMATION      desplazar e ir al estado 79
+
+    expressionList  ir al estado 148
+    expression      ir al estado 141
+    identifier      ir al estado 81
+
+
+Estado 147
+
+   34 statement: identifier LBRACKET expression RBRACKET EQUAL expression SEMICOLON .
+
+    $default  reduce usando la regla 34 (statement)
+
+
+Estado 148
+
+   36 expressionList: expression COMMA expressionList .
+
+    $default  reduce usando la regla 36 (expressionList)

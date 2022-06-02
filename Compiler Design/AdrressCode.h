@@ -37,12 +37,40 @@ public:
 
     void dump(ofstream *stream)
     {
+        string actual = "_t0 = " + this->lhs + " " + this->op + " " + this->rhs + "\\n";
+        string one = "";
+        string two = "";
+        string three = "";
+        string param = "param _to";
+        if (this->op != "")
+        {
+            one = "_t1 = " + this->lhs;
+            two = "_t2 = " + this->rhs;
+        }
+        switch (op[0])
+        {
+        case '+':
+            three = this->result + "= _t1 + _t2";
+            break;
+        case '-':
+            three = this->result + "= _t1 - _t2";
+            break;
+        case '/':
+            three = this->result + "= _t1 / _t2";
+            break;
+        case '*':
+            three = this->result + "= _t1 * _t2";
+            break;
+        default:
+            three = "";
+            break;
+        }
         *stream << " [label=\""
-                << this->result
-                << "="
-                << this->lhs << " "
-                << this->op << " "
-                << this->rhs
+                << actual
+                << param << "\\n"
+                << one << "\\n"
+                << two << "\\n"
+                << three
                 << "\"];";
     }
 
@@ -121,8 +149,9 @@ private:
         {
             *output << "n" << to_string(i);
             this->tacInstructions[i]->dump(output);
-            string final = "\nn" + to_string(i) + " ->" + " n" + to_string(i + 1) + "\n";
-            *output << final;
+            string final = "\nn" + to_string(i) + " ->" + " n" + to_string(i + 1);
+            string tf = " [xlabel=\"true\"];";
+            *output << final << tf << "\n";
         }
     }
     string name;

@@ -3,7 +3,7 @@ n0 [label="Program:"];
 n1 [label="MainClass:"];
 n2 [label=":CLASS"];
 n1 -> n2
-n3 [label="Identifier:Sum"];
+n3 [label="Identifier:BinarySearch"];
 n1 -> n3
 n4 [label="LBRACKET:{"];
 n1 -> n4
@@ -38,7 +38,7 @@ n19 [label="MethodCallExpression:"];
 n20 [label="NewClassExpression:"];
 n21 [label="NEW:new"];
 n20 -> n21
-n22 [label="Identifier:Test"];
+n22 [label="Identifier:BS"];
 n20 -> n22
 n23 [label="LP:("];
 n20 -> n23
@@ -47,11 +47,11 @@ n20 -> n24
 n19 -> n20
 n25 [label="PERIOD:."];
 n19 -> n25
-n26 [label="Identifier:Sum"];
+n26 [label="Identifier:Start"];
 n19 -> n26
 n27 [label="LP:("];
 n19 -> n27
-n28 [label="INTEGER:100"];
+n28 [label="INTEGER:20"];
 n19 -> n28
 n29 [label="RP:)"];
 n19 -> n29
@@ -69,141 +69,1675 @@ n0 -> n1
 n34 [label="ClassDeclaration:"];
 n35 [label=":CLASS"];
 n34 -> n35
-n36 [label="Identifier:Test"];
+n36 [label="Identifier:BS"];
 n34 -> n36
 n37 [label="LBRACKET:{"];
 n34 -> n37
-n38 [label="MethodDeclaration:"];
-n39 [label=":public"];
+n38 [label="VarDeclarationList:"];
+n39 [label="VarDeclaration:"];
+n40 [label="TypeVector:"];
+n41 [label="Type:INT"];
+n40 -> n41
+n42 [label="LSQUAREP:["];
+n40 -> n42
+n43 [label="RSQUAREP:]"];
+n40 -> n43
+n39 -> n40
+n44 [label="Identifier:number"];
+n39 -> n44
+n45 [label="SEMICOLON:;"];
+n39 -> n45
 n38 -> n39
-n40 [label="TYPE:int"];
-n38 -> n40
-n41 [label="Identifier:Sum"];
-n38 -> n41
-n42 [label="LP:("];
-n38 -> n42
-n43 [label="ParameterList:"];
-n44 [label="TYPE:int"];
-n43 -> n44
-n45 [label="Identifier:num"];
-n43 -> n45
-n38 -> n43
-n46 [label="RP:)"];
+n46 [label="VarDeclaration:"];
+n47 [label="TYPE:int"];
+n46 -> n47
+n48 [label="Identifier:size"];
+n46 -> n48
+n49 [label="SEMICOLON:;"];
+n46 -> n49
 n38 -> n46
-n47 [label="LBRACKET:{"];
-n38 -> n47
-n48 [label="VarDeclaration:"];
-n49 [label="TYPE:int"];
-n48 -> n49
-n50 [label="Identifier:sum"];
-n48 -> n50
-n51 [label="SEMICOLON:;"];
-n48 -> n51
-n38 -> n48
-n52 [label="StatementList:"];
-n53 [label="AssignmentStatement:"];
-n54 [label="Identifier:sum"];
-n53 -> n54
-n55 [label="EQUALS:="];
-n53 -> n55
-n56 [label="INTEGER:0"];
-n53 -> n56
-n57 [label="SEMICOLON:;"];
-n53 -> n57
-n52 -> n53
-n58 [label="WHILEStatement:"];
-n59 [label="WHILE:while"];
-n58 -> n59
-n60 [label="LP:("];
-n58 -> n60
-n61 [label="AndExpression:"];
-n62 [label="LESSERExpression:"];
-n63 [label="INTEGER:0"];
-n62 -> n63
-n64 [label="LESSER:<"];
-n62 -> n64
-n65 [label="Identifier:num"];
-n62 -> n65
-n61 -> n62
-n66 [label="AND:&&"];
-n61 -> n66
-n67 [label="LESSERExpression:"];
-n68 [label="Identifier:sum"];
-n67 -> n68
-n69 [label="LESSER:<"];
-n67 -> n69
-n70 [label="INTEGER:1000"];
-n67 -> n70
-n61 -> n67
-n58 -> n61
-n71 [label="RP:)"];
-n58 -> n71
-n72 [label="Statement:"];
-n73 [label="LBRACKET:{"];
-n72 -> n73
+n34 -> n38
+n50 [label="MethodDeclarationList:"];
+n51 [label="MethodDeclarationList:"];
+n52 [label="MethodDeclarationList:"];
+n53 [label="MethodDeclarationList:"];
+n54 [label="MethodDeclarationList:"];
+n55 [label="MethodDeclaration:"];
+n56 [label=":public"];
+n55 -> n56
+n57 [label="TYPE:int"];
+n55 -> n57
+n58 [label="Identifier:Start"];
+n55 -> n58
+n59 [label="LP:("];
+n55 -> n59
+n60 [label="ParameterList:"];
+n61 [label="TYPE:int"];
+n60 -> n61
+n62 [label="Identifier:sz"];
+n60 -> n62
+n55 -> n60
+n63 [label="RP:)"];
+n55 -> n63
+n64 [label="LBRACKET:{"];
+n55 -> n64
+n65 [label="VarDeclarationList:"];
+n66 [label="VarDeclaration:"];
+n67 [label="TYPE:int"];
+n66 -> n67
+n68 [label="Identifier:aux01"];
+n66 -> n68
+n69 [label="SEMICOLON:;"];
+n66 -> n69
+n65 -> n66
+n70 [label="VarDeclaration:"];
+n71 [label="TYPE:int"];
+n70 -> n71
+n72 [label="Identifier:aux02"];
+n70 -> n72
+n73 [label="SEMICOLON:;"];
+n70 -> n73
+n65 -> n70
+n55 -> n65
 n74 [label="StatementList:"];
 n75 [label="StatementList:"];
-n76 [label="PrintStatement:"];
-n77 [label="PRINT:System.out.println"];
-n76 -> n77
-n78 [label="LP:("];
-n76 -> n78
-n79 [label="Identifier:sum"];
-n76 -> n79
-n80 [label="RP:)"];
-n76 -> n80
-n81 [label="SEMICOLON:;"];
-n76 -> n81
-n75 -> n76
-n82 [label="AssignmentStatement:"];
-n83 [label="Identifier:sum"];
+n76 [label="StatementList:"];
+n77 [label="StatementList:"];
+n78 [label="StatementList:"];
+n79 [label="StatementList:"];
+n80 [label="StatementList:"];
+n81 [label="StatementList:"];
+n82 [label="StatementList:"];
+n83 [label="AssignmentStatement:"];
+n84 [label="Identifier:aux01"];
+n83 -> n84
+n85 [label="EQUALS:="];
+n83 -> n85
+n86 [label="MethodCallExpression:"];
+n87 [label=":this"];
+n86 -> n87
+n88 [label="PERIOD:."];
+n86 -> n88
+n89 [label="Identifier:Init"];
+n86 -> n89
+n90 [label="LP:("];
+n86 -> n90
+n91 [label="Identifier:sz"];
+n86 -> n91
+n92 [label="RP:)"];
+n86 -> n92
+n83 -> n86
+n93 [label="SEMICOLON:;"];
+n83 -> n93
 n82 -> n83
-n84 [label="EQUALS:="];
-n82 -> n84
-n85 [label="PlusExpression:"];
-n86 [label="Identifier:sum"];
-n85 -> n86
-n87 [label="PLUS:+"];
-n85 -> n87
-n88 [label="Identifier:num"];
-n85 -> n88
-n82 -> n85
-n89 [label="SEMICOLON:;"];
-n82 -> n89
-n75 -> n82
+n94 [label="AssignmentStatement:"];
+n95 [label="Identifier:aux02"];
+n94 -> n95
+n96 [label="EQUALS:="];
+n94 -> n96
+n97 [label="MethodCallExpressionWithoutArgs:"];
+n98 [label=":this"];
+n97 -> n98
+n99 [label="PERIOD:."];
+n97 -> n99
+n100 [label="Identifier:Print"];
+n97 -> n100
+n101 [label="LP:("];
+n97 -> n101
+n102 [label="RP:)"];
+n97 -> n102
+n94 -> n97
+n103 [label="SEMICOLON:;"];
+n94 -> n103
+n82 -> n94
+n81 -> n82
+n104 [label="IFStatement:"];
+n105 [label="IF:if"];
+n104 -> n105
+n106 [label="LP:("];
+n104 -> n106
+n107 [label="MethodCallExpression:"];
+n108 [label=":this"];
+n107 -> n108
+n109 [label="PERIOD:."];
+n107 -> n109
+n110 [label="Identifier:Search"];
+n107 -> n110
+n111 [label="LP:("];
+n107 -> n111
+n112 [label="INTEGER:8"];
+n107 -> n112
+n113 [label="RP:)"];
+n107 -> n113
+n104 -> n107
+n114 [label="RP:)"];
+n104 -> n114
+n115 [label="PrintStatement:"];
+n116 [label="PRINT:System.out.println"];
+n115 -> n116
+n117 [label="LP:("];
+n115 -> n117
+n118 [label="INTEGER:1"];
+n115 -> n118
+n119 [label="RP:)"];
+n115 -> n119
+n120 [label="SEMICOLON:;"];
+n115 -> n120
+n104 -> n115
+n121 [label="ELSE:else"];
+n104 -> n121
+n122 [label="PrintStatement:"];
+n123 [label="PRINT:System.out.println"];
+n122 -> n123
+n124 [label="LP:("];
+n122 -> n124
+n125 [label="INTEGER:0"];
+n122 -> n125
+n126 [label="RP:)"];
+n122 -> n126
+n127 [label="SEMICOLON:;"];
+n122 -> n127
+n104 -> n122
+n81 -> n104
+n80 -> n81
+n128 [label="IFStatement:"];
+n129 [label="IF:if"];
+n128 -> n129
+n130 [label="LP:("];
+n128 -> n130
+n131 [label="MethodCallExpression:"];
+n132 [label=":this"];
+n131 -> n132
+n133 [label="PERIOD:."];
+n131 -> n133
+n134 [label="Identifier:Search"];
+n131 -> n134
+n135 [label="LP:("];
+n131 -> n135
+n136 [label="INTEGER:19"];
+n131 -> n136
+n137 [label="RP:)"];
+n131 -> n137
+n128 -> n131
+n138 [label="RP:)"];
+n128 -> n138
+n139 [label="PrintStatement:"];
+n140 [label="PRINT:System.out.println"];
+n139 -> n140
+n141 [label="LP:("];
+n139 -> n141
+n142 [label="INTEGER:1"];
+n139 -> n142
+n143 [label="RP:)"];
+n139 -> n143
+n144 [label="SEMICOLON:;"];
+n139 -> n144
+n128 -> n139
+n145 [label="ELSE:else"];
+n128 -> n145
+n146 [label="PrintStatement:"];
+n147 [label="PRINT:System.out.println"];
+n146 -> n147
+n148 [label="LP:("];
+n146 -> n148
+n149 [label="INTEGER:0"];
+n146 -> n149
+n150 [label="RP:)"];
+n146 -> n150
+n151 [label="SEMICOLON:;"];
+n146 -> n151
+n128 -> n146
+n80 -> n128
+n79 -> n80
+n152 [label="IFStatement:"];
+n153 [label="IF:if"];
+n152 -> n153
+n154 [label="LP:("];
+n152 -> n154
+n155 [label="MethodCallExpression:"];
+n156 [label=":this"];
+n155 -> n156
+n157 [label="PERIOD:."];
+n155 -> n157
+n158 [label="Identifier:Search"];
+n155 -> n158
+n159 [label="LP:("];
+n155 -> n159
+n160 [label="INTEGER:20"];
+n155 -> n160
+n161 [label="RP:)"];
+n155 -> n161
+n152 -> n155
+n162 [label="RP:)"];
+n152 -> n162
+n163 [label="PrintStatement:"];
+n164 [label="PRINT:System.out.println"];
+n163 -> n164
+n165 [label="LP:("];
+n163 -> n165
+n166 [label="INTEGER:1"];
+n163 -> n166
+n167 [label="RP:)"];
+n163 -> n167
+n168 [label="SEMICOLON:;"];
+n163 -> n168
+n152 -> n163
+n169 [label="ELSE:else"];
+n152 -> n169
+n170 [label="PrintStatement:"];
+n171 [label="PRINT:System.out.println"];
+n170 -> n171
+n172 [label="LP:("];
+n170 -> n172
+n173 [label="INTEGER:0"];
+n170 -> n173
+n174 [label="RP:)"];
+n170 -> n174
+n175 [label="SEMICOLON:;"];
+n170 -> n175
+n152 -> n170
+n79 -> n152
+n78 -> n79
+n176 [label="IFStatement:"];
+n177 [label="IF:if"];
+n176 -> n177
+n178 [label="LP:("];
+n176 -> n178
+n179 [label="MethodCallExpression:"];
+n180 [label=":this"];
+n179 -> n180
+n181 [label="PERIOD:."];
+n179 -> n181
+n182 [label="Identifier:Search"];
+n179 -> n182
+n183 [label="LP:("];
+n179 -> n183
+n184 [label="INTEGER:21"];
+n179 -> n184
+n185 [label="RP:)"];
+n179 -> n185
+n176 -> n179
+n186 [label="RP:)"];
+n176 -> n186
+n187 [label="PrintStatement:"];
+n188 [label="PRINT:System.out.println"];
+n187 -> n188
+n189 [label="LP:("];
+n187 -> n189
+n190 [label="INTEGER:1"];
+n187 -> n190
+n191 [label="RP:)"];
+n187 -> n191
+n192 [label="SEMICOLON:;"];
+n187 -> n192
+n176 -> n187
+n193 [label="ELSE:else"];
+n176 -> n193
+n194 [label="PrintStatement:"];
+n195 [label="PRINT:System.out.println"];
+n194 -> n195
+n196 [label="LP:("];
+n194 -> n196
+n197 [label="INTEGER:0"];
+n194 -> n197
+n198 [label="RP:)"];
+n194 -> n198
+n199 [label="SEMICOLON:;"];
+n194 -> n199
+n176 -> n194
+n78 -> n176
+n77 -> n78
+n200 [label="IFStatement:"];
+n201 [label="IF:if"];
+n200 -> n201
+n202 [label="LP:("];
+n200 -> n202
+n203 [label="MethodCallExpression:"];
+n204 [label=":this"];
+n203 -> n204
+n205 [label="PERIOD:."];
+n203 -> n205
+n206 [label="Identifier:Search"];
+n203 -> n206
+n207 [label="LP:("];
+n203 -> n207
+n208 [label="INTEGER:37"];
+n203 -> n208
+n209 [label="RP:)"];
+n203 -> n209
+n200 -> n203
+n210 [label="RP:)"];
+n200 -> n210
+n211 [label="PrintStatement:"];
+n212 [label="PRINT:System.out.println"];
+n211 -> n212
+n213 [label="LP:("];
+n211 -> n213
+n214 [label="INTEGER:1"];
+n211 -> n214
+n215 [label="RP:)"];
+n211 -> n215
+n216 [label="SEMICOLON:;"];
+n211 -> n216
+n200 -> n211
+n217 [label="ELSE:else"];
+n200 -> n217
+n218 [label="PrintStatement:"];
+n219 [label="PRINT:System.out.println"];
+n218 -> n219
+n220 [label="LP:("];
+n218 -> n220
+n221 [label="INTEGER:0"];
+n218 -> n221
+n222 [label="RP:)"];
+n218 -> n222
+n223 [label="SEMICOLON:;"];
+n218 -> n223
+n200 -> n218
+n77 -> n200
+n76 -> n77
+n224 [label="IFStatement:"];
+n225 [label="IF:if"];
+n224 -> n225
+n226 [label="LP:("];
+n224 -> n226
+n227 [label="MethodCallExpression:"];
+n228 [label=":this"];
+n227 -> n228
+n229 [label="PERIOD:."];
+n227 -> n229
+n230 [label="Identifier:Search"];
+n227 -> n230
+n231 [label="LP:("];
+n227 -> n231
+n232 [label="INTEGER:38"];
+n227 -> n232
+n233 [label="RP:)"];
+n227 -> n233
+n224 -> n227
+n234 [label="RP:)"];
+n224 -> n234
+n235 [label="PrintStatement:"];
+n236 [label="PRINT:System.out.println"];
+n235 -> n236
+n237 [label="LP:("];
+n235 -> n237
+n238 [label="INTEGER:1"];
+n235 -> n238
+n239 [label="RP:)"];
+n235 -> n239
+n240 [label="SEMICOLON:;"];
+n235 -> n240
+n224 -> n235
+n241 [label="ELSE:else"];
+n224 -> n241
+n242 [label="PrintStatement:"];
+n243 [label="PRINT:System.out.println"];
+n242 -> n243
+n244 [label="LP:("];
+n242 -> n244
+n245 [label="INTEGER:0"];
+n242 -> n245
+n246 [label="RP:)"];
+n242 -> n246
+n247 [label="SEMICOLON:;"];
+n242 -> n247
+n224 -> n242
+n76 -> n224
+n75 -> n76
+n248 [label="IFStatement:"];
+n249 [label="IF:if"];
+n248 -> n249
+n250 [label="LP:("];
+n248 -> n250
+n251 [label="MethodCallExpression:"];
+n252 [label=":this"];
+n251 -> n252
+n253 [label="PERIOD:."];
+n251 -> n253
+n254 [label="Identifier:Search"];
+n251 -> n254
+n255 [label="LP:("];
+n251 -> n255
+n256 [label="INTEGER:39"];
+n251 -> n256
+n257 [label="RP:)"];
+n251 -> n257
+n248 -> n251
+n258 [label="RP:)"];
+n248 -> n258
+n259 [label="PrintStatement:"];
+n260 [label="PRINT:System.out.println"];
+n259 -> n260
+n261 [label="LP:("];
+n259 -> n261
+n262 [label="INTEGER:1"];
+n259 -> n262
+n263 [label="RP:)"];
+n259 -> n263
+n264 [label="SEMICOLON:;"];
+n259 -> n264
+n248 -> n259
+n265 [label="ELSE:else"];
+n248 -> n265
+n266 [label="PrintStatement:"];
+n267 [label="PRINT:System.out.println"];
+n266 -> n267
+n268 [label="LP:("];
+n266 -> n268
+n269 [label="INTEGER:0"];
+n266 -> n269
+n270 [label="RP:)"];
+n266 -> n270
+n271 [label="SEMICOLON:;"];
+n266 -> n271
+n248 -> n266
+n75 -> n248
 n74 -> n75
-n90 [label="AssignmentStatement:"];
-n91 [label="Identifier:num"];
-n90 -> n91
-n92 [label="EQUALS:="];
-n90 -> n92
-n93 [label="MinusExpression:"];
-n94 [label="Identifier:num"];
-n93 -> n94
-n95 [label="MINUS:-"];
-n93 -> n95
-n96 [label="INTEGER:1"];
-n93 -> n96
-n90 -> n93
-n97 [label="SEMICOLON:;"];
-n90 -> n97
-n74 -> n90
-n72 -> n74
-n98 [label="RBRACKET:}"];
-n72 -> n98
-n58 -> n72
-n52 -> n58
-n38 -> n52
-n99 [label=":return"];
-n38 -> n99
-n100 [label="Identifier:sum"];
-n38 -> n100
-n101 [label="SEMICOLON:;"];
-n38 -> n101
-n102 [label="RBRACKET:}"];
-n38 -> n102
-n34 -> n38
-n103 [label="RBRACKET:}"];
-n34 -> n103
+n272 [label="IFStatement:"];
+n273 [label="IF:if"];
+n272 -> n273
+n274 [label="LP:("];
+n272 -> n274
+n275 [label="MethodCallExpression:"];
+n276 [label=":this"];
+n275 -> n276
+n277 [label="PERIOD:."];
+n275 -> n277
+n278 [label="Identifier:Search"];
+n275 -> n278
+n279 [label="LP:("];
+n275 -> n279
+n280 [label="INTEGER:50"];
+n275 -> n280
+n281 [label="RP:)"];
+n275 -> n281
+n272 -> n275
+n282 [label="RP:)"];
+n272 -> n282
+n283 [label="PrintStatement:"];
+n284 [label="PRINT:System.out.println"];
+n283 -> n284
+n285 [label="LP:("];
+n283 -> n285
+n286 [label="INTEGER:1"];
+n283 -> n286
+n287 [label="RP:)"];
+n283 -> n287
+n288 [label="SEMICOLON:;"];
+n283 -> n288
+n272 -> n283
+n289 [label="ELSE:else"];
+n272 -> n289
+n290 [label="PrintStatement:"];
+n291 [label="PRINT:System.out.println"];
+n290 -> n291
+n292 [label="LP:("];
+n290 -> n292
+n293 [label="INTEGER:0"];
+n290 -> n293
+n294 [label="RP:)"];
+n290 -> n294
+n295 [label="SEMICOLON:;"];
+n290 -> n295
+n272 -> n290
+n74 -> n272
+n55 -> n74
+n296 [label=":return"];
+n55 -> n296
+n297 [label="INTEGER:999"];
+n55 -> n297
+n298 [label="SEMICOLON:;"];
+n55 -> n298
+n299 [label="RBRACKET:}"];
+n55 -> n299
+n54 -> n55
+n300 [label="MethodDeclaration:"];
+n301 [label=":public"];
+n300 -> n301
+n302 [label="TYPE:boolean"];
+n300 -> n302
+n303 [label="Identifier:Search"];
+n300 -> n303
+n304 [label="LP:("];
+n300 -> n304
+n305 [label="ParameterList:"];
+n306 [label="TYPE:int"];
+n305 -> n306
+n307 [label="Identifier:num"];
+n305 -> n307
+n300 -> n305
+n308 [label="RP:)"];
+n300 -> n308
+n309 [label="LBRACKET:{"];
+n300 -> n309
+n310 [label="VarDeclarationList:"];
+n311 [label="VarDeclarationList:"];
+n312 [label="VarDeclarationList:"];
+n313 [label="VarDeclarationList:"];
+n314 [label="VarDeclarationList:"];
+n315 [label="VarDeclarationList:"];
+n316 [label="VarDeclaration:"];
+n317 [label="TYPE:boolean"];
+n316 -> n317
+n318 [label="Identifier:bs01"];
+n316 -> n318
+n319 [label="SEMICOLON:;"];
+n316 -> n319
+n315 -> n316
+n320 [label="VarDeclaration:"];
+n321 [label="TYPE:int"];
+n320 -> n321
+n322 [label="Identifier:right"];
+n320 -> n322
+n323 [label="SEMICOLON:;"];
+n320 -> n323
+n315 -> n320
+n314 -> n315
+n324 [label="VarDeclaration:"];
+n325 [label="TYPE:int"];
+n324 -> n325
+n326 [label="Identifier:left"];
+n324 -> n326
+n327 [label="SEMICOLON:;"];
+n324 -> n327
+n314 -> n324
+n313 -> n314
+n328 [label="VarDeclaration:"];
+n329 [label="TYPE:boolean"];
+n328 -> n329
+n330 [label="Identifier:var_cont"];
+n328 -> n330
+n331 [label="SEMICOLON:;"];
+n328 -> n331
+n313 -> n328
+n312 -> n313
+n332 [label="VarDeclaration:"];
+n333 [label="TYPE:int"];
+n332 -> n333
+n334 [label="Identifier:medium"];
+n332 -> n334
+n335 [label="SEMICOLON:;"];
+n332 -> n335
+n312 -> n332
+n311 -> n312
+n336 [label="VarDeclaration:"];
+n337 [label="TYPE:int"];
+n336 -> n337
+n338 [label="Identifier:aux01"];
+n336 -> n338
+n339 [label="SEMICOLON:;"];
+n336 -> n339
+n311 -> n336
+n310 -> n311
+n340 [label="VarDeclaration:"];
+n341 [label="TYPE:int"];
+n340 -> n341
+n342 [label="Identifier:nt"];
+n340 -> n342
+n343 [label="SEMICOLON:;"];
+n340 -> n343
+n310 -> n340
+n300 -> n310
+n344 [label="StatementList:"];
+n345 [label="StatementList:"];
+n346 [label="StatementList:"];
+n347 [label="StatementList:"];
+n348 [label="StatementList:"];
+n349 [label="StatementList:"];
+n350 [label="StatementList:"];
+n351 [label="AssignmentStatement:"];
+n352 [label="Identifier:aux01"];
+n351 -> n352
+n353 [label="EQUALS:="];
+n351 -> n353
+n354 [label="INTEGER:0"];
+n351 -> n354
+n355 [label="SEMICOLON:;"];
+n351 -> n355
+n350 -> n351
+n356 [label="AssignmentStatement:"];
+n357 [label="Identifier:bs01"];
+n356 -> n357
+n358 [label="EQUALS:="];
+n356 -> n358
+n359 [label="LITERAL:false"];
+n356 -> n359
+n360 [label="SEMICOLON:;"];
+n356 -> n360
+n350 -> n356
+n349 -> n350
+n361 [label="AssignmentStatement:"];
+n362 [label="Identifier:right"];
+n361 -> n362
+n363 [label="EQUALS:="];
+n361 -> n363
+n364 [label="LengthExpression:"];
+n365 [label="Identifier:number"];
+n364 -> n365
+n366 [label="PERIOD:."];
+n364 -> n366
+n367 [label="LENGTH:length"];
+n364 -> n367
+n361 -> n364
+n368 [label="SEMICOLON:;"];
+n361 -> n368
+n349 -> n361
+n348 -> n349
+n369 [label="AssignmentStatement:"];
+n370 [label="Identifier:right"];
+n369 -> n370
+n371 [label="EQUALS:="];
+n369 -> n371
+n372 [label="MinusExpression:"];
+n373 [label="Identifier:right"];
+n372 -> n373
+n374 [label="MINUS:-"];
+n372 -> n374
+n375 [label="INTEGER:1"];
+n372 -> n375
+n369 -> n372
+n376 [label="SEMICOLON:;"];
+n369 -> n376
+n348 -> n369
+n347 -> n348
+n377 [label="AssignmentStatement:"];
+n378 [label="Identifier:left"];
+n377 -> n378
+n379 [label="EQUALS:="];
+n377 -> n379
+n380 [label="INTEGER:0"];
+n377 -> n380
+n381 [label="SEMICOLON:;"];
+n377 -> n381
+n347 -> n377
+n346 -> n347
+n382 [label="AssignmentStatement:"];
+n383 [label="Identifier:var_cont"];
+n382 -> n383
+n384 [label="EQUALS:="];
+n382 -> n384
+n385 [label="LITERAL:true"];
+n382 -> n385
+n386 [label="SEMICOLON:;"];
+n382 -> n386
+n346 -> n382
+n345 -> n346
+n387 [label="WHILEStatement:"];
+n388 [label="WHILE:while"];
+n387 -> n388
+n389 [label="LP:("];
+n387 -> n389
+n390 [label="Identifier:var_cont"];
+n387 -> n390
+n391 [label="RP:)"];
+n387 -> n391
+n392 [label="Statement:"];
+n393 [label="LBRACKET:{"];
+n392 -> n393
+n394 [label="StatementList:"];
+n395 [label="StatementList:"];
+n396 [label="StatementList:"];
+n397 [label="StatementList:"];
+n398 [label="StatementList:"];
+n399 [label="AssignmentStatement:"];
+n400 [label="Identifier:medium"];
+n399 -> n400
+n401 [label="EQUALS:="];
+n399 -> n401
+n402 [label="PlusExpression:"];
+n403 [label="Identifier:left"];
+n402 -> n403
+n404 [label="PLUS:+"];
+n402 -> n404
+n405 [label="Identifier:right"];
+n402 -> n405
+n399 -> n402
+n406 [label="SEMICOLON:;"];
+n399 -> n406
+n398 -> n399
+n407 [label="AssignmentStatement:"];
+n408 [label="Identifier:medium"];
+n407 -> n408
+n409 [label="EQUALS:="];
+n407 -> n409
+n410 [label="MethodCallExpression:"];
+n411 [label=":this"];
+n410 -> n411
+n412 [label="PERIOD:."];
+n410 -> n412
+n413 [label="Identifier:Div"];
+n410 -> n413
+n414 [label="LP:("];
+n410 -> n414
+n415 [label="Identifier:medium"];
+n410 -> n415
+n416 [label="RP:)"];
+n410 -> n416
+n407 -> n410
+n417 [label="SEMICOLON:;"];
+n407 -> n417
+n398 -> n407
+n397 -> n398
+n418 [label="AssignmentStatement:"];
+n419 [label="Identifier:aux01"];
+n418 -> n419
+n420 [label="EQUALS:="];
+n418 -> n420
+n421 [label="VectorAccessExpression:"];
+n422 [label="Identifier:number"];
+n421 -> n422
+n423 [label="LSQUAREP:["];
+n421 -> n423
+n424 [label="Identifier:medium"];
+n421 -> n424
+n425 [label="RSQUAREP:]"];
+n421 -> n425
+n418 -> n421
+n426 [label="SEMICOLON:;"];
+n418 -> n426
+n397 -> n418
+n396 -> n397
+n427 [label="IFStatement:"];
+n428 [label="IF:if"];
+n427 -> n428
+n429 [label="LP:("];
+n427 -> n429
+n430 [label="LESSERExpression:"];
+n431 [label="Identifier:num"];
+n430 -> n431
+n432 [label="LESSER:<"];
+n430 -> n432
+n433 [label="Identifier:aux01"];
+n430 -> n433
+n427 -> n430
+n434 [label="RP:)"];
+n427 -> n434
+n435 [label="AssignmentStatement:"];
+n436 [label="Identifier:right"];
+n435 -> n436
+n437 [label="EQUALS:="];
+n435 -> n437
+n438 [label="MinusExpression:"];
+n439 [label="Identifier:medium"];
+n438 -> n439
+n440 [label="MINUS:-"];
+n438 -> n440
+n441 [label="INTEGER:1"];
+n438 -> n441
+n435 -> n438
+n442 [label="SEMICOLON:;"];
+n435 -> n442
+n427 -> n435
+n443 [label="ELSE:else"];
+n427 -> n443
+n444 [label="AssignmentStatement:"];
+n445 [label="Identifier:left"];
+n444 -> n445
+n446 [label="EQUALS:="];
+n444 -> n446
+n447 [label="PlusExpression:"];
+n448 [label="Identifier:medium"];
+n447 -> n448
+n449 [label="PLUS:+"];
+n447 -> n449
+n450 [label="INTEGER:1"];
+n447 -> n450
+n444 -> n447
+n451 [label="SEMICOLON:;"];
+n444 -> n451
+n427 -> n444
+n396 -> n427
+n395 -> n396
+n452 [label="IFStatement:"];
+n453 [label="IF:if"];
+n452 -> n453
+n454 [label="LP:("];
+n452 -> n454
+n455 [label="MethodCallExpression:"];
+n456 [label=":this"];
+n455 -> n456
+n457 [label="PERIOD:."];
+n455 -> n457
+n458 [label="Identifier:Compare"];
+n455 -> n458
+n459 [label="LP:("];
+n455 -> n459
+n460 [label="ExpressionList:"];
+n461 [label="Identifier:aux01"];
+n460 -> n461
+n462 [label="COMMA:,"];
+n460 -> n462
+n463 [label="Identifier:num"];
+n460 -> n463
+n455 -> n460
+n464 [label="RP:)"];
+n455 -> n464
+n452 -> n455
+n465 [label="RP:)"];
+n452 -> n465
+n466 [label="AssignmentStatement:"];
+n467 [label="Identifier:var_cont"];
+n466 -> n467
+n468 [label="EQUALS:="];
+n466 -> n468
+n469 [label="LITERAL:false"];
+n466 -> n469
+n470 [label="SEMICOLON:;"];
+n466 -> n470
+n452 -> n466
+n471 [label="ELSE:else"];
+n452 -> n471
+n472 [label="AssignmentStatement:"];
+n473 [label="Identifier:var_cont"];
+n472 -> n473
+n474 [label="EQUALS:="];
+n472 -> n474
+n475 [label="LITERAL:true"];
+n472 -> n475
+n476 [label="SEMICOLON:;"];
+n472 -> n476
+n452 -> n472
+n395 -> n452
+n394 -> n395
+n477 [label="IFStatement:"];
+n478 [label="IF:if"];
+n477 -> n478
+n479 [label="LP:("];
+n477 -> n479
+n480 [label="LESSERExpression:"];
+n481 [label="Identifier:right"];
+n480 -> n481
+n482 [label="LESSER:<"];
+n480 -> n482
+n483 [label="Identifier:left"];
+n480 -> n483
+n477 -> n480
+n484 [label="RP:)"];
+n477 -> n484
+n485 [label="AssignmentStatement:"];
+n486 [label="Identifier:var_cont"];
+n485 -> n486
+n487 [label="EQUALS:="];
+n485 -> n487
+n488 [label="LITERAL:false"];
+n485 -> n488
+n489 [label="SEMICOLON:;"];
+n485 -> n489
+n477 -> n485
+n490 [label="ELSE:else"];
+n477 -> n490
+n491 [label="AssignmentStatement:"];
+n492 [label="Identifier:nt"];
+n491 -> n492
+n493 [label="EQUALS:="];
+n491 -> n493
+n494 [label="INTEGER:0"];
+n491 -> n494
+n495 [label="SEMICOLON:;"];
+n491 -> n495
+n477 -> n491
+n394 -> n477
+n392 -> n394
+n496 [label="RBRACKET:}"];
+n392 -> n496
+n387 -> n392
+n345 -> n387
+n344 -> n345
+n497 [label="IFStatement:"];
+n498 [label="IF:if"];
+n497 -> n498
+n499 [label="LP:("];
+n497 -> n499
+n500 [label="MethodCallExpression:"];
+n501 [label=":this"];
+n500 -> n501
+n502 [label="PERIOD:."];
+n500 -> n502
+n503 [label="Identifier:Compare"];
+n500 -> n503
+n504 [label="LP:("];
+n500 -> n504
+n505 [label="ExpressionList:"];
+n506 [label="Identifier:aux01"];
+n505 -> n506
+n507 [label="COMMA:,"];
+n505 -> n507
+n508 [label="Identifier:num"];
+n505 -> n508
+n500 -> n505
+n509 [label="RP:)"];
+n500 -> n509
+n497 -> n500
+n510 [label="RP:)"];
+n497 -> n510
+n511 [label="AssignmentStatement:"];
+n512 [label="Identifier:bs01"];
+n511 -> n512
+n513 [label="EQUALS:="];
+n511 -> n513
+n514 [label="LITERAL:true"];
+n511 -> n514
+n515 [label="SEMICOLON:;"];
+n511 -> n515
+n497 -> n511
+n516 [label="ELSE:else"];
+n497 -> n516
+n517 [label="AssignmentStatement:"];
+n518 [label="Identifier:bs01"];
+n517 -> n518
+n519 [label="EQUALS:="];
+n517 -> n519
+n520 [label="LITERAL:false"];
+n517 -> n520
+n521 [label="SEMICOLON:;"];
+n517 -> n521
+n497 -> n517
+n344 -> n497
+n300 -> n344
+n522 [label=":return"];
+n300 -> n522
+n523 [label="Identifier:bs01"];
+n300 -> n523
+n524 [label="SEMICOLON:;"];
+n300 -> n524
+n525 [label="RBRACKET:}"];
+n300 -> n525
+n54 -> n300
+n53 -> n54
+n526 [label="MethodDeclaration:"];
+n527 [label=":public"];
+n526 -> n527
+n528 [label="TYPE:int"];
+n526 -> n528
+n529 [label="Identifier:Div"];
+n526 -> n529
+n530 [label="LP:("];
+n526 -> n530
+n531 [label="ParameterList:"];
+n532 [label="TYPE:int"];
+n531 -> n532
+n533 [label="Identifier:num"];
+n531 -> n533
+n526 -> n531
+n534 [label="RP:)"];
+n526 -> n534
+n535 [label="LBRACKET:{"];
+n526 -> n535
+n536 [label="VarDeclarationList:"];
+n537 [label="VarDeclarationList:"];
+n538 [label="VarDeclaration:"];
+n539 [label="TYPE:int"];
+n538 -> n539
+n540 [label="Identifier:count01"];
+n538 -> n540
+n541 [label="SEMICOLON:;"];
+n538 -> n541
+n537 -> n538
+n542 [label="VarDeclaration:"];
+n543 [label="TYPE:int"];
+n542 -> n543
+n544 [label="Identifier:count02"];
+n542 -> n544
+n545 [label="SEMICOLON:;"];
+n542 -> n545
+n537 -> n542
+n536 -> n537
+n546 [label="VarDeclaration:"];
+n547 [label="TYPE:int"];
+n546 -> n547
+n548 [label="Identifier:aux03"];
+n546 -> n548
+n549 [label="SEMICOLON:;"];
+n546 -> n549
+n536 -> n546
+n526 -> n536
+n550 [label="StatementList:"];
+n551 [label="StatementList:"];
+n552 [label="StatementList:"];
+n553 [label="AssignmentStatement:"];
+n554 [label="Identifier:count01"];
+n553 -> n554
+n555 [label="EQUALS:="];
+n553 -> n555
+n556 [label="INTEGER:0"];
+n553 -> n556
+n557 [label="SEMICOLON:;"];
+n553 -> n557
+n552 -> n553
+n558 [label="AssignmentStatement:"];
+n559 [label="Identifier:count02"];
+n558 -> n559
+n560 [label="EQUALS:="];
+n558 -> n560
+n561 [label="INTEGER:0"];
+n558 -> n561
+n562 [label="SEMICOLON:;"];
+n558 -> n562
+n552 -> n558
+n551 -> n552
+n563 [label="AssignmentStatement:"];
+n564 [label="Identifier:aux03"];
+n563 -> n564
+n565 [label="EQUALS:="];
+n563 -> n565
+n566 [label="MinusExpression:"];
+n567 [label="Identifier:num"];
+n566 -> n567
+n568 [label="MINUS:-"];
+n566 -> n568
+n569 [label="INTEGER:1"];
+n566 -> n569
+n563 -> n566
+n570 [label="SEMICOLON:;"];
+n563 -> n570
+n551 -> n563
+n550 -> n551
+n571 [label="WHILEStatement:"];
+n572 [label="WHILE:while"];
+n571 -> n572
+n573 [label="LP:("];
+n571 -> n573
+n574 [label="LESSERExpression:"];
+n575 [label="Identifier:count02"];
+n574 -> n575
+n576 [label="LESSER:<"];
+n574 -> n576
+n577 [label="Identifier:aux03"];
+n574 -> n577
+n571 -> n574
+n578 [label="RP:)"];
+n571 -> n578
+n579 [label="Statement:"];
+n580 [label="LBRACKET:{"];
+n579 -> n580
+n581 [label="StatementList:"];
+n582 [label="AssignmentStatement:"];
+n583 [label="Identifier:count01"];
+n582 -> n583
+n584 [label="EQUALS:="];
+n582 -> n584
+n585 [label="PlusExpression:"];
+n586 [label="Identifier:count01"];
+n585 -> n586
+n587 [label="PLUS:+"];
+n585 -> n587
+n588 [label="INTEGER:1"];
+n585 -> n588
+n582 -> n585
+n589 [label="SEMICOLON:;"];
+n582 -> n589
+n581 -> n582
+n590 [label="AssignmentStatement:"];
+n591 [label="Identifier:count02"];
+n590 -> n591
+n592 [label="EQUALS:="];
+n590 -> n592
+n593 [label="PlusExpression:"];
+n594 [label="Identifier:count02"];
+n593 -> n594
+n595 [label="PLUS:+"];
+n593 -> n595
+n596 [label="INTEGER:2"];
+n593 -> n596
+n590 -> n593
+n597 [label="SEMICOLON:;"];
+n590 -> n597
+n581 -> n590
+n579 -> n581
+n598 [label="RBRACKET:}"];
+n579 -> n598
+n571 -> n579
+n550 -> n571
+n526 -> n550
+n599 [label=":return"];
+n526 -> n599
+n600 [label="Identifier:count01"];
+n526 -> n600
+n601 [label="SEMICOLON:;"];
+n526 -> n601
+n602 [label="RBRACKET:}"];
+n526 -> n602
+n53 -> n526
+n52 -> n53
+n603 [label="MethodDeclaration:"];
+n604 [label=":public"];
+n603 -> n604
+n605 [label="TYPE:boolean"];
+n603 -> n605
+n606 [label="Identifier:Compare"];
+n603 -> n606
+n607 [label="LP:("];
+n603 -> n607
+n608 [label="ParameterList:"];
+n609 [label="TYPE:int"];
+n608 -> n609
+n610 [label="Identifier:num1"];
+n608 -> n610
+n611 [label="COMMA:,"];
+n608 -> n611
+n612 [label="ParameterList:"];
+n613 [label="TYPE:int"];
+n612 -> n613
+n614 [label="Identifier:num2"];
+n612 -> n614
+n608 -> n612
+n603 -> n608
+n615 [label="RP:)"];
+n603 -> n615
+n616 [label="LBRACKET:{"];
+n603 -> n616
+n617 [label="VarDeclarationList:"];
+n618 [label="VarDeclaration:"];
+n619 [label="TYPE:boolean"];
+n618 -> n619
+n620 [label="Identifier:retval"];
+n618 -> n620
+n621 [label="SEMICOLON:;"];
+n618 -> n621
+n617 -> n618
+n622 [label="VarDeclaration:"];
+n623 [label="TYPE:int"];
+n622 -> n623
+n624 [label="Identifier:aux02"];
+n622 -> n624
+n625 [label="SEMICOLON:;"];
+n622 -> n625
+n617 -> n622
+n603 -> n617
+n626 [label="StatementList:"];
+n627 [label="StatementList:"];
+n628 [label="AssignmentStatement:"];
+n629 [label="Identifier:retval"];
+n628 -> n629
+n630 [label="EQUALS:="];
+n628 -> n630
+n631 [label="LITERAL:false"];
+n628 -> n631
+n632 [label="SEMICOLON:;"];
+n628 -> n632
+n627 -> n628
+n633 [label="AssignmentStatement:"];
+n634 [label="Identifier:aux02"];
+n633 -> n634
+n635 [label="EQUALS:="];
+n633 -> n635
+n636 [label="PlusExpression:"];
+n637 [label="Identifier:num2"];
+n636 -> n637
+n638 [label="PLUS:+"];
+n636 -> n638
+n639 [label="INTEGER:1"];
+n636 -> n639
+n633 -> n636
+n640 [label="SEMICOLON:;"];
+n633 -> n640
+n627 -> n633
+n626 -> n627
+n641 [label="IFStatement:"];
+n642 [label="IF:if"];
+n641 -> n642
+n643 [label="LP:("];
+n641 -> n643
+n644 [label="LESSERExpression:"];
+n645 [label="Identifier:num1"];
+n644 -> n645
+n646 [label="LESSER:<"];
+n644 -> n646
+n647 [label="Identifier:num2"];
+n644 -> n647
+n641 -> n644
+n648 [label="RP:)"];
+n641 -> n648
+n649 [label="AssignmentStatement:"];
+n650 [label="Identifier:retval"];
+n649 -> n650
+n651 [label="EQUALS:="];
+n649 -> n651
+n652 [label="LITERAL:false"];
+n649 -> n652
+n653 [label="SEMICOLON:;"];
+n649 -> n653
+n641 -> n649
+n654 [label="ELSE:else"];
+n641 -> n654
+n655 [label="IFStatement:"];
+n656 [label="IF:if"];
+n655 -> n656
+n657 [label="LP:("];
+n655 -> n657
+n658 [label="NOTExpression:"];
+n659 [label="NOT:!"];
+n658 -> n659
+n660 [label="ParenExpression:"];
+n661 [label="LP:("];
+n660 -> n661
+n662 [label="LESSERExpression:"];
+n663 [label="Identifier:num1"];
+n662 -> n663
+n664 [label="LESSER:<"];
+n662 -> n664
+n665 [label="Identifier:aux02"];
+n662 -> n665
+n660 -> n662
+n666 [label="RP:)"];
+n660 -> n666
+n658 -> n660
+n655 -> n658
+n667 [label="RP:)"];
+n655 -> n667
+n668 [label="AssignmentStatement:"];
+n669 [label="Identifier:retval"];
+n668 -> n669
+n670 [label="EQUALS:="];
+n668 -> n670
+n671 [label="LITERAL:false"];
+n668 -> n671
+n672 [label="SEMICOLON:;"];
+n668 -> n672
+n655 -> n668
+n673 [label="ELSE:else"];
+n655 -> n673
+n674 [label="AssignmentStatement:"];
+n675 [label="Identifier:retval"];
+n674 -> n675
+n676 [label="EQUALS:="];
+n674 -> n676
+n677 [label="LITERAL:true"];
+n674 -> n677
+n678 [label="SEMICOLON:;"];
+n674 -> n678
+n655 -> n674
+n641 -> n655
+n626 -> n641
+n603 -> n626
+n679 [label=":return"];
+n603 -> n679
+n680 [label="Identifier:retval"];
+n603 -> n680
+n681 [label="SEMICOLON:;"];
+n603 -> n681
+n682 [label="RBRACKET:}"];
+n603 -> n682
+n52 -> n603
+n51 -> n52
+n683 [label="MethodDeclaration:"];
+n684 [label=":public"];
+n683 -> n684
+n685 [label="TYPE:int"];
+n683 -> n685
+n686 [label="Identifier:Print"];
+n683 -> n686
+n687 [label="LP:("];
+n683 -> n687
+n688 [label="RP:)"];
+n683 -> n688
+n689 [label="LBRACKET:{"];
+n683 -> n689
+n690 [label="VarDeclaration:"];
+n691 [label="TYPE:int"];
+n690 -> n691
+n692 [label="Identifier:j"];
+n690 -> n692
+n693 [label="SEMICOLON:;"];
+n690 -> n693
+n683 -> n690
+n694 [label="StatementList:"];
+n695 [label="StatementList:"];
+n696 [label="AssignmentStatement:"];
+n697 [label="Identifier:j"];
+n696 -> n697
+n698 [label="EQUALS:="];
+n696 -> n698
+n699 [label="INTEGER:1"];
+n696 -> n699
+n700 [label="SEMICOLON:;"];
+n696 -> n700
+n695 -> n696
+n701 [label="WHILEStatement:"];
+n702 [label="WHILE:while"];
+n701 -> n702
+n703 [label="LP:("];
+n701 -> n703
+n704 [label="LESSERExpression:"];
+n705 [label="Identifier:j"];
+n704 -> n705
+n706 [label="LESSER:<"];
+n704 -> n706
+n707 [label="ParenExpression:"];
+n708 [label="LP:("];
+n707 -> n708
+n709 [label="Identifier:size"];
+n707 -> n709
+n710 [label="RP:)"];
+n707 -> n710
+n704 -> n707
+n701 -> n704
+n711 [label="RP:)"];
+n701 -> n711
+n712 [label="Statement:"];
+n713 [label="LBRACKET:{"];
+n712 -> n713
+n714 [label="StatementList:"];
+n715 [label="PrintStatement:"];
+n716 [label="PRINT:System.out.println"];
+n715 -> n716
+n717 [label="LP:("];
+n715 -> n717
+n718 [label="VectorAccessExpression:"];
+n719 [label="Identifier:number"];
+n718 -> n719
+n720 [label="LSQUAREP:["];
+n718 -> n720
+n721 [label="Identifier:j"];
+n718 -> n721
+n722 [label="RSQUAREP:]"];
+n718 -> n722
+n715 -> n718
+n723 [label="RP:)"];
+n715 -> n723
+n724 [label="SEMICOLON:;"];
+n715 -> n724
+n714 -> n715
+n725 [label="AssignmentStatement:"];
+n726 [label="Identifier:j"];
+n725 -> n726
+n727 [label="EQUALS:="];
+n725 -> n727
+n728 [label="PlusExpression:"];
+n729 [label="Identifier:j"];
+n728 -> n729
+n730 [label="PLUS:+"];
+n728 -> n730
+n731 [label="INTEGER:1"];
+n728 -> n731
+n725 -> n728
+n732 [label="SEMICOLON:;"];
+n725 -> n732
+n714 -> n725
+n712 -> n714
+n733 [label="RBRACKET:}"];
+n712 -> n733
+n701 -> n712
+n695 -> n701
+n694 -> n695
+n734 [label="PrintStatement:"];
+n735 [label="PRINT:System.out.println"];
+n734 -> n735
+n736 [label="LP:("];
+n734 -> n736
+n737 [label="INTEGER:99999"];
+n734 -> n737
+n738 [label="RP:)"];
+n734 -> n738
+n739 [label="SEMICOLON:;"];
+n734 -> n739
+n694 -> n734
+n683 -> n694
+n740 [label=":return"];
+n683 -> n740
+n741 [label="INTEGER:0"];
+n683 -> n741
+n742 [label="SEMICOLON:;"];
+n683 -> n742
+n743 [label="RBRACKET:}"];
+n683 -> n743
+n51 -> n683
+n50 -> n51
+n744 [label="MethodDeclaration:"];
+n745 [label=":public"];
+n744 -> n745
+n746 [label="TYPE:int"];
+n744 -> n746
+n747 [label="Identifier:Init"];
+n744 -> n747
+n748 [label="LP:("];
+n744 -> n748
+n749 [label="ParameterList:"];
+n750 [label="TYPE:int"];
+n749 -> n750
+n751 [label="Identifier:sz"];
+n749 -> n751
+n744 -> n749
+n752 [label="RP:)"];
+n744 -> n752
+n753 [label="LBRACKET:{"];
+n744 -> n753
+n754 [label="VarDeclarationList:"];
+n755 [label="VarDeclarationList:"];
+n756 [label="VarDeclarationList:"];
+n757 [label="VarDeclaration:"];
+n758 [label="TYPE:int"];
+n757 -> n758
+n759 [label="Identifier:j"];
+n757 -> n759
+n760 [label="SEMICOLON:;"];
+n757 -> n760
+n756 -> n757
+n761 [label="VarDeclaration:"];
+n762 [label="TYPE:int"];
+n761 -> n762
+n763 [label="Identifier:k"];
+n761 -> n763
+n764 [label="SEMICOLON:;"];
+n761 -> n764
+n756 -> n761
+n755 -> n756
+n765 [label="VarDeclaration:"];
+n766 [label="TYPE:int"];
+n765 -> n766
+n767 [label="Identifier:aux02"];
+n765 -> n767
+n768 [label="SEMICOLON:;"];
+n765 -> n768
+n755 -> n765
+n754 -> n755
+n769 [label="VarDeclaration:"];
+n770 [label="TYPE:int"];
+n769 -> n770
+n771 [label="Identifier:aux01"];
+n769 -> n771
+n772 [label="SEMICOLON:;"];
+n769 -> n772
+n754 -> n769
+n744 -> n754
+n773 [label="StatementList:"];
+n774 [label="StatementList:"];
+n775 [label="StatementList:"];
+n776 [label="StatementList:"];
+n777 [label="AssignmentStatement:"];
+n778 [label="Identifier:size"];
+n777 -> n778
+n779 [label="EQUALS:="];
+n777 -> n779
+n780 [label="Identifier:sz"];
+n777 -> n780
+n781 [label="SEMICOLON:;"];
+n777 -> n781
+n776 -> n777
+n782 [label="AssignmentStatement:"];
+n783 [label="Identifier:number"];
+n782 -> n783
+n784 [label="EQUALS:="];
+n782 -> n784
+n785 [label="NewVectorExpression:"];
+n786 [label="NEW:new"];
+n785 -> n786
+n787 [label="INT:int"];
+n785 -> n787
+n788 [label="LSQUAREP:["];
+n785 -> n788
+n789 [label="Identifier:sz"];
+n785 -> n789
+n790 [label="RSQUAREP:]"];
+n785 -> n790
+n782 -> n785
+n791 [label="SEMICOLON:;"];
+n782 -> n791
+n776 -> n782
+n775 -> n776
+n792 [label="AssignmentStatement:"];
+n793 [label="Identifier:j"];
+n792 -> n793
+n794 [label="EQUALS:="];
+n792 -> n794
+n795 [label="INTEGER:1"];
+n792 -> n795
+n796 [label="SEMICOLON:;"];
+n792 -> n796
+n775 -> n792
+n774 -> n775
+n797 [label="AssignmentStatement:"];
+n798 [label="Identifier:k"];
+n797 -> n798
+n799 [label="EQUALS:="];
+n797 -> n799
+n800 [label="PlusExpression:"];
+n801 [label="Identifier:size"];
+n800 -> n801
+n802 [label="PLUS:+"];
+n800 -> n802
+n803 [label="INTEGER:1"];
+n800 -> n803
+n797 -> n800
+n804 [label="SEMICOLON:;"];
+n797 -> n804
+n774 -> n797
+n773 -> n774
+n805 [label="WHILEStatement:"];
+n806 [label="WHILE:while"];
+n805 -> n806
+n807 [label="LP:("];
+n805 -> n807
+n808 [label="LESSERExpression:"];
+n809 [label="Identifier:j"];
+n808 -> n809
+n810 [label="LESSER:<"];
+n808 -> n810
+n811 [label="ParenExpression:"];
+n812 [label="LP:("];
+n811 -> n812
+n813 [label="Identifier:size"];
+n811 -> n813
+n814 [label="RP:)"];
+n811 -> n814
+n808 -> n811
+n805 -> n808
+n815 [label="RP:)"];
+n805 -> n815
+n816 [label="Statement:"];
+n817 [label="LBRACKET:{"];
+n816 -> n817
+n818 [label="StatementList:"];
+n819 [label="StatementList:"];
+n820 [label="StatementList:"];
+n821 [label="StatementList:"];
+n822 [label="AssignmentStatement:"];
+n823 [label="Identifier:aux01"];
+n822 -> n823
+n824 [label="EQUALS:="];
+n822 -> n824
+n825 [label="MultExpression:"];
+n826 [label="INTEGER:2"];
+n825 -> n826
+n827 [label="MULTOP:*"];
+n825 -> n827
+n828 [label="Identifier:j"];
+n825 -> n828
+n822 -> n825
+n829 [label="SEMICOLON:;"];
+n822 -> n829
+n821 -> n822
+n830 [label="AssignmentStatement:"];
+n831 [label="Identifier:aux02"];
+n830 -> n831
+n832 [label="EQUALS:="];
+n830 -> n832
+n833 [label="MinusExpression:"];
+n834 [label="Identifier:k"];
+n833 -> n834
+n835 [label="MINUS:-"];
+n833 -> n835
+n836 [label="INTEGER:3"];
+n833 -> n836
+n830 -> n833
+n837 [label="SEMICOLON:;"];
+n830 -> n837
+n821 -> n830
+n820 -> n821
+n838 [label="VectorAssignmentStatement:"];
+n839 [label="Identifier:number"];
+n838 -> n839
+n840 [label="LSQUAREP:["];
+n838 -> n840
+n841 [label="Identifier:j"];
+n838 -> n841
+n842 [label="RSQUAREP:]"];
+n838 -> n842
+n843 [label="EQUALS:="];
+n838 -> n843
+n844 [label="PlusExpression:"];
+n845 [label="Identifier:aux01"];
+n844 -> n845
+n846 [label="PLUS:+"];
+n844 -> n846
+n847 [label="Identifier:aux02"];
+n844 -> n847
+n838 -> n844
+n848 [label="SEMICOLON:;"];
+n838 -> n848
+n820 -> n838
+n819 -> n820
+n849 [label="AssignmentStatement:"];
+n850 [label="Identifier:j"];
+n849 -> n850
+n851 [label="EQUALS:="];
+n849 -> n851
+n852 [label="PlusExpression:"];
+n853 [label="Identifier:j"];
+n852 -> n853
+n854 [label="PLUS:+"];
+n852 -> n854
+n855 [label="INTEGER:1"];
+n852 -> n855
+n849 -> n852
+n856 [label="SEMICOLON:;"];
+n849 -> n856
+n819 -> n849
+n818 -> n819
+n857 [label="AssignmentStatement:"];
+n858 [label="Identifier:k"];
+n857 -> n858
+n859 [label="EQUALS:="];
+n857 -> n859
+n860 [label="MinusExpression:"];
+n861 [label="Identifier:k"];
+n860 -> n861
+n862 [label="MINUS:-"];
+n860 -> n862
+n863 [label="INTEGER:1"];
+n860 -> n863
+n857 -> n860
+n864 [label="SEMICOLON:;"];
+n857 -> n864
+n818 -> n857
+n816 -> n818
+n865 [label="RBRACKET:}"];
+n816 -> n865
+n805 -> n816
+n773 -> n805
+n744 -> n773
+n866 [label=":return"];
+n744 -> n866
+n867 [label="INTEGER:0"];
+n744 -> n867
+n868 [label="SEMICOLON:;"];
+n744 -> n868
+n869 [label="RBRACKET:}"];
+n744 -> n869
+n50 -> n744
+n34 -> n50
+n870 [label="RBRACKET:}"];
+n34 -> n870
 n0 -> n34
 }

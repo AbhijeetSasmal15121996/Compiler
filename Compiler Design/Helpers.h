@@ -159,6 +159,28 @@ string leftrightsplit(string string_to_split, char sepearator, bool bleft)
         return right;
 }
 
+// replace the null charecters with given string
+string replaceAll(string in, string from, string to)
+{
+    string tmp = in;
+
+    if (from.empty())
+    {
+        return in;
+    }
+
+    size_t start_pos = 0;
+
+    // tmp.find() fails to match on "\0"
+    while ((start_pos = tmp.find(from, start_pos)) != std::string::npos)
+    {
+        tmp.replace(start_pos, from.length(), to);
+        start_pos += to.length(); // In case 'to' contains 'from', like replacing 'x' with 'yx'
+    }
+
+    return tmp;
+}
+
 void makeTAC(SymbolTable *table)
 {
     BBlock *root = NULL;
@@ -244,7 +266,6 @@ void makeTAC(SymbolTable *table)
                 x = 0;
                 // cout << txt;
                 // cout << "Scope Name: " << mdata << endl;
-                // txt.erase(find(txt.begin(), txt.end(), '\0'), txt.end());
                 string lhs = leftrightsplit(txt, '=', true);
                 string op = "";
                 string rhs = leftrightsplit(txt, '=', false);
@@ -268,19 +289,15 @@ void makeTAC(SymbolTable *table)
                 string dlhType = table->check(table, lhs, mdata);
                 dlhType = split(dlhType);
 
-                // erasing null values in the ouptut
-                lValue.erase(find(lValue.begin(), lValue.end(), '\0'), lValue.end());
-                rValue.erase(find(rValue.begin(), rValue.end(), '\0'), rValue.end());
-                lhs = lhs.substr(1, lhs.length());
-
-                cout << "Statement is :" << txt << endl;
-                cout << "Lvalue : " << lValue << endl;
-                cout << "Rvalue : " << rValue << endl;
+                // erasing null values in the statement here
+                lValue = replaceAll(lValue, {'\0'}, "");
+                rValue = replaceAll(rValue, {'\0'}, "");
+                lhs = replaceAll(lhs, {'\0'}, "");
 
                 if (root == NULL)
                     root = new BBlock();
 
-                if (rValue.find("this") != string::npos && op == "")
+                if (rValue.find("(") != string::npos)
                 {
                     TAC *tac = new MethodCall("", rValue, lhs);
                     root->add(tac);
@@ -288,9 +305,9 @@ void makeTAC(SymbolTable *table)
                 else
                 {
                     TAC *tac = NULL;
-                    if (rValue == "\0")
+                    if (rValue.empty())
                         tac = new Expression(op, lValue, "", lhs);
-                    else if (lValue == "\0")
+                    else if (lValue.empty())
                         tac = new Expression(op, "", rValue, lhs);
                     else
                         tac = new Expression(op, lValue, rValue, lhs);
