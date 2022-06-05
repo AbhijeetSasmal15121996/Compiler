@@ -264,7 +264,7 @@ void makeTAC(SymbolTable *table)
             if (found != string::npos && x == 1)
             {
                 x = 0;
-                // cout << txt;
+                cout << "Statement is : " << txt << "\n";
                 // cout << "Scope Name: " << mdata << endl;
                 string lhs = leftrightsplit(txt, '=', true);
                 string op = "";
@@ -338,7 +338,6 @@ void makeTAC(SymbolTable *table)
                     res = " = ";
                 txt = txt + res;
             }
-
             int found12 = temp.find("}");
 
             if (found12 != string::npos)
@@ -346,8 +345,8 @@ void makeTAC(SymbolTable *table)
                 count--;
                 if (state == 2 && count != 0)
                 {
-                    cout << "if(" << wh1 << endl;
-                    cout << "Goto Label: " << stLabel << endl;
+                    cout << "if(" << wh1 << "\n";
+                    cout << "Goto Label: " << stLabel << "\n";
                 }
             }
 

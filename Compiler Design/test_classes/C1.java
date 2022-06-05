@@ -12,6 +12,7 @@ class Test {
       if (sum < 100) {
     	  sum = sum + num;
       } else {
+        sum = sum + 20;
       }
       num = num - 1;
     }

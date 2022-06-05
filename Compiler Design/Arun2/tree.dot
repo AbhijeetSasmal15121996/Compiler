@@ -3,7 +3,7 @@ n0 [label="Program"];
 n1 [label="MainClass"];
 n2 [label="CLASS"];
 n1 -> n2
-n3 [label="IdentifierBinaryTree"];
+n3 [label="IdentifierBubbleSort"];
 n1 -> n3
 n4 [label="LBRACE{"];
 n1 -> n4
@@ -34,11 +34,11 @@ n17 [label="PRINTSystem.out.println"];
 n16 -> n17
 n18 [label="LPAREN("];
 n16 -> n18
-n19 [label="MethodCallExpressionWithoutArgs"];
+n19 [label="MethodCallExpression"];
 n20 [label="NewClassExpression"];
 n21 [label="NEWnew"];
 n20 -> n21
-n22 [label="IdentifierBT"];
+n22 [label="IdentifierBBS"];
 n20 -> n22
 n23 [label="LPAREN("];
 n20 -> n23
@@ -51,3519 +51,967 @@ n26 [label="IdentifierStart"];
 n19 -> n26
 n27 [label="LPAREN("];
 n19 -> n27
-n28 [label="RPAREN)"];
+n28 [label="INTEGER10"];
 n19 -> n28
-n16 -> n19
 n29 [label="RPAREN)"];
-n16 -> n29
-n30 [label="SEMICOLON;"];
+n19 -> n29
+n16 -> n19
+n30 [label="RPAREN)"];
 n16 -> n30
+n31 [label="SEMICOLON;"];
+n16 -> n31
 n1 -> n16
-n31 [label="RBRACE}"];
-n1 -> n31
 n32 [label="RBRACE}"];
 n1 -> n32
+n33 [label="RBRACE}"];
+n1 -> n33
 n0 -> n1
-n33 [label="ClassDeclarationList"];
 n34 [label="ClassDeclaration"];
 n35 [label="CLASS"];
 n34 -> n35
-n36 [label="IdentifierBT"];
+n36 [label="IdentifierBBS"];
 n34 -> n36
 n37 [label="LBRACE{"];
 n34 -> n37
-n38 [label="MethodDeclaration"];
-n39 [label="public"];
+n38 [label="VarDeclarationList"];
+n39 [label="VarDeclaration"];
+n40 [label="TypeVector"];
+n41 [label="TypeINT"];
+n40 -> n41
+n42 [label="LBRACKET["];
+n40 -> n42
+n43 [label="RBRACKET]"];
+n40 -> n43
+n39 -> n40
+n44 [label="Identifiernumber"];
+n39 -> n44
+n45 [label="SEMICOLON;"];
+n39 -> n45
 n38 -> n39
-n40 [label="TYPEint"];
-n38 -> n40
-n41 [label="IdentifierStart"];
-n38 -> n41
-n42 [label="LPAREN("];
-n38 -> n42
-n43 [label="RPAREN)"];
-n38 -> n43
-n44 [label="LBRACE{"];
-n38 -> n44
-n45 [label="VarDeclarationList"];
-n46 [label="VarDeclarationList"];
-n47 [label="VarDeclaration"];
-n48 [label="IdentifierTree"];
-n47 -> n48
-n49 [label="Identifierroot"];
-n47 -> n49
-n50 [label="SEMICOLON;"];
-n47 -> n50
+n46 [label="VarDeclaration"];
+n47 [label="TYPEint"];
 n46 -> n47
-n51 [label="VarDeclaration"];
-n52 [label="TYPEboolean"];
-n51 -> n52
-n53 [label="Identifierntb"];
-n51 -> n53
-n54 [label="SEMICOLON;"];
-n51 -> n54
-n46 -> n51
-n45 -> n46
-n55 [label="VarDeclaration"];
-n56 [label="TYPEint"];
-n55 -> n56
-n57 [label="Identifiernti"];
-n55 -> n57
-n58 [label="SEMICOLON;"];
-n55 -> n58
-n45 -> n55
-n38 -> n45
-n59 [label="StatementList"];
-n60 [label="StatementList"];
-n61 [label="StatementList"];
-n62 [label="StatementList"];
-n63 [label="StatementList"];
-n64 [label="StatementList"];
-n65 [label="StatementList"];
-n66 [label="StatementList"];
+n48 [label="Identifiersize"];
+n46 -> n48
+n49 [label="SEMICOLON;"];
+n46 -> n49
+n38 -> n46
+n34 -> n38
+n50 [label="MethodDeclarationList"];
+n51 [label="MethodDeclarationList"];
+n52 [label="MethodDeclarationList"];
+n53 [label="MethodDeclaration"];
+n54 [label="public"];
+n53 -> n54
+n55 [label="TYPEint"];
+n53 -> n55
+n56 [label="IdentifierStart"];
+n53 -> n56
+n57 [label="LPAREN("];
+n53 -> n57
+n58 [label="ParameterList"];
+n59 [label="TYPEint"];
+n58 -> n59
+n60 [label="Identifiersz"];
+n58 -> n60
+n53 -> n58
+n61 [label="RPAREN)"];
+n53 -> n61
+n62 [label="LBRACE{"];
+n53 -> n62
+n63 [label="VarDeclaration"];
+n64 [label="TYPEint"];
+n63 -> n64
+n65 [label="Identifieraux01"];
+n63 -> n65
+n66 [label="SEMICOLON;"];
+n63 -> n66
+n53 -> n63
 n67 [label="StatementList"];
 n68 [label="StatementList"];
 n69 [label="StatementList"];
 n70 [label="StatementList"];
-n71 [label="StatementList"];
-n72 [label="StatementList"];
-n73 [label="StatementList"];
-n74 [label="StatementList"];
-n75 [label="StatementList"];
-n76 [label="StatementList"];
-n77 [label="StatementList"];
-n78 [label="StatementList"];
-n79 [label="AssignmentStatement"];
-n80 [label="Identifierroot"];
-n79 -> n80
-n81 [label="EQUAL="];
-n79 -> n81
-n82 [label="NewClassExpression"];
-n83 [label="NEWnew"];
-n82 -> n83
-n84 [label="IdentifierTree"];
-n82 -> n84
-n85 [label="LPAREN("];
-n82 -> n85
-n86 [label="RPAREN)"];
-n82 -> n86
-n79 -> n82
-n87 [label="SEMICOLON;"];
-n79 -> n87
-n78 -> n79
-n88 [label="AssignmentStatement"];
-n89 [label="Identifierntb"];
-n88 -> n89
-n90 [label="EQUAL="];
-n88 -> n90
-n91 [label="MethodCallExpression"];
-n92 [label="Identifierroot"];
-n91 -> n92
-n93 [label="PERIOD."];
-n91 -> n93
-n94 [label="IdentifierInit"];
-n91 -> n94
-n95 [label="LPAREN("];
-n91 -> n95
-n96 [label="INTEGER16"];
-n91 -> n96
-n97 [label="RPAREN)"];
-n91 -> n97
-n88 -> n91
-n98 [label="SEMICOLON;"];
-n88 -> n98
-n78 -> n88
-n77 -> n78
-n99 [label="AssignmentStatement"];
-n100 [label="Identifierntb"];
-n99 -> n100
-n101 [label="EQUAL="];
-n99 -> n101
-n102 [label="MethodCallExpressionWithoutArgs"];
-n103 [label="Identifierroot"];
-n102 -> n103
-n104 [label="PERIOD."];
-n102 -> n104
-n105 [label="IdentifierPrint"];
-n102 -> n105
-n106 [label="LPAREN("];
-n102 -> n106
-n107 [label="RPAREN)"];
-n102 -> n107
-n99 -> n102
-n108 [label="SEMICOLON;"];
-n99 -> n108
-n77 -> n99
-n76 -> n77
-n109 [label="PrintStatement"];
-n110 [label="PRINTSystem.out.println"];
-n109 -> n110
-n111 [label="LPAREN("];
-n109 -> n111
-n112 [label="INTEGER100000000"];
-n109 -> n112
-n113 [label="RPAREN)"];
-n109 -> n113
-n114 [label="SEMICOLON;"];
-n109 -> n114
-n76 -> n109
-n75 -> n76
-n115 [label="AssignmentStatement"];
-n116 [label="Identifierntb"];
-n115 -> n116
-n117 [label="EQUAL="];
-n115 -> n117
-n118 [label="MethodCallExpression"];
-n119 [label="Identifierroot"];
-n118 -> n119
-n120 [label="PERIOD."];
-n118 -> n120
-n121 [label="IdentifierInsert"];
-n118 -> n121
-n122 [label="LPAREN("];
-n118 -> n122
-n123 [label="INTEGER8"];
-n118 -> n123
-n124 [label="RPAREN)"];
-n118 -> n124
-n115 -> n118
-n125 [label="SEMICOLON;"];
-n115 -> n125
-n75 -> n115
-n74 -> n75
-n126 [label="AssignmentStatement"];
-n127 [label="Identifierntb"];
-n126 -> n127
-n128 [label="EQUAL="];
-n126 -> n128
-n129 [label="MethodCallExpressionWithoutArgs"];
-n130 [label="Identifierroot"];
-n129 -> n130
-n131 [label="PERIOD."];
-n129 -> n131
-n132 [label="IdentifierPrint"];
-n129 -> n132
-n133 [label="LPAREN("];
-n129 -> n133
-n134 [label="RPAREN)"];
-n129 -> n134
-n126 -> n129
-n135 [label="SEMICOLON;"];
-n126 -> n135
-n74 -> n126
-n73 -> n74
-n136 [label="AssignmentStatement"];
-n137 [label="Identifierntb"];
-n136 -> n137
-n138 [label="EQUAL="];
-n136 -> n138
-n139 [label="MethodCallExpression"];
-n140 [label="Identifierroot"];
-n139 -> n140
-n141 [label="PERIOD."];
-n139 -> n141
-n142 [label="IdentifierInsert"];
-n139 -> n142
-n143 [label="LPAREN("];
-n139 -> n143
-n144 [label="INTEGER24"];
-n139 -> n144
-n145 [label="RPAREN)"];
-n139 -> n145
-n136 -> n139
-n146 [label="SEMICOLON;"];
-n136 -> n146
-n73 -> n136
-n72 -> n73
-n147 [label="AssignmentStatement"];
-n148 [label="Identifierntb"];
-n147 -> n148
-n149 [label="EQUAL="];
-n147 -> n149
-n150 [label="MethodCallExpression"];
-n151 [label="Identifierroot"];
-n150 -> n151
-n152 [label="PERIOD."];
-n150 -> n152
-n153 [label="IdentifierInsert"];
-n150 -> n153
-n154 [label="LPAREN("];
-n150 -> n154
-n155 [label="INTEGER4"];
-n150 -> n155
-n156 [label="RPAREN)"];
-n150 -> n156
-n147 -> n150
-n157 [label="SEMICOLON;"];
-n147 -> n157
-n72 -> n147
+n71 [label="AssignmentStatement"];
+n72 [label="Identifieraux01"];
 n71 -> n72
-n158 [label="AssignmentStatement"];
-n159 [label="Identifierntb"];
-n158 -> n159
-n160 [label="EQUAL="];
-n158 -> n160
-n161 [label="MethodCallExpression"];
-n162 [label="Identifierroot"];
-n161 -> n162
-n163 [label="PERIOD."];
-n161 -> n163
-n164 [label="IdentifierInsert"];
-n161 -> n164
-n165 [label="LPAREN("];
-n161 -> n165
-n166 [label="INTEGER12"];
-n161 -> n166
-n167 [label="RPAREN)"];
-n161 -> n167
-n158 -> n161
-n168 [label="SEMICOLON;"];
-n158 -> n168
-n71 -> n158
+n73 [label="EQUAL="];
+n71 -> n73
+n74 [label="MethodCallExpression"];
+n75 [label="this"];
+n74 -> n75
+n76 [label="PERIOD."];
+n74 -> n76
+n77 [label="IdentifierInit"];
+n74 -> n77
+n78 [label="LPAREN("];
+n74 -> n78
+n79 [label="Identifiersz"];
+n74 -> n79
+n80 [label="RPAREN)"];
+n74 -> n80
+n71 -> n74
+n81 [label="SEMICOLON;"];
+n71 -> n81
 n70 -> n71
-n169 [label="AssignmentStatement"];
-n170 [label="Identifierntb"];
-n169 -> n170
-n171 [label="EQUAL="];
-n169 -> n171
-n172 [label="MethodCallExpression"];
-n173 [label="Identifierroot"];
-n172 -> n173
-n174 [label="PERIOD."];
-n172 -> n174
-n175 [label="IdentifierInsert"];
-n172 -> n175
-n176 [label="LPAREN("];
-n172 -> n176
-n177 [label="INTEGER20"];
-n172 -> n177
-n178 [label="RPAREN)"];
-n172 -> n178
-n169 -> n172
-n179 [label="SEMICOLON;"];
-n169 -> n179
-n70 -> n169
+n82 [label="AssignmentStatement"];
+n83 [label="Identifieraux01"];
+n82 -> n83
+n84 [label="EQUAL="];
+n82 -> n84
+n85 [label="MethodCallExpressionWithoutArgs"];
+n86 [label="this"];
+n85 -> n86
+n87 [label="PERIOD."];
+n85 -> n87
+n88 [label="IdentifierPrint"];
+n85 -> n88
+n89 [label="LPAREN("];
+n85 -> n89
+n90 [label="RPAREN)"];
+n85 -> n90
+n82 -> n85
+n91 [label="SEMICOLON;"];
+n82 -> n91
+n70 -> n82
 n69 -> n70
-n180 [label="AssignmentStatement"];
-n181 [label="Identifierntb"];
-n180 -> n181
-n182 [label="EQUAL="];
-n180 -> n182
-n183 [label="MethodCallExpression"];
-n184 [label="Identifierroot"];
-n183 -> n184
-n185 [label="PERIOD."];
-n183 -> n185
-n186 [label="IdentifierInsert"];
-n183 -> n186
-n187 [label="LPAREN("];
-n183 -> n187
-n188 [label="INTEGER28"];
-n183 -> n188
-n189 [label="RPAREN)"];
-n183 -> n189
-n180 -> n183
-n190 [label="SEMICOLON;"];
-n180 -> n190
-n69 -> n180
+n92 [label="PrintStatement"];
+n93 [label="PRINTSystem.out.println"];
+n92 -> n93
+n94 [label="LPAREN("];
+n92 -> n94
+n95 [label="INTEGER99999"];
+n92 -> n95
+n96 [label="RPAREN)"];
+n92 -> n96
+n97 [label="SEMICOLON;"];
+n92 -> n97
+n69 -> n92
 n68 -> n69
-n191 [label="AssignmentStatement"];
-n192 [label="Identifierntb"];
-n191 -> n192
-n193 [label="EQUAL="];
-n191 -> n193
-n194 [label="MethodCallExpression"];
-n195 [label="Identifierroot"];
-n194 -> n195
-n196 [label="PERIOD."];
-n194 -> n196
-n197 [label="IdentifierInsert"];
-n194 -> n197
-n198 [label="LPAREN("];
-n194 -> n198
-n199 [label="INTEGER14"];
-n194 -> n199
-n200 [label="RPAREN)"];
-n194 -> n200
-n191 -> n194
-n201 [label="SEMICOLON;"];
-n191 -> n201
-n68 -> n191
+n98 [label="AssignmentStatement"];
+n99 [label="Identifieraux01"];
+n98 -> n99
+n100 [label="EQUAL="];
+n98 -> n100
+n101 [label="MethodCallExpressionWithoutArgs"];
+n102 [label="this"];
+n101 -> n102
+n103 [label="PERIOD."];
+n101 -> n103
+n104 [label="IdentifierSort"];
+n101 -> n104
+n105 [label="LPAREN("];
+n101 -> n105
+n106 [label="RPAREN)"];
+n101 -> n106
+n98 -> n101
+n107 [label="SEMICOLON;"];
+n98 -> n107
+n68 -> n98
 n67 -> n68
-n202 [label="AssignmentStatement"];
-n203 [label="Identifierntb"];
+n108 [label="AssignmentStatement"];
+n109 [label="Identifieraux01"];
+n108 -> n109
+n110 [label="EQUAL="];
+n108 -> n110
+n111 [label="MethodCallExpressionWithoutArgs"];
+n112 [label="this"];
+n111 -> n112
+n113 [label="PERIOD."];
+n111 -> n113
+n114 [label="IdentifierPrint"];
+n111 -> n114
+n115 [label="LPAREN("];
+n111 -> n115
+n116 [label="RPAREN)"];
+n111 -> n116
+n108 -> n111
+n117 [label="SEMICOLON;"];
+n108 -> n117
+n67 -> n108
+n53 -> n67
+n118 [label="return"];
+n53 -> n118
+n119 [label="INTEGER0"];
+n53 -> n119
+n120 [label="SEMICOLON;"];
+n53 -> n120
+n121 [label="RBRACE}"];
+n53 -> n121
+n52 -> n53
+n122 [label="MethodDeclaration"];
+n123 [label="public"];
+n122 -> n123
+n124 [label="TYPEint"];
+n122 -> n124
+n125 [label="IdentifierSort"];
+n122 -> n125
+n126 [label="LPAREN("];
+n122 -> n126
+n127 [label="RPAREN)"];
+n122 -> n127
+n128 [label="LBRACE{"];
+n122 -> n128
+n129 [label="VarDeclarationList"];
+n130 [label="VarDeclarationList"];
+n131 [label="VarDeclarationList"];
+n132 [label="VarDeclarationList"];
+n133 [label="VarDeclarationList"];
+n134 [label="VarDeclarationList"];
+n135 [label="VarDeclarationList"];
+n136 [label="VarDeclarationList"];
+n137 [label="VarDeclaration"];
+n138 [label="TYPEint"];
+n137 -> n138
+n139 [label="Identifiernt"];
+n137 -> n139
+n140 [label="SEMICOLON;"];
+n137 -> n140
+n136 -> n137
+n141 [label="VarDeclaration"];
+n142 [label="TYPEint"];
+n141 -> n142
+n143 [label="Identifieri"];
+n141 -> n143
+n144 [label="SEMICOLON;"];
+n141 -> n144
+n136 -> n141
+n135 -> n136
+n145 [label="VarDeclaration"];
+n146 [label="TYPEint"];
+n145 -> n146
+n147 [label="Identifieraux02"];
+n145 -> n147
+n148 [label="SEMICOLON;"];
+n145 -> n148
+n135 -> n145
+n134 -> n135
+n149 [label="VarDeclaration"];
+n150 [label="TYPEint"];
+n149 -> n150
+n151 [label="Identifieraux04"];
+n149 -> n151
+n152 [label="SEMICOLON;"];
+n149 -> n152
+n134 -> n149
+n133 -> n134
+n153 [label="VarDeclaration"];
+n154 [label="TYPEint"];
+n153 -> n154
+n155 [label="Identifieraux05"];
+n153 -> n155
+n156 [label="SEMICOLON;"];
+n153 -> n156
+n133 -> n153
+n132 -> n133
+n157 [label="VarDeclaration"];
+n158 [label="TYPEint"];
+n157 -> n158
+n159 [label="Identifieraux06"];
+n157 -> n159
+n160 [label="SEMICOLON;"];
+n157 -> n160
+n132 -> n157
+n131 -> n132
+n161 [label="VarDeclaration"];
+n162 [label="TYPEint"];
+n161 -> n162
+n163 [label="Identifieraux07"];
+n161 -> n163
+n164 [label="SEMICOLON;"];
+n161 -> n164
+n131 -> n161
+n130 -> n131
+n165 [label="VarDeclaration"];
+n166 [label="TYPEint"];
+n165 -> n166
+n167 [label="Identifierj"];
+n165 -> n167
+n168 [label="SEMICOLON;"];
+n165 -> n168
+n130 -> n165
+n129 -> n130
+n169 [label="VarDeclaration"];
+n170 [label="TYPEint"];
+n169 -> n170
+n171 [label="Identifiert"];
+n169 -> n171
+n172 [label="SEMICOLON;"];
+n169 -> n172
+n129 -> n169
+n122 -> n129
+n173 [label="StatementList"];
+n174 [label="StatementList"];
+n175 [label="AssignmentStatement"];
+n176 [label="Identifieri"];
+n175 -> n176
+n177 [label="EQUAL="];
+n175 -> n177
+n178 [label="MinusExpression"];
+n179 [label="Identifiersize"];
+n178 -> n179
+n180 [label="MINUS-"];
+n178 -> n180
+n181 [label="INTEGER1"];
+n178 -> n181
+n175 -> n178
+n182 [label="SEMICOLON;"];
+n175 -> n182
+n174 -> n175
+n183 [label="AssignmentStatement"];
+n184 [label="Identifieraux02"];
+n183 -> n184
+n185 [label="EQUAL="];
+n183 -> n185
+n186 [label="MinusExpression"];
+n187 [label="INTEGER0"];
+n186 -> n187
+n188 [label="MINUS-"];
+n186 -> n188
+n189 [label="INTEGER1"];
+n186 -> n189
+n183 -> n186
+n190 [label="SEMICOLON;"];
+n183 -> n190
+n174 -> n183
+n173 -> n174
+n191 [label="WHILEStatement"];
+n192 [label="WHILEwhile"];
+n191 -> n192
+n193 [label="LPAREN("];
+n191 -> n193
+n194 [label="lssExpression"];
+n195 [label="Identifieraux02"];
+n194 -> n195
+n196 [label="LSS<"];
+n194 -> n196
+n197 [label="Identifieri"];
+n194 -> n197
+n191 -> n194
+n198 [label="RPAREN)"];
+n191 -> n198
+n199 [label="Statement"];
+n200 [label="LBRACE{"];
+n199 -> n200
+n201 [label="StatementList"];
+n202 [label="StatementList"];
+n203 [label="AssignmentStatement"];
+n204 [label="Identifierj"];
+n203 -> n204
+n205 [label="EQUAL="];
+n203 -> n205
+n206 [label="INTEGER1"];
+n203 -> n206
+n207 [label="SEMICOLON;"];
+n203 -> n207
 n202 -> n203
-n204 [label="EQUAL="];
-n202 -> n204
-n205 [label="MethodCallExpressionWithoutArgs"];
-n206 [label="Identifierroot"];
-n205 -> n206
-n207 [label="PERIOD."];
-n205 -> n207
-n208 [label="IdentifierPrint"];
-n205 -> n208
-n209 [label="LPAREN("];
-n205 -> n209
-n210 [label="RPAREN)"];
-n205 -> n210
-n202 -> n205
-n211 [label="SEMICOLON;"];
-n202 -> n211
-n67 -> n202
-n66 -> n67
-n212 [label="PrintStatement"];
-n213 [label="PRINTSystem.out.println"];
-n212 -> n213
-n214 [label="LPAREN("];
-n212 -> n214
-n215 [label="MethodCallExpression"];
-n216 [label="Identifierroot"];
-n215 -> n216
-n217 [label="PERIOD."];
-n215 -> n217
-n218 [label="IdentifierSearch"];
-n215 -> n218
-n219 [label="LPAREN("];
-n215 -> n219
-n220 [label="INTEGER24"];
-n215 -> n220
+n208 [label="WHILEStatement"];
+n209 [label="WHILEwhile"];
+n208 -> n209
+n210 [label="LPAREN("];
+n208 -> n210
+n211 [label="lssExpression"];
+n212 [label="Identifierj"];
+n211 -> n212
+n213 [label="LSS<"];
+n211 -> n213
+n214 [label="ParenExpression"];
+n215 [label="LPAREN("];
+n214 -> n215
+n216 [label="PlusExpression"];
+n217 [label="Identifieri"];
+n216 -> n217
+n218 [label="PLUS+"];
+n216 -> n218
+n219 [label="INTEGER1"];
+n216 -> n219
+n214 -> n216
+n220 [label="RPAREN)"];
+n214 -> n220
+n211 -> n214
+n208 -> n211
 n221 [label="RPAREN)"];
-n215 -> n221
-n212 -> n215
-n222 [label="RPAREN)"];
-n212 -> n222
-n223 [label="SEMICOLON;"];
-n212 -> n223
-n66 -> n212
-n65 -> n66
-n224 [label="PrintStatement"];
-n225 [label="PRINTSystem.out.println"];
-n224 -> n225
-n226 [label="LPAREN("];
-n224 -> n226
-n227 [label="MethodCallExpression"];
-n228 [label="Identifierroot"];
-n227 -> n228
-n229 [label="PERIOD."];
-n227 -> n229
-n230 [label="IdentifierSearch"];
-n227 -> n230
-n231 [label="LPAREN("];
-n227 -> n231
-n232 [label="INTEGER12"];
-n227 -> n232
-n233 [label="RPAREN)"];
-n227 -> n233
-n224 -> n227
-n234 [label="RPAREN)"];
-n224 -> n234
+n208 -> n221
+n222 [label="Statement"];
+n223 [label="LBRACE{"];
+n222 -> n223
+n224 [label="StatementList"];
+n225 [label="StatementList"];
+n226 [label="StatementList"];
+n227 [label="StatementList"];
+n228 [label="AssignmentStatement"];
+n229 [label="Identifieraux07"];
+n228 -> n229
+n230 [label="EQUAL="];
+n228 -> n230
+n231 [label="MinusExpression"];
+n232 [label="Identifierj"];
+n231 -> n232
+n233 [label="MINUS-"];
+n231 -> n233
+n234 [label="INTEGER1"];
+n231 -> n234
+n228 -> n231
 n235 [label="SEMICOLON;"];
-n224 -> n235
-n65 -> n224
-n64 -> n65
-n236 [label="PrintStatement"];
-n237 [label="PRINTSystem.out.println"];
+n228 -> n235
+n227 -> n228
+n236 [label="AssignmentStatement"];
+n237 [label="Identifieraux04"];
 n236 -> n237
-n238 [label="LPAREN("];
+n238 [label="EQUAL="];
 n236 -> n238
-n239 [label="MethodCallExpression"];
-n240 [label="Identifierroot"];
+n239 [label="VectorAccessExpression"];
+n240 [label="Identifiernumber"];
 n239 -> n240
-n241 [label="PERIOD."];
+n241 [label="LBRACKET["];
 n239 -> n241
-n242 [label="IdentifierSearch"];
+n242 [label="Identifieraux07"];
 n239 -> n242
-n243 [label="LPAREN("];
+n243 [label="RBRACKET]"];
 n239 -> n243
-n244 [label="INTEGER16"];
-n239 -> n244
-n245 [label="RPAREN)"];
-n239 -> n245
 n236 -> n239
-n246 [label="RPAREN)"];
-n236 -> n246
-n247 [label="SEMICOLON;"];
-n236 -> n247
-n64 -> n236
-n63 -> n64
-n248 [label="PrintStatement"];
-n249 [label="PRINTSystem.out.println"];
+n244 [label="SEMICOLON;"];
+n236 -> n244
+n227 -> n236
+n226 -> n227
+n245 [label="AssignmentStatement"];
+n246 [label="Identifieraux05"];
+n245 -> n246
+n247 [label="EQUAL="];
+n245 -> n247
+n248 [label="VectorAccessExpression"];
+n249 [label="Identifiernumber"];
 n248 -> n249
-n250 [label="LPAREN("];
+n250 [label="LBRACKET["];
 n248 -> n250
-n251 [label="MethodCallExpression"];
-n252 [label="Identifierroot"];
-n251 -> n252
-n253 [label="PERIOD."];
-n251 -> n253
-n254 [label="IdentifierSearch"];
-n251 -> n254
-n255 [label="LPAREN("];
-n251 -> n255
-n256 [label="INTEGER50"];
-n251 -> n256
-n257 [label="RPAREN)"];
-n251 -> n257
+n251 [label="Identifierj"];
 n248 -> n251
-n258 [label="RPAREN)"];
-n248 -> n258
-n259 [label="SEMICOLON;"];
-n248 -> n259
-n63 -> n248
-n62 -> n63
-n260 [label="PrintStatement"];
-n261 [label="PRINTSystem.out.println"];
-n260 -> n261
-n262 [label="LPAREN("];
-n260 -> n262
-n263 [label="MethodCallExpression"];
-n264 [label="Identifierroot"];
-n263 -> n264
-n265 [label="PERIOD."];
-n263 -> n265
-n266 [label="IdentifierSearch"];
-n263 -> n266
-n267 [label="LPAREN("];
-n263 -> n267
-n268 [label="INTEGER12"];
-n263 -> n268
-n269 [label="RPAREN)"];
-n263 -> n269
-n260 -> n263
-n270 [label="RPAREN)"];
-n260 -> n270
-n271 [label="SEMICOLON;"];
-n260 -> n271
-n62 -> n260
-n61 -> n62
-n272 [label="AssignmentStatement"];
-n273 [label="Identifierntb"];
-n272 -> n273
-n274 [label="EQUAL="];
-n272 -> n274
-n275 [label="MethodCallExpression"];
-n276 [label="Identifierroot"];
+n252 [label="RBRACKET]"];
+n248 -> n252
+n245 -> n248
+n253 [label="SEMICOLON;"];
+n245 -> n253
+n226 -> n245
+n225 -> n226
+n254 [label="IFStatement"];
+n255 [label="IFif"];
+n254 -> n255
+n256 [label="LPAREN("];
+n254 -> n256
+n257 [label="lssExpression"];
+n258 [label="Identifieraux05"];
+n257 -> n258
+n259 [label="LSS<"];
+n257 -> n259
+n260 [label="Identifieraux04"];
+n257 -> n260
+n254 -> n257
+n261 [label="RPAREN)"];
+n254 -> n261
+n262 [label="Statement"];
+n263 [label="LBRACE{"];
+n262 -> n263
+n264 [label="StatementList"];
+n265 [label="StatementList"];
+n266 [label="StatementList"];
+n267 [label="AssignmentStatement"];
+n268 [label="Identifieraux06"];
+n267 -> n268
+n269 [label="EQUAL="];
+n267 -> n269
+n270 [label="MinusExpression"];
+n271 [label="Identifierj"];
+n270 -> n271
+n272 [label="MINUS-"];
+n270 -> n272
+n273 [label="INTEGER1"];
+n270 -> n273
+n267 -> n270
+n274 [label="SEMICOLON;"];
+n267 -> n274
+n266 -> n267
+n275 [label="AssignmentStatement"];
+n276 [label="Identifiert"];
 n275 -> n276
-n277 [label="PERIOD."];
+n277 [label="EQUAL="];
 n275 -> n277
-n278 [label="IdentifierDelete"];
+n278 [label="VectorAccessExpression"];
+n279 [label="Identifiernumber"];
+n278 -> n279
+n280 [label="LBRACKET["];
+n278 -> n280
+n281 [label="Identifieraux06"];
+n278 -> n281
+n282 [label="RBRACKET]"];
+n278 -> n282
 n275 -> n278
-n279 [label="LPAREN("];
-n275 -> n279
-n280 [label="INTEGER12"];
-n275 -> n280
-n281 [label="RPAREN)"];
-n275 -> n281
-n272 -> n275
-n282 [label="SEMICOLON;"];
-n272 -> n282
-n61 -> n272
-n60 -> n61
-n283 [label="AssignmentStatement"];
-n284 [label="Identifierntb"];
-n283 -> n284
-n285 [label="EQUAL="];
-n283 -> n285
-n286 [label="MethodCallExpressionWithoutArgs"];
-n287 [label="Identifierroot"];
-n286 -> n287
-n288 [label="PERIOD."];
-n286 -> n288
-n289 [label="IdentifierPrint"];
-n286 -> n289
-n290 [label="LPAREN("];
-n286 -> n290
-n291 [label="RPAREN)"];
-n286 -> n291
-n283 -> n286
-n292 [label="SEMICOLON;"];
-n283 -> n292
-n60 -> n283
-n59 -> n60
-n293 [label="PrintStatement"];
-n294 [label="PRINTSystem.out.println"];
-n293 -> n294
-n295 [label="LPAREN("];
-n293 -> n295
-n296 [label="MethodCallExpression"];
-n297 [label="Identifierroot"];
+n283 [label="SEMICOLON;"];
+n275 -> n283
+n266 -> n275
+n265 -> n266
+n284 [label="VectorAssignmentStatement"];
+n285 [label="Identifiernumber"];
+n284 -> n285
+n286 [label="LBRACKET["];
+n284 -> n286
+n287 [label="Identifieraux06"];
+n284 -> n287
+n288 [label="RBRACKET]"];
+n284 -> n288
+n289 [label="EQUAL="];
+n284 -> n289
+n290 [label="VectorAccessExpression"];
+n291 [label="Identifiernumber"];
+n290 -> n291
+n292 [label="LBRACKET["];
+n290 -> n292
+n293 [label="Identifierj"];
+n290 -> n293
+n294 [label="RBRACKET]"];
+n290 -> n294
+n284 -> n290
+n295 [label="SEMICOLON;"];
+n284 -> n295
+n265 -> n284
+n264 -> n265
+n296 [label="VectorAssignmentStatement"];
+n297 [label="Identifiernumber"];
 n296 -> n297
-n298 [label="PERIOD."];
+n298 [label="LBRACKET["];
 n296 -> n298
-n299 [label="IdentifierSearch"];
+n299 [label="Identifierj"];
 n296 -> n299
-n300 [label="LPAREN("];
+n300 [label="RBRACKET]"];
 n296 -> n300
-n301 [label="INTEGER12"];
+n301 [label="EQUAL="];
 n296 -> n301
-n302 [label="RPAREN)"];
+n302 [label="Identifiert"];
 n296 -> n302
-n293 -> n296
-n303 [label="RPAREN)"];
-n293 -> n303
-n304 [label="SEMICOLON;"];
-n293 -> n304
-n59 -> n293
-n38 -> n59
-n305 [label="return"];
-n38 -> n305
-n306 [label="INTEGER0"];
-n38 -> n306
-n307 [label="SEMICOLON;"];
-n38 -> n307
-n308 [label="RBRACE}"];
-n38 -> n308
-n34 -> n38
-n309 [label="RBRACE}"];
-n34 -> n309
-n33 -> n34
-n310 [label="ClassDeclaration"];
-n311 [label="CLASS"];
-n310 -> n311
-n312 [label="IdentifierTree"];
-n310 -> n312
-n313 [label="LBRACE{"];
-n310 -> n313
-n314 [label="VarDeclarationList"];
-n315 [label="VarDeclarationList"];
-n316 [label="VarDeclarationList"];
-n317 [label="VarDeclarationList"];
-n318 [label="VarDeclarationList"];
-n319 [label="VarDeclaration"];
-n320 [label="IdentifierTree"];
-n319 -> n320
-n321 [label="Identifierleft"];
-n319 -> n321
-n322 [label="SEMICOLON;"];
-n319 -> n322
-n318 -> n319
-n323 [label="VarDeclaration"];
-n324 [label="IdentifierTree"];
-n323 -> n324
-n325 [label="Identifierright"];
-n323 -> n325
-n326 [label="SEMICOLON;"];
-n323 -> n326
-n318 -> n323
-n317 -> n318
-n327 [label="VarDeclaration"];
-n328 [label="TYPEint"];
-n327 -> n328
-n329 [label="Identifierkey"];
-n327 -> n329
-n330 [label="SEMICOLON;"];
-n327 -> n330
-n317 -> n327
-n316 -> n317
-n331 [label="VarDeclaration"];
-n332 [label="TYPEboolean"];
-n331 -> n332
-n333 [label="Identifierhas_left"];
-n331 -> n333
-n334 [label="SEMICOLON;"];
-n331 -> n334
-n316 -> n331
-n315 -> n316
-n335 [label="VarDeclaration"];
-n336 [label="TYPEboolean"];
-n335 -> n336
-n337 [label="Identifierhas_right"];
-n335 -> n337
-n338 [label="SEMICOLON;"];
-n335 -> n338
-n315 -> n335
+n303 [label="SEMICOLON;"];
+n296 -> n303
+n264 -> n296
+n262 -> n264
+n304 [label="RBRACE}"];
+n262 -> n304
+n254 -> n262
+n305 [label="ELSEelse"];
+n254 -> n305
+n306 [label="AssignmentStatement"];
+n307 [label="Identifiernt"];
+n306 -> n307
+n308 [label="EQUAL="];
+n306 -> n308
+n309 [label="INTEGER0"];
+n306 -> n309
+n310 [label="SEMICOLON;"];
+n306 -> n310
+n254 -> n306
+n225 -> n254
+n224 -> n225
+n311 [label="AssignmentStatement"];
+n312 [label="Identifierj"];
+n311 -> n312
+n313 [label="EQUAL="];
+n311 -> n313
+n314 [label="PlusExpression"];
+n315 [label="Identifierj"];
 n314 -> n315
-n339 [label="VarDeclaration"];
-n340 [label="IdentifierTree"];
-n339 -> n340
-n341 [label="Identifiermy_null"];
-n339 -> n341
-n342 [label="SEMICOLON;"];
-n339 -> n342
-n314 -> n339
-n310 -> n314
-n343 [label="MethodDeclarationList"];
-n344 [label="MethodDeclarationList"];
-n345 [label="MethodDeclarationList"];
-n346 [label="MethodDeclarationList"];
-n347 [label="MethodDeclarationList"];
-n348 [label="MethodDeclarationList"];
-n349 [label="MethodDeclarationList"];
-n350 [label="MethodDeclarationList"];
-n351 [label="MethodDeclarationList"];
-n352 [label="MethodDeclarationList"];
-n353 [label="MethodDeclarationList"];
-n354 [label="MethodDeclarationList"];
-n355 [label="MethodDeclarationList"];
-n356 [label="MethodDeclarationList"];
-n357 [label="MethodDeclarationList"];
-n358 [label="MethodDeclarationList"];
-n359 [label="MethodDeclarationList"];
-n360 [label="MethodDeclarationList"];
-n361 [label="MethodDeclarationList"];
-n362 [label="MethodDeclaration"];
-n363 [label="public"];
-n362 -> n363
-n364 [label="TYPEboolean"];
-n362 -> n364
-n365 [label="IdentifierInit"];
-n362 -> n365
+n316 [label="PLUS+"];
+n314 -> n316
+n317 [label="INTEGER1"];
+n314 -> n317
+n311 -> n314
+n318 [label="SEMICOLON;"];
+n311 -> n318
+n224 -> n311
+n222 -> n224
+n319 [label="RBRACE}"];
+n222 -> n319
+n208 -> n222
+n202 -> n208
+n201 -> n202
+n320 [label="AssignmentStatement"];
+n321 [label="Identifieri"];
+n320 -> n321
+n322 [label="EQUAL="];
+n320 -> n322
+n323 [label="MinusExpression"];
+n324 [label="Identifieri"];
+n323 -> n324
+n325 [label="MINUS-"];
+n323 -> n325
+n326 [label="INTEGER1"];
+n323 -> n326
+n320 -> n323
+n327 [label="SEMICOLON;"];
+n320 -> n327
+n201 -> n320
+n199 -> n201
+n328 [label="RBRACE}"];
+n199 -> n328
+n191 -> n199
+n173 -> n191
+n122 -> n173
+n329 [label="return"];
+n122 -> n329
+n330 [label="INTEGER0"];
+n122 -> n330
+n331 [label="SEMICOLON;"];
+n122 -> n331
+n332 [label="RBRACE}"];
+n122 -> n332
+n52 -> n122
+n51 -> n52
+n333 [label="MethodDeclaration"];
+n334 [label="public"];
+n333 -> n334
+n335 [label="TYPEint"];
+n333 -> n335
+n336 [label="IdentifierPrint"];
+n333 -> n336
+n337 [label="LPAREN("];
+n333 -> n337
+n338 [label="RPAREN)"];
+n333 -> n338
+n339 [label="LBRACE{"];
+n333 -> n339
+n340 [label="VarDeclaration"];
+n341 [label="TYPEint"];
+n340 -> n341
+n342 [label="Identifierj"];
+n340 -> n342
+n343 [label="SEMICOLON;"];
+n340 -> n343
+n333 -> n340
+n344 [label="StatementList"];
+n345 [label="AssignmentStatement"];
+n346 [label="Identifierj"];
+n345 -> n346
+n347 [label="EQUAL="];
+n345 -> n347
+n348 [label="INTEGER0"];
+n345 -> n348
+n349 [label="SEMICOLON;"];
+n345 -> n349
+n344 -> n345
+n350 [label="WHILEStatement"];
+n351 [label="WHILEwhile"];
+n350 -> n351
+n352 [label="LPAREN("];
+n350 -> n352
+n353 [label="lssExpression"];
+n354 [label="Identifierj"];
+n353 -> n354
+n355 [label="LSS<"];
+n353 -> n355
+n356 [label="ParenExpression"];
+n357 [label="LPAREN("];
+n356 -> n357
+n358 [label="Identifiersize"];
+n356 -> n358
+n359 [label="RPAREN)"];
+n356 -> n359
+n353 -> n356
+n350 -> n353
+n360 [label="RPAREN)"];
+n350 -> n360
+n361 [label="Statement"];
+n362 [label="LBRACE{"];
+n361 -> n362
+n363 [label="StatementList"];
+n364 [label="PrintStatement"];
+n365 [label="PRINTSystem.out.println"];
+n364 -> n365
 n366 [label="LPAREN("];
-n362 -> n366
-n367 [label="ParameterList"];
-n368 [label="TYPEint"];
+n364 -> n366
+n367 [label="VectorAccessExpression"];
+n368 [label="Identifiernumber"];
 n367 -> n368
-n369 [label="Identifierv_key"];
+n369 [label="LBRACKET["];
 n367 -> n369
-n362 -> n367
-n370 [label="RPAREN)"];
-n362 -> n370
-n371 [label="LBRACE{"];
-n362 -> n371
-n372 [label="StatementList"];
-n373 [label="StatementList"];
+n370 [label="Identifierj"];
+n367 -> n370
+n371 [label="RBRACKET]"];
+n367 -> n371
+n364 -> n367
+n372 [label="RPAREN)"];
+n364 -> n372
+n373 [label="SEMICOLON;"];
+n364 -> n373
+n363 -> n364
 n374 [label="AssignmentStatement"];
-n375 [label="Identifierkey"];
+n375 [label="Identifierj"];
 n374 -> n375
 n376 [label="EQUAL="];
 n374 -> n376
-n377 [label="Identifierv_key"];
+n377 [label="PlusExpression"];
+n378 [label="Identifierj"];
+n377 -> n378
+n379 [label="PLUS+"];
+n377 -> n379
+n380 [label="INTEGER1"];
+n377 -> n380
 n374 -> n377
-n378 [label="SEMICOLON;"];
-n374 -> n378
-n373 -> n374
-n379 [label="AssignmentStatement"];
-n380 [label="Identifierhas_left"];
-n379 -> n380
-n381 [label="EQUAL="];
-n379 -> n381
-n382 [label="LITERALfalse"];
-n379 -> n382
-n383 [label="SEMICOLON;"];
-n379 -> n383
-n373 -> n379
-n372 -> n373
-n384 [label="AssignmentStatement"];
-n385 [label="Identifierhas_right"];
-n384 -> n385
-n386 [label="EQUAL="];
-n384 -> n386
-n387 [label="LITERALfalse"];
-n384 -> n387
-n388 [label="SEMICOLON;"];
-n384 -> n388
-n372 -> n384
-n362 -> n372
-n389 [label="return"];
-n362 -> n389
-n390 [label="LITERALtrue"];
-n362 -> n390
-n391 [label="SEMICOLON;"];
-n362 -> n391
-n392 [label="RBRACE}"];
-n362 -> n392
-n361 -> n362
-n393 [label="MethodDeclaration"];
-n394 [label="public"];
-n393 -> n394
-n395 [label="TYPEboolean"];
-n393 -> n395
-n396 [label="IdentifierSetRight"];
-n393 -> n396
-n397 [label="LPAREN("];
-n393 -> n397
-n398 [label="ParameterList"];
-n399 [label="IdentifierTree"];
-n398 -> n399
-n400 [label="Identifierrn"];
-n398 -> n400
-n393 -> n398
-n401 [label="RPAREN)"];
-n393 -> n401
-n402 [label="LBRACE{"];
-n393 -> n402
-n403 [label="AssignmentStatement"];
-n404 [label="Identifierright"];
-n403 -> n404
-n405 [label="EQUAL="];
-n403 -> n405
-n406 [label="Identifierrn"];
-n403 -> n406
-n407 [label="SEMICOLON;"];
-n403 -> n407
-n393 -> n403
-n408 [label="return"];
-n393 -> n408
-n409 [label="LITERALtrue"];
-n393 -> n409
-n410 [label="SEMICOLON;"];
-n393 -> n410
-n411 [label="RBRACE}"];
-n393 -> n411
-n361 -> n393
-n360 -> n361
-n412 [label="MethodDeclaration"];
-n413 [label="public"];
-n412 -> n413
-n414 [label="TYPEboolean"];
-n412 -> n414
-n415 [label="IdentifierSetLeft"];
-n412 -> n415
-n416 [label="LPAREN("];
-n412 -> n416
-n417 [label="ParameterList"];
-n418 [label="IdentifierTree"];
-n417 -> n418
-n419 [label="Identifierln"];
-n417 -> n419
-n412 -> n417
-n420 [label="RPAREN)"];
-n412 -> n420
-n421 [label="LBRACE{"];
-n412 -> n421
-n422 [label="AssignmentStatement"];
-n423 [label="Identifierleft"];
-n422 -> n423
-n424 [label="EQUAL="];
-n422 -> n424
-n425 [label="Identifierln"];
-n422 -> n425
-n426 [label="SEMICOLON;"];
-n422 -> n426
-n412 -> n422
-n427 [label="return"];
-n412 -> n427
-n428 [label="LITERALtrue"];
-n412 -> n428
-n429 [label="SEMICOLON;"];
-n412 -> n429
-n430 [label="RBRACE}"];
-n412 -> n430
-n360 -> n412
-n359 -> n360
-n431 [label="MethodDeclaration"];
-n432 [label="public"];
+n381 [label="SEMICOLON;"];
+n374 -> n381
+n363 -> n374
+n361 -> n363
+n382 [label="RBRACE}"];
+n361 -> n382
+n350 -> n361
+n344 -> n350
+n333 -> n344
+n383 [label="return"];
+n333 -> n383
+n384 [label="INTEGER0"];
+n333 -> n384
+n385 [label="SEMICOLON;"];
+n333 -> n385
+n386 [label="RBRACE}"];
+n333 -> n386
+n51 -> n333
+n50 -> n51
+n387 [label="MethodDeclaration"];
+n388 [label="public"];
+n387 -> n388
+n389 [label="TYPEint"];
+n387 -> n389
+n390 [label="IdentifierInit"];
+n387 -> n390
+n391 [label="LPAREN("];
+n387 -> n391
+n392 [label="ParameterList"];
+n393 [label="TYPEint"];
+n392 -> n393
+n394 [label="Identifiersz"];
+n392 -> n394
+n387 -> n392
+n395 [label="RPAREN)"];
+n387 -> n395
+n396 [label="LBRACE{"];
+n387 -> n396
+n397 [label="StatementList"];
+n398 [label="StatementList"];
+n399 [label="StatementList"];
+n400 [label="StatementList"];
+n401 [label="StatementList"];
+n402 [label="StatementList"];
+n403 [label="StatementList"];
+n404 [label="StatementList"];
+n405 [label="StatementList"];
+n406 [label="StatementList"];
+n407 [label="StatementList"];
+n408 [label="AssignmentStatement"];
+n409 [label="Identifiersize"];
+n408 -> n409
+n410 [label="EQUAL="];
+n408 -> n410
+n411 [label="Identifiersz"];
+n408 -> n411
+n412 [label="SEMICOLON;"];
+n408 -> n412
+n407 -> n408
+n413 [label="AssignmentStatement"];
+n414 [label="Identifiernumber"];
+n413 -> n414
+n415 [label="EQUAL="];
+n413 -> n415
+n416 [label="NewVectorExpression"];
+n417 [label="NEWnew"];
+n416 -> n417
+n418 [label="INTint"];
+n416 -> n418
+n419 [label="LBRACKET["];
+n416 -> n419
+n420 [label="Identifiersz"];
+n416 -> n420
+n421 [label="RBRACKET]"];
+n416 -> n421
+n413 -> n416
+n422 [label="SEMICOLON;"];
+n413 -> n422
+n407 -> n413
+n406 -> n407
+n423 [label="VectorAssignmentStatement"];
+n424 [label="Identifiernumber"];
+n423 -> n424
+n425 [label="LBRACKET["];
+n423 -> n425
+n426 [label="INTEGER0"];
+n423 -> n426
+n427 [label="RBRACKET]"];
+n423 -> n427
+n428 [label="EQUAL="];
+n423 -> n428
+n429 [label="INTEGER20"];
+n423 -> n429
+n430 [label="SEMICOLON;"];
+n423 -> n430
+n406 -> n423
+n405 -> n406
+n431 [label="VectorAssignmentStatement"];
+n432 [label="Identifiernumber"];
 n431 -> n432
-n433 [label="IdentifierTree"];
+n433 [label="LBRACKET["];
 n431 -> n433
-n434 [label="IdentifierGetRight"];
+n434 [label="INTEGER1"];
 n431 -> n434
-n435 [label="LPAREN("];
+n435 [label="RBRACKET]"];
 n431 -> n435
-n436 [label="RPAREN)"];
+n436 [label="EQUAL="];
 n431 -> n436
-n437 [label="LBRACE{"];
+n437 [label="INTEGER7"];
 n431 -> n437
-n438 [label="return"];
+n438 [label="SEMICOLON;"];
 n431 -> n438
-n439 [label="Identifierright"];
-n431 -> n439
-n440 [label="SEMICOLON;"];
-n431 -> n440
-n441 [label="RBRACE}"];
-n431 -> n441
-n359 -> n431
-n358 -> n359
-n442 [label="MethodDeclaration"];
-n443 [label="public"];
-n442 -> n443
-n444 [label="IdentifierTree"];
-n442 -> n444
-n445 [label="IdentifierGetLeft"];
-n442 -> n445
-n446 [label="LPAREN("];
-n442 -> n446
-n447 [label="RPAREN)"];
-n442 -> n447
-n448 [label="LBRACE{"];
-n442 -> n448
-n449 [label="return"];
-n442 -> n449
-n450 [label="Identifierleft"];
-n442 -> n450
-n451 [label="SEMICOLON;"];
-n442 -> n451
-n452 [label="RBRACE}"];
-n442 -> n452
-n358 -> n442
-n357 -> n358
-n453 [label="MethodDeclaration"];
-n454 [label="public"];
-n453 -> n454
-n455 [label="TYPEint"];
-n453 -> n455
-n456 [label="IdentifierGetKey"];
-n453 -> n456
-n457 [label="LPAREN("];
-n453 -> n457
-n458 [label="RPAREN)"];
-n453 -> n458
-n459 [label="LBRACE{"];
-n453 -> n459
-n460 [label="return"];
-n453 -> n460
-n461 [label="Identifierkey"];
-n453 -> n461
+n405 -> n431
+n404 -> n405
+n439 [label="VectorAssignmentStatement"];
+n440 [label="Identifiernumber"];
+n439 -> n440
+n441 [label="LBRACKET["];
+n439 -> n441
+n442 [label="INTEGER2"];
+n439 -> n442
+n443 [label="RBRACKET]"];
+n439 -> n443
+n444 [label="EQUAL="];
+n439 -> n444
+n445 [label="INTEGER12"];
+n439 -> n445
+n446 [label="SEMICOLON;"];
+n439 -> n446
+n404 -> n439
+n403 -> n404
+n447 [label="VectorAssignmentStatement"];
+n448 [label="Identifiernumber"];
+n447 -> n448
+n449 [label="LBRACKET["];
+n447 -> n449
+n450 [label="INTEGER3"];
+n447 -> n450
+n451 [label="RBRACKET]"];
+n447 -> n451
+n452 [label="EQUAL="];
+n447 -> n452
+n453 [label="INTEGER18"];
+n447 -> n453
+n454 [label="SEMICOLON;"];
+n447 -> n454
+n403 -> n447
+n402 -> n403
+n455 [label="VectorAssignmentStatement"];
+n456 [label="Identifiernumber"];
+n455 -> n456
+n457 [label="LBRACKET["];
+n455 -> n457
+n458 [label="INTEGER4"];
+n455 -> n458
+n459 [label="RBRACKET]"];
+n455 -> n459
+n460 [label="EQUAL="];
+n455 -> n460
+n461 [label="INTEGER2"];
+n455 -> n461
 n462 [label="SEMICOLON;"];
-n453 -> n462
-n463 [label="RBRACE}"];
-n453 -> n463
-n357 -> n453
-n356 -> n357
-n464 [label="MethodDeclaration"];
-n465 [label="public"];
-n464 -> n465
-n466 [label="TYPEboolean"];
-n464 -> n466
-n467 [label="IdentifierSetKey"];
-n464 -> n467
-n468 [label="LPAREN("];
-n464 -> n468
-n469 [label="ParameterList"];
-n470 [label="TYPEint"];
-n469 -> n470
-n471 [label="Identifierv_key"];
-n469 -> n471
-n464 -> n469
-n472 [label="RPAREN)"];
-n464 -> n472
-n473 [label="LBRACE{"];
-n464 -> n473
-n474 [label="AssignmentStatement"];
-n475 [label="Identifierkey"];
-n474 -> n475
+n455 -> n462
+n402 -> n455
+n401 -> n402
+n463 [label="VectorAssignmentStatement"];
+n464 [label="Identifiernumber"];
+n463 -> n464
+n465 [label="LBRACKET["];
+n463 -> n465
+n466 [label="INTEGER5"];
+n463 -> n466
+n467 [label="RBRACKET]"];
+n463 -> n467
+n468 [label="EQUAL="];
+n463 -> n468
+n469 [label="INTEGER11"];
+n463 -> n469
+n470 [label="SEMICOLON;"];
+n463 -> n470
+n401 -> n463
+n400 -> n401
+n471 [label="VectorAssignmentStatement"];
+n472 [label="Identifiernumber"];
+n471 -> n472
+n473 [label="LBRACKET["];
+n471 -> n473
+n474 [label="INTEGER6"];
+n471 -> n474
+n475 [label="RBRACKET]"];
+n471 -> n475
 n476 [label="EQUAL="];
-n474 -> n476
-n477 [label="Identifierv_key"];
-n474 -> n477
+n471 -> n476
+n477 [label="INTEGER6"];
+n471 -> n477
 n478 [label="SEMICOLON;"];
-n474 -> n478
-n464 -> n474
-n479 [label="return"];
-n464 -> n479
-n480 [label="LITERALtrue"];
-n464 -> n480
-n481 [label="SEMICOLON;"];
-n464 -> n481
-n482 [label="RBRACE}"];
-n464 -> n482
-n356 -> n464
-n355 -> n356
-n483 [label="MethodDeclaration"];
-n484 [label="public"];
-n483 -> n484
-n485 [label="TYPEboolean"];
-n483 -> n485
-n486 [label="IdentifierGetHas_Right"];
-n483 -> n486
-n487 [label="LPAREN("];
-n483 -> n487
-n488 [label="RPAREN)"];
-n483 -> n488
-n489 [label="LBRACE{"];
-n483 -> n489
-n490 [label="return"];
-n483 -> n490
-n491 [label="Identifierhas_right"];
-n483 -> n491
-n492 [label="SEMICOLON;"];
-n483 -> n492
-n493 [label="RBRACE}"];
-n483 -> n493
-n355 -> n483
-n354 -> n355
-n494 [label="MethodDeclaration"];
-n495 [label="public"];
-n494 -> n495
-n496 [label="TYPEboolean"];
-n494 -> n496
-n497 [label="IdentifierGetHas_Left"];
-n494 -> n497
-n498 [label="LPAREN("];
-n494 -> n498
-n499 [label="RPAREN)"];
-n494 -> n499
-n500 [label="LBRACE{"];
-n494 -> n500
-n501 [label="return"];
-n494 -> n501
-n502 [label="Identifierhas_left"];
-n494 -> n502
-n503 [label="SEMICOLON;"];
-n494 -> n503
-n504 [label="RBRACE}"];
-n494 -> n504
-n354 -> n494
-n353 -> n354
-n505 [label="MethodDeclaration"];
-n506 [label="public"];
-n505 -> n506
-n507 [label="TYPEboolean"];
-n505 -> n507
-n508 [label="IdentifierSetHas_Left"];
-n505 -> n508
-n509 [label="LPAREN("];
-n505 -> n509
-n510 [label="ParameterList"];
-n511 [label="TYPEboolean"];
-n510 -> n511
-n512 [label="Identifierval"];
-n510 -> n512
-n505 -> n510
-n513 [label="RPAREN)"];
-n505 -> n513
-n514 [label="LBRACE{"];
-n505 -> n514
-n515 [label="AssignmentStatement"];
-n516 [label="Identifierhas_left"];
-n515 -> n516
-n517 [label="EQUAL="];
-n515 -> n517
-n518 [label="Identifierval"];
-n515 -> n518
-n519 [label="SEMICOLON;"];
-n515 -> n519
-n505 -> n515
-n520 [label="return"];
-n505 -> n520
-n521 [label="LITERALtrue"];
-n505 -> n521
-n522 [label="SEMICOLON;"];
-n505 -> n522
-n523 [label="RBRACE}"];
-n505 -> n523
-n353 -> n505
-n352 -> n353
-n524 [label="MethodDeclaration"];
-n525 [label="public"];
-n524 -> n525
-n526 [label="TYPEboolean"];
-n524 -> n526
-n527 [label="IdentifierSetHas_Right"];
-n524 -> n527
-n528 [label="LPAREN("];
-n524 -> n528
-n529 [label="ParameterList"];
-n530 [label="TYPEboolean"];
-n529 -> n530
-n531 [label="Identifierval"];
-n529 -> n531
-n524 -> n529
-n532 [label="RPAREN)"];
-n524 -> n532
-n533 [label="LBRACE{"];
-n524 -> n533
-n534 [label="AssignmentStatement"];
-n535 [label="Identifierhas_right"];
-n534 -> n535
-n536 [label="EQUAL="];
-n534 -> n536
-n537 [label="Identifierval"];
-n534 -> n537
-n538 [label="SEMICOLON;"];
-n534 -> n538
-n524 -> n534
-n539 [label="return"];
-n524 -> n539
-n540 [label="LITERALtrue"];
-n524 -> n540
-n541 [label="SEMICOLON;"];
-n524 -> n541
-n542 [label="RBRACE}"];
-n524 -> n542
-n352 -> n524
-n351 -> n352
-n543 [label="MethodDeclaration"];
-n544 [label="public"];
-n543 -> n544
-n545 [label="TYPEboolean"];
-n543 -> n545
-n546 [label="IdentifierCompare"];
-n543 -> n546
-n547 [label="LPAREN("];
-n543 -> n547
-n548 [label="ParameterList"];
-n549 [label="TYPEint"];
-n548 -> n549
-n550 [label="Identifiernum1"];
-n548 -> n550
-n551 [label="COMMA,"];
-n548 -> n551
-n552 [label="ParameterList"];
-n553 [label="TYPEint"];
-n552 -> n553
-n554 [label="Identifiernum2"];
-n552 -> n554
-n548 -> n552
-n543 -> n548
-n555 [label="RPAREN)"];
-n543 -> n555
-n556 [label="LBRACE{"];
-n543 -> n556
-n557 [label="VarDeclarationList"];
-n558 [label="VarDeclaration"];
-n559 [label="TYPEboolean"];
-n558 -> n559
-n560 [label="Identifierntb"];
-n558 -> n560
-n561 [label="SEMICOLON;"];
-n558 -> n561
-n557 -> n558
-n562 [label="VarDeclaration"];
-n563 [label="TYPEint"];
-n562 -> n563
-n564 [label="Identifiernti"];
-n562 -> n564
-n565 [label="SEMICOLON;"];
-n562 -> n565
-n557 -> n562
-n543 -> n557
-n566 [label="StatementList"];
-n567 [label="StatementList"];
-n568 [label="AssignmentStatement"];
-n569 [label="Identifierntb"];
-n568 -> n569
-n570 [label="EQUAL="];
-n568 -> n570
-n571 [label="LITERALfalse"];
-n568 -> n571
-n572 [label="SEMICOLON;"];
-n568 -> n572
-n567 -> n568
-n573 [label="AssignmentStatement"];
-n574 [label="Identifiernti"];
-n573 -> n574
-n575 [label="EQUAL="];
-n573 -> n575
-n576 [label="PlusExpression"];
-n577 [label="Identifiernum2"];
-n576 -> n577
-n578 [label="PLUS+"];
-n576 -> n578
-n579 [label="INTEGER1"];
-n576 -> n579
-n573 -> n576
-n580 [label="SEMICOLON;"];
-n573 -> n580
-n567 -> n573
-n566 -> n567
-n581 [label="IFStatement"];
-n582 [label="IFif"];
-n581 -> n582
-n583 [label="LPAREN("];
-n581 -> n583
-n584 [label="lssExpression"];
-n585 [label="Identifiernum1"];
-n584 -> n585
-n586 [label="LSS<"];
-n584 -> n586
-n587 [label="Identifiernum2"];
-n584 -> n587
-n581 -> n584
-n588 [label="RPAREN)"];
-n581 -> n588
-n589 [label="AssignmentStatement"];
-n590 [label="Identifierntb"];
-n589 -> n590
-n591 [label="EQUAL="];
-n589 -> n591
-n592 [label="LITERALfalse"];
-n589 -> n592
-n593 [label="SEMICOLON;"];
-n589 -> n593
-n581 -> n589
-n594 [label="ELSEelse"];
-n581 -> n594
-n595 [label="IFStatement"];
-n596 [label="IFif"];
-n595 -> n596
-n597 [label="LPAREN("];
-n595 -> n597
-n598 [label="ExclamationExpression"];
-n599 [label="EXCLAMATION!"];
-n598 -> n599
-n600 [label="ParenExpression"];
-n601 [label="LPAREN("];
-n600 -> n601
-n602 [label="lssExpression"];
-n603 [label="Identifiernum1"];
-n602 -> n603
-n604 [label="LSS<"];
-n602 -> n604
-n605 [label="Identifiernti"];
-n602 -> n605
-n600 -> n602
-n606 [label="RPAREN)"];
-n600 -> n606
-n598 -> n600
-n595 -> n598
-n607 [label="RPAREN)"];
-n595 -> n607
-n608 [label="AssignmentStatement"];
-n609 [label="Identifierntb"];
-n608 -> n609
-n610 [label="EQUAL="];
-n608 -> n610
-n611 [label="LITERALfalse"];
-n608 -> n611
-n612 [label="SEMICOLON;"];
-n608 -> n612
-n595 -> n608
-n613 [label="ELSEelse"];
-n595 -> n613
-n614 [label="AssignmentStatement"];
-n615 [label="Identifierntb"];
-n614 -> n615
-n616 [label="EQUAL="];
-n614 -> n616
-n617 [label="LITERALtrue"];
-n614 -> n617
-n618 [label="SEMICOLON;"];
-n614 -> n618
-n595 -> n614
-n581 -> n595
-n566 -> n581
-n543 -> n566
-n619 [label="return"];
-n543 -> n619
-n620 [label="Identifierntb"];
-n543 -> n620
-n621 [label="SEMICOLON;"];
-n543 -> n621
-n622 [label="RBRACE}"];
-n543 -> n622
-n351 -> n543
-n350 -> n351
-n623 [label="MethodDeclaration"];
-n624 [label="public"];
-n623 -> n624
-n625 [label="TYPEboolean"];
-n623 -> n625
-n626 [label="IdentifierInsert"];
-n623 -> n626
-n627 [label="LPAREN("];
-n623 -> n627
-n628 [label="ParameterList"];
-n629 [label="TYPEint"];
-n628 -> n629
-n630 [label="Identifierv_key"];
-n628 -> n630
-n623 -> n628
-n631 [label="RPAREN)"];
-n623 -> n631
-n632 [label="LBRACE{"];
-n623 -> n632
-n633 [label="VarDeclarationList"];
-n634 [label="VarDeclarationList"];
-n635 [label="VarDeclarationList"];
-n636 [label="VarDeclarationList"];
-n637 [label="VarDeclaration"];
-n638 [label="IdentifierTree"];
-n637 -> n638
-n639 [label="Identifiernew_node"];
-n637 -> n639
-n640 [label="SEMICOLON;"];
-n637 -> n640
-n636 -> n637
-n641 [label="VarDeclaration"];
-n642 [label="TYPEboolean"];
-n641 -> n642
-n643 [label="Identifierntb"];
-n641 -> n643
-n644 [label="SEMICOLON;"];
-n641 -> n644
-n636 -> n641
-n635 -> n636
-n645 [label="VarDeclaration"];
-n646 [label="TYPEboolean"];
-n645 -> n646
-n647 [label="Identifiercont"];
-n645 -> n647
-n648 [label="SEMICOLON;"];
-n645 -> n648
-n635 -> n645
-n634 -> n635
-n649 [label="VarDeclaration"];
-n650 [label="TYPEint"];
-n649 -> n650
-n651 [label="Identifierkey_aux"];
-n649 -> n651
-n652 [label="SEMICOLON;"];
-n649 -> n652
-n634 -> n649
-n633 -> n634
-n653 [label="VarDeclaration"];
-n654 [label="IdentifierTree"];
-n653 -> n654
-n655 [label="Identifiercurrent_node"];
-n653 -> n655
-n656 [label="SEMICOLON;"];
-n653 -> n656
-n633 -> n653
-n623 -> n633
-n657 [label="StatementList"];
-n658 [label="StatementList"];
-n659 [label="StatementList"];
-n660 [label="StatementList"];
-n661 [label="AssignmentStatement"];
-n662 [label="Identifiernew_node"];
-n661 -> n662
-n663 [label="EQUAL="];
-n661 -> n663
-n664 [label="NewClassExpression"];
-n665 [label="NEWnew"];
-n664 -> n665
-n666 [label="IdentifierTree"];
-n664 -> n666
-n667 [label="LPAREN("];
-n664 -> n667
-n668 [label="RPAREN)"];
-n664 -> n668
-n661 -> n664
-n669 [label="SEMICOLON;"];
-n661 -> n669
-n660 -> n661
-n670 [label="AssignmentStatement"];
-n671 [label="Identifierntb"];
-n670 -> n671
-n672 [label="EQUAL="];
-n670 -> n672
-n673 [label="MethodCallExpression"];
-n674 [label="Identifiernew_node"];
-n673 -> n674
-n675 [label="PERIOD."];
-n673 -> n675
-n676 [label="IdentifierInit"];
-n673 -> n676
-n677 [label="LPAREN("];
-n673 -> n677
-n678 [label="Identifierv_key"];
-n673 -> n678
-n679 [label="RPAREN)"];
-n673 -> n679
-n670 -> n673
-n680 [label="SEMICOLON;"];
-n670 -> n680
-n660 -> n670
-n659 -> n660
-n681 [label="AssignmentStatement"];
-n682 [label="Identifiercurrent_node"];
-n681 -> n682
-n683 [label="EQUAL="];
-n681 -> n683
-n684 [label="this"];
-n681 -> n684
-n685 [label="SEMICOLON;"];
-n681 -> n685
-n659 -> n681
-n658 -> n659
-n686 [label="AssignmentStatement"];
-n687 [label="Identifiercont"];
-n686 -> n687
-n688 [label="EQUAL="];
-n686 -> n688
-n689 [label="LITERALtrue"];
-n686 -> n689
-n690 [label="SEMICOLON;"];
-n686 -> n690
-n658 -> n686
-n657 -> n658
-n691 [label="WHILEStatement"];
-n692 [label="WHILEwhile"];
-n691 -> n692
-n693 [label="LPAREN("];
-n691 -> n693
-n694 [label="Identifiercont"];
-n691 -> n694
-n695 [label="RPAREN)"];
-n691 -> n695
-n696 [label="Statement"];
-n697 [label="LBRACE{"];
-n696 -> n697
-n698 [label="StatementList"];
-n699 [label="AssignmentStatement"];
-n700 [label="Identifierkey_aux"];
-n699 -> n700
-n701 [label="EQUAL="];
-n699 -> n701
-n702 [label="MethodCallExpressionWithoutArgs"];
-n703 [label="Identifiercurrent_node"];
-n702 -> n703
-n704 [label="PERIOD."];
-n702 -> n704
-n705 [label="IdentifierGetKey"];
-n702 -> n705
-n706 [label="LPAREN("];
-n702 -> n706
-n707 [label="RPAREN)"];
-n702 -> n707
-n699 -> n702
-n708 [label="SEMICOLON;"];
-n699 -> n708
-n698 -> n699
-n709 [label="IFStatement"];
-n710 [label="IFif"];
-n709 -> n710
-n711 [label="LPAREN("];
-n709 -> n711
-n712 [label="lssExpression"];
-n713 [label="Identifierv_key"];
-n712 -> n713
-n714 [label="LSS<"];
-n712 -> n714
-n715 [label="Identifierkey_aux"];
-n712 -> n715
-n709 -> n712
-n716 [label="RPAREN)"];
-n709 -> n716
-n717 [label="Statement"];
-n718 [label="LBRACE{"];
-n717 -> n718
-n719 [label="IFStatement"];
-n720 [label="IFif"];
-n719 -> n720
-n721 [label="LPAREN("];
-n719 -> n721
-n722 [label="MethodCallExpressionWithoutArgs"];
-n723 [label="Identifiercurrent_node"];
-n722 -> n723
-n724 [label="PERIOD."];
-n722 -> n724
-n725 [label="IdentifierGetHas_Left"];
-n722 -> n725
-n726 [label="LPAREN("];
-n722 -> n726
-n727 [label="RPAREN)"];
-n722 -> n727
-n719 -> n722
-n728 [label="RPAREN)"];
-n719 -> n728
-n729 [label="AssignmentStatement"];
-n730 [label="Identifiercurrent_node"];
-n729 -> n730
-n731 [label="EQUAL="];
-n729 -> n731
-n732 [label="MethodCallExpressionWithoutArgs"];
-n733 [label="Identifiercurrent_node"];
-n732 -> n733
-n734 [label="PERIOD."];
-n732 -> n734
-n735 [label="IdentifierGetLeft"];
-n732 -> n735
-n736 [label="LPAREN("];
-n732 -> n736
-n737 [label="RPAREN)"];
-n732 -> n737
-n729 -> n732
-n738 [label="SEMICOLON;"];
-n729 -> n738
-n719 -> n729
-n739 [label="ELSEelse"];
-n719 -> n739
-n740 [label="Statement"];
-n741 [label="LBRACE{"];
-n740 -> n741
-n742 [label="StatementList"];
-n743 [label="StatementList"];
-n744 [label="AssignmentStatement"];
-n745 [label="Identifiercont"];
-n744 -> n745
-n746 [label="EQUAL="];
-n744 -> n746
-n747 [label="LITERALfalse"];
-n744 -> n747
-n748 [label="SEMICOLON;"];
-n744 -> n748
-n743 -> n744
-n749 [label="AssignmentStatement"];
-n750 [label="Identifierntb"];
-n749 -> n750
-n751 [label="EQUAL="];
-n749 -> n751
-n752 [label="MethodCallExpression"];
-n753 [label="Identifiercurrent_node"];
-n752 -> n753
-n754 [label="PERIOD."];
-n752 -> n754
-n755 [label="IdentifierSetHas_Left"];
-n752 -> n755
-n756 [label="LPAREN("];
-n752 -> n756
-n757 [label="LITERALtrue"];
-n752 -> n757
-n758 [label="RPAREN)"];
-n752 -> n758
-n749 -> n752
-n759 [label="SEMICOLON;"];
-n749 -> n759
-n743 -> n749
-n742 -> n743
-n760 [label="AssignmentStatement"];
-n761 [label="Identifierntb"];
-n760 -> n761
-n762 [label="EQUAL="];
-n760 -> n762
-n763 [label="MethodCallExpression"];
-n764 [label="Identifiercurrent_node"];
-n763 -> n764
-n765 [label="PERIOD."];
-n763 -> n765
-n766 [label="IdentifierSetLeft"];
-n763 -> n766
-n767 [label="LPAREN("];
-n763 -> n767
-n768 [label="Identifiernew_node"];
-n763 -> n768
-n769 [label="RPAREN)"];
-n763 -> n769
-n760 -> n763
-n770 [label="SEMICOLON;"];
-n760 -> n770
-n742 -> n760
-n740 -> n742
-n771 [label="RBRACE}"];
-n740 -> n771
-n719 -> n740
-n717 -> n719
-n772 [label="RBRACE}"];
-n717 -> n772
-n709 -> n717
-n773 [label="ELSEelse"];
-n709 -> n773
-n774 [label="Statement"];
-n775 [label="LBRACE{"];
-n774 -> n775
-n776 [label="IFStatement"];
-n777 [label="IFif"];
-n776 -> n777
-n778 [label="LPAREN("];
-n776 -> n778
-n779 [label="MethodCallExpressionWithoutArgs"];
-n780 [label="Identifiercurrent_node"];
-n779 -> n780
-n781 [label="PERIOD."];
-n779 -> n781
-n782 [label="IdentifierGetHas_Right"];
-n779 -> n782
-n783 [label="LPAREN("];
-n779 -> n783
-n784 [label="RPAREN)"];
-n779 -> n784
-n776 -> n779
-n785 [label="RPAREN)"];
-n776 -> n785
-n786 [label="AssignmentStatement"];
-n787 [label="Identifiercurrent_node"];
-n786 -> n787
-n788 [label="EQUAL="];
-n786 -> n788
-n789 [label="MethodCallExpressionWithoutArgs"];
-n790 [label="Identifiercurrent_node"];
-n789 -> n790
-n791 [label="PERIOD."];
-n789 -> n791
-n792 [label="IdentifierGetRight"];
-n789 -> n792
-n793 [label="LPAREN("];
-n789 -> n793
-n794 [label="RPAREN)"];
-n789 -> n794
-n786 -> n789
-n795 [label="SEMICOLON;"];
-n786 -> n795
-n776 -> n786
-n796 [label="ELSEelse"];
-n776 -> n796
-n797 [label="Statement"];
-n798 [label="LBRACE{"];
-n797 -> n798
-n799 [label="StatementList"];
-n800 [label="StatementList"];
-n801 [label="AssignmentStatement"];
-n802 [label="Identifiercont"];
-n801 -> n802
-n803 [label="EQUAL="];
-n801 -> n803
-n804 [label="LITERALfalse"];
-n801 -> n804
-n805 [label="SEMICOLON;"];
-n801 -> n805
-n800 -> n801
-n806 [label="AssignmentStatement"];
-n807 [label="Identifierntb"];
-n806 -> n807
-n808 [label="EQUAL="];
-n806 -> n808
-n809 [label="MethodCallExpression"];
-n810 [label="Identifiercurrent_node"];
-n809 -> n810
-n811 [label="PERIOD."];
-n809 -> n811
-n812 [label="IdentifierSetHas_Right"];
-n809 -> n812
-n813 [label="LPAREN("];
-n809 -> n813
-n814 [label="LITERALtrue"];
-n809 -> n814
-n815 [label="RPAREN)"];
-n809 -> n815
-n806 -> n809
-n816 [label="SEMICOLON;"];
-n806 -> n816
-n800 -> n806
-n799 -> n800
-n817 [label="AssignmentStatement"];
-n818 [label="Identifierntb"];
-n817 -> n818
-n819 [label="EQUAL="];
-n817 -> n819
-n820 [label="MethodCallExpression"];
-n821 [label="Identifiercurrent_node"];
-n820 -> n821
-n822 [label="PERIOD."];
-n820 -> n822
-n823 [label="IdentifierSetRight"];
-n820 -> n823
-n824 [label="LPAREN("];
-n820 -> n824
-n825 [label="Identifiernew_node"];
-n820 -> n825
-n826 [label="RPAREN)"];
-n820 -> n826
-n817 -> n820
-n827 [label="SEMICOLON;"];
-n817 -> n827
-n799 -> n817
-n797 -> n799
-n828 [label="RBRACE}"];
-n797 -> n828
-n776 -> n797
-n774 -> n776
-n829 [label="RBRACE}"];
-n774 -> n829
-n709 -> n774
-n698 -> n709
-n696 -> n698
-n830 [label="RBRACE}"];
-n696 -> n830
-n691 -> n696
-n657 -> n691
-n623 -> n657
-n831 [label="return"];
-n623 -> n831
-n832 [label="LITERALtrue"];
-n623 -> n832
-n833 [label="SEMICOLON;"];
-n623 -> n833
-n834 [label="RBRACE}"];
-n623 -> n834
-n350 -> n623
-n349 -> n350
-n835 [label="MethodDeclaration"];
-n836 [label="public"];
-n835 -> n836
-n837 [label="TYPEboolean"];
-n835 -> n837
-n838 [label="IdentifierDelete"];
-n835 -> n838
-n839 [label="LPAREN("];
-n835 -> n839
-n840 [label="ParameterList"];
-n841 [label="TYPEint"];
-n840 -> n841
-n842 [label="Identifierv_key"];
-n840 -> n842
-n835 -> n840
-n843 [label="RPAREN)"];
-n835 -> n843
-n844 [label="LBRACE{"];
-n835 -> n844
-n845 [label="VarDeclarationList"];
-n846 [label="VarDeclarationList"];
-n847 [label="VarDeclarationList"];
-n848 [label="VarDeclarationList"];
-n849 [label="VarDeclarationList"];
-n850 [label="VarDeclarationList"];
-n851 [label="VarDeclaration"];
-n852 [label="IdentifierTree"];
-n851 -> n852
-n853 [label="Identifiercurrent_node"];
-n851 -> n853
-n854 [label="SEMICOLON;"];
-n851 -> n854
-n850 -> n851
-n855 [label="VarDeclaration"];
-n856 [label="IdentifierTree"];
-n855 -> n856
-n857 [label="Identifierparent_node"];
-n855 -> n857
-n858 [label="SEMICOLON;"];
-n855 -> n858
-n850 -> n855
-n849 -> n850
-n859 [label="VarDeclaration"];
-n860 [label="TYPEboolean"];
-n859 -> n860
-n861 [label="Identifiercont"];
-n859 -> n861
-n862 [label="SEMICOLON;"];
-n859 -> n862
-n849 -> n859
-n848 -> n849
-n863 [label="VarDeclaration"];
-n864 [label="TYPEboolean"];
-n863 -> n864
-n865 [label="Identifierfound"];
-n863 -> n865
-n866 [label="SEMICOLON;"];
-n863 -> n866
-n848 -> n863
-n847 -> n848
-n867 [label="VarDeclaration"];
-n868 [label="TYPEboolean"];
-n867 -> n868
-n869 [label="Identifieris_root"];
-n867 -> n869
-n870 [label="SEMICOLON;"];
-n867 -> n870
-n847 -> n867
-n846 -> n847
-n871 [label="VarDeclaration"];
-n872 [label="TYPEint"];
-n871 -> n872
-n873 [label="Identifierkey_aux"];
-n871 -> n873
-n874 [label="SEMICOLON;"];
-n871 -> n874
-n846 -> n871
-n845 -> n846
-n875 [label="VarDeclaration"];
-n876 [label="TYPEboolean"];
-n875 -> n876
-n877 [label="Identifierntb"];
-n875 -> n877
-n878 [label="SEMICOLON;"];
-n875 -> n878
-n845 -> n875
-n835 -> n845
-n879 [label="StatementList"];
-n880 [label="StatementList"];
-n881 [label="StatementList"];
-n882 [label="StatementList"];
-n883 [label="StatementList"];
-n884 [label="AssignmentStatement"];
-n885 [label="Identifiercurrent_node"];
-n884 -> n885
-n886 [label="EQUAL="];
-n884 -> n886
-n887 [label="this"];
-n884 -> n887
-n888 [label="SEMICOLON;"];
-n884 -> n888
-n883 -> n884
-n889 [label="AssignmentStatement"];
-n890 [label="Identifierparent_node"];
-n889 -> n890
-n891 [label="EQUAL="];
-n889 -> n891
-n892 [label="this"];
-n889 -> n892
-n893 [label="SEMICOLON;"];
-n889 -> n893
-n883 -> n889
-n882 -> n883
-n894 [label="AssignmentStatement"];
-n895 [label="Identifiercont"];
-n894 -> n895
-n896 [label="EQUAL="];
-n894 -> n896
-n897 [label="LITERALtrue"];
-n894 -> n897
-n898 [label="SEMICOLON;"];
-n894 -> n898
-n882 -> n894
-n881 -> n882
-n899 [label="AssignmentStatement"];
-n900 [label="Identifierfound"];
-n899 -> n900
-n901 [label="EQUAL="];
-n899 -> n901
-n902 [label="LITERALfalse"];
-n899 -> n902
-n903 [label="SEMICOLON;"];
-n899 -> n903
-n881 -> n899
-n880 -> n881
-n904 [label="AssignmentStatement"];
-n905 [label="Identifieris_root"];
-n904 -> n905
-n906 [label="EQUAL="];
-n904 -> n906
-n907 [label="LITERALtrue"];
-n904 -> n907
-n908 [label="SEMICOLON;"];
-n904 -> n908
-n880 -> n904
-n879 -> n880
-n909 [label="WHILEStatement"];
-n910 [label="WHILEwhile"];
-n909 -> n910
-n911 [label="LPAREN("];
-n909 -> n911
-n912 [label="Identifiercont"];
-n909 -> n912
-n913 [label="RPAREN)"];
-n909 -> n913
-n914 [label="Statement"];
-n915 [label="LBRACE{"];
-n914 -> n915
-n916 [label="StatementList"];
-n917 [label="StatementList"];
-n918 [label="AssignmentStatement"];
-n919 [label="Identifierkey_aux"];
-n918 -> n919
-n920 [label="EQUAL="];
-n918 -> n920
-n921 [label="MethodCallExpressionWithoutArgs"];
-n922 [label="Identifiercurrent_node"];
-n921 -> n922
-n923 [label="PERIOD."];
-n921 -> n923
-n924 [label="IdentifierGetKey"];
-n921 -> n924
-n925 [label="LPAREN("];
-n921 -> n925
-n926 [label="RPAREN)"];
-n921 -> n926
-n918 -> n921
-n927 [label="SEMICOLON;"];
-n918 -> n927
-n917 -> n918
-n928 [label="IFStatement"];
-n929 [label="IFif"];
-n928 -> n929
-n930 [label="LPAREN("];
-n928 -> n930
-n931 [label="lssExpression"];
-n932 [label="Identifierv_key"];
-n931 -> n932
-n933 [label="LSS<"];
-n931 -> n933
-n934 [label="Identifierkey_aux"];
-n931 -> n934
-n928 -> n931
-n935 [label="RPAREN)"];
-n928 -> n935
-n936 [label="IFStatement"];
-n937 [label="IFif"];
-n936 -> n937
-n938 [label="LPAREN("];
-n936 -> n938
-n939 [label="MethodCallExpressionWithoutArgs"];
-n940 [label="Identifiercurrent_node"];
-n939 -> n940
-n941 [label="PERIOD."];
-n939 -> n941
-n942 [label="IdentifierGetHas_Left"];
-n939 -> n942
-n943 [label="LPAREN("];
-n939 -> n943
-n944 [label="RPAREN)"];
-n939 -> n944
-n936 -> n939
-n945 [label="RPAREN)"];
-n936 -> n945
-n946 [label="Statement"];
-n947 [label="LBRACE{"];
-n946 -> n947
-n948 [label="StatementList"];
-n949 [label="AssignmentStatement"];
-n950 [label="Identifierparent_node"];
-n949 -> n950
-n951 [label="EQUAL="];
-n949 -> n951
-n952 [label="Identifiercurrent_node"];
-n949 -> n952
-n953 [label="SEMICOLON;"];
-n949 -> n953
-n948 -> n949
-n954 [label="AssignmentStatement"];
-n955 [label="Identifiercurrent_node"];
-n954 -> n955
-n956 [label="EQUAL="];
-n954 -> n956
-n957 [label="MethodCallExpressionWithoutArgs"];
-n958 [label="Identifiercurrent_node"];
-n957 -> n958
-n959 [label="PERIOD."];
-n957 -> n959
-n960 [label="IdentifierGetLeft"];
-n957 -> n960
-n961 [label="LPAREN("];
-n957 -> n961
-n962 [label="RPAREN)"];
-n957 -> n962
-n954 -> n957
-n963 [label="SEMICOLON;"];
-n954 -> n963
-n948 -> n954
-n946 -> n948
-n964 [label="RBRACE}"];
-n946 -> n964
-n936 -> n946
-n965 [label="ELSEelse"];
-n936 -> n965
-n966 [label="AssignmentStatement"];
-n967 [label="Identifiercont"];
-n966 -> n967
-n968 [label="EQUAL="];
-n966 -> n968
-n969 [label="LITERALfalse"];
-n966 -> n969
-n970 [label="SEMICOLON;"];
-n966 -> n970
-n936 -> n966
-n928 -> n936
-n971 [label="ELSEelse"];
-n928 -> n971
-n972 [label="IFStatement"];
-n973 [label="IFif"];
-n972 -> n973
-n974 [label="LPAREN("];
-n972 -> n974
-n975 [label="lssExpression"];
-n976 [label="Identifierkey_aux"];
-n975 -> n976
-n977 [label="LSS<"];
-n975 -> n977
-n978 [label="Identifierv_key"];
-n975 -> n978
-n972 -> n975
-n979 [label="RPAREN)"];
-n972 -> n979
-n980 [label="IFStatement"];
-n981 [label="IFif"];
-n980 -> n981
-n982 [label="LPAREN("];
-n980 -> n982
-n983 [label="MethodCallExpressionWithoutArgs"];
-n984 [label="Identifiercurrent_node"];
-n983 -> n984
-n985 [label="PERIOD."];
-n983 -> n985
-n986 [label="IdentifierGetHas_Right"];
-n983 -> n986
-n987 [label="LPAREN("];
-n983 -> n987
-n988 [label="RPAREN)"];
-n983 -> n988
-n980 -> n983
-n989 [label="RPAREN)"];
-n980 -> n989
-n990 [label="Statement"];
-n991 [label="LBRACE{"];
-n990 -> n991
-n992 [label="StatementList"];
-n993 [label="AssignmentStatement"];
-n994 [label="Identifierparent_node"];
-n993 -> n994
-n995 [label="EQUAL="];
-n993 -> n995
-n996 [label="Identifiercurrent_node"];
-n993 -> n996
-n997 [label="SEMICOLON;"];
-n993 -> n997
-n992 -> n993
-n998 [label="AssignmentStatement"];
-n999 [label="Identifiercurrent_node"];
-n998 -> n999
-n1000 [label="EQUAL="];
-n998 -> n1000
-n1001 [label="MethodCallExpressionWithoutArgs"];
-n1002 [label="Identifiercurrent_node"];
-n1001 -> n1002
-n1003 [label="PERIOD."];
-n1001 -> n1003
-n1004 [label="IdentifierGetRight"];
-n1001 -> n1004
-n1005 [label="LPAREN("];
-n1001 -> n1005
-n1006 [label="RPAREN)"];
-n1001 -> n1006
-n998 -> n1001
-n1007 [label="SEMICOLON;"];
-n998 -> n1007
-n992 -> n998
-n990 -> n992
-n1008 [label="RBRACE}"];
-n990 -> n1008
-n980 -> n990
-n1009 [label="ELSEelse"];
-n980 -> n1009
-n1010 [label="AssignmentStatement"];
-n1011 [label="Identifiercont"];
-n1010 -> n1011
-n1012 [label="EQUAL="];
-n1010 -> n1012
-n1013 [label="LITERALfalse"];
-n1010 -> n1013
-n1014 [label="SEMICOLON;"];
-n1010 -> n1014
-n980 -> n1010
-n972 -> n980
-n1015 [label="ELSEelse"];
-n972 -> n1015
-n1016 [label="Statement"];
-n1017 [label="LBRACE{"];
-n1016 -> n1017
-n1018 [label="StatementList"];
-n1019 [label="StatementList"];
-n1020 [label="IFStatement"];
-n1021 [label="IFif"];
-n1020 -> n1021
-n1022 [label="LPAREN("];
-n1020 -> n1022
-n1023 [label="Identifieris_root"];
-n1020 -> n1023
-n1024 [label="RPAREN)"];
-n1020 -> n1024
-n1025 [label="IFStatement"];
-n1026 [label="IFif"];
-n1025 -> n1026
-n1027 [label="LPAREN("];
-n1025 -> n1027
-n1028 [label="AndExpression"];
-n1029 [label="ParenExpression"];
-n1030 [label="LPAREN("];
-n1029 -> n1030
-n1031 [label="MethodCallExpressionWithoutArgs"];
-n1032 [label="ExclamationExpression"];
-n1033 [label="EXCLAMATION!"];
-n1032 -> n1033
-n1034 [label="Identifiercurrent_node"];
-n1032 -> n1034
-n1031 -> n1032
-n1035 [label="PERIOD."];
-n1031 -> n1035
-n1036 [label="IdentifierGetHas_Right"];
-n1031 -> n1036
-n1037 [label="LPAREN("];
-n1031 -> n1037
-n1038 [label="RPAREN)"];
-n1031 -> n1038
-n1029 -> n1031
-n1039 [label="RPAREN)"];
-n1029 -> n1039
-n1028 -> n1029
-n1040 [label="AND&&"];
-n1028 -> n1040
-n1041 [label="ParenExpression"];
-n1042 [label="LPAREN("];
-n1041 -> n1042
-n1043 [label="MethodCallExpressionWithoutArgs"];
-n1044 [label="ExclamationExpression"];
-n1045 [label="EXCLAMATION!"];
-n1044 -> n1045
-n1046 [label="Identifiercurrent_node"];
-n1044 -> n1046
-n1043 -> n1044
-n1047 [label="PERIOD."];
-n1043 -> n1047
-n1048 [label="IdentifierGetHas_Left"];
-n1043 -> n1048
-n1049 [label="LPAREN("];
-n1043 -> n1049
-n1050 [label="RPAREN)"];
-n1043 -> n1050
-n1041 -> n1043
-n1051 [label="RPAREN)"];
-n1041 -> n1051
-n1028 -> n1041
-n1025 -> n1028
-n1052 [label="RPAREN)"];
-n1025 -> n1052
-n1053 [label="AssignmentStatement"];
-n1054 [label="Identifierntb"];
-n1053 -> n1054
-n1055 [label="EQUAL="];
-n1053 -> n1055
-n1056 [label="LITERALtrue"];
-n1053 -> n1056
-n1057 [label="SEMICOLON;"];
-n1053 -> n1057
-n1025 -> n1053
-n1058 [label="ELSEelse"];
-n1025 -> n1058
-n1059 [label="AssignmentStatement"];
-n1060 [label="Identifierntb"];
-n1059 -> n1060
-n1061 [label="EQUAL="];
-n1059 -> n1061
-n1062 [label="MethodCallExpression"];
-n1063 [label="this"];
-n1062 -> n1063
-n1064 [label="PERIOD."];
-n1062 -> n1064
-n1065 [label="IdentifierRemove"];
-n1062 -> n1065
-n1066 [label="LPAREN("];
-n1062 -> n1066
-n1067 [label="ExpressionList"];
-n1068 [label="Identifierparent_node"];
-n1067 -> n1068
-n1069 [label="COMMA,"];
-n1067 -> n1069
-n1070 [label="Identifiercurrent_node"];
-n1067 -> n1070
-n1062 -> n1067
-n1071 [label="RPAREN)"];
-n1062 -> n1071
-n1059 -> n1062
-n1072 [label="SEMICOLON;"];
-n1059 -> n1072
-n1025 -> n1059
-n1020 -> n1025
-n1073 [label="ELSEelse"];
-n1020 -> n1073
-n1074 [label="AssignmentStatement"];
-n1075 [label="Identifierntb"];
-n1074 -> n1075
-n1076 [label="EQUAL="];
-n1074 -> n1076
-n1077 [label="MethodCallExpression"];
-n1078 [label="this"];
-n1077 -> n1078
-n1079 [label="PERIOD."];
-n1077 -> n1079
-n1080 [label="IdentifierRemove"];
-n1077 -> n1080
-n1081 [label="LPAREN("];
-n1077 -> n1081
-n1082 [label="ExpressionList"];
-n1083 [label="Identifierparent_node"];
-n1082 -> n1083
-n1084 [label="COMMA,"];
-n1082 -> n1084
-n1085 [label="Identifiercurrent_node"];
-n1082 -> n1085
-n1077 -> n1082
-n1086 [label="RPAREN)"];
-n1077 -> n1086
-n1074 -> n1077
-n1087 [label="SEMICOLON;"];
-n1074 -> n1087
-n1020 -> n1074
-n1019 -> n1020
-n1088 [label="AssignmentStatement"];
-n1089 [label="Identifierfound"];
-n1088 -> n1089
-n1090 [label="EQUAL="];
-n1088 -> n1090
-n1091 [label="LITERALtrue"];
-n1088 -> n1091
-n1092 [label="SEMICOLON;"];
-n1088 -> n1092
-n1019 -> n1088
-n1018 -> n1019
-n1093 [label="AssignmentStatement"];
-n1094 [label="Identifiercont"];
-n1093 -> n1094
-n1095 [label="EQUAL="];
-n1093 -> n1095
-n1096 [label="LITERALfalse"];
-n1093 -> n1096
-n1097 [label="SEMICOLON;"];
-n1093 -> n1097
-n1018 -> n1093
-n1016 -> n1018
-n1098 [label="RBRACE}"];
-n1016 -> n1098
-n972 -> n1016
-n928 -> n972
-n917 -> n928
-n916 -> n917
-n1099 [label="AssignmentStatement"];
-n1100 [label="Identifieris_root"];
-n1099 -> n1100
-n1101 [label="EQUAL="];
-n1099 -> n1101
-n1102 [label="LITERALfalse"];
-n1099 -> n1102
-n1103 [label="SEMICOLON;"];
-n1099 -> n1103
-n916 -> n1099
-n914 -> n916
-n1104 [label="RBRACE}"];
-n914 -> n1104
-n909 -> n914
-n879 -> n909
-n835 -> n879
-n1105 [label="return"];
-n835 -> n1105
-n1106 [label="Identifierfound"];
-n835 -> n1106
-n1107 [label="SEMICOLON;"];
-n835 -> n1107
-n1108 [label="RBRACE}"];
-n835 -> n1108
-n349 -> n835
-n348 -> n349
-n1109 [label="MethodDeclaration"];
-n1110 [label="public"];
-n1109 -> n1110
-n1111 [label="TYPEboolean"];
-n1109 -> n1111
-n1112 [label="IdentifierRemove"];
-n1109 -> n1112
-n1113 [label="LPAREN("];
-n1109 -> n1113
-n1114 [label="ParameterList"];
-n1115 [label="IdentifierTree"];
-n1114 -> n1115
-n1116 [label="Identifierp_node"];
-n1114 -> n1116
-n1117 [label="COMMA,"];
-n1114 -> n1117
-n1118 [label="ParameterList"];
-n1119 [label="IdentifierTree"];
-n1118 -> n1119
-n1120 [label="Identifierc_node"];
-n1118 -> n1120
-n1114 -> n1118
-n1109 -> n1114
-n1121 [label="RPAREN)"];
-n1109 -> n1121
-n1122 [label="LBRACE{"];
-n1109 -> n1122
-n1123 [label="VarDeclarationList"];
-n1124 [label="VarDeclarationList"];
-n1125 [label="VarDeclaration"];
-n1126 [label="TYPEboolean"];
-n1125 -> n1126
-n1127 [label="Identifierntb"];
-n1125 -> n1127
-n1128 [label="SEMICOLON;"];
-n1125 -> n1128
-n1124 -> n1125
-n1129 [label="VarDeclaration"];
-n1130 [label="TYPEint"];
-n1129 -> n1130
-n1131 [label="Identifierauxkey1"];
-n1129 -> n1131
-n1132 [label="SEMICOLON;"];
-n1129 -> n1132
-n1124 -> n1129
-n1123 -> n1124
-n1133 [label="VarDeclaration"];
-n1134 [label="TYPEint"];
-n1133 -> n1134
-n1135 [label="Identifierauxkey2"];
-n1133 -> n1135
-n1136 [label="SEMICOLON;"];
-n1133 -> n1136
-n1123 -> n1133
-n1109 -> n1123
-n1137 [label="IFStatement"];
-n1138 [label="IFif"];
-n1137 -> n1138
-n1139 [label="LPAREN("];
-n1137 -> n1139
-n1140 [label="MethodCallExpressionWithoutArgs"];
-n1141 [label="Identifierc_node"];
-n1140 -> n1141
-n1142 [label="PERIOD."];
-n1140 -> n1142
-n1143 [label="IdentifierGetHas_Left"];
-n1140 -> n1143
-n1144 [label="LPAREN("];
-n1140 -> n1144
-n1145 [label="RPAREN)"];
-n1140 -> n1145
-n1137 -> n1140
-n1146 [label="RPAREN)"];
-n1137 -> n1146
-n1147 [label="AssignmentStatement"];
-n1148 [label="Identifierntb"];
-n1147 -> n1148
-n1149 [label="EQUAL="];
-n1147 -> n1149
-n1150 [label="MethodCallExpression"];
-n1151 [label="this"];
-n1150 -> n1151
-n1152 [label="PERIOD."];
-n1150 -> n1152
-n1153 [label="IdentifierRemoveLeft"];
-n1150 -> n1153
-n1154 [label="LPAREN("];
-n1150 -> n1154
-n1155 [label="ExpressionList"];
-n1156 [label="Identifierp_node"];
-n1155 -> n1156
-n1157 [label="COMMA,"];
-n1155 -> n1157
-n1158 [label="Identifierc_node"];
-n1155 -> n1158
-n1150 -> n1155
-n1159 [label="RPAREN)"];
-n1150 -> n1159
-n1147 -> n1150
-n1160 [label="SEMICOLON;"];
-n1147 -> n1160
-n1137 -> n1147
-n1161 [label="ELSEelse"];
-n1137 -> n1161
-n1162 [label="IFStatement"];
-n1163 [label="IFif"];
-n1162 -> n1163
-n1164 [label="LPAREN("];
-n1162 -> n1164
-n1165 [label="MethodCallExpressionWithoutArgs"];
-n1166 [label="Identifierc_node"];
-n1165 -> n1166
-n1167 [label="PERIOD."];
-n1165 -> n1167
-n1168 [label="IdentifierGetHas_Right"];
-n1165 -> n1168
-n1169 [label="LPAREN("];
-n1165 -> n1169
-n1170 [label="RPAREN)"];
-n1165 -> n1170
-n1162 -> n1165
-n1171 [label="RPAREN)"];
-n1162 -> n1171
-n1172 [label="AssignmentStatement"];
-n1173 [label="Identifierntb"];
-n1172 -> n1173
-n1174 [label="EQUAL="];
-n1172 -> n1174
-n1175 [label="MethodCallExpression"];
-n1176 [label="this"];
-n1175 -> n1176
-n1177 [label="PERIOD."];
-n1175 -> n1177
-n1178 [label="IdentifierRemoveRight"];
-n1175 -> n1178
-n1179 [label="LPAREN("];
-n1175 -> n1179
-n1180 [label="ExpressionList"];
-n1181 [label="Identifierp_node"];
-n1180 -> n1181
-n1182 [label="COMMA,"];
-n1180 -> n1182
-n1183 [label="Identifierc_node"];
-n1180 -> n1183
-n1175 -> n1180
-n1184 [label="RPAREN)"];
-n1175 -> n1184
-n1172 -> n1175
-n1185 [label="SEMICOLON;"];
-n1172 -> n1185
-n1162 -> n1172
-n1186 [label="ELSEelse"];
-n1162 -> n1186
-n1187 [label="Statement"];
-n1188 [label="LBRACE{"];
-n1187 -> n1188
-n1189 [label="StatementList"];
-n1190 [label="StatementList"];
-n1191 [label="AssignmentStatement"];
-n1192 [label="Identifierauxkey1"];
-n1191 -> n1192
-n1193 [label="EQUAL="];
-n1191 -> n1193
-n1194 [label="MethodCallExpressionWithoutArgs"];
-n1195 [label="Identifierc_node"];
-n1194 -> n1195
-n1196 [label="PERIOD."];
-n1194 -> n1196
-n1197 [label="IdentifierGetKey"];
-n1194 -> n1197
-n1198 [label="LPAREN("];
-n1194 -> n1198
-n1199 [label="RPAREN)"];
-n1194 -> n1199
-n1191 -> n1194
-n1200 [label="SEMICOLON;"];
-n1191 -> n1200
-n1190 -> n1191
-n1201 [label="AssignmentStatement"];
-n1202 [label="Identifierauxkey2"];
-n1201 -> n1202
-n1203 [label="EQUAL="];
-n1201 -> n1203
-n1204 [label="MethodCallExpressionWithoutArgs"];
-n1205 [label="ParenExpression"];
-n1206 [label="LPAREN("];
-n1205 -> n1206
-n1207 [label="MethodCallExpressionWithoutArgs"];
-n1208 [label="Identifierp_node"];
-n1207 -> n1208
-n1209 [label="PERIOD."];
-n1207 -> n1209
-n1210 [label="IdentifierGetLeft"];
-n1207 -> n1210
-n1211 [label="LPAREN("];
-n1207 -> n1211
-n1212 [label="RPAREN)"];
-n1207 -> n1212
-n1205 -> n1207
-n1213 [label="RPAREN)"];
-n1205 -> n1213
-n1204 -> n1205
-n1214 [label="PERIOD."];
-n1204 -> n1214
-n1215 [label="IdentifierGetKey"];
-n1204 -> n1215
-n1216 [label="LPAREN("];
-n1204 -> n1216
-n1217 [label="RPAREN)"];
-n1204 -> n1217
-n1201 -> n1204
-n1218 [label="SEMICOLON;"];
-n1201 -> n1218
-n1190 -> n1201
-n1189 -> n1190
-n1219 [label="IFStatement"];
-n1220 [label="IFif"];
-n1219 -> n1220
-n1221 [label="LPAREN("];
-n1219 -> n1221
-n1222 [label="MethodCallExpression"];
-n1223 [label="this"];
-n1222 -> n1223
-n1224 [label="PERIOD."];
-n1222 -> n1224
-n1225 [label="IdentifierCompare"];
-n1222 -> n1225
-n1226 [label="LPAREN("];
-n1222 -> n1226
-n1227 [label="ExpressionList"];
-n1228 [label="Identifierauxkey1"];
-n1227 -> n1228
-n1229 [label="COMMA,"];
-n1227 -> n1229
-n1230 [label="Identifierauxkey2"];
-n1227 -> n1230
-n1222 -> n1227
-n1231 [label="RPAREN)"];
-n1222 -> n1231
-n1219 -> n1222
-n1232 [label="RPAREN)"];
-n1219 -> n1232
-n1233 [label="Statement"];
-n1234 [label="LBRACE{"];
-n1233 -> n1234
-n1235 [label="StatementList"];
-n1236 [label="AssignmentStatement"];
-n1237 [label="Identifierntb"];
-n1236 -> n1237
-n1238 [label="EQUAL="];
-n1236 -> n1238
-n1239 [label="MethodCallExpression"];
-n1240 [label="Identifierp_node"];
-n1239 -> n1240
-n1241 [label="PERIOD."];
-n1239 -> n1241
-n1242 [label="IdentifierSetLeft"];
-n1239 -> n1242
-n1243 [label="LPAREN("];
-n1239 -> n1243
-n1244 [label="Identifiermy_null"];
-n1239 -> n1244
-n1245 [label="RPAREN)"];
-n1239 -> n1245
-n1236 -> n1239
-n1246 [label="SEMICOLON;"];
-n1236 -> n1246
-n1235 -> n1236
-n1247 [label="AssignmentStatement"];
-n1248 [label="Identifierntb"];
-n1247 -> n1248
-n1249 [label="EQUAL="];
-n1247 -> n1249
-n1250 [label="MethodCallExpression"];
-n1251 [label="Identifierp_node"];
-n1250 -> n1251
-n1252 [label="PERIOD."];
-n1250 -> n1252
-n1253 [label="IdentifierSetHas_Left"];
-n1250 -> n1253
-n1254 [label="LPAREN("];
-n1250 -> n1254
-n1255 [label="LITERALfalse"];
-n1250 -> n1255
-n1256 [label="RPAREN)"];
-n1250 -> n1256
-n1247 -> n1250
-n1257 [label="SEMICOLON;"];
-n1247 -> n1257
-n1235 -> n1247
-n1233 -> n1235
-n1258 [label="RBRACE}"];
-n1233 -> n1258
-n1219 -> n1233
-n1259 [label="ELSEelse"];
-n1219 -> n1259
-n1260 [label="Statement"];
-n1261 [label="LBRACE{"];
-n1260 -> n1261
-n1262 [label="StatementList"];
-n1263 [label="AssignmentStatement"];
-n1264 [label="Identifierntb"];
-n1263 -> n1264
-n1265 [label="EQUAL="];
-n1263 -> n1265
-n1266 [label="MethodCallExpression"];
-n1267 [label="Identifierp_node"];
-n1266 -> n1267
-n1268 [label="PERIOD."];
-n1266 -> n1268
-n1269 [label="IdentifierSetRight"];
-n1266 -> n1269
-n1270 [label="LPAREN("];
-n1266 -> n1270
-n1271 [label="Identifiermy_null"];
-n1266 -> n1271
-n1272 [label="RPAREN)"];
-n1266 -> n1272
-n1263 -> n1266
-n1273 [label="SEMICOLON;"];
-n1263 -> n1273
-n1262 -> n1263
-n1274 [label="AssignmentStatement"];
-n1275 [label="Identifierntb"];
-n1274 -> n1275
-n1276 [label="EQUAL="];
-n1274 -> n1276
-n1277 [label="MethodCallExpression"];
-n1278 [label="Identifierp_node"];
-n1277 -> n1278
-n1279 [label="PERIOD."];
-n1277 -> n1279
-n1280 [label="IdentifierSetHas_Right"];
-n1277 -> n1280
-n1281 [label="LPAREN("];
-n1277 -> n1281
-n1282 [label="LITERALfalse"];
-n1277 -> n1282
-n1283 [label="RPAREN)"];
-n1277 -> n1283
-n1274 -> n1277
-n1284 [label="SEMICOLON;"];
-n1274 -> n1284
-n1262 -> n1274
-n1260 -> n1262
-n1285 [label="RBRACE}"];
-n1260 -> n1285
-n1219 -> n1260
-n1189 -> n1219
-n1187 -> n1189
-n1286 [label="RBRACE}"];
-n1187 -> n1286
-n1162 -> n1187
-n1137 -> n1162
-n1109 -> n1137
-n1287 [label="return"];
-n1109 -> n1287
-n1288 [label="LITERALtrue"];
-n1109 -> n1288
-n1289 [label="SEMICOLON;"];
-n1109 -> n1289
-n1290 [label="RBRACE}"];
-n1109 -> n1290
-n348 -> n1109
-n347 -> n348
-n1291 [label="MethodDeclaration"];
-n1292 [label="public"];
-n1291 -> n1292
-n1293 [label="TYPEboolean"];
-n1291 -> n1293
-n1294 [label="IdentifierRemoveRight"];
-n1291 -> n1294
-n1295 [label="LPAREN("];
-n1291 -> n1295
-n1296 [label="ParameterList"];
-n1297 [label="IdentifierTree"];
-n1296 -> n1297
-n1298 [label="Identifierp_node"];
-n1296 -> n1298
-n1299 [label="COMMA,"];
-n1296 -> n1299
-n1300 [label="ParameterList"];
-n1301 [label="IdentifierTree"];
-n1300 -> n1301
-n1302 [label="Identifierc_node"];
-n1300 -> n1302
-n1296 -> n1300
-n1291 -> n1296
-n1303 [label="RPAREN)"];
-n1291 -> n1303
-n1304 [label="LBRACE{"];
-n1291 -> n1304
-n1305 [label="VarDeclaration"];
-n1306 [label="TYPEboolean"];
-n1305 -> n1306
-n1307 [label="Identifierntb"];
-n1305 -> n1307
-n1308 [label="SEMICOLON;"];
-n1305 -> n1308
-n1291 -> n1305
-n1309 [label="StatementList"];
-n1310 [label="StatementList"];
-n1311 [label="WHILEStatement"];
-n1312 [label="WHILEwhile"];
-n1311 -> n1312
-n1313 [label="LPAREN("];
-n1311 -> n1313
-n1314 [label="MethodCallExpressionWithoutArgs"];
-n1315 [label="Identifierc_node"];
-n1314 -> n1315
-n1316 [label="PERIOD."];
-n1314 -> n1316
-n1317 [label="IdentifierGetHas_Right"];
-n1314 -> n1317
-n1318 [label="LPAREN("];
-n1314 -> n1318
-n1319 [label="RPAREN)"];
-n1314 -> n1319
-n1311 -> n1314
-n1320 [label="RPAREN)"];
-n1311 -> n1320
-n1321 [label="Statement"];
-n1322 [label="LBRACE{"];
-n1321 -> n1322
-n1323 [label="StatementList"];
-n1324 [label="StatementList"];
-n1325 [label="AssignmentStatement"];
-n1326 [label="Identifierntb"];
-n1325 -> n1326
-n1327 [label="EQUAL="];
-n1325 -> n1327
-n1328 [label="MethodCallExpression"];
-n1329 [label="Identifierc_node"];
-n1328 -> n1329
-n1330 [label="PERIOD."];
-n1328 -> n1330
-n1331 [label="IdentifierSetKey"];
-n1328 -> n1331
-n1332 [label="LPAREN("];
-n1328 -> n1332
-n1333 [label="MethodCallExpressionWithoutArgs"];
-n1334 [label="ParenExpression"];
-n1335 [label="LPAREN("];
-n1334 -> n1335
-n1336 [label="MethodCallExpressionWithoutArgs"];
-n1337 [label="Identifierc_node"];
-n1336 -> n1337
-n1338 [label="PERIOD."];
-n1336 -> n1338
-n1339 [label="IdentifierGetRight"];
-n1336 -> n1339
-n1340 [label="LPAREN("];
-n1336 -> n1340
-n1341 [label="RPAREN)"];
-n1336 -> n1341
-n1334 -> n1336
-n1342 [label="RPAREN)"];
-n1334 -> n1342
-n1333 -> n1334
-n1343 [label="PERIOD."];
-n1333 -> n1343
-n1344 [label="IdentifierGetKey"];
-n1333 -> n1344
-n1345 [label="LPAREN("];
-n1333 -> n1345
-n1346 [label="RPAREN)"];
-n1333 -> n1346
-n1328 -> n1333
-n1347 [label="RPAREN)"];
-n1328 -> n1347
-n1325 -> n1328
-n1348 [label="SEMICOLON;"];
-n1325 -> n1348
-n1324 -> n1325
-n1349 [label="AssignmentStatement"];
-n1350 [label="Identifierp_node"];
-n1349 -> n1350
-n1351 [label="EQUAL="];
-n1349 -> n1351
-n1352 [label="Identifierc_node"];
-n1349 -> n1352
-n1353 [label="SEMICOLON;"];
-n1349 -> n1353
-n1324 -> n1349
-n1323 -> n1324
-n1354 [label="AssignmentStatement"];
-n1355 [label="Identifierc_node"];
-n1354 -> n1355
-n1356 [label="EQUAL="];
-n1354 -> n1356
-n1357 [label="MethodCallExpressionWithoutArgs"];
-n1358 [label="Identifierc_node"];
-n1357 -> n1358
-n1359 [label="PERIOD."];
-n1357 -> n1359
-n1360 [label="IdentifierGetRight"];
-n1357 -> n1360
-n1361 [label="LPAREN("];
-n1357 -> n1361
-n1362 [label="RPAREN)"];
-n1357 -> n1362
-n1354 -> n1357
-n1363 [label="SEMICOLON;"];
-n1354 -> n1363
-n1323 -> n1354
-n1321 -> n1323
-n1364 [label="RBRACE}"];
-n1321 -> n1364
-n1311 -> n1321
-n1310 -> n1311
-n1365 [label="AssignmentStatement"];
-n1366 [label="Identifierntb"];
-n1365 -> n1366
-n1367 [label="EQUAL="];
-n1365 -> n1367
-n1368 [label="MethodCallExpression"];
-n1369 [label="Identifierp_node"];
-n1368 -> n1369
-n1370 [label="PERIOD."];
-n1368 -> n1370
-n1371 [label="IdentifierSetRight"];
-n1368 -> n1371
-n1372 [label="LPAREN("];
-n1368 -> n1372
-n1373 [label="Identifiermy_null"];
-n1368 -> n1373
-n1374 [label="RPAREN)"];
-n1368 -> n1374
-n1365 -> n1368
-n1375 [label="SEMICOLON;"];
-n1365 -> n1375
-n1310 -> n1365
-n1309 -> n1310
-n1376 [label="AssignmentStatement"];
-n1377 [label="Identifierntb"];
-n1376 -> n1377
-n1378 [label="EQUAL="];
-n1376 -> n1378
-n1379 [label="MethodCallExpression"];
-n1380 [label="Identifierp_node"];
-n1379 -> n1380
-n1381 [label="PERIOD."];
-n1379 -> n1381
-n1382 [label="IdentifierSetHas_Right"];
-n1379 -> n1382
-n1383 [label="LPAREN("];
-n1379 -> n1383
-n1384 [label="LITERALfalse"];
-n1379 -> n1384
-n1385 [label="RPAREN)"];
-n1379 -> n1385
-n1376 -> n1379
-n1386 [label="SEMICOLON;"];
-n1376 -> n1386
-n1309 -> n1376
-n1291 -> n1309
-n1387 [label="return"];
-n1291 -> n1387
-n1388 [label="LITERALtrue"];
-n1291 -> n1388
-n1389 [label="SEMICOLON;"];
-n1291 -> n1389
-n1390 [label="RBRACE}"];
-n1291 -> n1390
-n347 -> n1291
-n346 -> n347
-n1391 [label="MethodDeclaration"];
-n1392 [label="public"];
-n1391 -> n1392
-n1393 [label="TYPEboolean"];
-n1391 -> n1393
-n1394 [label="IdentifierRemoveLeft"];
-n1391 -> n1394
-n1395 [label="LPAREN("];
-n1391 -> n1395
-n1396 [label="ParameterList"];
-n1397 [label="IdentifierTree"];
-n1396 -> n1397
-n1398 [label="Identifierp_node"];
-n1396 -> n1398
-n1399 [label="COMMA,"];
-n1396 -> n1399
-n1400 [label="ParameterList"];
-n1401 [label="IdentifierTree"];
-n1400 -> n1401
-n1402 [label="Identifierc_node"];
-n1400 -> n1402
-n1396 -> n1400
-n1391 -> n1396
-n1403 [label="RPAREN)"];
-n1391 -> n1403
-n1404 [label="LBRACE{"];
-n1391 -> n1404
-n1405 [label="VarDeclaration"];
-n1406 [label="TYPEboolean"];
-n1405 -> n1406
-n1407 [label="Identifierntb"];
-n1405 -> n1407
-n1408 [label="SEMICOLON;"];
-n1405 -> n1408
-n1391 -> n1405
-n1409 [label="StatementList"];
-n1410 [label="StatementList"];
-n1411 [label="WHILEStatement"];
-n1412 [label="WHILEwhile"];
-n1411 -> n1412
-n1413 [label="LPAREN("];
-n1411 -> n1413
-n1414 [label="MethodCallExpressionWithoutArgs"];
-n1415 [label="Identifierc_node"];
-n1414 -> n1415
-n1416 [label="PERIOD."];
-n1414 -> n1416
-n1417 [label="IdentifierGetHas_Left"];
-n1414 -> n1417
-n1418 [label="LPAREN("];
-n1414 -> n1418
-n1419 [label="RPAREN)"];
-n1414 -> n1419
-n1411 -> n1414
-n1420 [label="RPAREN)"];
-n1411 -> n1420
-n1421 [label="Statement"];
-n1422 [label="LBRACE{"];
-n1421 -> n1422
-n1423 [label="StatementList"];
-n1424 [label="StatementList"];
-n1425 [label="AssignmentStatement"];
-n1426 [label="Identifierntb"];
-n1425 -> n1426
-n1427 [label="EQUAL="];
-n1425 -> n1427
-n1428 [label="MethodCallExpression"];
-n1429 [label="Identifierc_node"];
-n1428 -> n1429
-n1430 [label="PERIOD."];
-n1428 -> n1430
-n1431 [label="IdentifierSetKey"];
-n1428 -> n1431
-n1432 [label="LPAREN("];
-n1428 -> n1432
-n1433 [label="MethodCallExpressionWithoutArgs"];
-n1434 [label="ParenExpression"];
-n1435 [label="LPAREN("];
-n1434 -> n1435
-n1436 [label="MethodCallExpressionWithoutArgs"];
-n1437 [label="Identifierc_node"];
-n1436 -> n1437
-n1438 [label="PERIOD."];
-n1436 -> n1438
-n1439 [label="IdentifierGetLeft"];
-n1436 -> n1439
-n1440 [label="LPAREN("];
-n1436 -> n1440
-n1441 [label="RPAREN)"];
-n1436 -> n1441
-n1434 -> n1436
-n1442 [label="RPAREN)"];
-n1434 -> n1442
-n1433 -> n1434
-n1443 [label="PERIOD."];
-n1433 -> n1443
-n1444 [label="IdentifierGetKey"];
-n1433 -> n1444
-n1445 [label="LPAREN("];
-n1433 -> n1445
-n1446 [label="RPAREN)"];
-n1433 -> n1446
-n1428 -> n1433
-n1447 [label="RPAREN)"];
-n1428 -> n1447
-n1425 -> n1428
-n1448 [label="SEMICOLON;"];
-n1425 -> n1448
-n1424 -> n1425
-n1449 [label="AssignmentStatement"];
-n1450 [label="Identifierp_node"];
-n1449 -> n1450
-n1451 [label="EQUAL="];
-n1449 -> n1451
-n1452 [label="Identifierc_node"];
-n1449 -> n1452
-n1453 [label="SEMICOLON;"];
-n1449 -> n1453
-n1424 -> n1449
-n1423 -> n1424
-n1454 [label="AssignmentStatement"];
-n1455 [label="Identifierc_node"];
-n1454 -> n1455
-n1456 [label="EQUAL="];
-n1454 -> n1456
-n1457 [label="MethodCallExpressionWithoutArgs"];
-n1458 [label="Identifierc_node"];
-n1457 -> n1458
-n1459 [label="PERIOD."];
-n1457 -> n1459
-n1460 [label="IdentifierGetLeft"];
-n1457 -> n1460
-n1461 [label="LPAREN("];
-n1457 -> n1461
-n1462 [label="RPAREN)"];
-n1457 -> n1462
-n1454 -> n1457
-n1463 [label="SEMICOLON;"];
-n1454 -> n1463
-n1423 -> n1454
-n1421 -> n1423
-n1464 [label="RBRACE}"];
-n1421 -> n1464
-n1411 -> n1421
-n1410 -> n1411
-n1465 [label="AssignmentStatement"];
-n1466 [label="Identifierntb"];
-n1465 -> n1466
-n1467 [label="EQUAL="];
-n1465 -> n1467
-n1468 [label="MethodCallExpression"];
-n1469 [label="Identifierp_node"];
-n1468 -> n1469
-n1470 [label="PERIOD."];
-n1468 -> n1470
-n1471 [label="IdentifierSetLeft"];
-n1468 -> n1471
-n1472 [label="LPAREN("];
-n1468 -> n1472
-n1473 [label="Identifiermy_null"];
-n1468 -> n1473
-n1474 [label="RPAREN)"];
-n1468 -> n1474
-n1465 -> n1468
-n1475 [label="SEMICOLON;"];
-n1465 -> n1475
-n1410 -> n1465
-n1409 -> n1410
-n1476 [label="AssignmentStatement"];
-n1477 [label="Identifierntb"];
-n1476 -> n1477
-n1478 [label="EQUAL="];
-n1476 -> n1478
-n1479 [label="MethodCallExpression"];
-n1480 [label="Identifierp_node"];
-n1479 -> n1480
-n1481 [label="PERIOD."];
-n1479 -> n1481
-n1482 [label="IdentifierSetHas_Left"];
-n1479 -> n1482
-n1483 [label="LPAREN("];
-n1479 -> n1483
-n1484 [label="LITERALfalse"];
-n1479 -> n1484
-n1485 [label="RPAREN)"];
-n1479 -> n1485
-n1476 -> n1479
-n1486 [label="SEMICOLON;"];
-n1476 -> n1486
-n1409 -> n1476
-n1391 -> n1409
-n1487 [label="return"];
-n1391 -> n1487
-n1488 [label="LITERALtrue"];
-n1391 -> n1488
-n1489 [label="SEMICOLON;"];
-n1391 -> n1489
-n1490 [label="RBRACE}"];
-n1391 -> n1490
-n346 -> n1391
-n345 -> n346
-n1491 [label="MethodDeclaration"];
-n1492 [label="public"];
-n1491 -> n1492
-n1493 [label="TYPEint"];
-n1491 -> n1493
-n1494 [label="IdentifierSearch"];
-n1491 -> n1494
-n1495 [label="LPAREN("];
-n1491 -> n1495
-n1496 [label="ParameterList"];
-n1497 [label="TYPEint"];
-n1496 -> n1497
-n1498 [label="Identifierv_key"];
-n1496 -> n1498
-n1491 -> n1496
-n1499 [label="RPAREN)"];
-n1491 -> n1499
-n1500 [label="LBRACE{"];
-n1491 -> n1500
-n1501 [label="VarDeclarationList"];
-n1502 [label="VarDeclarationList"];
-n1503 [label="VarDeclarationList"];
-n1504 [label="VarDeclaration"];
-n1505 [label="TYPEboolean"];
-n1504 -> n1505
-n1506 [label="Identifiercont"];
-n1504 -> n1506
-n1507 [label="SEMICOLON;"];
-n1504 -> n1507
-n1503 -> n1504
-n1508 [label="VarDeclaration"];
-n1509 [label="TYPEint"];
-n1508 -> n1509
-n1510 [label="Identifierifound"];
-n1508 -> n1510
-n1511 [label="SEMICOLON;"];
-n1508 -> n1511
-n1503 -> n1508
-n1502 -> n1503
-n1512 [label="VarDeclaration"];
-n1513 [label="IdentifierTree"];
-n1512 -> n1513
-n1514 [label="Identifiercurrent_node"];
-n1512 -> n1514
-n1515 [label="SEMICOLON;"];
-n1512 -> n1515
-n1502 -> n1512
-n1501 -> n1502
-n1516 [label="VarDeclaration"];
-n1517 [label="TYPEint"];
-n1516 -> n1517
-n1518 [label="Identifierkey_aux"];
-n1516 -> n1518
-n1519 [label="SEMICOLON;"];
-n1516 -> n1519
-n1501 -> n1516
-n1491 -> n1501
-n1520 [label="StatementList"];
-n1521 [label="StatementList"];
-n1522 [label="StatementList"];
-n1523 [label="AssignmentStatement"];
-n1524 [label="Identifiercurrent_node"];
-n1523 -> n1524
-n1525 [label="EQUAL="];
-n1523 -> n1525
-n1526 [label="this"];
-n1523 -> n1526
-n1527 [label="SEMICOLON;"];
-n1523 -> n1527
-n1522 -> n1523
-n1528 [label="AssignmentStatement"];
-n1529 [label="Identifiercont"];
-n1528 -> n1529
-n1530 [label="EQUAL="];
-n1528 -> n1530
-n1531 [label="LITERALtrue"];
-n1528 -> n1531
-n1532 [label="SEMICOLON;"];
-n1528 -> n1532
-n1522 -> n1528
-n1521 -> n1522
-n1533 [label="AssignmentStatement"];
-n1534 [label="Identifierifound"];
-n1533 -> n1534
-n1535 [label="EQUAL="];
-n1533 -> n1535
-n1536 [label="INTEGER0"];
-n1533 -> n1536
-n1537 [label="SEMICOLON;"];
-n1533 -> n1537
-n1521 -> n1533
-n1520 -> n1521
-n1538 [label="WHILEStatement"];
-n1539 [label="WHILEwhile"];
-n1538 -> n1539
-n1540 [label="LPAREN("];
-n1538 -> n1540
-n1541 [label="Identifiercont"];
-n1538 -> n1541
-n1542 [label="RPAREN)"];
-n1538 -> n1542
-n1543 [label="Statement"];
-n1544 [label="LBRACE{"];
-n1543 -> n1544
-n1545 [label="StatementList"];
-n1546 [label="AssignmentStatement"];
-n1547 [label="Identifierkey_aux"];
-n1546 -> n1547
-n1548 [label="EQUAL="];
-n1546 -> n1548
-n1549 [label="MethodCallExpressionWithoutArgs"];
-n1550 [label="Identifiercurrent_node"];
-n1549 -> n1550
-n1551 [label="PERIOD."];
-n1549 -> n1551
-n1552 [label="IdentifierGetKey"];
-n1549 -> n1552
-n1553 [label="LPAREN("];
-n1549 -> n1553
-n1554 [label="RPAREN)"];
-n1549 -> n1554
-n1546 -> n1549
-n1555 [label="SEMICOLON;"];
-n1546 -> n1555
-n1545 -> n1546
-n1556 [label="IFStatement"];
-n1557 [label="IFif"];
-n1556 -> n1557
-n1558 [label="LPAREN("];
-n1556 -> n1558
-n1559 [label="lssExpression"];
-n1560 [label="Identifierv_key"];
-n1559 -> n1560
-n1561 [label="LSS<"];
-n1559 -> n1561
-n1562 [label="Identifierkey_aux"];
-n1559 -> n1562
-n1556 -> n1559
-n1563 [label="RPAREN)"];
-n1556 -> n1563
-n1564 [label="IFStatement"];
-n1565 [label="IFif"];
-n1564 -> n1565
-n1566 [label="LPAREN("];
-n1564 -> n1566
-n1567 [label="MethodCallExpressionWithoutArgs"];
-n1568 [label="Identifiercurrent_node"];
-n1567 -> n1568
-n1569 [label="PERIOD."];
-n1567 -> n1569
-n1570 [label="IdentifierGetHas_Left"];
-n1567 -> n1570
-n1571 [label="LPAREN("];
-n1567 -> n1571
-n1572 [label="RPAREN)"];
-n1567 -> n1572
-n1564 -> n1567
-n1573 [label="RPAREN)"];
-n1564 -> n1573
-n1574 [label="AssignmentStatement"];
-n1575 [label="Identifiercurrent_node"];
-n1574 -> n1575
-n1576 [label="EQUAL="];
-n1574 -> n1576
-n1577 [label="MethodCallExpressionWithoutArgs"];
-n1578 [label="Identifiercurrent_node"];
-n1577 -> n1578
-n1579 [label="PERIOD."];
-n1577 -> n1579
-n1580 [label="IdentifierGetLeft"];
-n1577 -> n1580
-n1581 [label="LPAREN("];
-n1577 -> n1581
-n1582 [label="RPAREN)"];
-n1577 -> n1582
-n1574 -> n1577
-n1583 [label="SEMICOLON;"];
-n1574 -> n1583
-n1564 -> n1574
-n1584 [label="ELSEelse"];
-n1564 -> n1584
-n1585 [label="AssignmentStatement"];
-n1586 [label="Identifiercont"];
-n1585 -> n1586
-n1587 [label="EQUAL="];
-n1585 -> n1587
-n1588 [label="LITERALfalse"];
-n1585 -> n1588
-n1589 [label="SEMICOLON;"];
-n1585 -> n1589
-n1564 -> n1585
-n1556 -> n1564
-n1590 [label="ELSEelse"];
-n1556 -> n1590
-n1591 [label="IFStatement"];
-n1592 [label="IFif"];
-n1591 -> n1592
-n1593 [label="LPAREN("];
-n1591 -> n1593
-n1594 [label="lssExpression"];
-n1595 [label="Identifierkey_aux"];
-n1594 -> n1595
-n1596 [label="LSS<"];
-n1594 -> n1596
-n1597 [label="Identifierv_key"];
-n1594 -> n1597
-n1591 -> n1594
-n1598 [label="RPAREN)"];
-n1591 -> n1598
-n1599 [label="IFStatement"];
-n1600 [label="IFif"];
-n1599 -> n1600
-n1601 [label="LPAREN("];
-n1599 -> n1601
-n1602 [label="MethodCallExpressionWithoutArgs"];
-n1603 [label="Identifiercurrent_node"];
-n1602 -> n1603
-n1604 [label="PERIOD."];
-n1602 -> n1604
-n1605 [label="IdentifierGetHas_Right"];
-n1602 -> n1605
-n1606 [label="LPAREN("];
-n1602 -> n1606
-n1607 [label="RPAREN)"];
-n1602 -> n1607
-n1599 -> n1602
-n1608 [label="RPAREN)"];
-n1599 -> n1608
-n1609 [label="AssignmentStatement"];
-n1610 [label="Identifiercurrent_node"];
-n1609 -> n1610
-n1611 [label="EQUAL="];
-n1609 -> n1611
-n1612 [label="MethodCallExpressionWithoutArgs"];
-n1613 [label="Identifiercurrent_node"];
-n1612 -> n1613
-n1614 [label="PERIOD."];
-n1612 -> n1614
-n1615 [label="IdentifierGetRight"];
-n1612 -> n1615
-n1616 [label="LPAREN("];
-n1612 -> n1616
-n1617 [label="RPAREN)"];
-n1612 -> n1617
-n1609 -> n1612
-n1618 [label="SEMICOLON;"];
-n1609 -> n1618
-n1599 -> n1609
-n1619 [label="ELSEelse"];
-n1599 -> n1619
-n1620 [label="AssignmentStatement"];
-n1621 [label="Identifiercont"];
-n1620 -> n1621
-n1622 [label="EQUAL="];
-n1620 -> n1622
-n1623 [label="LITERALfalse"];
-n1620 -> n1623
-n1624 [label="SEMICOLON;"];
-n1620 -> n1624
-n1599 -> n1620
-n1591 -> n1599
-n1625 [label="ELSEelse"];
-n1591 -> n1625
-n1626 [label="Statement"];
-n1627 [label="LBRACE{"];
-n1626 -> n1627
-n1628 [label="StatementList"];
-n1629 [label="AssignmentStatement"];
-n1630 [label="Identifierifound"];
-n1629 -> n1630
-n1631 [label="EQUAL="];
-n1629 -> n1631
-n1632 [label="INTEGER1"];
-n1629 -> n1632
-n1633 [label="SEMICOLON;"];
-n1629 -> n1633
-n1628 -> n1629
-n1634 [label="AssignmentStatement"];
-n1635 [label="Identifiercont"];
-n1634 -> n1635
-n1636 [label="EQUAL="];
-n1634 -> n1636
-n1637 [label="LITERALfalse"];
-n1634 -> n1637
-n1638 [label="SEMICOLON;"];
-n1634 -> n1638
-n1628 -> n1634
-n1626 -> n1628
-n1639 [label="RBRACE}"];
-n1626 -> n1639
-n1591 -> n1626
-n1556 -> n1591
-n1545 -> n1556
-n1543 -> n1545
-n1640 [label="RBRACE}"];
-n1543 -> n1640
-n1538 -> n1543
-n1520 -> n1538
-n1491 -> n1520
-n1641 [label="return"];
-n1491 -> n1641
-n1642 [label="Identifierifound"];
-n1491 -> n1642
-n1643 [label="SEMICOLON;"];
-n1491 -> n1643
-n1644 [label="RBRACE}"];
-n1491 -> n1644
-n345 -> n1491
-n344 -> n345
-n1645 [label="MethodDeclaration"];
-n1646 [label="public"];
-n1645 -> n1646
-n1647 [label="TYPEboolean"];
-n1645 -> n1647
-n1648 [label="IdentifierPrint"];
-n1645 -> n1648
-n1649 [label="LPAREN("];
-n1645 -> n1649
-n1650 [label="RPAREN)"];
-n1645 -> n1650
-n1651 [label="LBRACE{"];
-n1645 -> n1651
-n1652 [label="VarDeclarationList"];
-n1653 [label="VarDeclaration"];
-n1654 [label="IdentifierTree"];
-n1653 -> n1654
-n1655 [label="Identifiercurrent_node"];
-n1653 -> n1655
-n1656 [label="SEMICOLON;"];
-n1653 -> n1656
-n1652 -> n1653
-n1657 [label="VarDeclaration"];
-n1658 [label="TYPEboolean"];
-n1657 -> n1658
-n1659 [label="Identifierntb"];
-n1657 -> n1659
-n1660 [label="SEMICOLON;"];
-n1657 -> n1660
-n1652 -> n1657
-n1645 -> n1652
-n1661 [label="StatementList"];
-n1662 [label="AssignmentStatement"];
-n1663 [label="Identifiercurrent_node"];
-n1662 -> n1663
-n1664 [label="EQUAL="];
-n1662 -> n1664
-n1665 [label="this"];
-n1662 -> n1665
-n1666 [label="SEMICOLON;"];
-n1662 -> n1666
-n1661 -> n1662
-n1667 [label="AssignmentStatement"];
-n1668 [label="Identifierntb"];
-n1667 -> n1668
-n1669 [label="EQUAL="];
-n1667 -> n1669
-n1670 [label="MethodCallExpression"];
-n1671 [label="this"];
-n1670 -> n1671
-n1672 [label="PERIOD."];
-n1670 -> n1672
-n1673 [label="IdentifierRecPrint"];
-n1670 -> n1673
-n1674 [label="LPAREN("];
-n1670 -> n1674
-n1675 [label="Identifiercurrent_node"];
-n1670 -> n1675
-n1676 [label="RPAREN)"];
-n1670 -> n1676
-n1667 -> n1670
-n1677 [label="SEMICOLON;"];
-n1667 -> n1677
-n1661 -> n1667
-n1645 -> n1661
-n1678 [label="return"];
-n1645 -> n1678
-n1679 [label="LITERALtrue"];
-n1645 -> n1679
-n1680 [label="SEMICOLON;"];
-n1645 -> n1680
-n1681 [label="RBRACE}"];
-n1645 -> n1681
-n344 -> n1645
-n343 -> n344
-n1682 [label="MethodDeclaration"];
-n1683 [label="public"];
-n1682 -> n1683
-n1684 [label="TYPEboolean"];
-n1682 -> n1684
-n1685 [label="IdentifierRecPrint"];
-n1682 -> n1685
-n1686 [label="LPAREN("];
-n1682 -> n1686
-n1687 [label="ParameterList"];
-n1688 [label="IdentifierTree"];
-n1687 -> n1688
-n1689 [label="Identifiernode"];
-n1687 -> n1689
-n1682 -> n1687
-n1690 [label="RPAREN)"];
-n1682 -> n1690
-n1691 [label="LBRACE{"];
-n1682 -> n1691
-n1692 [label="VarDeclaration"];
-n1693 [label="TYPEboolean"];
-n1692 -> n1693
-n1694 [label="Identifierntb"];
-n1692 -> n1694
-n1695 [label="SEMICOLON;"];
-n1692 -> n1695
-n1682 -> n1692
-n1696 [label="StatementList"];
-n1697 [label="StatementList"];
-n1698 [label="IFStatement"];
-n1699 [label="IFif"];
-n1698 -> n1699
-n1700 [label="LPAREN("];
-n1698 -> n1700
-n1701 [label="MethodCallExpressionWithoutArgs"];
-n1702 [label="Identifiernode"];
-n1701 -> n1702
-n1703 [label="PERIOD."];
-n1701 -> n1703
-n1704 [label="IdentifierGetHas_Left"];
-n1701 -> n1704
-n1705 [label="LPAREN("];
-n1701 -> n1705
-n1706 [label="RPAREN)"];
-n1701 -> n1706
-n1698 -> n1701
-n1707 [label="RPAREN)"];
-n1698 -> n1707
-n1708 [label="Statement"];
-n1709 [label="LBRACE{"];
-n1708 -> n1709
-n1710 [label="AssignmentStatement"];
-n1711 [label="Identifierntb"];
-n1710 -> n1711
-n1712 [label="EQUAL="];
-n1710 -> n1712
-n1713 [label="MethodCallExpression"];
-n1714 [label="this"];
-n1713 -> n1714
-n1715 [label="PERIOD."];
-n1713 -> n1715
-n1716 [label="IdentifierRecPrint"];
-n1713 -> n1716
-n1717 [label="LPAREN("];
-n1713 -> n1717
-n1718 [label="MethodCallExpressionWithoutArgs"];
-n1719 [label="Identifiernode"];
-n1718 -> n1719
-n1720 [label="PERIOD."];
-n1718 -> n1720
-n1721 [label="IdentifierGetLeft"];
-n1718 -> n1721
-n1722 [label="LPAREN("];
-n1718 -> n1722
-n1723 [label="RPAREN)"];
-n1718 -> n1723
-n1713 -> n1718
-n1724 [label="RPAREN)"];
-n1713 -> n1724
-n1710 -> n1713
-n1725 [label="SEMICOLON;"];
-n1710 -> n1725
-n1708 -> n1710
-n1726 [label="RBRACE}"];
-n1708 -> n1726
-n1698 -> n1708
-n1727 [label="ELSEelse"];
-n1698 -> n1727
-n1728 [label="AssignmentStatement"];
-n1729 [label="Identifierntb"];
-n1728 -> n1729
-n1730 [label="EQUAL="];
-n1728 -> n1730
-n1731 [label="LITERALtrue"];
-n1728 -> n1731
-n1732 [label="SEMICOLON;"];
-n1728 -> n1732
-n1698 -> n1728
-n1697 -> n1698
-n1733 [label="PrintStatement"];
-n1734 [label="PRINTSystem.out.println"];
-n1733 -> n1734
-n1735 [label="LPAREN("];
-n1733 -> n1735
-n1736 [label="MethodCallExpressionWithoutArgs"];
-n1737 [label="Identifiernode"];
-n1736 -> n1737
-n1738 [label="PERIOD."];
-n1736 -> n1738
-n1739 [label="IdentifierGetKey"];
-n1736 -> n1739
-n1740 [label="LPAREN("];
-n1736 -> n1740
-n1741 [label="RPAREN)"];
-n1736 -> n1741
-n1733 -> n1736
-n1742 [label="RPAREN)"];
-n1733 -> n1742
-n1743 [label="SEMICOLON;"];
-n1733 -> n1743
-n1697 -> n1733
-n1696 -> n1697
-n1744 [label="IFStatement"];
-n1745 [label="IFif"];
-n1744 -> n1745
-n1746 [label="LPAREN("];
-n1744 -> n1746
-n1747 [label="MethodCallExpressionWithoutArgs"];
-n1748 [label="Identifiernode"];
-n1747 -> n1748
-n1749 [label="PERIOD."];
-n1747 -> n1749
-n1750 [label="IdentifierGetHas_Right"];
-n1747 -> n1750
-n1751 [label="LPAREN("];
-n1747 -> n1751
-n1752 [label="RPAREN)"];
-n1747 -> n1752
-n1744 -> n1747
-n1753 [label="RPAREN)"];
-n1744 -> n1753
-n1754 [label="Statement"];
-n1755 [label="LBRACE{"];
-n1754 -> n1755
-n1756 [label="AssignmentStatement"];
-n1757 [label="Identifierntb"];
-n1756 -> n1757
-n1758 [label="EQUAL="];
-n1756 -> n1758
-n1759 [label="MethodCallExpression"];
-n1760 [label="this"];
-n1759 -> n1760
-n1761 [label="PERIOD."];
-n1759 -> n1761
-n1762 [label="IdentifierRecPrint"];
-n1759 -> n1762
-n1763 [label="LPAREN("];
-n1759 -> n1763
-n1764 [label="MethodCallExpressionWithoutArgs"];
-n1765 [label="Identifiernode"];
-n1764 -> n1765
-n1766 [label="PERIOD."];
-n1764 -> n1766
-n1767 [label="IdentifierGetRight"];
-n1764 -> n1767
-n1768 [label="LPAREN("];
-n1764 -> n1768
-n1769 [label="RPAREN)"];
-n1764 -> n1769
-n1759 -> n1764
-n1770 [label="RPAREN)"];
-n1759 -> n1770
-n1756 -> n1759
-n1771 [label="SEMICOLON;"];
-n1756 -> n1771
-n1754 -> n1756
-n1772 [label="RBRACE}"];
-n1754 -> n1772
-n1744 -> n1754
-n1773 [label="ELSEelse"];
-n1744 -> n1773
-n1774 [label="AssignmentStatement"];
-n1775 [label="Identifierntb"];
-n1774 -> n1775
-n1776 [label="EQUAL="];
-n1774 -> n1776
-n1777 [label="LITERALtrue"];
-n1774 -> n1777
-n1778 [label="SEMICOLON;"];
-n1774 -> n1778
-n1744 -> n1774
-n1696 -> n1744
-n1682 -> n1696
-n1779 [label="return"];
-n1682 -> n1779
-n1780 [label="LITERALtrue"];
-n1682 -> n1780
-n1781 [label="SEMICOLON;"];
-n1682 -> n1781
-n1782 [label="RBRACE}"];
-n1682 -> n1782
-n343 -> n1682
-n310 -> n343
-n1783 [label="RBRACE}"];
-n310 -> n1783
-n33 -> n310
-n0 -> n33
+n471 -> n478
+n400 -> n471
+n399 -> n400
+n479 [label="VectorAssignmentStatement"];
+n480 [label="Identifiernumber"];
+n479 -> n480
+n481 [label="LBRACKET["];
+n479 -> n481
+n482 [label="INTEGER7"];
+n479 -> n482
+n483 [label="RBRACKET]"];
+n479 -> n483
+n484 [label="EQUAL="];
+n479 -> n484
+n485 [label="INTEGER9"];
+n479 -> n485
+n486 [label="SEMICOLON;"];
+n479 -> n486
+n399 -> n479
+n398 -> n399
+n487 [label="VectorAssignmentStatement"];
+n488 [label="Identifiernumber"];
+n487 -> n488
+n489 [label="LBRACKET["];
+n487 -> n489
+n490 [label="INTEGER8"];
+n487 -> n490
+n491 [label="RBRACKET]"];
+n487 -> n491
+n492 [label="EQUAL="];
+n487 -> n492
+n493 [label="INTEGER19"];
+n487 -> n493
+n494 [label="SEMICOLON;"];
+n487 -> n494
+n398 -> n487
+n397 -> n398
+n495 [label="VectorAssignmentStatement"];
+n496 [label="Identifiernumber"];
+n495 -> n496
+n497 [label="LBRACKET["];
+n495 -> n497
+n498 [label="INTEGER9"];
+n495 -> n498
+n499 [label="RBRACKET]"];
+n495 -> n499
+n500 [label="EQUAL="];
+n495 -> n500
+n501 [label="INTEGER5"];
+n495 -> n501
+n502 [label="SEMICOLON;"];
+n495 -> n502
+n397 -> n495
+n387 -> n397
+n503 [label="return"];
+n387 -> n503
+n504 [label="INTEGER0"];
+n387 -> n504
+n505 [label="SEMICOLON;"];
+n387 -> n505
+n506 [label="RBRACE}"];
+n387 -> n506
+n50 -> n387
+n34 -> n50
+n507 [label="RBRACE}"];
+n34 -> n507
+n0 -> n34
 }
